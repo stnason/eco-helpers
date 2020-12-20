@@ -1,0 +1,21 @@
+{
+    "name": "scott-nason/eco-helpers",
+    "description": "A set of Laravel ready classes to be used with the Eco Framework overlay.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Scott Nason",
+            "email": "scott@nasonproductions.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": ">= 6.0.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "EcoHelpers": "src/"
+        }
+    }
+}
