@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Classes;
+namespace ScottNason\EcoHelpers;
 
 use App\Menu;
 use App\Group;

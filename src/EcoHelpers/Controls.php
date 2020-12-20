@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Classes;
+namespace ScottNason\EcoHelpers;
 use App\Traits\ConvertDatesToSavable;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
