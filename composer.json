@@ -2,6 +2,7 @@
     "name": "scott-nason/eco-helpers",
     "description": "A set of Laravel ready classes to be used with the Eco Framework overlay.",
     "type": "library",
+    "version": "0.0.2",
     "authors": [
         {
             "name": "Scott Nason",
