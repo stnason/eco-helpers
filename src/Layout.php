@@ -2,8 +2,6 @@
 
 namespace ScottNason\EcoHelpers;
 
-use App\Menu;
-use App\Group;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +54,7 @@ class Layout
      */
     public static function initUserRights() {
 
+        /* Too tightly coupled to the permissions system - probably need to leave all of this out of here.
         $rights = [];
         if (Auth()->user() && Route::currentRouteName()) {
 
@@ -69,6 +68,7 @@ class Layout
 
         }
         self::addKeyValuePairToSessionKey('form', 'right', $rights);
+        */
     }
 
     /**
@@ -167,7 +167,10 @@ class Layout
             self::setMenuText($blank);
             self::setAutoload($blank);
             self::setJumbotron($blank);
-            self::setHTMLmenus(Menu::buildHTMLFlyoutMenus());
+
+            // self::setHTMLmenus(Menu::buildHTMLFlyoutMenus());
+            // self::setHTMLmenus($blank);
+
             self::initUserRights();             // save the user permissions in the session $form variable for the template to use.
             //self::setFlashMessage($blank);    // this does something that keeps the flash from working as expected on a form save.
         }
@@ -194,7 +197,12 @@ class Layout
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Pull (and set) the page information associated with this route.
-        $p = Menu::getPageInfoByRouteName(Route::currentRouteName());
+
+        // Too tightly coupled to the Menu system - should pass this in.
+        // $p = Menu::getPageInfoByRouteName(Route::currentRouteName());
+
+        $p = null;
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Check to see if this is a resourceful route and modify the page name as appropriate below.
@@ -578,11 +586,15 @@ class Layout
      * Holds the complete html menu structure for this user (based on their rights)
      *
      * @param $complete_html_menus
+     * 
      */
+    
+    /* THIS SHOULD NOT BE IN HERE
     public static function setHTMLmenus($complete_html_menus = '')
     {
         self::addKeyValuePairToSessionKey('form', 'html_menus', $complete_html_menus);
     }
+    */
 
 
     /**
