@@ -174,7 +174,6 @@ class Layout
             //  since they are part of the base display system in standard nav header.
             // BUT EVEN BETTER YET, would be to re-do the menuing system so we didn't have to provide the full html; just the array.
             //
-
             // self::setHTMLmenus($blank);
 
             self::initUserRights();             // save the user permissions in the session $form variable for the template to use.
