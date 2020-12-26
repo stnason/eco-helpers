@@ -169,6 +169,12 @@ class Layout
             self::setJumbotron($blank);
 
             // self::setHTMLmenus(Menu::buildHTMLFlyoutMenus());
+
+            // TODO: May just move the Menu funtions out to a Menus class but keep the menu control functions here.
+            //  since they are part of the base display system in standard nav header.
+            // BUT EVEN BETTER YET, would be to re-do the menuing system so we didn't have to provide the full html; just the array.
+            //
+
             // self::setHTMLmenus($blank);
 
             self::initUserRights();             // save the user permissions in the session $form variable for the template to use.
