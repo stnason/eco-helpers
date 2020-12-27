@@ -176,6 +176,8 @@ class Layout
             //
             // self::setHTMLmenus($blank);
 
+            self::showAllMessageAreas(true,true);
+
             self::initUserRights();             // save the user permissions in the session $form variable for the template to use.
             //self::setFlashMessage($blank);    // this does something that keeps the flash from working as expected on a form save.
         }
