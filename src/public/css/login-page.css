@@ -1,0 +1,76 @@
+/* TODO: need to determine what's actually being used in here now and thin it out. */
+body{
+    /*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
+    background-image: url('../images/bg-login-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+div.card {
+    margin-top: 60px;
+    margin-left: 14px;      /* Helps with centering in the Galaxy S8. */
+    margin-bottom: auto;
+    border: 1px solid orange;
+
+    /* Leaving this out helps out with the "Android keyboard pushing the screen up" issue. */
+    /* height: 480px;        /* May seem a little long, but it can accommodate a 2 line flash message and a bigger Change PW screen. */
+    width: 380px;
+
+}
+div.card-header, .card-header h1 {
+    color: white;
+    /*color: antiquewhite;*/
+    /*opacity: 90%; */
+    margin-bottom: 0;
+}
+
+.social-icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+.social-icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+}
+.social-icon span:hover {
+    color: white;
+    cursor: pointer;
+}
+.input-group-prepend span {
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border:0 !important;
+}
+input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+
+}
+.remember, .card-footer, .card-footer a {
+    color: white;
+}
+
+.remember input
+{
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.login-btn{
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+.login-btn:hover{
+    color: black;
+    background-color: white;
+}
+a.link {
+    color: lightblue;
+}
+a.link:hover {
+    color: cornflowerblue;
+}

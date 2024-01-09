@@ -1,0 +1,39 @@
+
+/* Dropzone override styling */
+
+* {-webkit-font-smoothing: antialiased;}
+
+
+#myDropzone {
+
+}
+
+.dropzone {
+    border: 3px dashed #0087F7;
+    border-radius: 16px;
+    background: white;
+
+    width: 200px;
+
+    float: right;   /* Trying to get the link bar to wrap on the left side. */
+
+    top: 106px;
+    /*position:absolute;
+    margin-left: -12px;     /* Standard placement is in the right hand side of the page header information box.
+    right: 130px;*/
+
+}
+
+.dz-message {
+    font-size: large;
+    font-weight: bold;
+    /*font-weight: 400;*/
+}
+
+.note {
+    /*font-size: ;*/
+    color: darkgrey;
+    font-weight: 200;
+    display: block;
+    margin-top: 2.0rem;
+}

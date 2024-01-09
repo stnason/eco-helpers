@@ -1,0 +1,95 @@
+/* Eco v3L Search styling. Used for all search boxes that use the search.blade.php template. */
+
+/* https://www.color-hex.com */
+
+/*
+all div elements that the class starts with "test"
+div[class^="test"] {} */
+
+/* Any included title message over the top of the search box. */
+.search-title {
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: lightslategray;
+    margin-bottom: 5px;
+    margin-left: 8px;
+}
+
+/* Any included supplemental message or links below the search box. */
+.search-supplemental {
+    padding-top: 0;
+    margin-top: -8px;
+    margin-left: 6px;
+    font-weight: lighter;
+}
+
+/* The search results box. (all results displayed)
+Match anything that starts with this selector (multiple forms and -1,-2,-3 appended).
+div#search-results { */
+div[id^="search-results"] {
+    margin-bottom: 12px;    /* Keep it from resting directly on the footer. */
+}
+
+/* The actual search result set.
+Match anything that starts with this selector (multiple forms and -1,-2,-3 appended).
+#search-results a { */
+[id^="search-results"] a {
+    font-size: small;
+    text-decoration: none;
+}
+
+/* Hover over the cell that has the search result in it.
+Match anything that starts with this selector (multiple forms and -1,-2,-3 appended).
+#search-results table:hover { */
+[id^="search-results"] table:hover {
+    background: #f6f5f5;
+    font-weight:bold;
+}
+
+/* Each row of results will have its own <table>.
+    Only applying the border at the table level (rather than cell) - since each table is a complete search result. */
+#search-results-table {
+    margin-top: -1px;       /* Since each result is its own table; get them to overlap 1 px to look like one big table. */
+    width: 100%;            /* Table should fill its parent column width. */
+    border-width: thin;
+    border-style: solid;
+    border-color: #e6e3e3;
+}
+
+/* Each individual search result cell. */
+#search-results td {
+    vertical-align: top;    /* Just align everything to the top.m*/
+}
+
+/* From left the right. The search result columns in the table.
+    Generally column 1 is reserved for some kind of image or icon. */
+td.search-results-col-1 {
+    width: 1%;              /* This thing is floating around for some reason. The 1% seems to be the only thing to fix it right now. */
+    padding: 4px;
+}
+/* Generally the first column used for search results data. */
+td.search-results-col-2 {
+    width: 36%;
+}
+td.search-results-col-3 {
+    width: auto;
+}
+
+/* The individual search result <p> tags. */
+p.search-result-item {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #7a7a7a;         /* Note: if you don't specify a colore here; the site <a> link color is used. */
+}
+
+/* Highlight for alternate search results; like out of scope; not active; archived. Determined by the individual find() functions. */
+.search-result-alternate {
+    background: #fffcdd;
+}
+
+/* For contacts - the image to the left of the result. */
+img.search-result-img {
+    vertical-align: middle;
+    border-radius: 16px;
+    margin: 4px;
+}

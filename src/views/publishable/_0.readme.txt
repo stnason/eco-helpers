@@ -1,0 +1,54 @@
+11/16/2023
+
+1. Start a new page:
+   Copy the "_copy-me-starter-template.blade.php" to use as a starting 
+   point to quickly frame out a new eco-helpers ready (aware) page.
+
+2. Customizing the files:n (2 ways)
+
+   The easiest way, is to add any of your own customized view code 
+   directly into the corresponding files in this folder.
+   The base app template (core/eh-app-template.blade.php) automatically 
+   includes them to build out all pages extending that template.
+
+   You can also create completely new files if you like. Just make sure 
+   to specify the filename in the config\eco-helpers.php file. Again, 
+   the base app template (core/eh-app-template.blade.php) will use those
+   filenames to automatically build out the page.
+
+3. Global app template files:
+   [these are the default entries in the config\eco-helpers.php file]:
+
+   Any base template add-ins.      'app_add_ins_file' => 'app-add-ins',
+     - this file is empty by default. This is where you can add
+       anything extra you'd like included on every page.
+
+   HTML <head> file.               'html_head_file' => 'html-head',
+     - specific items to include in the <head> section 
+       of the master template.
+
+   CSS loader file.                'css_loader_file' => 'css-loader',
+     - a way to include (call) css files per page using the ehLayout class.
+       (Not all pages may need the same pile of css files.)
+
+   JS loader file.                 'js_loader_file' => 'js-loader',
+    - a way to include (call) JS files per page using the ehLayout class.
+       (Not all pages may need the same pile of JS files.)
+
+   navbar header file.             'navbar_header_file' => 'navbar-header',
+    - the header at the top of every page. Control its individual
+      elements in this file.
+
+   footer file.                    'footer_file' => 'footer-1',
+    - the footer at the bottom of every page. Control its individual
+      elements in this file.
+
+   Authentication modals           'authentication_modals_file' => 'authentication-modals',
+    - the pop-up modals for all of the authentication screens
+      including login, registration, change password, forgot password.
+      Along with all of the corresponding AJAX JS.
+
+
+
+
+

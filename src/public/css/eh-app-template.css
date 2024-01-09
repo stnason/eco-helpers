@@ -1,0 +1,970 @@
+/* ecoFramework Override & Custom CSS */
+
+/*
+/* https://www.color-hex.com */
+/******************************************************************************************/
+/*
+SYSTEM and PAGE MESSAGES ORDER
+
+    Navbar
+    System Banner
+    Page Name (Icon / Title)
+    Page Heading
+    LinkBar
+    CRUD Heading (Dynamic heading??)
+    standard flash messages
+*/
+@media screen {
+
+    /******************************************************************************************/
+    /* Navigation Banner */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* Home page - page elements spacing */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* Fontawesome */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* eco-helper page areas */
+    /******************************************************************************************/
+
+    #layout-page-banner {
+
+        z-index: 99; /* Used with position: to bring to the font - on top of the jumbotron */
+        position: relative;
+        align-content: center;
+        text-align: center;
+        font-size: medium;
+        font-weight: bold;
+        color: darkslateblue;
+        border-top: solid lightgrey 1px;
+        border-bottom: solid lightgrey 1px;
+        background-color: rgba(255, 255, 255, 0.6);
+
+    }
+
+    /* Standard page name/title display at the top of every page; usually from Tbl_Pages.
+        Can be turned of with System::setPage_name_show().
+     */
+    #layout-page-title {
+        /*background: lightcoral;*/
+    }
+    #layout-page-title > h1 {
+        font-weight: lighter;
+        /*background: lightcoral;*/
+    }
+
+    /* Standard page descriptive heading displayed under the page name for every page; usually from Tbl_Pages.
+        Can be turned of with System::setPage_heading_show().
+     */
+    #layout-page-description {
+        margin-top: -12px; /* Page name is an H1 so overcoming some of that padding. */
+        margin-bottom: 4px;
+    }
+
+    #layout-page-description > span {
+        padding-left: 12px; /* Give a little indent on the left side for the page heading. */
+        color: darkgray;
+        font-style: italic;
+        font-weight: lighter;
+    }
+
+    /* LinkBar with links to other pages in this modules group.
+        Displays directly under the Page Heading area and must be set by the controller.
+        Build it with into  System::setPage_linkbar()
+        Turn on/off with    System::setPage_linkbar_show()
+    */
+    #layout-page-linkbar {
+        /*margin-top: -16px;*/
+        /*background: yellow;*/
+    }
+
+    /* Optional CRUD heading provided bv the specific page controller.
+        Displays directly under the LinkBar area and must be set by the controller.
+        Set with            System::setPage_crud_heading()
+        Turn on/off with    System::setPage_crud_heading_show()
+     */
+
+    /*#system-page-dynamic-heading {*/
+    #layout-page-dynamic {
+        /*margin-top: -20px;*/
+        /*background: red;*/
+        color: gray;
+        font-size: larger;
+        font-weight: bold;
+    }
+
+    #layout-page-dynamic a { /* When applying links to page headers, remove the indication of a link. */
+        color: inherit;
+    }
+
+    #layout-page-dynamic a:hover {
+        text-decoration: none;
+    }
+
+
+    /* Standard system flash message.
+        Displays below all other messages - right before main page content or form.
+    */
+    #layout-page-flash {
+        /*margin-top: -16px;*/
+        /*background: orange;*/
+        color: red;
+        margin-bottom: 5px;
+    }
+
+    #layout-page-option-block {
+        margin-left: -10px;
+        width: min-content;
+        float: left;
+    }
+
+    #layout-page-attention {
+        /* CHECK IN THE base.blade template first and see which Bootstrap classes are being applied there. */
+        padding-right: 2px; /* needed to square off (to looks) this message are with the rest of the header; left and right. */
+        padding-left: 4px;
+
+    }
+
+    #layout-page-attention h4 {
+        /* CHECK IN THE base.blade template first and see which Bootstrap classes are being applied there. */
+        border-radius: 4px; /* added so it matched the other rounded corners in the header area. */
+    }
+
+
+    /* Default img corner radius for images in the option block (Contact Photo).
+        Contact photo is 128px so 64px = full circle.
+        8/23/2022 update; This used to be only used for the contact photo. Now we're using it for the asset image too.
+                          So will change that individually per page.
+    */
+    #layout-page-option-block img {
+        border-radius: 64px;
+    }
+
+
+
+
+    /* The button area for each form. This is built out by the Controls@buttonArea() call. */
+    #system-page-buttons {
+        /*  These all change based on where Controls places the #system-page-buttons id (row, col, form div...)
+        margin-left: 1em;
+        margin-right: 1em;
+        margin-top: 1em;
+         */
+        margin-bottom: 1em;     /* This controls the starting point of the first form element below the buttons. */
+        /*background: #FBFBFB;  /* Almost white but just a tad of color behind the button form cutout. */
+        background: white;
+    }
+
+    #system-page-buttons hr {
+        /*width: 97%;*/     /* If we cutting out a white background, then keep the line length full, left to right. */
+        margin: auto;       /* This centers a shorter line. But for some reason increases the top and bottom margins beyond the control below. */
+    }
+    /* Set the spacing between the top/bottom of the buttons and the <hr> */
+    #system-page-buttons .button-group {
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+
+    /* Set a space between the buttons. */
+    .button-group > .btn {
+        margin-right: 4px;
+    }
+
+
+
+    /******************************************************************************************/
+    /* System Footer control */
+    /******************************************************************************************/
+    /* Standard page footer
+       Moved the footer stying into the footer_content template for ease of use.
+    */
+
+
+
+    /******************************************************************************************/
+    /* LinkBar styling
+        Note: there is the ability to add a hard coded bullet (&bull;) in the LinkBar class.
+    */
+    /******************************************************************************************/
+    /* top of page Link Bar area */
+    ul.linkbar {
+        list-style-type: none;
+        color: lightgrey; /* Only affects text the link bar area that is not a link. */
+        padding-top: 0;
+        padding-left: 0;
+        margin-bottom: 4px;
+        margin-left: 0;
+        margin-top: -4px;
+    }
+
+    .linkbar li {
+        list-style-type: none;
+        display: inline;
+    }
+
+    .linkbar li a {
+        text-decoration: none;
+        font-size: small;
+        padding-top: 4px;
+        padding-bottom: 5px;
+        padding-left: 3px;
+        padding-right: 4px;
+        /*padding-right: 4px;*/
+    }
+
+    /* Change the link color on hover. */
+    .linkbar li a:hover {
+        border-radius: 2px;
+        /*background-color: #f4f4f4; Too light. */
+        background-color: #eaeaea;
+        color: black;
+        /*color: white; */
+    }
+
+
+
+
+
+    /******************************************************************************************/
+    /* Animated Loading ellipsis. */
+    /* Usage: <div class="loading">Counting lines</div> */
+    /******************************************************************************************/
+    .loading {
+        /* font-size: 30px; */
+    }
+
+    .loading:after {
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: bottom;
+        -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+        animation: ellipsis steps(4, end) 900ms infinite;
+        content: "\2026"; /* ascii code for the ellipsis character */
+        width: 0;
+    }
+
+    @keyframes ellipsis {
+        to {
+            width: 1.25em;
+        }
+    }
+
+    @-webkit-keyframes ellipsis {
+        to {
+            width: 1.25em;
+        }
+    }
+
+
+    /******************************************************************************************/
+    /* Panel Tabs */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* Standard Progress Modal */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* Custom Elements */
+    /******************************************************************************************/
+    .vertical-center {
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* used for the banner display on demo and development sites and the flashing aged activity */
+    /* @group Blink */
+    .blink {
+        -webkit-animation: blink .75s linear infinite;
+        -moz-animation: blink .75s linear infinite;
+        -ms-animation: blink .75s linear infinite;
+        -o-animation: blink .75s linear infinite;
+        animation: blink .75s linear infinite;
+    }
+
+    @-webkit-keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 1;
+        }
+        50.01% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @-moz-keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 1;
+        }
+        50.01% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @-ms-keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 1;
+        }
+        50.01% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @-o-keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 1;
+        }
+        50.01% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 1;
+        }
+        50.01% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    /* @end */
+    /* Used for setting opacity
+    */
+    .black-opacity-50 {
+        background-color: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Used to draw a separator line across the page - usually applied to a <p> tag */
+    .spacer-line {
+        clear: both;
+        margin-top: 3px; /* You need a <label> tag if you have a blank right column; Otherwise the this 3px is not required. */
+        margin-bottom: 7px;
+        border-bottom: solid 1px;
+        color: lightgrey;
+    }
+
+    /* Used for the 'spacer' form controls used to help hold the layout in place */
+    .invisible {
+        border: white;
+    }
+
+
+    /* Basic cards */
+    .card-body.pre-scrollable {
+        overflow-y: auto; /* Hide the scroll bar if not needed */
+        padding-bottom: 0;
+    }
+
+
+    /******************************************************************************************/
+    /* Form display and controls styling */
+    /******************************************************************************************/
+    /* Note: .form-crud is a specific class to refer to a standard CRUD form.
+            Without that, most of these settings would impact things like the login form, icon alignment
+            and other labels and form-groups.
+            */
+
+    /* Used for text that is in the same place as a control, but without the control. */
+    .no-control {
+        font-size: .94em;
+        margin-top: 6px;
+        margin-left: 8px;
+        color: gray;
+    }
+
+    /* Whole form positioning. */
+    form.form-crud {
+        border-radius: 10px;    /* Since we're giving the form body a background color let's go ahead and round its corners. */
+        padding-bottom: 1em;    /* Control the space between the last form element and the footer </form> bottom. */
+        margin-bottom: 1em;     /* Control the space between the bottom of the form and the footer (or other content). */
+        background: #F1F1F1;    /* Give forms a light background to help the form fields be more visible. */
+    }
+
+    /* To ensure a consistent layout - make all the form-control <inputs> & <select> the same width. */
+    /* Clean up the standard Bootstrap form-group spacing.
+        Note: specifically leaving out <textarea> from this since it has a Controls facility for setting the number of rows.
+    */
+    form.form-crud input.form-control,  form.form-crud select.form-control {
+        width: 240px;
+        font-size: smaller;     /* Keep this in sync with the form-control.form-textarea below here. */
+        margin-top: 0;          /* Tighten up the default space between form fields. */
+        margin-bottom: 3px;     /* Breathing room between form <input> controls. Make sure and change the form-control.form-textarea to match this +7. */
+        height: 38px;           /* Needed to ensure consistency with all control types for rows tp line up. */
+    }
+
+
+    /* Wide <input> - To ensure a consistent layout - make all the form-control <input> the same width. */
+    form.form-crud .form-control.input-wide {
+        width: 680px;           /* This was 800px on the original eco site. Setting here to match the text area size on the menu detail screen. */
+        /*max-width: 800px;     /* This is just the same size as the standard input (?).
+        /*width: 100%;          /* For some reason this moves both the label and the control to the left. */
+    }
+
+    /* Medium-wide <input> - To ensure a consistent  layout - make all the form-control <input> the same width. */
+    form.form-crud .form-control.input-medium {
+        width: 400px;
+    }
+
+    /* Narrow <input> - To ensure a consistent form layout - make all the form-control <input> the same width. */
+    form.form-crud .form-control.input-narrow {
+        width: 100px;
+    }
+
+    /* Except for text inputs. */
+    form.form-crud .form-control.form-textarea {
+
+        font-size: smaller;     /* Keep this in sync with the input.form-control above */
+
+        width: 98%;             /* Setting this to line up with the 680px used for the .input-wide on the menu detail page. */
+        /*width: 73%;           /* This seems to work best for the most general use of the textarea. */
+        /*width: 184%;          /* Moved this to the Contacts detail template. Needed when inside of an md-9 */
+        /* Weird; so the 184% is for a
+
+        <div class="row collapse multi-collapse1">
+
+        <div class="row">
+        <div class="col-md">
+        <div class="form-group d-inline">
+            <textarea> in here
+        </div>
+        </div>
+        </div>
+
+        </div>
+
+     */
+
+        margin-left: 150px;     /* Make this the same size as the <label> width + 10 */
+        margin-top: -28px;      /* Then we can move the <textarea> back up next to the label if we want. */
+        margin-bottom: 10px;    /* For some reason this has to be bigger to match the spacing of the other form controls. */
+
+        /*height: 60px;         /* Set the initial height of the <textarea> (about 2 rows of text). */
+        /*height: 100%;*/       /* 100% makes it too big when selecting rows less than 4. (?) */
+        padding-bottom: 14px;   /* Bottom margin for the text inside the text area */
+
+    }
+
+
+    /* Radio buttons still use a form-control for layout purposes.
+        So turn off the outline until there's some kind of error.
+    */
+    form.form-crud div.form-control.form-radio { /* form-radio is set in the Form class */
+        margin-top: -3px;           /* So the inline radio button group lines up with the label. */
+        border-color: transparent;
+        background: transparent;    /* If the form or page has a background color then let it show through. */
+    }
+
+
+    /* The .fielderror class is set in the Form class from the backside data validation check.
+        Note: the second selector is needed in order to specifically override the transparent border radio button control above.
+    */
+    form.form-crud .form-control.fielderror, form.form-crud div.form-control.form-radio.fielderror {
+        border: 2px solid red;
+    }
+    form.form-crud label.fielderror {
+        color: red;
+    }
+
+
+
+    /* Use to create a row spacer between form elements. */
+    form.form-crud div.row.form-space {
+        height: 38px;
+    }
+
+    /* Setup all CRUD form <label> styling here. */
+    form.form-crud label, form.form-crud .form-inline label {
+        font-size: small;
+        /* Looks like the .form-inline class is changing this back to left justified. */
+        text-align: right !important; /* This one does work but can be overridden by certain html form control markup. */
+
+        /*justify-content: right !important; /* This one actually changed the text alignment ONCE - then the next day it broke again!! */
+        /*color: #666;*/
+
+        /*color: gray;*/
+        /*color: lightgray;     too light for a level. */
+        color: #8D8D8D;
+
+
+        font-weight: 300;
+        font-style: italic;
+        width: 140px;
+        /* Need to force a standard label width; Without this nothing lines up.
+                             Note that if you change this you must change the <textarea> left margin. */
+        margin-right: 10px; /* Space between the left of the input control and the label. */
+        margin-top: 8px;    /* Center the label vertically on the input control. */
+        /*margin-left: 8px;*/
+    }
+
+    /* Use a label class on to get the same affect as a form label on some other element. */
+    .label {
+        font-size: small;
+        /* Looks like the .form-inline class is changing this back to left justified. */
+        text-align: right !important; /* This one does work but can be overridden by certain html form control markup. */
+        /*color: gray;      this is set above right? */
+        font-weight: 300;
+        font-style: italic;
+        margin-right: 10px; /* Space between the left of the input control and the label. */
+        margin-top: 8px; /* Center the label vertically on the input control. */
+    }
+
+    /* Used only on the radio buttons to create a clickable text area around the text.
+        Basically this needs to reset anything done by the form.form-crud label above.
+    */
+    div.form-control.form-radio div.form-check.form-check-inline label.radio-empty {
+        display: inline-flex;
+        margin-top: 4px; /* Centering label across from the radio button. */
+        margin-bottom: 4px;
+        padding: 0;
+        width: auto;    /* Reset the width so it's not the same as the <input>. */
+    }
+
+
+    /* Don't limit the size of a radio button to the same size as an <input> */
+    div.form-control.form-radio {
+        /*margin-top: 3px;      /* Line the buttons up with the label. BUT THIS CHANGES THE HORIZONTAL ALIGNMENT. */
+        width: auto; /* Reset the width so it's not the same as the <input>. */
+        /*border: none;         /* You can use this to kill the border around the radio buttons. (use on the per page css) */
+    }
+
+    /* And then this is the actual text display next to each radio button choice. */
+    .radio-text {
+        margin-top: 0;          /* Line the radio button choice up with the actual radio buttons. */
+        margin-left: 0;         /* Need to bring the span back to encompass the radio button. */
+        padding-left: 8px;      /* Then give the text inside the space some breathing room between the choice and the button. */
+        padding-right: 4px;     /* And extend the clickable area past the text a little bit. */
+        font-style: normal;     /* Reset the settings made of all other form labels. */
+        font-weight: normal;
+        color: black;
+    }
+
+    /* CRUD form checkboxes. */
+    .form-check-input[type=checkbox] {
+        margin-top: 10px;       /* Need to push the default bootstrap checkbox down to line up with our modified labels. */
+    }
+
+
+
+
+
+
+    /* Used to emphasize certain explanation text on a form */
+    .form-em {
+        font-size: small;       /* Same as labels */
+        font-weight: 400;       /* Heavier than labels */
+        font-style: italic;
+        color: darkgreen;
+        padding: 0;
+        margin: 0;
+        /*margin-top: 8px       /* Umm -- this is fine it wraps;  Get this to line up with a label so we can use it as informational data next to a label. */
+        /*font-size: 90%;       /* Causes wrapping too soon -- before full width. */
+    }
+
+    form.form-crud label.form-required {
+        font-weight: bold;
+    }
+
+    /* lighten up the text inside any disabled <input>, <textarea> fields */
+    form.form-crud input[readonly], form.form-crud textarea[readonly] {
+        color: darkgray;
+        /*color: lightslategray;*/
+    }
+
+
+    /* Styling for any placeholder text. */
+    .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        /* color: lightblue; */
+        color: #cbcbcb;
+    }
+
+    .form-control::-moz-placeholder { /* Firefox 19+ */
+        color: #cbcbcb;
+    }
+
+    .form-control:-ms-input-placeholder { /* IE 10+ */
+        color: #cbcbcb;
+    }
+
+    .form-control:-moz-placeholder { /* Firefox 18- */
+        color: #cbcbcb;
+    }
+
+
+    /* The security level separator heading on forms.
+        Sections off form into areas - like private data only, etc.
+        */
+    p.form-header-security, p.form-header-information {
+        width: auto;
+        margin-left: 20px;      /* Looks a little better if it's not dead against the form's bounding box. */
+        margin-right: 20px;     /* Seems to only work if width is set to "auto" (not 100%). */
+        margin-top: 12px;       /* Need this tight when collapsable -- but breathing room for regular form headers. */
+        margin-bottom: 12px;
+        font-weight: bold;
+        font-style: normal;
+        border-bottom: solid 1px;
+    }
+
+    .clear-me {
+        clear: both;
+    }
+
+    /* Change the color of the form's information header after setting its other attributes above. */
+    p.form-header-information {
+        color: darkgray;
+    }
+
+    /* Change the color of the form's information header after setting its other attributes above. */
+    p.form-header-security {
+        color: darkred;
+    }
+
+    /* If you use collapse on the form-header-security, then you can style it here. */
+    p.form-header-security a {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+
+    p.form-header-security a:before {
+        content: "+";
+        margin-right: 4px;
+    }
+
+    /* p.form-header-security a:hover {  Can't get just the a:hover to target without going directly to the class name. */
+    p.form-header-security:hover {
+
+        color: forestgreen;
+    !important;
+    }
+
+
+
+    /******************************************************************************************/
+    /* Large Check box - http://www.csscheckbox.com */
+    /******************************************************************************************/
+    input[type=checkbox].css-checkbox {
+        position: absolute;
+        z-index: -1000;
+        left: -1000px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    input[type=checkbox].css-checkbox + label.css-label {
+        padding-left: 37px;
+        height: 32px;
+        margin-top: -4px;       /* Needed to vertically center on dropdown select. */
+        display: inline-block;
+        line-height: 32px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        font-size: 32px;
+        vertical-align: middle;
+        cursor: pointer;
+        /*margin-bottom: -1px;     stn-added to center in cell */
+    }
+
+    input[type=checkbox].css-checkbox:checked + label.css-label {
+        background-position: 0 -32px;
+    }
+
+    label.css-label {
+        /* Note: this assumes keeping this image in the same directory as this file. */
+        background-image: url(csscheckbox_4ea63867c02e5cae931bd62523a0c675.png);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+
+    /******************************************************************************************/
+    /* User/Group Profile Rights Grid */
+    /******************************************************************************************/
+    /* Box around the whole edit rights area. */
+    div.edit-right {
+        background: snow;
+        border: lightgrey solid 1px;
+        padding: 12px;
+        margin-left: -80px;         /* This requires a lot of space so stretching it to be gibber than the base form container. */
+        margin-right: -80px;        /* This requires a lot of space so stretching it to be gibber than the base form container. */
+        border-radius: 8px;
+    }
+
+    /* Right Grid header */
+    table.rights-grid th {
+        color: black;
+        font-weight: bolder;
+        background: lightcyan;
+    }
+
+    /* Rights Grid body */
+    table.rights-grid td {
+        border: solid lightgrey 1px;
+    }
+
+    /* Set this for all of the grid columns. */
+    [class^="grid-col-"] {
+        font-size: small;
+        font-weight: lighter;
+        padding: 2px;
+        vertical-align: top;
+    }
+
+    /* X (delete override) */
+    .grid-col-0 {
+        width: 3%;
+        align-content: center;
+        text-align: center;
+    }
+
+    /* mID */
+    .grid-col-1 {
+        width: 3%;
+        align-content: center;
+        text-align: center;
+    }
+
+    /* All rights checkbox columns */
+    .grid-col-3, .grid-col-4, .grid-col-5, .grid-col-6, .grid-col-7, .grid-col-8, .grid-col-9, .grid-col-10, .grid-col-11 {
+        width: 2%;
+        font-style: normal;
+        font-size: x-small;
+        align-content: center;
+        text-align: center;
+    }
+
+    /* Warning - highlight the ones that have to do with elevated rights
+        Note: selectors need to be this specific for the <th> tags in order to override the setting above.
+        Delete - Export All
+    */
+    .grid-col-8, .grid-col-9,
+    table.rights-grid th.grid-col-8, table.rights-grid th.grid-col-9 {
+        background: red;
+        color: white;
+    }
+
+    /* Feature 1,2,3,4  - DEPRECATED.
+    .grid-col-10, .grid-col-11,
+    table.rights-grid th.grid-col-10, table.rights-grid th.grid-col-11 {
+        background: orange;
+        color: white;
+    }
+    */
+
+    /* page name */
+    .grid-col-2 {
+        width: 13%;
+        /* F1, F2 */
+    }
+
+    /* Feature 1,2,3,4 */
+    .grid-col-12, .grid-col-13 {
+        width: 19%;
+        color: darkblue;
+    }
+
+    /* Comments */
+    .grid-col-14 {
+        width: 31%;
+    }
+
+    /* Comments - cell contents */
+    td.grid-col-14 {
+        color: grey;
+        font-style: italic;
+    }
+
+
+
+    /******************************************************************************************/
+    /* TinyMCE overrides */
+    /******************************************************************************************/
+
+    /******************************************************************************************/
+    /* Datatables overrides */
+    /******************************************************************************************/
+
+    /* div#datatable_wrapper {      When you have more than one per page this becomes a problem. */
+    div[id^="datatable"][id$="_wrapper"].dataTables_wrapper { /* Note: this will match id=datatables-activity, etc. */
+
+        margin-top: 12px; /* Give just a little breathing room between datatable and the page header area. */
+        font-size: small;
+    }
+
+    /* Links inside of a Datatables row. (Regular text in the cell defaults to black.) */
+    /* REMEMBER: To use the class="dt-active" on the <a> tag. */
+    table[id^="datatable"] a, [class^="sorting"] a, a.dt-active {
+        color: darkblue;
+    }
+
+    /* Items that are either archived or not active. */
+    /* Note: including the table#datatable id tag to ensure that we are styling all links too. */
+    table[id^="datatable"] td.dt-inactive, table[id^="datatable"] td.dt-inactive a, .dt-inactive {
+        color: darkgray;
+    }
+
+    /* td.inactive[class^="sorting"] a */
+    td.dt-inactive.sorting_1 a, td.dt-inactive a {
+        color: darkgray;
+    }
+
+    /* Incomplete calls in the Activity List. */
+    /* We're not consistently targeting the sorting_1 (something is overwriting it) so did that in jquery in the page. */
+    td.dt-incomplete.sorting_1, td.dt-incomplete {
+        background: yellow;
+    }
+
+    /* Deferred calls in the Activity List. */
+    /* We're not consistently targeting the sorting_1 (something is overwriting it) so did that in jquery in the page. */
+    td.dt-deferred.sorting_1, td.dt-deferred {
+        background: lightgreen;
+    }
+
+    /******************************************************************************************/
+    /* Datatables: Override the default search box styling and add a glow on focus. */
+    /******************************************************************************************/
+    div[id^="datatable"][id$="_filter"].dataTables_filter {
+        margin-bottom: 12px; /* Distance between the Search box and the header row of the table. */
+    }
+
+
+    div[id^="datatable"][id$="_filter"].dataTables_filter input {
+        /*div#datatable_filter.dataTables_filter input { */
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;
+        padding: 3px 0px 3px 3px;
+        margin: 2px 1px 3px 6px;
+        border: 1px solid #DDDDDD;
+        border-radius: 4px;
+    }
+
+    div[id^="datatable"][id$="_filter"].dataTables_filter input:focus {
+        /*div#datatable_filter.dataTables_filter input:focus { */
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        padding: 3px 0px 3px 3px;
+        margin: 2px 1px 3px 6px;
+        border: 1px solid rgba(81, 203, 238, 1);
+    }
+
+    div[id^="datatable"][id$="_filter"].dataTables_filter label {
+        /*div#datatable_filter.dataTables_filter label { */
+        display: inline; /* Needed to get the label to show on the left side of the search input -- at least when in a tab. */
+        color: gray;
+        font-style: italic;
+    }
+
+
+
+
+
+    /******************************************************************************************/
+    /* Override the default Chosen multi-select styling. */
+    /* Needs thw specific ".chosen-container" wrapper in order to be able to override the defaults. */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* ad hoc reports; light italic labels on a light blue outline
+    /******************************************************************************************/
+
+    /******************************************************************************************/
+    /* Sticky Search Bar
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* Custom Button appearance */
+    /******************************************************************************************/
+
+    /******************************************************************************************/
+    /* Texting system components */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* File lists on any upload page (can be used on any <li> list of items) */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* Dropzone.
+        This is for absolute positioning on the page -- right side under the top header area.
+        Override this in the <style> section on the page if you need something different.
+    */
+    /******************************************************************************************/
+
+
+    /******************************************************************************************/
+    /* User/Group Profile Rights Grid */
+    /******************************************************************************************/
+
+}
+
+
+/*
+@media print {
+
+    td {
+        font-size: .6em;    !important;
+        font-family: Arial, Helvetica, sans-serif;  !important;
+    }
+
+    td a:link {
+        text-decoration: none;
+        font-size: .6em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+*/

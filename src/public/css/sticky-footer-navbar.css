@@ -1,0 +1,42 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+#main-page-container {
+    /* This was a change in the base template, but abandoned this idea when it had no impact on the floating footer issue on the asset usage. */
+}
+
+body {
+    /* Margin bottom by footer height */
+    padding-bottom: 60px; !important;
+}
+.footer {
+    /* Was forced to add a little jQuery to fix this on some pages with dynamic content.
+        See the _asset_detail_framework.blade file. */
+    position: absolute;
+    bottom: 0;
+    /*width: 99.9%;   /* Could be some interaction, but setting this to 100% causes a horizontal scroll bar for any screen size. */
+    width: 100%;
+
+    padding: 15px;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+
+
+    /* Always at the bottom of the viewport -- regardless of content size.
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+     */
+
+}
+.footer p {
+    font-size: 80%;
+    color: gray;
+}
+

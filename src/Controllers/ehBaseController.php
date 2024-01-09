@@ -1,0 +1,99 @@
+<?php
+
+namespace ScottNason\EcoHelpers\Controllers;
+
+use ScottNason\EcoHelpers\Classes\ehConfig;
+use ScottNason\EcoHelpers\Classes\ehLayout;
+use ScottNason\EcoHelpers\Classes\ehMenus;
+use ScottNason\EcoHelpers\Middleware\ehCheckPermissions;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use ScottNason\EcoHelpers\Models\ehPage;
+use ScottNason\EcoHelpers\Traits\ehProperExtendCheck;
+
+
+class ehBaseController extends BaseController
+{
+
+    // Things that we will potentially need for every page.
+    protected $form = [];               // To pass any page data to the Blade View.
+    protected $access_token = 0;        // Holds the user's access token for the current route.
+
+
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use ehProperExtendCheck;
+
+    /**
+     * Create a new controller instance.
+     * Including this here since all pages will be security controlled by default.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+
+        // Force every page that extends this controller to check for authentication requirements.
+        // If a page should not be authenticated, you can override the __construct() and just use 'web' only.
+        // The Permissions middleware will check the Pages table to see if this route is set to "public"
+
+
+        $this->middleware('web');               // This is needed if you want to use a session,
+                                                // w/o it, $errors variable is missing for the base template.
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // IS THE ACCESS SYSTEM ENABLED?
+        // Before we do anything let's check to see if we even have the permissions/access system enabled.
+        // Note: ehCheckPermissions has a similar check too.
+        if (ehConfig::get('access.enabled') === true) {
+
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            // Check to see if this route is requires authentication
+            // Note: This IS NOT the complete permissions check.
+            // Only checking to see if we need to include the 'auth' middleware here. That will force a login if user is not already.
+            $p = ehPage::getPageInfo();
+            if ($p) {
+                if ($p->security > 1) {                             // 0-no access, 1-public, 2-authenticated, 3-full access
+                    $this->middleware(['auth', 'verified']);        // This is needed to check for an authenticated/verified user and redirect to login if not.
+                }
+            }
+
+            // And check the allow_unauthenticated_children flag and then the module security too.
+            // If we're not allowing authenticated children then we need to check security setting of the parent module.
+            if (!ehConfig::get('access.allow_unauthenticated_children')) {
+                $m = ehMenus::getMyModule($p);
+
+                if (isset($m->security)) {
+                    if ($m->security > 1)                           // 0-no access, 1-public, 2-authenticated, 3-full access
+                        $this->middleware(['auth', 'verified']);    // This is needed to check for an authenticated/verified user and redirect to login if not.
+                }
+            }
+
+            // Leave this outside of the above if to make the final determination for access.
+            $this->middleware('check_permissions');     // ecoHelpers custom (granular/ token-based) permissions check.
+
+        }
+    }
+
+    /**
+     * web.php routes redirect a get /login route to forceLogin()
+     * @return mixed
+     */
+    public static function forceLogin()
+    {
+        ehLayout::initLayout();
+        $form['layout'] = ehLayout::getLayout();
+
+        //dd(redirect()->intended()->getTargetUrl());
+
+        request()->merge(['login'=>1]); // Flag to tell the template to popup the login modal.
+        //request()->merge(['intended'=>Session::get('url.intended')]);
+        //app('redirect')->setIntendedUrl(route('protected.page'));
+
+        return view('ecoHelpers::core.eh-default-home-page',
+            ['form' => $form]
+        );
+    }
+
+}

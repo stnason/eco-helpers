@@ -1,0 +1,201 @@
+/* This is the styling for the pages list. It's used for the active menu/pages list and for the Legend. */
+
+/* Turn all of the link underlines off. */
+ul.tree-view a {
+    text-decoration: none;
+}
+/* The common ul border for both the pages-tree and the legend.
+    Note: this one recurses into any subsequent inner ul's.
+*/
+ul.tree-view {
+    font-size: .94em;
+    /*list-style: decimal;  /* Gets a little confusing since this is not the defined "order". */
+    list-style: none;
+    padding-top: .6em;
+    padding-bottom: .8em;
+    padding-left: 2.3em;
+    padding-right: 1.2em;
+    margin-right: 1em;      /* Space to side of form or other element. */
+    margin-left: 1em;       /* Space from form element on the left. */
+    text-decoration: none;
+}
+
+ul.tree-view li {
+    padding-left: .5em;
+}
+
+/* This is the outer ul only that contains the Legend */
+ul#legend {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background: #F4F4F4;    /* A shad of really light gray. */
+
+    /*-webkit-box-shadow: 16px 16px 3px blue;
+    -moz-box-shadow: 16px 16px 3px blue;*/
+    box-shadow: 4px 4px 16px gray; /* size, size, blur, color */
+}
+
+/* This is the outer ul only that contains the Page Tree */
+ul#page-tree {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    /*background: #FFFFF4;      /* Really light tan. */
+    background: #FFFFF5;        /* A lighter version of antique white. */
+
+    /*-webkit-box-shadow: 16px 16px 3px blue;
+    -moz-box-shadow: 16px 16px 3px blue;*/
+    box-shadow: 4px 4px 16px gray; /* size, size, blur, color */
+}
+
+/* Is this container for any "menu item" links. */
+.menu-item, li.menu-item {
+    margin-bottom: 1px;
+    padding-bottom: 3px;
+    padding-top: 0;
+    border: solid;
+    border-width: 1px;
+    border-color: lightblue;
+    background: white;
+
+}
+/* Since this has a border, we have to separate the css selectors for "a" tabs vs just the class itself. (no border for "a" tags.) */
+.menu-item a, li.menu-item a {
+    text-decoration: none;      /* This is duplicated from the top for those situations were we're using this on something other than a UL/LI. */
+}
+
+/* Starting color of any <a> link before changing it below. */
+a {
+    color: #3300FF;
+}
+
+/* The Module's li container. */
+li.type-module {
+    padding-left: .5em;
+    padding-bottom: 3px;
+    color: white;
+    background-color: navy;
+    margin-top: 4px;
+}
+
+/* The Module's <a> link. */
+li.type-module a {
+    font-size: 1.1em;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* Style for the type of "resource"
+    Note: there is no border so the "a" can coexist with the straight "." class itself.
+*/
+.type-resource, .type-resource a {
+    font-weight: bold;
+    color: darkolivegreen;
+    text-decoration: none;      /* This is duplicated from the top for those situations were we're using this on something other than a UL/LI. */
+}
+
+
+/* Style for the type of "method"
+    Note: there is no border so the "a" can coexist with the straight "." class itself.
+*/
+.type-method, .type-method a {
+    color: black;
+    font-style: italic;
+    text-decoration: none;      /* This is duplicated from the top for those situations were we're using this on something other than a UL/LI. */
+}
+
+li.type-submenu {
+    font-weight: bold;
+    border-width: 4px;
+    border-style: double;
+}
+
+
+
+/* Style for any non-active items.
+    Is this item active Y/N? Note: Apply this at the end, after all other changes are made.
+    Note: there is no border so the "a" can coexist with the straight "." class itself.
+*/
+.deactive, .deactive a, li.deactive, li.deactive a {
+    color: #ABB2B9;
+    text-decoration: none;      /* This is duplicated from the top for those situations were we're using this on something other than a UL/LI. */
+}
+
+/* Safety net to catch anything that missed the class setting rules.
+    Note: there is no border so the "a" can coexist with the straight "." class itself.
+*/
+.type-unidentified, li.type-unidentified, li.type-unidentified a {
+    color: red;
+    font-style: italic;
+    text-decoration: none;      /* This is duplicated from the top for those situations were we're using this on something other than a UL/LI. */
+}
+
+
+/* The triangle. */
+/* Next 3 items are specifically for the page_detail page to highlight the currently edited page in the page-tree sidebar. */
+li#selected-page {
+    list-style: none;           /* Take away the default numbered bullet. */
+    /*background: yellow;       /* Apply a highlighted background to distinguish this entry in the tree. */
+    background: white;
+
+    border-style: solid;
+    border-color: red;
+    border-width: 2px;
+}
+li#selected-page a {
+    position: relative;         /* The triangle ends up stretching out this li box so we need to move the <a> up to appear centered. */
+    top: -5px;                  /* The link (text) position down from the top. */
+    left: .5em;                 /* The link (text_ position from the left.  */
+    margin-left: -2em;          /* removes the hanging indent on wrapped lines. (?)*/
+    /*color: black;*/           /* It's confusing to remove the "legend" styling from the item. */
+    /*font-weight: bold;*/      /* Same with bolding it. Some of the "legend" styles are already bold. */
+}
+li#selected-page.type-module a {
+    /* When we're editing the actual module, its default color is white - so it disappears on the white background. */
+    color: navy;
+}
+li#selected-page::before {      /* This is the triangle to the left of the selected-page. */
+    content: "";
+    border-color: transparent red;      /* Set the color of the triangle. */
+    border-style: solid;
+    border-width: 1em 0 1em 2em;        /* Set the size: h 0 h v */
+    display: inline-block;
+    height: 0;
+    width: 0;
+    left: -2.9em;               /* How far to the left should the triangle be displayed? */
+    top: 3px;                   /* The triangle's distance from the top (to match the centered <a> tag).*/
+    position: relative;
+}
+
+/* The circle. */
+/* Next 3 items are specifically for the page_detail page to highlight the parent page of the one being edited. */
+li#parent-page {
+    list-style: none;           /* Take away the default numbered bullet. */
+    background: lightgreen;     /* Apply a highlighted background to distinguish this entry in the tree. */
+    height: 2.2em;              /* Since the parent is not being expanded by the bullet (like the triangle). */
+}
+li#parent-page a {
+    position: relative;         /* The triangle ends up stretching out this li box so we need to move the <a> up to appear centered. */
+    top: 3px;                   /* The link (text" position down from the top. */
+    left: .5em;                 /* The link (text_ position from the left.  */
+    margin-left: -1em;          /* Removes the hanging indent on wrapped lines. (?)*/
+    /*color: black;*/           /* It's confusing to remove the "legend" styling from the item. */
+    font-weight: bold;
+}
+li#parent-page::before {        /* This is the circle to the left of the parent-page. */
+    content: "";
+    height: 13px;               /* Size of the circle bullet next to the parent item. */
+    width: 13px;
+    background: green;
+    border-radius: 50%;
+    display: inline-block;      /* inline-block helps not stretch the height out as bad as block alone. */
+    left: -1.8em;               /* How far to the left should the circle be displayed? */
+    position: relative;
+    top: 5px;                   /* The circle's distance from the top (to match the centered <a> tag).*/
+
+}

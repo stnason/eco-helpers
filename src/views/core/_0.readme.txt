@@ -1,0 +1,8 @@
+09/20/2022
+
+These are the non-publishable / "non-modifiable" files in the package.
+
+Attempting to make them generic enough and allow enough user configuration from the eco-helpers.php config file.
+
+These files are NOT published with the package resources.
+

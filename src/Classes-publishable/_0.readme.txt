@@ -1,0 +1,9 @@
+02/24/2023
+
+See the section in EcoHelpersServiceProvider
+under
+    // Publish the Classes-publishable resources.
+
+We only need to publish those classes that:
+
+A) Are designed for immediate user configuration; like ValidList().

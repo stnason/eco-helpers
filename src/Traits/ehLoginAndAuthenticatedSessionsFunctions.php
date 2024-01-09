@@ -1,0 +1,387 @@
+<?php
+
+/**
+ * This trait is included in 2 different controllers:
+ *  - ehLoginController -- for use with the Laravel/UI scaffolding
+ *  - ehAuthenticatedSessionController -- for use with the Laravel/Breeze scaffolding.
+ *
+ */
+namespace ScottNason\EcoHelpers\Traits;
+
+use App\Models\User;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
+use ScottNason\EcoHelpers\Classes\ehConfig;
+use ScottNason\EcoHelpers\Models\ehRole;
+
+trait ehLoginAndAuthenticatedSessionsFunctions
+{
+
+    /**
+     * Login message $keys are used with the corresponding ecoHelpers custom login validation checks.
+     * The purpose is to allow for a more verbose error message (for testing and Demo) and then deploy the more obfuscated error numbers.
+     *
+     * @var string[]
+     */
+    protected $login_messages_array = [
+        0=>['number'=>'Error: 400', 'description'=>'User model is not extended properly. Contact your system administrator.'],
+        1=>['number'=>'Error: 495', 'description'=>'User profile is locked out. Contact your system administrator.'],
+        2=>['number'=>'Error: 496', 'description'=>'User has no Acting Role. Contact your system administrator.'],
+        3=>['number'=>'Error: 497', 'description'=>"User's Acting Role is not active. Contact your system administrator."],
+        4=>['number'=>'Error: 498', 'description'=>"User has no default Group assigned. Contact your system administrator."],
+        5=>['number'=>'Error: 499', 'description'=>"User's Group is not active. Contact your system administrator."],
+    ];
+
+    /**
+     * This can be one of the 2 string key names above; 'number' or 'description'
+     * and controls how login error messages are displayed as full verbose descriptions or just ambiguous numbers for more security.
+     * @return mixed
+     */
+    protected $login_error_key = 'description';     // Less secure; tell exactly why you can't login.
+    //protected $login_error_key = 'number';        // More secure; just show an ambiguous error number.
+
+    /**
+     * Login username to be used by the controller. (email or name)
+     *
+     * @var string
+     */
+    protected $username;
+
+
+
+    /**
+     * Create a new controller instance with the appropriate middleware for the authentication system.
+     *  (originally from the ehLoginController [ui] version)
+     *  This looks to be specific to ui only. It breaks the Breeze call to detroy().
+     * 
+     * @return void
+     */
+    /*
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+
+        // Allow signing in with either username or email address.
+        $this->username = $this->findUsername();
+    }
+*/
+
+    protected function ehAdditionalLoginChecks($request) {
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // ecoHelpers additional login checks
+        // TODO: Most of these same checks will need to be run when a user changes roles. Should these all be in a callable method()?
+        // TODO: Check config('role_at_login') and see if we should use 'last' or 'default'
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        // 1. Since we have to do this before the login attempt, let's see if we can even find the user name.
+        //    If not, then just continue on and let the normal validation handle that.
+        $user = User::where('email',$request->email)->first();
+
+
+
+        // Was the user found? If not then we don't need to check any of this.
+        // Just skip it and let the default login mechanism handle it.
+        if (!empty($user->email)) {
+
+            // Perform all the additional ecoHelpers login checks:
+            $display_error_message = '';
+
+
+            // Note: if the original user model is not extended from ehUser;
+            //       you will get a message about isUserActive() missing.
+            //       But -- since the first time that's used is in the ajax login attempt,
+            //       you'll see nothing without putting in an alert() in the .fail section!
+            if (!method_exists($user,'isUserActive')) {
+                $display_error_message = $this->login_messages_array[0][$this->login_error_key];
+                $this->throwEcoHelperValidation($display_error_message);
+            }
+
+
+            // Note: see the class variables at the top that define the login message behavior using the $login_error_key.
+            // 1. User's profile is not active.
+            if (!$user->isUserActive($user->id)) {
+                //if (!$user->login_active) {
+                $display_error_message = $this->login_messages_array[1][$this->login_error_key];
+                $this->throwEcoHelperValidation($display_error_message);
+            }
+
+            // 2. User has no acting_role assigned.
+            if (empty($user->getActingRole($user->id))) {    // Use the user function utility since it checks a couple things and assigns to default if missing.
+                $display_error_message = $this->login_messages_array[2][$this->login_error_key];
+            } else {
+                // 3. User's acting_role is not active.
+                if (!$user->isActingRoleActive($user->id)) {
+                    $display_error_message = $this->login_messages_array[3][$this->login_error_key];
+                }
+            }
+
+            // 4. User has no default_role assigned.
+            // Note: Checking these sequentially like this enforces the behavior that:
+            //       You must have an active default_role (even if your acting_role is active).
+            if (empty($user->default_role)) {
+                $display_error_message = $this->login_messages_array[4][$this->login_error_key];
+            } else {
+                // 5. User's default_role is not active.
+                if (!ehRole::find($user->default_role)->active) {
+                    $display_error_message = $this->login_messages_array[5][$this->login_error_key];
+                }
+            }
+
+            // If we got here without already throwing an exception but we set the error message:
+            if ($display_error_message != '') {
+                $this->throwEcoHelperValidation($display_error_message);
+            }
+
+
+
+            // TODO: Is this where we need to implement the "force password reset" code here.
+            // Force a password change.
+            // redirect to password change.
+
+        }
+
+
+    }
+
+
+    /**
+     * This is copied from the OOTB Laravel 10.x AuthenticatedUsers trait
+     * and may be specific to Laravel/ui.   TODO: If so, then delete it (comment out for now) since we're just using Breeze now.
+     * Handle a login request to the application.
+     * 
+     *  (originally from the ehLoginController [ui] version)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    /*
+    public function login(Request $request)
+    {
+
+        $this->validateLogin($request);
+
+
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        if (method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        $this->ehAdditionalLoginChecks();
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        if ($this->attemptLogin($request)) {
+
+            #$this->throwEcoHelperValidation('top of attemptLogin if.');    // got here.
+            if ($request->hasSession()) {
+            #$this->throwEcoHelperValidation('top of attemptLogin if.');    // got here.
+                $request->session()->put('auth.password_confirmed_at', time());
+            }
+            return $this->sendLoginResponse($request);
+        }
+
+
+        // Apparently the the successful return above was throwing an error from bad code in
+        // in the eh-user-roles page header. (really?)
+        // LEAVING THESE LINES HERE FOR NOW AS WE CONTINUE TROUBLE SHOOTING THE LOGIN SYSTEMS.
+        #$this->throwEcoHelperValidation('right after attemptLogin.');
+
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
+    }
+*/
+
+
+    /**
+     * Post login processing. The user has been authenticated.
+     * (originally from the ehLoginController [ui] version)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    /*
+    protected function authenticated(Request $request, $user)
+    {
+
+        dd('authenticated');
+
+      // This is used by UI only. Breeze just uses the store() function below.
+
+
+        // Set the user's timezone (if set)
+
+        // Set the initial (after login) acting role based on the global configuration setting:
+        $user->setActingRole($user->roleAtLogin($user->id), false);
+
+    }
+    */
+    
+
+    /**
+     * Get the login username to be used by the controller.
+     *  (originally from the ehLoginController [ui] version)
+     *
+     * @return string
+     */
+    public function findUsername()
+    {
+        // Get the 'name to login with' field.
+        $login = request()->input('email');   // From authentication login form
+
+        // supply the 2 field names for sql to search by: 1-if it is a valid email; 2- if it's not.
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';      // 'name' is the login username.
+
+        request()->merge([$fieldType => $login]);
+
+        return $fieldType;
+    }
+
+    /**
+     * Get username property. (override method)
+     * Returns the field in the Users table that we want to search by.
+     *  (originally from the ehLoginController [ui] version)
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return $this->username;
+    }
+
+
+    /**
+     * Just a quick way to display various login message issues from
+     *  within the multiple places they are checked above.
+     *  (originally from the ehLoginController [ui] version)
+     *
+     * @param $display_error_message
+     * @return void
+     */
+    protected function throwEcoHelperValidation($display_error_message) {
+        // Throw the ecoHelpers additional login validation check message.
+        // and display it under the username/email field in the login form.
+        if (!empty($display_error_message)) {
+            throw ValidationException::withMessages([
+                // WARNING: if there's any kind of error in this line, the login goes through fine and skips the ValidationException below!!
+                'email' => $display_error_message,
+            ]);
+        }
+    }
+
+
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * These are from the Breeze AuthenticatedSessionController
+     */
+    /**
+     * Display the login view.
+     * (originally from the ehAuthenticatedSessionController [Breeze] version)
+     */
+    //public function create(): View
+    public function create()
+    {
+        return view('auth.login');
+    }
+
+    /**
+     * Handle an incoming authentication request.
+     * (originally from the ehAuthenticatedSessionController [Breeze] version)
+     */
+    //public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
+    {
+
+        // hmm...should the additional eco-helpers checks be in front of or behind the normal authentication?
+        // Leaving it in front for now. (So, errors, like role inactive or whatever display first).
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        $this->ehAdditionalLoginChecks($request);
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        $request->authenticate();
+        $request->session()->regenerate();
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // Add additional items after successful login:
+        // This was the old "authenticated()" method from Laravel/UI.
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        //TODO:
+        // 1.Set system to the user's timezone (if set in their profile)
+
+
+        // 2.Update the user's last_login timestamp. (use the eco-helpers configured sql long time format)
+        //Auth()->user()->last_login = date("Y-m-d H:m:s");
+        Auth()->user()->last_login = date(ehConfig::get('date_format_sql_long'));
+
+        // Increment the user's login counter.
+        Auth()->user()->login_count = Auth()->user()->login_count + 1;
+
+        // 3.Set the acting role at login to the default_role.
+        // IGNORE THE GLOBAL configuration setting! This could create a lockout Catch-22 if an Admin user
+        //  was using a lower permissions role and couldn't set themselves back.
+        //  This way, simply logging out and back in will always reset you to your default role.
+        Auth()->user()->setActingRole(Auth()->user()->default_role, false);
+
+        // 4.Save the changes set above to the user's record.
+        Auth()->user()->save();
+
+
+        // 5.And finally, redirect to where the login person should go.
+        if (!empty(Auth()->user()->getDefaultHomePage())) {
+            // If the user's default role has a default_home_page route defined then use it.
+            return redirect()->intended(route(Auth()->user()->getDefaultHomePage()));
+        } else {
+            // Otherwise just go to the default HOME constant defined.
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+
+
+
+    }
+
+    /**
+     * Destroy an authenticated session.
+     * (originally from the ehAuthenticatedSessionController [Breeze] version)
+     */
+
+    //public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request)
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect(route('eco'));
+    }
+
+}
