@@ -1,12 +1,13 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.24',
-    'APP_LASTUPDATE' => '01/08/2024'
+    'APP_VER' => 'v1.0.26',
+    'APP_LASTUPDATE' => '01/09/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 01/09/2024:v01.00.26: 1.75 :Do-Over on package and repository. Deleted both and started a new local git repository.
  * 01/08/2024:v01.00.24: 3.00 :Comments, TODOs and operational (on-the-fly) punch list items.
  * 01/07/2024:v01.00.24: 2.00 :Change menu array generator to use created/updated_at. Fix eco-helpers missing initial ehLayout. More L11 testing.
  * 01/07/2024:v01.00.24: 0.25 :Changing the git versioning to a 1.x.x to see if that helps anything.
