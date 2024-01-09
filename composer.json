@@ -1,6 +1,6 @@
 {
     "name": "scott-nason/eco-helpers",
-    "description": "A set of Laravel ready classes to be used with the Eco Framework overlay.",
+    "description": "Eco Helpers is an overlay to Laravel that aids in rapid application development for security controlled CRUD applications.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -11,8 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=8.0.0",
-        "laravel/framework": ">= 8.0.0"
+        "php": ">=8.2.0",
+        "laravel/framework": ">= 8.2.0"
     },
 
     "autoload": {
