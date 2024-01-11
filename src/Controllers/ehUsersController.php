@@ -144,10 +144,11 @@ class ehUsersController extends ehBaseController
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Watch for a 'new' button submit then redirect to create which will change the form method for the next submit
         if ($request->has('new')) {
-            return redirect('/users/create');
+            return redirect(route('users.create'));
         }
 
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
         // Data Validation and consistency check.
         $request = $this->dataConsistencyCheck($request, $user);
 
@@ -165,11 +166,16 @@ class ehUsersController extends ehBaseController
         // PASSWORD CHANGE
         // Have we changed the password through the Admin User Profile?
         // If so, then make sure we hash it.
-
         // Note that if you haven't actually entered a password, the $request (form) password
         // will be the same hashed password stored in the database ($user->password).
         if ($request->password != $user->password) {
+
+            // Hash the newly entered password
             $request->merge(['password'=>Hash::make($request->password)]);
+        } else {
+
+            // If password is the same, then just take it out of the $request and leave it alone.
+            $request->request->remove('password');
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -194,7 +200,6 @@ class ehUsersController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Go back to the detail page.
-        // Remembering to keep the module id in sync.
         return redirect('/users/'.$user->id);
 
     }

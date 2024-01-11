@@ -96,18 +96,19 @@ SECTION 2 - JS AUTOLOADER SECTION
     Date (only) picker. --}}
 @if (isset($form['layout']['auto_load'][2]))
     <!-- JQuery Date Picker -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script   src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+              integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+              crossorigin="anonymous"></script>
 
     {{-- Install the date picker handlers
-    Note: these are created in each action_form_vars file by a call to createDatePickerFields($this->t);
+         Remember that any element that needs a data picker will need the
+          'additional_class'=>'datepicker' added.
     --}}
-    {{--
     <script type="text/javascript">
-        $(function() {
-            {{ form.datepickerjs | raw }}
-        });
+    $(".datepicker").datepicker();
     </script>
-    --}}
+
+
 @endif
 
 

@@ -68,8 +68,8 @@ class ehNotificationsController extends ehBaseController
     public static function getNext() {
 
         // Minimum security check.
-        //if (!self::authorized()) {return false;}
-        if (!self::authorized()) {return 'ding-dong';}
+        if (!self::authorized()) {return false;}
+        //if (!self::authorized()) {return 'ding-dong';}    // for testing -- return a weird, easy to find in code, message.
 
         // First remove any expired notifications.
         self::removeExpired();
@@ -178,15 +178,16 @@ class ehNotificationsController extends ehBaseController
 
     /**
      * Minimum security check - must be at least logged in.
+     *
      * @return bool
      */
     protected static function authorized() {
 
         // Minimum security check.
-        // Note: When access system is enabled, this is already being handled by the page route middleware (ehCheckPermissions)
-        //       Just including this here as a safety check.
-        // Since users can only interact with their own notifications this simple check should be fine.
+        // Note: Since, get-next is called from the navbar so it will return an error if you rely on the middleware to block it.
+        //        For that reason, its page security level is set to 1-Public. (all the other method routes here are set to 2-Authenticated.)
 
+        // Since users can only interact with their own notifications this simple check should be fine.
         if (Auth()->guest()) {
             return false;
         } else {

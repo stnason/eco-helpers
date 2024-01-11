@@ -1,27 +1,30 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.26',
-    'APP_LASTUPDATE' => '01/09/2024'
+    'APP_VER' => 'v1.0.27',
+    'APP_LASTUPDATE' => '01/11/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 01/09/2024:v01.00.26: 1.75 :Do-Over on package and repository. Deleted both and started a new local git repository.
+ * 01/11/2024:v01.00.27: 3.75 :Cleaning up ehExamplesController. Finish out @update. Fix timezone, unauthorized get-next. Work on intented route after login.
+ * 01/10/2024:v01.00.26: 2.50 :Clean up Example; fix bio too wide, jQuery datepicker error, no GoTo dropdown list, goto not working, set email focus on login.
+ * 01/10/2024:v01.00.26: 1.25 :Clean up user detail edit. Fix rehashing password. Remove Force Password. Change Verified date to long.
+ * 01/09/2024:v01.00.26: 1.75 :Do-Over on package and git repository. Deleted both and started a new local git repository. (had somehow deployed the _DO_NOT_DEPLOY folder with the .env file in it!)
  * 01/08/2024:v01.00.24: 3.00 :Comments, TODOs and operational (on-the-fly) punch list items.
  * 01/07/2024:v01.00.24: 2.00 :Change menu array generator to use created/updated_at. Fix eco-helpers missing initial ehLayout. More L11 testing.
- * 01/07/2024:v01.00.24: 0.25 :Changing the git versioning to a 1.x.x to see if that helps anything.
+ * 01/07/2024:v01.00.24: 0.25 :Changing the git versioning to a 1.x.x to see if that helps to keep current.
  * 01/07/2024:v00.00.23: 1.50 :Laravel 11 tests. Still fighting with git package version and getting the most current!!
  * 01/06/2024:v00.00.23: 1.50 :Move all Breeze Auth controllers into project.
  * 01/06/2024:v00.00.22: 1.75 :Test drive w/Laravel 11 (--dev).
  * 01/05/2024:v00.00.22: 1.00 :TODOs and comments.
- * 01/04/2024:v00.00.22: 1.00 :Starting on TODOs.
+ * 01/04/2024:v00.00.22: 1.00 :TODOs and comments.
  * 01/01/2024:v00.00.21: 1.00 :Moving forward finally. Testing and trouble shooting various kinds of access.
  * 12/27/2023:v00.00.21: 2.00 :Finishing out the forgot, rest and request forms.
  * 12/26/2023:v00.00.21: 2.00 :Changing registration form and flushing out new RegisteredUserController.
  * 12/25/2023:v00.00.21: 2.00 :Finally back on track. Testing out the rest of the Login eco system.
  * 12/24/2023:v00.00.21: 2.00 :If it ain't one thing...now I can't get a logout form to work! Struggling with the return type declarations in ehLoginAndAuthenticatedFunctions trait so just getting rid of them. (not sure if there's really an impact or not.)
- * 12/24/2023:v00.00.21: 1.00 :OMG! I was using Auth()->logout() in the navbar user sign out. Instead of route('logout'). I truly am muy own worst enemy!
+ * 12/24/2023:v00.00.21: 1.00 :OMG! I was using Auth()->logout() in the navbar for user sign out. Instead of route('logout'). I truly am my own worst enemy!
  * 12/23/2023:v00.00.21: 2.00 :Made little progress yesterday. Taking another run at Breeze and new--yet again--Laravel project. Can login, but can't stay logged in when changing pages (same symptom with Breeze or UI). ??
  * 12/22/2023:v00.00.20: 2.00 :(sigh) Authentication should not be this difficult; Back on UI; still working on email verification.
  * 12/21/2023:v00.00.20: 2.00 :May have to throw in the towel and go back to Laravel/UI. Having a lot of trouble with email verify working with eco. Added 'verfied' middleware to the ehBaseController access check.

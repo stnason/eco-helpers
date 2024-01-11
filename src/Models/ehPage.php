@@ -95,12 +95,11 @@ class ehPage extends ehBaseModel
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
-        // if $route_name is blank then use current.
-        if ($route_name === null) {
-            $route_name = Route::currentRouteName();
-        }
+        // Normalize the route name.
+        // (if $route_name is blank then use current.)
+        $route_name = self::normalizeRouteName($route_name);
 
-
+        
         ////////////////////////////////////////////////////////////////////////////////////////////
         // If $route_name is numeric then query by page number rather than 'route'
         $find_by_page_number = false;
@@ -132,7 +131,9 @@ class ehPage extends ehBaseModel
             //$q = "SELECT * FROM eh_pages WHERE route = '".$route_name."';";
             ///$result = DB::select($q);
 
-
+            if ($route_name == '/notifications/get-next') {
+                dd($result);
+            }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 /// TESTING
@@ -264,7 +265,7 @@ class ehPage extends ehBaseModel
      * @param $route_name
      * @return mixed
      */
-    public static function cleanRouteName($route_name = null) {
+    public static function normalizeRouteName($route_name = null) {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // If no $route_name is passed then use the current route name.
@@ -299,7 +300,7 @@ class ehPage extends ehBaseModel
             // Not sure what we ended up with so leave it alone for now and just return it.
             // If this is really a problem, we can throw and Exception and see why/how we got here.
             // For now leaving dd() as a "catch-all".
-            dd('ehPage@cleanRouteName() dropped through to the bottom with $route_name: ', $route_name);
+            // dd('ehPage@normalizeRouteName() dropped through to the bottom with $route_name: ', $route_name);
             return $route_name;
         }
 

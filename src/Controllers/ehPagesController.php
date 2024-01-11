@@ -354,8 +354,15 @@ class ehPagesController extends ehBaseController
             "]);
         }
 
+
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // 2. Anything else?
+        // 2. TODO: You can't delete any item that is assigned as a default_home page for a role.
+        //      (will need to display a role link in the error message).
+
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // 3. Anything else?
         //
 
 
@@ -523,7 +530,7 @@ class ehPagesController extends ehBaseController
         ///////////////////////////////////////////////////////////////////////////////////////////
         // 6. RULE:AUTO-SET - Normalize the route name before saving,
         // And then replace the 'route' value directly in the $request.
-        $request->merge(['route' => ehPage::cleanRouteName($request->route)]);
+        $request->merge(['route' => ehPage::normalizeRouteName($request->route)]);
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////

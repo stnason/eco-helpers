@@ -147,15 +147,17 @@ class ehConfigController extends ehBaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ehSetting $setting)
+    public function update(Request $request, ehSetting $config)
     {
+
         // Data validation and any auto-set updates.
         $request = $this->dataConsistencyCheck($request);
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Save/Update the site setting (using mass assignment)
-        $result = $setting->update($request->input());
+        $result = $config->update($request->input());
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the Flash message.
@@ -163,7 +165,7 @@ class ehConfigController extends ehBaseController
         if ($result) {
             session()->flash('message','<strong>Site Settings</strong> saved successfully.');
         } else {
-            session()->flash('message','Something went wrong.');
+            session()->flash('message','Something went wrong. '.$result);
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -177,7 +179,7 @@ class ehConfigController extends ehBaseController
 
 
     public function store(Request $request, ehSetting $setting) {
-
+        // There is only one record and you'll never create another one.
     }
 
 

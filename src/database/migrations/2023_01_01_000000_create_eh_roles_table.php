@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->tinyInteger('site_admin');
             $table->string('name');
             $table->string('description')->nullable();
-            $table->tinyInteger('restrict_flag');       // Custom Group restriction (and be used bu controllers and views for additional restrictions for this group.
+            $table->tinyInteger('restrict_flag');       // Custom Role restriction (and be used bu controllers and views for additional restrictions for this group.
             $table->string('default_home_page')->nullable();;
 
             $table->string('created_by');

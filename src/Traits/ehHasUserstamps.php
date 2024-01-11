@@ -116,13 +116,11 @@ trait ehHasUserstamps
         if ($user) {
 
             // This is the format definition of how we want the user name to appear in the updated_by field
-            // $user_value = $user->username . ' (' . $user->cWF_EID . ')';
+            //TODO: Might need to think about making this system configurable through settings or the config file.
 
-            // Just plain username with nothing else.
-            //TODO: Might need to think about making this system configurable through settings or the config file. (it's basically settable in the LoginController by overriding the appropriate method()).
-            //$user_value = $user->username;
-            //$user_value = $user->email;
-            $user_value = $user->name .' ('.$user->id.')';
+            //$user_value = $user->username;                    // Username only
+            //$user_value = $user->email;                       // Registered email only
+            $user_value = $user->name .' ('.$user->id.')';      // Username + (id)
 
         } else {
 

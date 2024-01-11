@@ -107,7 +107,7 @@ class ehAccess
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Normalize the $user_id and $route_name.
         $user = ehUser::normalizeUserID($user_id);
-        $route_name = ehPage::cleanRouteName($route_name);
+        $route_name = ehPage::normalizeRouteName($route_name);
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // !! IMPORTANT !! -- Site Admin bypasses all other checks - first thing we look for.
@@ -250,7 +250,7 @@ class ehAccess
         /* NO MORE ROUTES -- passing (expecting) only page id's
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Replace forward slashes with dots.
-        $route_name = ehPage::cleanRouteName($route_name);
+        $route_name = ehPage::normalizeRouteName($route_name);
         */
 
         ////////////////////////////////////////////////////////////////////////////////////////////
@@ -650,7 +650,7 @@ class ehAccess
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Check the route name and normalize slashes or convert to a name if it's a number.
-        //$route_name = ehPage::cleanRouteName($route_name);
+        //$route_name = ehPage::normalizeRouteName($route_name);
 
 
         /*
@@ -727,7 +727,7 @@ class ehAccess
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Clean up the format of the route name
-        $route_name = ehPage::cleanRouteName($route_name);
+        $route_name = ehPage::normalizeRouteName($route_name);
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////

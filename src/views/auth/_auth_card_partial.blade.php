@@ -129,7 +129,8 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-
+            // Force autofocus on the email input field.
+            $('#email').focus()
         });
     </script>
 

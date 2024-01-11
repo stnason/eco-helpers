@@ -84,15 +84,17 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('logout')}}">Logout</a></li>
                     --}}
 
-                    {{-- Normal logged in user display and Sign out/ Profile drop-down menu. --}}
+                    {{-- Normal logged in user display and Sign out/ Profile drop-down menu.
+                            Decide here what to show on the navbar (user name, email, first_name...)
+                        --}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <i class="far fa-user"></i>&nbsp;
-                            @if (empty(Auth::user()->first_name))
+                            @if (empty(Auth::user()->name))
                                 {{ Auth::user()->email }}
                             @else
-                                {{ Auth::user()->first_name }}
+                                {{ Auth::user()->name }}
                             @endif
                             <!--<span class="caret"></span>-->
                         </a>

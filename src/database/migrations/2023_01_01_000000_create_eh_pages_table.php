@@ -15,29 +15,22 @@ return new class extends Migration {
             $table->increments('id');
 
             $table->string('name');
-            $table->string('alt_text');
-            $table->string('description');
-            $table->string('type');
-            $table->tinyInteger('active');
-            $table->tinyInteger('security');
-            $table->string('icon');
-            $table->integer('parent_id');
-            $table->tinyInteger('menu_item');
-            $table->integer('order');
-            $table->string('route');
+            $table->string('alt_text')->nullable()->default(null);
+            $table->string('description')->nullable()->default(null);
+            $table->string('type')->nullable()->default(null);
+            $table->tinyInteger('active')->nullable()->default(null);
+            $table->tinyInteger('security')->nullable()->default(null);
+            $table->string('icon')->nullable()->default(null);
+            $table->integer('parent_id')->nullable()->default(null);
+            $table->tinyInteger('menu_item')->nullable()->default(null);
+            $table->integer('order')->nullable()->default(null);
+            $table->string('route')->nullable()->default(null);
 
-            /*
-            $table->tinyInteger('http_get_head');
-            $table->tinyInteger('http_put_patch');
-            $table->tinyInteger('http_post');
-            $table->tinyInteger('http_delete');
-            */
-
-            $table->text('feature_1');
-            $table->text('feature_2');
-            $table->text('feature_3');
-            $table->text('feature_4');
-            $table->text('comment');
+            $table->text('feature_1')->nullable()->default(null);
+            $table->text('feature_2')->nullable()->default(null);
+            $table->text('feature_3')->nullable()->default(null);
+            $table->text('feature_4')->nullable()->default(null);
+            $table->text('comment')->nullable()->default(null);
 
             $table->string('created_by');
             $table->timestamp('created_at')->nullable();

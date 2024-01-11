@@ -2,16 +2,15 @@
 
 namespace ScottNason\EcoHelpers\Controllers;
 
-use ScottNason\EcoHelpers\Classes\ehConfig;
-use ScottNason\EcoHelpers\Classes\ehLayout;
-use ScottNason\EcoHelpers\Classes\ehMenus;
-use ScottNason\EcoHelpers\Middleware\ehCheckPermissions;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
+use ScottNason\EcoHelpers\Classes\ehConfig;
+use ScottNason\EcoHelpers\Classes\ehLayout;
+use ScottNason\EcoHelpers\Classes\ehMenus;
 use ScottNason\EcoHelpers\Models\ehPage;
-use ScottNason\EcoHelpers\Traits\ehProperExtendCheck;
 
 
 class ehBaseController extends BaseController
@@ -23,7 +22,7 @@ class ehBaseController extends BaseController
 
 
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    use ehProperExtendCheck;
+
 
     /**
      * Create a new controller instance.
@@ -37,7 +36,6 @@ class ehBaseController extends BaseController
         // Force every page that extends this controller to check for authentication requirements.
         // If a page should not be authenticated, you can override the __construct() and just use 'web' only.
         // The Permissions middleware will check the Pages table to see if this route is set to "public"
-
 
         $this->middleware('web');               // This is needed if you want to use a session,
                                                 // w/o it, $errors variable is missing for the base template.
@@ -73,6 +71,18 @@ class ehBaseController extends BaseController
             // Leave this outside of the above if to make the final determination for access.
             $this->middleware('check_permissions');     // ecoHelpers custom (granular/ token-based) permissions check.
 
+
+            //TODO: still struggling with the right way / place to do this using the UTC timestamps.
+            // How do we 'localize' the time displays to the user agent?
+            // But -- it looks like we may not need to do anything at all. The user agent may just take care of this.
+            // If so, we may need to think about getting rid of the timezone field from the user table.
+            //
+            // 1.Set system to the user's timezone (if set in their profile)
+            // This was in the ehAuthenticatedSessionController but was not persistent.
+            // UTC is set in the app.php by default.
+            //if (!empty(Auth()->user()->timezone)) {
+            //    date_default_timezone_set(Auth()->user()->timezone);
+            //}
         }
     }
 
@@ -80,6 +90,7 @@ class ehBaseController extends BaseController
      * web.php routes redirect a get /login route to forceLogin()
      * @return mixed
      */
+    /* DEPRECATED -- I think this was some kind of test when we were attempting to use the modals.
     public static function forceLogin()
     {
         ehLayout::initLayout();
@@ -95,5 +106,20 @@ class ehBaseController extends BaseController
             ['form' => $form]
         );
     }
+    */
+
+
+    /**
+     * A simple check to ensure that subsequent page controllers have been setup to extend this one.
+     * This function literally does nothing; except ehLayout check to see if it exist() to make
+     * sure this controller instance has extended ehBaseController.
+     *
+     * @return bool|mixed
+     */
+    public function doesExtendBaseController() {
+        return null;
+    }
+
+
 
 }

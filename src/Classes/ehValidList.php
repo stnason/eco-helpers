@@ -178,6 +178,23 @@ class ehValidList {
                 break;
 */
 
+            // User list for the User Profile Go-To
+            case "example_list":                    // Name to use when calling getList()
+                $key = 'id';                        // The table column name used for the "key"
+
+                // This can be changed based on whether or not you're using a different username than email
+                $value = 'name';                    // The table column name used for the "value"
+                $orderBy = 'name';                  // ORDER BY clause field(s)
+
+                $model_path = 'ScottNason\EcoHelpers\Models\ehExample';
+                                                    // The Laravel pathname to the Model
+                $where_clause = ""; // Add a complete WHERE clause if needed
+                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
+                $archive_field = '';                // If we define a column here we'll check to see if it is false
+                $active_field = '';                 // If we define a column here we'll check to see if it is true
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                break;
+
             case "module_list_all":                 // Name to use when calling getList()
                 $key = 'id';                        // The table column name used for the "key"
                 $value = 'name';                    // The table column name used for the "value"

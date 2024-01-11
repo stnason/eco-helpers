@@ -5,13 +5,10 @@ namespace ScottNason\EcoHelpers\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use ScottNason\EcoHelpers\Classes\ehAccess;
-use ScottNason\EcoHelpers\Classes\ehConfig;
-use ScottNason\EcoHelpers\Classes\ehMenus;
 use ScottNason\EcoHelpers\Models\ehExample;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
-use ScottNason\EcoHelpers\Models\ehPage;
+
 
 class ehExamplesController extends ehBaseController
 {
@@ -29,10 +26,10 @@ class ehExamplesController extends ehBaseController
 
         $linkbar = new ehLinkbar();
         ehLayout::setLinkbar($linkbar->getLinkBar());   // Turns it on with whatever is returned from ehLinkbar;
-                                                        // If empty (if you don't have permissions to any of these),
-                                                        // it properly blanks it out w/o a line collapse.
-        //ehLayout::setLinkbar(false);                  // Turns it off with a line collapse
-        //ehLayout::setLinkbar();                       // Turns it on with defaults
+                                                        // If it returns empty (if you don't have permissions to any of these),
+                                                        // then it properly blanks it out w/o a line collapse.
+        //ehLayout::setLinkbar(false);                  // Turns the Linkbar off with a line collapse
+        //ehLayout::setLinkbar();                       // Turns the Linkbar on with defaults
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -98,13 +95,14 @@ class ehExamplesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the menu name in the dynamic header.
+        //TODO: incorporate Archived into the Dynamic header somehow.
         if ($example->active) {
             ehLayout::setAttention('Active', 'bg-secondary');
         } else {
             ehLayout::setAttention('Not Active', 'bg-warning');
         }
 
- //dd(Request()->route());
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the menu name in the dynamic header.
@@ -113,10 +111,11 @@ class ehExamplesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         ehLayout::setAutoload('unsaved');         // Include the form data changed check on any crud page.
+        ehLayout::setAutoload('datepicker');      // Include the datepicker js and css for this page.
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Set up Save, New and Delete buttons based on this user's permissions.
+        // Set up Save, New and Delete buttons based on this user's permissions to this route.
         ehLayout::setStandardButtons();
 
         /*
@@ -139,7 +138,7 @@ class ehExamplesController extends ehBaseController
         // Set the form action
         $form['layout']['form_action'] = config('app.url').'/examples/'.$example->id;
         $form['layout']['form_method'] = 'PATCH';
-        $form['layout']['when_adding'] = false;           // Toggles parts of the form off when adding a new record.
+        $form['layout']['when_adding'] = false;           // May toggles parts of the form off when adding a new record.
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -155,25 +154,67 @@ class ehExamplesController extends ehBaseController
      */
     public function edit(ehExample $example)
     {
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Edit is not implemented in eco-helpers.
+        // The show() screen allows editing and adding new records for those that have permissions.
+        // Note: see the CRUD Router in the @update() method below.
+
         dd('ehExamplesController@edit()');
+
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the Example record.
      */
     public function update(Request $request, ehExample $example)
     {
 
-        // CRUD Router
+        // Crud Router - new
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Watch for a 'new' button submit then redirect to the create method.
+        // which, in turn, will change the form method for the new record submit.
+        if ($request->has('new')) {
+            return redirect(route('examples.create'));
+        }
+
+        // Standard (simple) Laravel Validation
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        /*
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+        */
+
+        // Extended Validation with Business (data consistency) Rules
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // When you need more control over how this update() operation interacts with other fields.
+        $request = $this->dataConsistencyCheck($request, $example);
 
 
-        // Simple Validation
+        // Actual update to the examples table.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        $result = $example->update($request->input());
 
 
-        // Extended Validation and Business Rules
+        // Return flash message
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // If all went okay then say that in the flash message.
+        if ($result) {
+            session()->flash('message','Example record for <strong>'.$example->name.'</strong> saved successfully. ');
+        } else {
+            session()->flash('message','Something went wrong.');
+        }
 
 
-        dd('ehExamplesController@update()');
+        // Go back to the examples detail page we were on.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        return redirect(route('examples.show',[$example->id]));
+
+
     }
 
     /**
@@ -181,6 +222,9 @@ class ehExamplesController extends ehBaseController
      */
     public function destroy(ehExample $example)
     {
+
+        // Any specific "delete" Business Rules
+
         dd('ehExamplesController@destroy()');
     }
 
@@ -190,12 +234,13 @@ class ehExamplesController extends ehBaseController
      *
      * @return void
      */
-    public function static() {
+    public function staticPage() {
 
         ehLayout::initLayout();
 
         $form['layout'] = ehLayout::getLayout();
 
+        $form['some_variable'] = '';    // passed from the controller
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Cal the view.
@@ -204,5 +249,58 @@ class ehExamplesController extends ehBaseController
         ]);
 
     }
+
+
+    /**
+     * Extended validation, custom error messages and business rules.
+     * Use this when there are other data fields that interact with each other.
+     * (as in , if you change one field, something else needs to change...)
+     *
+     * @param $request
+     * @param $example
+     * @return mixed
+     */
+    protected function dataConsistencyCheck($request, $example) {
+
+        // If you want to include the simple validation, you can do that here.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+
+        // BUSINESS RULES:
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Check for any situation that may require other fields to stay in sync or
+        // change to a particular value.
+
+
+        // RULE 1. If example user is set to archived then make then inactive too.
+        //          Archived users cannot be 'active'.
+        if ($request->archived) {
+            // Then change the value for active in the $request
+            $request->merge(['active'=>0]);
+        }
+
+        /*
+        // RULE 2. Check for some condition.
+        if ($checkSomething) {
+            // Change the value in the $request
+            $request->merge(['value'=>'new_value']);
+        }
+
+        // RULE 3. Check for some condition.
+        if ($checkSomething) {
+            // Change the value in the $request
+            $request->merge(['value'=>'new_value']);
+        }
+        */
+
+        return $request;
+
+    }
+
+
 
 }

@@ -251,8 +251,8 @@ class ehSampleData {
         return [
             1=>[
                 'archived' => 0,
-                'first_name' => 'ehUser',
-                'last_name' => '',
+                'first_name' => 'Ehserfirstname',
+                'last_name' => 'Ehuserlastname',
                 'middle_name' => '',
                 'nickname' => '',
                 'title' => '',
@@ -273,7 +273,7 @@ class ehSampleData {
                 'login_created' => date(ehConfig::get('date_format_sql_long')),
                 'last_login' => null,
                 'login_count' => 0,
-                'timezone' => '',
+                'timezone' => 'America/New_York',
                 'name' => 'ehUser',
                 'email' => 'ehUser@email.com',
                 'email_verified_at' => date(ehConfig::get('date_format_sql_long')),
@@ -285,8 +285,8 @@ class ehSampleData {
             ],
             2=>[
                 'archived' => 0,
-                'first_name' => 'ehAdmin',
-                'last_name' => '',
+                'first_name' => 'Ehadminfirstname',
+                'last_name' => 'Ehadminlastname',
                 'middle_name' => '',
                 'nickname' => '',
                 'title' => '',
@@ -307,7 +307,7 @@ class ehSampleData {
                 'login_created' => date(ehConfig::get('date_format_sql_long')),
                 'last_login' => null,
                 'login_count' => 0,
-                'timezone' => '',
+                'timezone' => 'America/New_York',
                 'name' => 'ehAdmin',
                 'email' => 'ehAdmin@email.com',
                 'email_verified_at' => date(ehConfig::get('date_format_sql_long')),
@@ -467,9 +467,10 @@ class ehSampleData {
             ['id'=>'12',	'name'=>'Examples',	'alt_text'=>'examples to learn from',	'description'=>'examples to learn from',	'type'=>'resource',	'active'=>'1',	'security'=>'1',	'icon'=>'fa-regular fa-id-card',	'parent_id'=>'2',	'menu_item'=>'1',	'order'=>'1',	'route'=>'examples',	'feature_1'=>'',	'feature_2'=>'',	'feature_3'=>'',	'feature_4'=>'',	'comment'=>'',	'created_by'=>'system',	'created_at'=>date('Y-m-d'),	'updated_by'=>'system',	'updated_at'=>date('Y-m-d')],
             ['id'=>'13',	'name'=>'Scripts',	'alt_text'=>'',	'description'=>'system-based script files that are needed to perform various tasks',	'type'=>'module',	'active'=>'1',	'security'=>'3',	'icon'=>'fa-regular fa-file-lines',	'parent_id'=>'0',	'menu_item'=>'0',	'order'=>'5',	'route'=>'module.13',	'feature_1'=>'',	'feature_2'=>'',	'feature_3'=>'',	'feature_4'=>'',	'comment'=>'',	'created_by'=>'system',	'created_at'=>date('Y-m-d'),	'updated_by'=>'system',	'updated_at'=>date('Y-m-d')],
             ['id'=>'14',	'name'=>'User Role Change',	'alt_text'=>'',	'description'=>'change the users role to one of their assigned roles',	'type'=>'method',	'active'=>'1',	'security'=>'2',	'icon'=>'',	'parent_id'=>'13',	'menu_item'=>'0',	'order'=>'1',	'route'=>'users.role',	'feature_1'=>'',	'feature_2'=>'',	'feature_3'=>'',	'feature_4'=>'',	'comment'=>'',	'created_by'=>'system',	'created_at'=>date('Y-m-d'),	'updated_by'=>'system',	'updated_at'=>date('Y-m-d')],
-            ['id'=>'15',	'name'=>'Notification (getNext)',	'alt_text'=>'',	'description'=>'get the next notification in line for this user.',	'type'=>'method',	'active'=>'1',	'security'=>'2',	'icon'=>'',	'parent_id'=>'13',	'menu_item'=>'0',	'order'=>'2',	'route'=>'notifications.get-next',	'feature_1'=>'',	'feature_2'=>'',	'feature_3'=>'',	'feature_4'=>'',	'comment'=>'',	'created_by'=>'system',	'created_at'=>date('Y-m-d'),	'updated_by'=>'system',	'updated_at'=>date('Y-m-d')],
+            ['id'=>'15',	'name'=>'Notification (getNext)',	'alt_text'=>'',	'description'=>'get the next notification in line for this user.',	'type'=>'method',	'active'=>'1',	'security'=>'1',	'icon'=>'',	'parent_id'=>'13',	'menu_item'=>'0',	'order'=>'2',	'route'=>'notifications.get-next',	'feature_1'=>'',	'feature_2'=>'',	'feature_3'=>'',	'feature_4'=>'',	'comment'=>'',	'created_by'=>'system',	'created_at'=>date('Y-m-d'),	'updated_by'=>'system',	'updated_at'=>date('Y-m-d')],
             ['id'=>'16',	'name'=>'Notification (getTotal)',	'alt_text'=>'',	'description'=>'get the total notifications for this user.',	'type'=>'method',	'active'=>'1',	'security'=>'2',	'icon'=>'',	'parent_id'=>'13',	'menu_item'=>'0',	'order'=>'3',	'route'=>'notifications.get-total',	'feature_1'=>'',	'feature_2'=>'',	'feature_3'=>'',	'feature_4'=>'',	'comment'=>'',	'created_by'=>'system',	'created_at'=>date('Y-m-d'),	'updated_by'=>'system',	'updated_at'=>date('Y-m-d')],
             ['id'=>'17',	'name'=>'Notification (deleteNext)',	'alt_text'=>'',	'description'=>'delete the current notification for this user.',	'type'=>'method',	'active'=>'1',	'security'=>'2',	'icon'=>'',	'parent_id'=>'13',	'menu_item'=>'0',	'order'=>'4',	'route'=>'notifications.delete-next',	'feature_1'=>'',	'feature_2'=>'',	'feature_3'=>'',	'feature_4'=>'',	'comment'=>'',	'created_by'=>'system',	'created_at'=>date('Y-m-d'),	'updated_by'=>'system',	'updated_at'=>date('Y-m-d')],
+            ['id'=>'18',	'name'=>'Example Static',	'alt_text'=>'examples of a statically called page',	'description'=>'examples of a statically called page',	'type'=>'page',	'active'=>'1',	'security'=>'2',	'icon'=>'',	'parent_id'=>'2',	'menu_item'=>'1',	'order'=>'2',	'route'=>'examples.static-page',	'feature_1'=>'',	'feature_2'=>'',	'feature_3'=>'',	'feature_4'=>'',	'comment'=>'',	'created_by'=>'system',	'created_at'=>date('Y-m-d'),	'updated_by'=>'system',	'updated_at'=>date('Y-m-d')],
         ];
     }
 

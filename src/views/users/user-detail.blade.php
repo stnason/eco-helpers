@@ -438,7 +438,7 @@
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
                             {!! $control::label(['field_name'=>'email_verified_at', 'display_name'=>$user, 'errors'=>$errors]) !!}
-                            {!! $control::input(['field_name'=>'email_verified_at', 'model'=>$user, 'errors'=>$errors]) !!}
+                            {!! $control::input(['field_name'=>'email_verified_at', 'model'=>$user, 'date_long'=>true, 'errors'=>$errors]) !!}
                         </div>
                     </div>
                     {{-- Right column of form data. --}}
@@ -472,8 +472,10 @@
                     {{-- Left column of form data. --}}
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
+                            {{-- Not sure this is going to be implemented. Haven't found a strong use case under Breeze auth.
                             {!! $control::label(['field_name'=>'force_password_reset', 'display_name'=>$user, 'errors'=>$errors]) !!}
                             {!! $control::radio(['field_name'=>'force_password_reset', 'model'=>$user, 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No'] ]) !!}
+                            --}}
                         </div>
                     </div>
                     {{-- Right column of form data. --}}

@@ -1,6 +1,6 @@
 <?php
 
-//TODO: finish out all of the Laravel-style config comments for each key.
+
 return [
 
     /*
@@ -16,16 +16,16 @@ return [
     |   a will return am or pm (use in uppercase for AM PM)
     |   m is used for months with digits
     |   d is used for days in digit
-    |   Y uppercase is used for 4 digit year (use it lowercase for two digit)
+    |   Y uppercase is used for 4 digit year (lowercase for two digit year)
     |
     */
     'date_format_php_short' => 'm/d/Y',                 // The format PHP should use to create dates for display use (w/o time).
     'date_format_php_long' => 'm/d/Y h:i:s A',          // The format PHP should use to create dates for display use (with time).
     'date_format_js_short' => 'MM/DD/YYYY',             // JS date picker format for the web-form display of dates.
     'date_format_js_long' => 'MM/DD/YYYY h:i:s A',      // JS date picker format for the web-form display of dates.
-    'date_format_sql_short' => 'Y-m-d',                   // Format to store in the mysql database when using the data only.
-    'date_format_sql_long' => 'Y-m-d h:i:s',              // Format to store in the mysql database when adding the time to the date.
-
+    'date_format_sql_short' => 'Y-m-d',                 // Format to store in the mysql database when using the data only.
+    'date_format_sql_long' => 'Y-m-d H:i:s',            // Format to store in the mysql database when adding the time to the date.
+                                                        // Remember that we need the "H" 24 hour format here to save the timestamp properly for AM/PM later.
 
     /*
     |--------------------------------------------------------------------------
@@ -315,7 +315,11 @@ return [
 
     ],
 
-
+    /*
+    |--------------------------------------------------------------------------
+    | Page and Menus System Section
+    |--------------------------------------------------------------------------
+    */
     'menus' => [
         'enabled' => true,      // If you want to use your own menus system, or just static hard-coded, then just turn this off.
                                 // If this is true, eh-pages is required so you'll need to have run the ecoHelpers migration.
@@ -323,10 +327,10 @@ return [
 
 
     /*
-  |--------------------------------------------------------------------------
-  | Notifications Section
-  |--------------------------------------------------------------------------
-  */
+    |--------------------------------------------------------------------------
+    | Notifications Section
+    |--------------------------------------------------------------------------
+    */
     'notifications' => [
 
         //TODO: REVIEW: This may have to be deprecated--or at minimum--have a lot more control built in.
@@ -339,20 +343,19 @@ return [
         // auto_delete_when_read (as apposed to just marking as read and letting the user delete it.)
     ],
 
-
     /*
-  |--------------------------------------------------------------------------
-  | Controls Section
-  |--------------------------------------------------------------------------
-  */
+    |--------------------------------------------------------------------------
+    | Controls Section
+    |--------------------------------------------------------------------------
+    */
     'controls' => [],
 
 
     /*
-  |--------------------------------------------------------------------------
-  | Access Section
-  |--------------------------------------------------------------------------
-  */
+    |--------------------------------------------------------------------------
+    | Access Section
+    |--------------------------------------------------------------------------
+    */
     'access' => [
 
         /*

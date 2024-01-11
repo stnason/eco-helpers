@@ -32,17 +32,6 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
     public $dates = ['created_at', 'updated_at'];
 
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    public $casts = [
-        'email_verified_at' => 'datetime',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
-
 
     /**
      * Controls will use this array to set readonly on these fields.
@@ -127,6 +116,17 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
         'save'
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    public $casts = [
+        'email_verified_at' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 
 
     /**

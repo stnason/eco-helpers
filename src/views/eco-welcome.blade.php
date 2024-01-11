@@ -51,6 +51,7 @@
                         {{$eh_roles::find(Auth()->user()->default_role)->name}}</li>
                     <li>Acting role: {{Auth()->user()->acting_role}}-
                         {{$eh_roles::find(Auth()->user()->acting_role)->name}}</li>
+                    <li>Timezone: {{date_default_timezone_get()}}</li>
 
                 @else
                     <li>User is not logged in.</li>

@@ -86,7 +86,7 @@ class ehCheckPermissions
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 0b. Skip this middleware for any of the auth routes defined in the config file.
-//dd(ehConfig::get('access.auth_routes'));
+//dd(ehConfig::get('access.auth_routes'));      // This was an idea that was not implemented.
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
