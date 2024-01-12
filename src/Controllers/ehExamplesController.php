@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use ScottNason\EcoHelpers\Models\ehExample;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
+use ScottNason\EcoHelpers\Classes\ehAccess;
 
 
 class ehExamplesController extends ehBaseController
@@ -45,7 +46,7 @@ class ehExamplesController extends ehBaseController
                                                 // Note: this could just as easily be some kind of restricted query to limit records.
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Define the fields to be used in the table/list view.
+        // Define the fields to be used in the Datatables/list view.
         $form['use_fields'] = [
             'name' => 'Name',
             'address' => 'Address',
@@ -64,11 +65,46 @@ class ehExamplesController extends ehBaseController
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new example resource.
+     *
      */
-    public function create()
+    public function create(ehExample $example)
     {
-        dd('ehExamplesController@create()');
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Create an empty model to use for this "add" form.
+        // Looks like we can type hint above [create(Model $model)],
+        // Or use this that may be a little more verbose.
+        // $example = new ehExample();
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Initialize and set the screen display options.
+        ehLayout::initLayout();
+        ehLayout::setOptionBlock(false);
+
+        $linkbar = new ehLinkbar();
+        ehLayout::setLinkbar($linkbar->getLinkbar());
+
+        // SECURITY: Button control.
+        if (ehAccess::chkUserResourceAccess(Auth()->user(),Route::currentRouteName(),ACCESS_EDIT)) {
+            ehLayout::setButton('save', '<input class="btn btn-primary" type="submit" id="save" name="save" value="Save">');
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Retrieve the Layout data for the view.
+        $form['layout'] = ehLayout::getLayout();
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Set the form action
+        $form['layout']['form_action'] = route('examples.store');   // The name of the resourceful route.
+        $form['layout']['form_method'] = 'POST';                    // Set the create() form method.
+        $form['layout']['when_adding'] = true;                      // May be used to turn parts of the show()
+                                                                    // form off when adding a new record.
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        return view('ecoHelpers::examples.example-detail',[
+            'form' => $form,
+            'example'=>$example
+        ]);
     }
 
     /**
@@ -76,7 +112,49 @@ class ehExamplesController extends ehBaseController
      */
     public function store(Request $request)
     {
-        dd('ehExamplesController@store()');
+
+        // Create a new empty record. Then fill it with the input()
+        $example = new ehExample();
+        $example->fill($request->input());
+
+        // Standard (simple) Laravel Validation (specific to update)
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        /*
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+        */
+
+
+        // Extended Validation with Business (data consistency) Rules (shared with update/ store)
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // When you need more control over how this update() operation interacts with other fields.
+        $request = $this->dataConsistencyCheck($request, $example);
+
+
+        // Actual save to the examples table.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        $result = $example->save($request->input());
+
+
+        // Return flash message
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // If all went okay then say that in the flash message.
+        if ($result) {
+            session()->flash('message','Example record for <strong>'.$example->name.'</strong> added successfully. ');
+        } else {
+            session()->flash('message','Something went wrong.');
+        }
+
+
+        // Go back to the examples detail page with the new id.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        return redirect(route('examples.show',[$example->id]));
+
     }
 
     /**
@@ -86,7 +164,7 @@ class ehExamplesController extends ehBaseController
     {
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // layout the layout options
+        // Initialize and set the screen display options.
         ehLayout::initLayout();
         ehLayout::setOptionBlock(false);
 
@@ -95,13 +173,14 @@ class ehExamplesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the menu name in the dynamic header.
-        //TODO: incorporate Archived into the Dynamic header somehow.
         if ($example->active) {
             ehLayout::setAttention('Active', 'bg-secondary');
         } else {
             ehLayout::setAttention('Not Active', 'bg-warning');
         }
-
+        if ($example->archived) {
+            ehLayout::setAttention('Archived (Not Active)', 'bg-warning');
+        }
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -115,11 +194,12 @@ class ehExamplesController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Set up Save, New and Delete buttons based on this user's permissions to this route.
+        // Automatic button control.
+        // User will get "Save", "New" and/or "Delete" buttons based on their acting_role permissions on this route (page).
         ehLayout::setStandardButtons();
 
         /*
-        // SECURITY: Manual way of doing button control.
+        // SECURITY: Manual way of doing individual button access control.
         if (ehAccess::chkUserResourceAccess(Auth()->user(),Route::currentRouteName(),ACCESS_EDIT)) {
             ehLayout::setButton('save', '<input class="btn btn-primary" type="submit" id="save" name="save" value="Save">');
         }
@@ -132,14 +212,16 @@ class ehExamplesController extends ehBaseController
         */
 
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Retrieve the layout data for the view.
         $form['layout'] = ehLayout::getLayout();
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the form action
-        $form['layout']['form_action'] = config('app.url').'/examples/'.$example->id;
-        $form['layout']['form_method'] = 'PATCH';
-        $form['layout']['when_adding'] = false;           // May toggles parts of the form off when adding a new record.
-
+        $form['layout']['form_action'] = route('examples.update',[$example->id]);
+        $form['layout']['form_method'] = 'PATCH';           // Set the update() form method.
+        $form['layout']['when_adding'] = false;             // May be used to turn parts of the show()
+                                                            // form off when adding a new record.
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Cal the view.
@@ -177,7 +259,7 @@ class ehExamplesController extends ehBaseController
             return redirect(route('examples.create'));
         }
 
-        // Standard (simple) Laravel Validation
+        // Standard (simple) Laravel Validation (specific to update)
         ///////////////////////////////////////////////////////////////////////////////////////////
         /*
         $request->validate([
@@ -189,7 +271,7 @@ class ehExamplesController extends ehBaseController
         ]);
         */
 
-        // Extended Validation with Business (data consistency) Rules
+        // Extended Validation with Business (data consistency) Rules (shared with update/ store)
         ///////////////////////////////////////////////////////////////////////////////////////////
         // When you need more control over how this update() operation interacts with other fields.
         $request = $this->dataConsistencyCheck($request, $example);
@@ -214,7 +296,6 @@ class ehExamplesController extends ehBaseController
         ///////////////////////////////////////////////////////////////////////////////////////////
         return redirect(route('examples.show',[$example->id]));
 
-
     }
 
     /**
@@ -223,9 +304,34 @@ class ehExamplesController extends ehBaseController
     public function destroy(ehExample $example)
     {
 
-        // Any specific "delete" Business Rules
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Any specific "delete" BUSINESS RULES:
 
-        dd('ehExamplesController@destroy()');
+        // 1. RULE: Let's say you're not allowed to delete an active user.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        if ($example->active) {
+            session()->flash('message',"You're <strong>not allowed</strong> to delete a currently <strong>Active</strong> user.");
+            return redirect(route('examples.show',[$example->id]));
+        }
+
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Do the actual deletion.
+        $result = $example->delete();
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // If all went okay then say that in the flash message.
+        if ($result) {
+            session()->flash('message','Example record for <strong>'.$example->name.'</strong> deleted successfully. ');
+        } else {
+            session()->flash('message','Something went wrong.');
+        }
+
+        // Go back to the examples list page.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        return redirect(route('examples.index'));
     }
 
 
@@ -243,7 +349,7 @@ class ehExamplesController extends ehBaseController
         $form['some_variable'] = '';    // passed from the controller
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Cal the view.
+        // Call the view.
         return view('ecoHelpers::examples.example-static',[
             'form' => $form
         ]);

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
@@ -79,7 +80,7 @@ class RegisteredUserController extends Controller
         $unique_user_name = $user_name;     // The newly created unique user name.
         do {
             $r = DB::select("SELECT * FROM users WHERE name = '".$unique_user_name."';");
-            if ($r->count() > 0) {          // This name is already in use.
+            if (count($r) > 0) {          // This name is already in use.
                 $unique_user_name = $user_name.$unique_cnt;
                 $unique_cnt++;
             } else {

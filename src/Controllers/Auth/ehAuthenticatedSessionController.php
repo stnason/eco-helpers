@@ -1,6 +1,9 @@
 <?php
 /**
- * This will be used with the publishable AuthenticationSessionController for use with the Breeze scaffolding.
+ * This will be used with the publishable AuthenticationSessionController
+ * for use with the Breeze scaffolding. It provides the additional eco-helpers checks
+ * during login.
+ *
  */
 
 namespace ScottNason\EcoHelpers\Controllers\Auth;
@@ -15,16 +18,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Models\ehRole;
-//use ScottNason\EcoHelpers\Traits\ehProperExtendCheck;
+
 
 class ehAuthenticatedSessionController extends Controller
 {
-
-    //use ehProperExtendCheck;
-
-    // This was so we could share between breeze and ui controllers
-    // use ehLoginAndAuthenticatedSessionsFunctions;
-
 
     /**
      * Login message $keys are used with the corresponding ecoHelpers custom login validation checks.
@@ -47,7 +44,7 @@ class ehAuthenticatedSessionController extends Controller
      * @return mixed
      */
     protected $login_error_key = 'description';     // Less secure; tell exactly why you can't login.
-    //protected $login_error_key = 'number';        // More secure; just show an ambiguous error number.
+    //protected $login_error_key = 'number';        // More secure; just show an ambiguous error number (listed above).
 
     /**
      * Login username to be used by the controller. (email or name)
@@ -75,6 +72,7 @@ class ehAuthenticatedSessionController extends Controller
 
 
     protected function ehAdditionalLoginChecks($request) {
+
         ////////////////////////////////////////////////////////////////////////////////////////////
         // ecoHelpers additional login checks
         // TODO: Most of these same checks will need to be run when a user changes roles. Should these all be in a callable method()?
@@ -84,7 +82,6 @@ class ehAuthenticatedSessionController extends Controller
         // 1. Since we have to do this before the login attempt, let's see if we can even find the user name.
         //    If not, then just continue on and let the normal validation handle that.
         $user = User::where('email',$request->email)->first();
-
 
 
         // Was the user found? If not then we don't need to check any of this.
@@ -220,6 +217,12 @@ class ehAuthenticatedSessionController extends Controller
     //public function create(): View
     public function create()
     {
+        //TODO: Do we want to pursue the idea of being able to login to the uncontrolled Example Detail page
+        // and then being able to stay on that page and just get the additional buttons to match your permissions?
+        // For some reason this is different than intended() and returns back to the /eco HOME const.
+        // dd(url()->previous());   // Maybe we could see if we were currently on any named route
+        // other than '/' or '/eco' (which, by the way may go away later) -- and then act accordingly??
+
         return view('auth.login');
     }
 
@@ -282,12 +285,12 @@ class ehAuthenticatedSessionController extends Controller
         } else {
             // Go to the intended route or the global HOME page.
             return redirect()->intended(RouteServiceProvider::HOME);    // This works if you hit a protected route and it forces you to login.
-                                                                        // But if you're on a page and just want to get edit rights by logging it --
-                                                                        // Then it redirects to HOME.
+                                                                        // But if you're on a page and just want to get edit rights by logging in --
+                                                                        // then it redirects to HOME.
             // Or does it make more sense to return to the page you're already on?
-            //dd(request()->route()->getName());    // This is null (?)
-            //return redirect()->back();            // This goes back to the /eco home page (when on examples@show())
-            //return redirect()->intended();        // This goes to the Laravel '/' home page
+            // dd(request()->route()->getName());    // This is null (?)
+            // return redirect()->back();            // This goes back to the /eco home page (when on examples@show())
+            // return redirect()->intended();        // This goes to the Laravel '/' home page
         }
 
     }

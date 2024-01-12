@@ -29,5 +29,12 @@
         </ul>
     </li>
 @else
-    <li><a class="dropdown-item" href="{{config('app.url')}}/{{$menu_item->route}}">{{$menu_item->name}}</a></li>
+    {{-- <li><a class="dropdown-item" href="{{config('app.url')}}/{{$menu_item->route}}">{{$menu_item->name}}</a></li> --}}
+
+    {{-- Check to see if the route exists before creating the link to it. If not, just use the name. --}}
+    @if (Route::has($menu_item->route))
+        <li><a class="dropdown-item" href="{{route($menu_item->route)}}">{{$menu_item->name}}</a></li>
+    @else
+        <li><a class="dropdown-item" href="#">{{$menu_item->name}}</a></li>
+    @endif
 @endif

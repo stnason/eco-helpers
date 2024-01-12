@@ -18,11 +18,6 @@ use ScottNason\EcoHelpers\Models\ehRole;
 class ehUsersController extends ehBaseController
 {
 
-    // Note: using the same traits here as we do on ehUser -- so we can take advantage of the role functions.
-    // ????? Not sure what we did here -- Maybe just moved everything into calls to the ehUser class??
-    //use ehUserFunctions;
-
-
     /**
      * Display a listing of the resource.
      *
@@ -32,7 +27,9 @@ class ehUsersController extends ehBaseController
     {
 
         // Instead of a list -- just go to the logged in person's record.
-        // Of course this assumes that you have to be logged in to even access this features so there is no error checking on Auth().
+        // (Of course this assumes that you have to be logged in to even access this features so there is no error checking on Auth()).
+
+        // You could just as easily implement a list here (see ehExamplesController@index().
 
         if (Auth()->guest()) {
             return redirect('/users/' . ehUser::first()->id);
@@ -221,12 +218,10 @@ class ehUsersController extends ehBaseController
      */
     public function role(Request $request) {
 
-
         // If a role is passed in the request, then call the method to change the user's acting role.
         if (!empty($request->role)) {
             Auth()->user()->setActingRole($request->role);
         }
-
 
         //TODO: This is redundant to the user's notification popup.
         // Is there any use case to keep this and if so, should we include
@@ -238,7 +233,6 @@ class ehUsersController extends ehBaseController
         return redirect(url()->previous());
 
     }
-
 
 
 

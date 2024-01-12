@@ -58,7 +58,8 @@
         $show_register = false;
         $show_forgot = false;
         $show_ip = true;
-        $form_action = 'verification.notice';
+        //$form_action = 'verification.notice';
+        $form_action = 'verification.send';
         break;
       default:
         $form['layout']['card_header'] = 'Sign Up';

@@ -34,7 +34,7 @@ Route::group(['middleware' => ['web']], function () {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// Named routes that share a base resource name must be defined before the resource route.
+// Named routes that share a resource route name must be defined before the resource route.
 Route::get('/examples/static-page', [ehExamplesController::class, 'staticPage'])->name('examples.static-page');
 
 ///////////////////////////////////////////////////////////////////////////////////////////

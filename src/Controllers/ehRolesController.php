@@ -135,7 +135,6 @@ class ehRolesController extends ehBaseController
         // Retrieve the Layout
         $form['layout'] = ehLayout::getLayout();
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the form action
         $form['layout']['form_action'] = config('app.url').'/roles';

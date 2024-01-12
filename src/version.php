@@ -1,12 +1,14 @@
 <?php
 return [
     'APP_VER' => 'v1.0.27',
-    'APP_LASTUPDATE' => '01/11/2024'
+    'APP_LASTUPDATE' => '01/12/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 01/12/2024:v01.00.27: 2.00 :ehExamplesController; create, store, delete. Add example-static. Add check to eh-child-menus for valid route name.
+ * 01/11/2024:v01.00.27: 1.00 :Fixed registration and emi-verify issues.
  * 01/11/2024:v01.00.27: 3.75 :Cleaning up ehExamplesController. Finish out @update. Fix timezone, unauthorized get-next. Work on intented route after login.
  * 01/10/2024:v01.00.26: 2.50 :Clean up Example; fix bio too wide, jQuery datepicker error, no GoTo dropdown list, goto not working, set email focus on login.
  * 01/10/2024:v01.00.26: 1.25 :Clean up user detail edit. Fix rehashing password. Remove Force Password. Change Verified date to long.

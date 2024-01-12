@@ -40,7 +40,26 @@
                 </div>
                 {{-- Right column of form data. --}}
                 <div class="col-md">
+                    <div class="form-group d-inline-flex">
+                        {!! $control::label(['field_name'=>'id', 'display_name'=>$example, 'errors'=>$errors]) !!}
+                        {{--
+                        {!! $control::input(['field_name'=>'id', 'model'=>$example, 'disabled'=>true, 'errors'=>$errors]) !!}
+                        --}}
+                        <p class="mt-1 ms-1 text-secondary">{{$example->id}}</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                {{-- Left column of form data. --}}
+                <div class="col-md">
+                    <div class="form-group d-inline-flex">
+                        {!! $control::label(['field_name'=>'archived', 'display_name'=>$example, 'errors'=>$errors]) !!}
+                        {!! $control::radio(['field_name'=>'archived', 'model'=>$example, 'alert_if'=>1, 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
+                    </div>
+                </div>
+                {{-- Right column of form data. --}}
+                <div class="col-md">
                     {{-- Leave out the GOTO dropdowns when adding a new record. --}}
                     @if(!$form['layout']['when_adding'])
                         <div class="form-group d-inline-flex">
@@ -68,23 +87,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                {{-- Left column of form data. --}}
-                <div class="col-md">
-                    <div class="form-group d-inline-flex">
-                        {!! $control::label(['field_name'=>'archived', 'display_name'=>$example, 'errors'=>$errors]) !!}
-                        {!! $control::radio(['field_name'=>'archived', 'model'=>$example, 'alert_if'=>1, 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
-                    </div>
-                </div>
-                {{-- Right column of form data. --}}
-                <div class="col-md">
-                    <div class="form-group d-inline-flex">
-                        <label>&nbsp;</label>
-                    </div>
-                </div>
-            </div>
-
-
 
             {{-- ######################################################################## --}}
             {{-- Standard form information header; for endu-user form content headings. --}}
@@ -92,20 +94,18 @@
             <div><p class="form-header-information">a standard information header:</p></div>
 
 
-
             <div class="row">
                 {{-- Left column of form data. --}}
                 <div class="col-md">
                     <div class="form-group d-inline-flex">
-                        {!! $control::label(['field_name'=>'id', 'display_name'=>$example, 'errors'=>$errors]) !!}
-                        {!! $control::input(['field_name'=>'id', 'model'=>$example, 'disabled'=>true, 'errors'=>$errors]) !!}
+                        {!! $control::label(['field_name'=>'name', 'display_name'=>$example, 'errors'=>$errors]) !!}
+                        {!! $control::input(['field_name'=>'name', 'model'=>$example, 'errors'=>$errors]) !!}
                     </div>
                 </div>
                 {{-- Right column of form data. --}}
                 <div class="col-md">
                     <div class="form-group d-inline-flex">
-                        {!! $control::label(['field_name'=>'name', 'display_name'=>$example, 'errors'=>$errors]) !!}
-                        {!! $control::input(['field_name'=>'name', 'model'=>$example, 'errors'=>$errors]) !!}
+                        <label>&nbsp;</label>
                     </div>
                 </div>
             </div>
