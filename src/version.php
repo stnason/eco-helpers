@@ -1,12 +1,20 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.27',
-    'APP_LASTUPDATE' => '01/12/2024'
+    'APP_VER' => 'v1.0.28',
+    'APP_LASTUPDATE' => '01/20/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 01/20/2024:v01.00.28: 1.50 :Continue work on user edit Extended fields. (basically a series of fields commented out across the board.)
+ * 01/20/2024:v01.00.28: 0.50 :Fix broken authentication (still working on right place and way to do the setActingRole at login).
+ * 01/19/2024:v01.00.28: 1.50 :Work out base vs extended user fields.
+ * 01/17/2024:v01.00.27: 0.50 :User's CRUD requires design decision. Can User table be used as a contact w/o a login? This really complicates a lot of the business rules so saying no for now. Every user is a login user.
+ * 01/16/2024:v01.00.27: 0.50 :Still flushing out CRUD for users.
+ * 01/13/2024:v01.00.27: 2.00 :ehUsersController; create, store, delete. Add new record check to ehExample BUSINESS RULES.
+ * 01/12/2024:v01.00.27: 1.00 :Add resource awareness to eh-child-menus template.
+ * 01/12/2024:v01.00.27: 1.00 :Starting to convert instances of redirect config('app.url') to route('name'). For form actions and crud method returns.
  * 01/12/2024:v01.00.27: 2.00 :ehExamplesController; create, store, delete. Add example-static. Add check to eh-child-menus for valid route name.
  * 01/11/2024:v01.00.27: 1.00 :Fixed registration and emi-verify issues.
  * 01/11/2024:v01.00.27: 3.75 :Cleaning up ehExamplesController. Finish out @update. Fix timezone, unauthorized get-next. Work on intented route after login.

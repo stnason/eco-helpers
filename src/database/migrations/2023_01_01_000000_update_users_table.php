@@ -30,27 +30,38 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
+            // Making these 3 nullable is simply here for future expansion - if we ever need to extend Users
+            // to have it be a Contacts table and not necessarily have a login for every user (like the legacy system).
+            // Rules are setup and handled in ehUsersController@dataConsistencyCheck().
+            $table->string('email')->nullable()->change();
+            $table->string('name')->nullable()->change();
+            $table->string('password')->nullable()->change();
+
+            // Added fields for eco-helpers
             $table->tinyInteger('archived')->after('id')->nullable()->default(0);
             $table->string('first_name')->after('archived')->nullable()->default(null);
             $table->string('last_name')->after('first_name')->nullable()->default(null);
             $table->string('middle_name')->after('last_name')->nullable()->default(null);
             $table->string('nickname')->after('middle_name')->nullable()->default(null);
 
+            /* OPTIONAL: Extended business fields
             $table->string('title')->after('middle_name')->nullable()->default(null);
             $table->string('description')->after('title')->nullable()->default(null);
             $table->string('company')->after('description')->nullable()->default(null);
             $table->string('reports_to')->after('company')->nullable()->default(null);
-
             $table->string('phone_work_desk')->after('reports_to')->nullable()->default(null);
             $table->string('phone_work_cell')->after('phone_work_desk')->nullable()->default(null);
-            $table->string('phone_personal_home')->after('phone_work_cell')->nullable()->default(null);
-            $table->string('phone_personal_cell')->after('phone_personal_home')->nullable()->default(null);
-
             $table->string('email_work')->after('phone_personal_cell')->nullable()->default(null);
-            $table->string('email_personal')->after('email_work')->nullable()->default(null);
+            */
 
+            $table->string('phone_personal_home')->after('middle_name')->nullable()->default(null);         // Use this one when not using the Extended fields
+            //$table->string('phone_personal_home')->after('phone_work_cell')->nullable()->default(null);   // Use this one when using the Extended fields
+            $table->string('phone_personal_cell')->after('phone_personal_home')->nullable()->default(null);
+            $table->string('email_personal')->after('email_work')->nullable()->default(null);
+            $table->string('email_alternate')->after('email_personal')->nullable()->default(null);
             $table->text('comments')->after('email_personal')->nullable()->default(null);
 
+            // Specific to the user login profile
             $table->tinyInteger('login_active')->after('comments')->nullable()->default(null);
             $table->Integer('default_role')->after('login_active')->nullable()->default(null);
             $table->Integer('acting_role')->after('default_role')->nullable()->default(null);
@@ -59,8 +70,7 @@ return new class extends Migration
             $table->timestamp('last_login')->after('login_created')->nullable()->default(null);
             $table->integer('login_count')->after('last_login')->nullable()->default(null);
 
-            $table->string('timezone')->after('login_count')->nullable()->default(null);
-
+            // Additional fields created/update field.
             $table->string('created_by')->after('remember_token')->nullable()->default(null);
             $table->string('updated_by')->after('created_at')->nullable()->default(null);
 

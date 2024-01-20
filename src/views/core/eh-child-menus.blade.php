@@ -35,6 +35,14 @@
     @if (Route::has($menu_item->route))
         <li><a class="dropdown-item" href="{{route($menu_item->route)}}">{{$menu_item->name}}</a></li>
     @else
-        <li><a class="dropdown-item" href="#">{{$menu_item->name}}</a></li>
+        {{-- But id the route name "as is" doesn't exist, could it be a resource route? --}}
+        @if (Route::has($menu_item->route.'.index'))
+            {{-- So, the .index route does exist so we're going to assume this is a resource route. --}}
+            <li><a class="dropdown-item" href="{{route($menu_item->route.'.index')}}">{{$menu_item->name}}</a></li>
+        @else
+            {{-- Okay, has no route "as is" or by resource.index. So, no link on this item. --}}
+            <li><a class="dropdown-item" href="#">{{$menu_item->name}}</a></li>
+        @endif
+
     @endif
 @endif

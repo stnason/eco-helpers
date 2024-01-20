@@ -64,32 +64,4 @@ class RegisteredUserController extends Controller
 
 
 
-    /**
-     * Create a unique user name base on this specific algorithm.
-     * @param Request $request
-     * @return string
-     */
-    protected function uniqueUserName(Request $request) {
-        $user_name = '';
-        $user_name =    substr(strtolower($request->first_name),0,3) . substr(strtolower($request->last_name),0,3);
-
-
-        // Determine if this user name is unique. (And create a unique one if needed by adding a number)
-        $name_is_unique = false;            // Check to see if this user name is unique among all users.
-        $unique_cnt = 1;                    // A number to add after the user name to make it unique.
-        $unique_user_name = $user_name;     // The newly created unique user name.
-        do {
-            $r = DB::select("SELECT * FROM users WHERE name = '".$unique_user_name."';");
-            if (count($r) > 0) {          // This name is already in use.
-                $unique_user_name = $user_name.$unique_cnt;
-                $unique_cnt++;
-            } else {
-                $name_is_unique = true;     // Drop us out of this unique check and return this version of the user name.
-            }
-        }  while (!$name_is_unique);
-
-        return $unique_user_name;
-    }
-
-
 }

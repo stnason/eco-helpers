@@ -164,11 +164,14 @@
 
 
 
-                            {{-- TODO: Decision: SHOULD THIS RESTRICT ROLE SETTING TO something like FEATURE_1 or Admin ONLY?
+                            {{-- TODO: Decision: SHOULD THIS RESTRICT THE ABILITY TO SET ROLES TO something like FEATURE_1 or Admin ONLY?
                             Or if you have Edit you have everything ??
                             @if ($access::getUserRights()->admin) --}}
 
                             <fieldset id="default_role_group">
+
+                                {{-- Skip the my_roles dropdown when adding a new record. --}}
+                                @if (!$form['layout']['when_adding'])
 
                                 @foreach($form['my_roles'] as $key=>$role_lookup)
 
@@ -206,6 +209,8 @@
                                         </button>
                                     </div>
                                 @endforeach
+                                @endif
+
                             </fieldset>
                             {{--  @endif --}}
 
@@ -396,7 +401,6 @@
                 {{-- ######################################################################## --}}
                 <div><p class="form-header-information">login information:</p></div>
 
-
                 <div class="row">
                     {{-- Left column of form data. --}}
                     <div class="col-md">
@@ -408,6 +412,11 @@
                     {{-- Right column of form data. --}}
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
+
+                            {{-- When adding a new record we will require either the personal or work email.
+                                 the dataConsistency check will pick one and then it can be changed later here.
+                                --}}
+                            @if(!$form['layout']['when_adding'])
 
                             @php
                                 // Build the Registered email link for the label
@@ -421,14 +430,14 @@
                             {!! $control::select([
                             'field_name'=>'email',
                             'model'=>$user,
-                            // TODO: Need to rethink/re-design the whole registration email process. (what's get saved where? and what is even required to sign up?)
                             'selections'=>[
                                 $user->email=>$user->email,
-                                $user->email_work=>$user->email_work,           // Legacy from eesfm.com
-                                $user->email_personal=>$user->email_personal,   // Legacy from eesfm.com
-                                //$user->cEmailPersonal=>$user->cEmailPersonal  // Legacy from eesfm.com
+                                $user->email_work=>$user->email_alternate,
+                                $user->email_personal=>$user->email_personal,
                                 ],
                             'errors'=>$errors]) !!}
+
+                             @endif
                         </div>
                     </div>
                 </div>
@@ -530,6 +539,9 @@
         // Set the url based on the action of this form.
         // But without the id at the end; the js will pull the value of the #goto drop-down select.
         var goto_url = "{{ config('app.url') }}" + '/users';
+
+        // Set the Standard "Delete Me" message
+        delete_me_message = "Are you sure you want to permanently delete this User record?";
     </script>
     <script type="text/javascript" src="{{ asset('vendor/ecoHelpers/js/eh-goto-submit.js') }}"></script>
 

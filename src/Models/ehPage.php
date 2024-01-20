@@ -24,7 +24,6 @@ class ehPage extends ehBaseModel
     ];
 
 
-
     /**
      * The Controls class will automatically fill in the label names if they are defined in the model.
      * (If not, it will use the database field names.)
@@ -68,8 +67,6 @@ class ehPage extends ehBaseModel
         'delete',
         'save'
     ];
-
-
 
 
 
@@ -124,39 +121,23 @@ class ehPage extends ehBaseModel
         } else {
 
             // So, $route_name is a string.
-            // WHAT THE HELL -- when the $route_name = 'home' this returns route = 'module.10' ??????
             $result = self::where('route', $route_name)->get();
-
-            // BUT this gives the SAME RESULT !!!
-            //$q = "SELECT * FROM eh_pages WHERE route = '".$route_name."';";
-            ///$result = DB::select($q);
-
-            if ($route_name == '/notifications/get-next') {
-                dd($result);
-            }
-
-////////////////////////////////////////////////////////////////////////////////////////////
-/// TESTING
-//if($route_name == 'home'){dd($route_name, $result);}
-
-
-
 
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////
-        // If we didn't find an entry in pages above,
-        //  then we need to build a query to check the base route name + resourceful flag.
+        // If we didn't find an entry in pages with the $route_name "as is",
+        //  then we need to check the base route name + resourceful flag and see if that exists.
         if ($result->count() > 0) {
             return $result[0];
         } else {
 
             ////////////////////////////////////////////////////////////////////////////////////////////
+            // RESOURCEFUL ROUTE?
             // So now we have to deal (maybe) with the resourceful route checks.
-
+            //
             // Break the route into parts -- if it has one of the pre-defined resourceful routes then strip that off
             $base_route_name = self::getResourcefulBaseRoute($route_name);
-
 
             // If this is not a resourceful route, $base_route_name will be false.
             if (!$base_route_name) {
@@ -169,9 +150,6 @@ class ehPage extends ehBaseModel
 
             if ($result->count() > 0 ) {
                 // Looks like this is a resourceful route so return that result.
-
-
-
 /*
                 ////////////////////////////////////////////////////////////////////////////////////////////
                 dd( 'in ehPage::getPageInfo():',
@@ -195,15 +173,9 @@ class ehPage extends ehBaseModel
                 return false;
             }
 
-
         }
 
-
-
-
     }
-
-
 
 
 

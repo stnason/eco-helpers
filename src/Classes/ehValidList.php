@@ -290,13 +290,16 @@ class ehValidList {
                 return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
                 break;
 
+            //TODO: We'll have to build a dual capable (first_name+last_name) pullQuery
+            // or some move this list pull into the user model as its own method.
+
             // User list for the User Profile Go-To
             case "user_list":                       // Name to use when calling getList()
                 $key = 'id';                        // The table column name used for the "key"
 
                 // This can be changed based on whether or not you're using a different username than email
-                $value = 'email';                   // The table column name used for the "value"
-                $orderBy = 'email';                 // ORDER BY clause field(s)
+                $value = 'first_name';              // The table column name used for the "value"
+                $orderBy = 'first_name';            // ORDER BY clause field(s)
 
                 $model_path = 'App\Models\User';    // The Laravel pathname to the Model
                 $where_clause = ""; // Add a complete WHERE clause if needed

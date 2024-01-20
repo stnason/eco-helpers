@@ -115,14 +115,14 @@ trait ehUserFunctions
     /**
      * @param $user_id  // Pass a user id or leave it null to use the currently logged in user.
      * @param $active   // Include only active roles (ture) - or all roles (false).
-     * @return false
+     * @return []       // No roles found for this user.
      */
     public function getUserRoles($user_id=null, $active=true) {
 
         // If no id passed then use the current logged in user
         if ($user_id === null) {
             if (Auth()->guest()) {
-                return false;
+                return [];
             }
             $user_id = Auth()->user()->id;
         }
@@ -309,8 +309,8 @@ trait ehUserFunctions
         //////////////////////////////////////////////////////////////////////////////////
         // 4. Catch-all -- if we didn't verify positive access to this role above,
         //      then we punch out.
-        if (!$i_have_this_role_assigned) {      // Only way to get past here is if we're assigned to the requested role and it's active.
-            return;
+        if (!$i_have_this_role_assigned) {      // Only way to get past here is if we're
+            return;                             // assigned to the requested role and it's active.
         }
 
 
@@ -528,32 +528,44 @@ trait ehUserFunctions
 
     }
 
-
-    public static function roleAtLogin($user_id=null) {
+    /**
+     * Used by the ehAuthenticatedSessionController to determine this user's proper role right after login.
+     * Uses the system configuration to determine if it should be the default_role of the last acting_role.
+     *
+     * @param $user_id
+     * @return mixed
+     */
+    public function roleAtLogin($user_id=null) {
 
         $user = self::normalizeUserID($user_id);
 
         // Check the configuration to see which behavior we want to use:
         // Set the acting role based on the global configuration setting:
         /*
-        'role_at_login'=>0,      // When logging in use:
-            //                   0='default' ; the default role set in the user profile.
-            //                   1='last'    ; the last role used.
-            //                   2='user'    ; NOT IMPLEMENTED. Maybe future expansion.
+        'role_at_login'=>0,
+            0='default' ; the default role set in the user profile.
+            1='last'    ; the last role used.
+            2='user'    ; NOT IMPLEMENTED. Maybe future expansion.
         */
+
+        // Note: That default_role is a dependent variable and is validated and/or set
+        //       in the ehUsersController@dataConsistencyCheck() rules.
 
         if (ehConfig::get('role_at_login') == 0) {
             // Use the default_role
+            return $user->default_role;
 
         } elseif (ehConfig::get('role_at_login') == 1) {
             // Use the last role (acting_role)
+            return $user->acting_role;
 
         } elseif (ehConfig::get('role_at_login') == 2) {
             // Future expansion -- used for a user specific behavior to override the global default form configuration.
+            return $user->default_role;
 
         } else {
             // If all else fails, then just go back to using the defined default.
-
+            return $user->default_role;
         }
 
         

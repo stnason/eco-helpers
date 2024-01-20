@@ -99,13 +99,13 @@ class ehLayout
 
 
 
-
         // Grab all of the default/initial values defined in config('eco-helpers.layout')
         $default = ehConfig::get('layout.default');
 
 
-        // Placeholder for the $form['layout']['when_adding'] variable
-        // Allows templates to work as both show() and create() by dropping things our that aren't there yet in create().
+        // Default value for the $form['layout']['when_adding'] variable
+        // Should be set to true in the create() method if the blade template is using it.
+        // Allows templates to work as both show() and create() by dropping things or that aren't there yet in create().
         self::$layout['when_adding'] = false;
 
 

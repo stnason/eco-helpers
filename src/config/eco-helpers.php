@@ -47,9 +47,6 @@ return [
     |   2='user'    ; NOT IMPLEMENTED. Possible future expansion.
     |
     */
-    //TODO: this has to go away. Find where it's used and lock it into always using default.
-    // If you have Admin type access and you switch to a lower level, you could be permanently locked out.
-
     'role_at_login' => 0,
 
 
@@ -58,7 +55,9 @@ return [
     | New Registered User Role
     |--------------------------------------------------------------------------
     | Upon completing the self-registration process, the user will be assigned this role.
-    |   (Eco Sample data creates 3 roles; id: 4 is a NO ACCESS ROLE.
+    |  This will also be used in the ehUsersController@dataConsistencyCheck()
+    |   when the login is active and the default role is blank.
+    |    (Eco Sample data creates 3 roles; id: 4 is a NO ACCESS ROLE.
     |
     */
     'new_user_role' => 4,

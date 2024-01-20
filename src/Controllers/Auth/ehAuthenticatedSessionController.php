@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Models\ehRole;
+use ScottNason\EcoHelpers\Models\ehUser;
 
 
 class ehAuthenticatedSessionController extends Controller
@@ -76,7 +77,6 @@ class ehAuthenticatedSessionController extends Controller
         ////////////////////////////////////////////////////////////////////////////////////////////
         // ecoHelpers additional login checks
         // TODO: Most of these same checks will need to be run when a user changes roles. Should these all be in a callable method()?
-        // TODO: Check config('role_at_login') and see if we should use 'last' or 'default' -- !! NO MORE: Always use default_role on login!!
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1. Since we have to do this before the login attempt, let's see if we can even find the user name.
@@ -94,13 +94,10 @@ class ehAuthenticatedSessionController extends Controller
 
             // Note: if the original user model is not extended from ehUser;
             //       you will get a message about isUserActive() missing.
-            //       But -- since the first time that's used is in the ajax login attempt,
-            //       you'll see nothing without putting in an alert() in the .fail section!
             if (!method_exists($user,'isUserActive')) {
                 $display_error_message = $this->login_messages_array[0][$this->login_error_key];
                 $this->throwEcoHelperValidation($display_error_message);
             }
-
 
             // Note: see the class variables at the top that define the login message behavior using the $login_error_key.
             // 1. User's profile is not active.
@@ -132,7 +129,9 @@ class ehAuthenticatedSessionController extends Controller
                 }
             }
 
-            // If we got here without already throwing an exception but we set the error message:
+
+            // If we got here without already throwing an exception but we've previously set the error message.
+            // THen go ahead and throw that message here.
             if ($display_error_message != '') {
                 $this->throwEcoHelperValidation($display_error_message);
             }
@@ -143,6 +142,9 @@ class ehAuthenticatedSessionController extends Controller
             // or after having their account re-activated.
             // Not sure any of that has a use case anymore.
 
+
+            // Note: The user is not completely logged in here yet so anything that happens right after login
+            //       must be handled below toward the end of the store() method.
         }
 
 
@@ -251,37 +253,27 @@ class ehAuthenticatedSessionController extends Controller
         ////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        /*
-        // 1.Set system to the user's timezone (if set in their profile)
-        //TODO: There's a note inside the ehBaseController on this, but I think we're done.
-        // As long as you save the timestamp with an 'H' then it just works.
-
-        // moving this to the ehBaseController.
-        if (!empty(Auth()->user()->timezone)) {
-            date_default_timezone_set(Auth()->user()->timezone);
-        }
-        */
-
-        // 2.Update the user's last_login timestamp. (use the eco-helpers configured sql long time format)
+        // 1.Update the user's last_login timestamp. (use the eco-helpers configured sql long time format)
         Auth()->user()->last_login = date(ehConfig::get('date_format_sql_long'));
 
-        // Increment the user's login counter.
+
+        // 2.Increment the user's login counter.
         Auth()->user()->login_count = Auth()->user()->login_count + 1;
 
+
         // 3.Set the acting role at login to the default_role.
-        // IGNORE THE GLOBAL configuration setting! This could create a lockout Catch-22 if an Admin user
-        //  was using a lower permissions role and couldn't set themselves back.
-        //  This way, simply logging out and back in will always reset you to your default role.
-        Auth()->user()->setActingRole(Auth()->user()->default_role, false);
+        Auth()->user()->setActingRole(Auth()->user()->roleAtLogin(),false);
+
 
         // 4.Save the changes set above to the user's record.
         Auth()->user()->save();
 
 
-        // 5.And finally, redirect to where the login person should go.
+        // 6.And finally, redirect to where the login person should go.
         if (!empty(Auth()->user()->getDefaultHomePage())) {
             // If the user's default role has a default_home_page route defined then use it.
-            return redirect()->intended(route(Auth()->user()->getDefaultHomePage()));
+            // TODO: Umm..have to figure out how to get the page id stored in sql, it's route and then redirect.
+            //return redirect()->intended(route(Auth()->user()->getDefaultHomePage()));
         } else {
             // Go to the intended route or the global HOME page.
             return redirect()->intended(RouteServiceProvider::HOME);    // This works if you hit a protected route and it forces you to login.

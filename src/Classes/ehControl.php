@@ -41,6 +41,7 @@ Class ehControl
     protected static $text_warning = 'text-danger';      // Bootstrap or custom css class for the error label text.
     protected static $box_warning = 'border-danger';     // Bootstrap or custom css class for the error input box.
     protected static $def_rows = 3;                      // Default rows for a text area input if nothing specified.
+    protected static $def_add_blank = false;             // When add_blank is missing form the input, use this value.
     public static    $def_alert_class = 'alert alert-dark'; // When requesting an alert -- use this class.
                                                          // Moved this to app.php so just putting something in here to watch for places to fix it.
     //protected static $cp = [];                         // Model Custom Properties (disabled, required, labels)
@@ -236,9 +237,12 @@ Class ehControl
         }
 
 
+        // Not sure but I think the "rome-select" was affecting the outline error on validation. (?) It works okay without it.
+        //class="form-control form-select'.$p['error_class_box'].' '.$p['additional_class'].'"
 
-        $select = '<select
-        class="form-control form-select'.$p['error_class_box'].' '.$p['additional_class'].'"
+
+        $select = '<select       
+        class="form-control '.$p['error_class_box'].' '.$p['additional_class'].'"     
         id="'.$p['field_name'].'"
         name="'.$p['field_name'].'"
          '.$p['disabled'].' '.$p['required'].' '.$p['auto_submit'].'>'.config('app.nl');
@@ -965,7 +969,7 @@ if ($parameters['field_name'] == 'wsSiteAssignedTo') {
         if (isset($parameters['add_blank'])) {
             $add_blank = $parameters['add_blank'];
         } else {
-            $add_blank = true;  // Let's default to adding one since that is the most common use case.
+            $add_blank = self::$def_add_blank;      // Default value when add_blank is missing (defined at top).
         }
 
         ###########################################

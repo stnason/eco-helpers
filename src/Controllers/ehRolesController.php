@@ -137,9 +137,9 @@ class ehRolesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the form action
-        $form['layout']['form_action'] = config('app.url').'/roles';
+        $form['layout']['form_action'] =  route('roles.store');
         $form['layout']['form_method'] = 'POST';
-        $form['layout']['when_adding'] = true;           // Toggles parts of the form off when adding a new record.
+        $form['layout']['when_adding'] = true;           // May toggles parts of the form off when adding a new record.
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         return view('ecoHelpers::roles.roles-detail',[
@@ -177,7 +177,7 @@ class ehRolesController extends ehBaseController
         }
 
         // Redisplay the changed data along with the flash message.
-        return redirect('/roles/'.$role->id)->with('message',$the_message);
+        return redirect(route('roles.show',[$role->id]))->with('message',$the_message);
     }
 
     /**
@@ -240,9 +240,9 @@ class ehRolesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the form action
-        $form['layout']['form_action'] = config('app.url').'/roles/'.$role->id;
+        $form['layout']['form_action'] = route('roles.update',[$role->id]);
         $form['layout']['form_method'] = 'PATCH';
-        $form['layout']['when_adding'] = false;           // Toggles parts of the form off when adding a new record.
+        $form['layout']['when_adding'] = false;           // May toggle parts of the form off when adding a new record.
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -326,7 +326,7 @@ class ehRolesController extends ehBaseController
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Watch for a 'new' button submit then redirect to create which will change the form method for the next submit
         if($request->has('new')){
-            return redirect('/roles/create');
+            return redirect(route('roles.create'));
         }
 
 
@@ -437,18 +437,26 @@ class ehRolesController extends ehBaseController
     public function destroy(ehRole $role)
     {
 
-
         // 1. RULE: Can't delete roles that have people assigned.
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Get a list of current users assigned to this Role.
         $user_list = ehUser::getUsersInRole($role->id);
         if (count($user_list) > 0) {
-
             session()->flash('message','<strong>Warning!</strong> You cannot delete a role that <strong>has Users assigned</strong>. You must first <strong>remove Users</strong> from the role before deleting it.');
-            return redirect('/roles/'.$role->id);
-
+            return redirect(route('roles.show',[$role->id]));
         }
 
+        // 2. RULE: Can't delete Site Admin role (id #3)
+        if ($role->id == 3) {
+            session()->flash('message','<strong>Warning!</strong> You cannot delete the <strong>Site Admin</strong> role.');
+            return redirect(route('roles.show',[$role->id]));
+        }
+
+        // 3. RULE: Can't delete NO ACCESS role (id #4)
+        if ($role->id == 4) {
+            session()->flash('message','<strong>Warning!</strong> You cannot delete the <strong>NO ACCESS</strong> role.');
+            return redirect(route('roles.show',[$role->id]));
+        }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Before deleting role, delete all access tokens associated with this role.
@@ -466,7 +474,7 @@ class ehRolesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Delete this role.
-        $role->delete();
+        $result = $role->delete();
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -477,7 +485,8 @@ class ehRolesController extends ehBaseController
             session()->flash('message','Something went wrong.');
         }
 
-        return redirect('/roles');
+        // Return to the roles list.
+        return redirect(route('roles.index'));
     }
 
 

@@ -245,12 +245,17 @@
 
     {{-- For the goto functionality you have to define the goto url path and include the js file below --}}
     <script type="text/javascript">
+
         // Set the url based on the action of this form.
         // But without the id at the end; the js will pull the value of the #goto drop-down select.
+
+        {{--  This one is proving more difficult to convert to a route() since the {parameter} is added later by js. --}}
         var goto_url = "{{ config('app.url') }}" + '/examples';
+
+        // Set the Standard "Delete Me" message
+        delete_me_message = "Are you sure you want to permanently delete this Example record?\n\nNOTE: This custom message is set at the bottom of the example-detail blade template.";
     </script>
     <script type="text/javascript" src="{{ asset('vendor/ecoHelpers/js/eh-goto-submit.js') }}"></script>
-
 
 
     <!-- Load per page js -->
@@ -258,9 +263,8 @@
 
         $(document).ready(function () {
 
-            // Build date only picker function call
-            // TODO: is this needed? Check on the implementation and remove this (and all other instances) as necessary.
-            //  $(".datepicker").datepicker({format: '{{ config('app.date_format_javascript') }}'});
+            // Note: the datepicker is instantiated in the main app template so no need on individual pages.
+            // Just remember to include the 'additional_class'=>'datepicker' in the Control above.
             // $(".datepicker").datepicker();
 
         });

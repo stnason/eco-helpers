@@ -80,6 +80,7 @@ class ehExamplesController extends ehBaseController
         // Initialize and set the screen display options.
         ehLayout::initLayout();
         ehLayout::setOptionBlock(false);
+        ehLayout::setDynamic('Adding New Example');
 
         $linkbar = new ehLinkbar();
         ehLayout::setLinkbar($linkbar->getLinkbar());
@@ -97,6 +98,8 @@ class ehExamplesController extends ehBaseController
         // Set the form action
         $form['layout']['form_action'] = route('examples.store');   // The name of the resourceful route.
         $form['layout']['form_method'] = 'POST';                    // Set the create() form method.
+
+        // Note: ehLayout sets this to a default value of false; so only need to set it when creating a new record.
         $form['layout']['when_adding'] = true;                      // May be used to turn parts of the show()
                                                                     // form off when adding a new record.
 
@@ -113,7 +116,7 @@ class ehExamplesController extends ehBaseController
     public function store(Request $request)
     {
 
-        // Create a new empty record. Then fill it with the input()
+        // Create a new empty record. Then fill it with the input().
         $example = new ehExample();
         $example->fill($request->input());
 
@@ -220,7 +223,11 @@ class ehExamplesController extends ehBaseController
         // Set the form action
         $form['layout']['form_action'] = route('examples.update',[$example->id]);
         $form['layout']['form_method'] = 'PATCH';           // Set the update() form method.
-        $form['layout']['when_adding'] = false;             // May be used to turn parts of the show()
+
+        // Just a reminder: ehLayout sets this to an initial value of false.
+        // Only need to set this to true in create() when the blade template uses it to drop sections
+        // out when adding a new record.
+        // $form['layout']['when_adding'] = false;          // May be used to turn parts of the show()
                                                             // form off when adding a new record.
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -381,8 +388,26 @@ class ehExamplesController extends ehBaseController
         // Check for any situation that may require other fields to stay in sync or
         // change to a particular value.
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // WHEN ADDING: Skip any business rules you don't want to run when adding a new record.
+        // (If there is no id, then this should be a new record.)
+        if (!empty($example->id)) {
 
-        // RULE 1. If example user is set to archived then make then inactive too.
+            // BUSINESS RULES (skip when adding):
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            // Place any business rules here that will be SKIPPED when adding a new record.
+            // (they will be run when updating.)
+
+
+        }
+
+
+        // BUSINESS RULES (for both adding and update):
+        // Place any business rules here that will RUN when both adding AND updating a record.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+        // RULE 1. If example user is set to archived then make them inactive too.
         //          Archived users cannot be 'active'.
         if ($request->archived) {
             // Then change the value for active in the $request

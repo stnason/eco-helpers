@@ -2,17 +2,19 @@
 
 namespace ScottNason\EcoHelpers\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 
+use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
 use ScottNason\EcoHelpers\Models\ehUser;
 use ScottNason\EcoHelpers\Models\ehRole;
-
+use ScottNason\EcoHelpers\Classes\ehAccess;
 
 
 class ehUsersController extends ehBaseController
@@ -40,12 +42,94 @@ class ehUsersController extends ehBaseController
     }
 
 
-    public function create() {
-        dd('ehUsersController@create');
+    public function create(User $user) {
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Create an empty model to use for this "add" form.
+        // Looks like we can type hint above [create(Model $model)],
+        // Or use this that may be a little more verbose.
+        // $example = new ehExample();
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Initialize and set the screen display options.
+        ehLayout::initLayout();
+        ehLayout::setOptionBlock(false);
+        ehLayout::setDynamic('Adding New User');
+
+        $linkbar = new ehLinkbar();
+        ehLayout::setLinkbar($linkbar->getLinkbar());
+
+        // SECURITY: Button control.
+        if (ehAccess::chkUserResourceAccess(Auth()->user(),Route::currentRouteName(),ACCESS_EDIT)) {
+            ehLayout::setButton('save', '<input class="btn btn-primary" type="submit" id="save" name="save" value="Save">');
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Retrieve the Layout data for the view.
+        $form['layout'] = ehLayout::getLayout();
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Set the form action
+        $form['layout']['form_action'] = route('users.store');      // The name of the resourceful route.
+        $form['layout']['form_method'] = 'POST';                    // Set the create() form method.
+
+        // Note: ehLayout sets this to a default value of false; so only need to set it when creating a new record.
+        $form['layout']['when_adding'] = true;                      // May be used to turn parts of the show()
+                                                                    // form off when adding a new record.
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        return view('ecoHelpers::users.user-detail',[
+            'form' => $form,
+            'user'=>$user
+        ]);
+
     }
 
-    public function store() {
-        dd('ehUsersController@store');
+    public function store(Request $request) {
+
+        // Create a new empty record. Then fill it with the input().
+        $user = new User();
+        $user->fill($request->input());
+
+        // Standard (simple) Laravel Validation (specific to update)
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        /*
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+        */
+
+
+        // Extended Validation with Business (data consistency) Rules (shared with update/ store)
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // When you need more control over how this update() operation interacts with other fields.
+        $request = $this->dataConsistencyCheck($request, $user);
+
+
+        // Actual save to the users table.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        $result = $user->save($request->input());
+
+
+        // Return flash message
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // If all went okay then say that in the flash message.
+        if ($result) {
+            session()->flash('message','User record for <strong>'.$user->name.'</strong> added successfully. ');
+        } else {
+            session()->flash('message','Something went wrong.');
+        }
+
+
+        // Go back to the users detail page with the new id.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        return redirect(route('users.show',[$user->id]));
+
+
     }
 
     public function show(Request $request, ehUser $user)
@@ -105,7 +189,9 @@ class ehUsersController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the form action
-        $form['layout']['form_action'] = config('app.url').'/users/'.$user->id;
+        //$form['layout']['form_action'] = config('app.url').'/users/'.$user->id;
+        $form['layout']['form_action'] = route('users.update',[$user->id]);     // Set the form submit action.
+        $form['layout']['form_method'] = 'PATCH';                               // Set the update() form method.
 
 
         // Get all the groups that I'm a member of:
@@ -114,8 +200,6 @@ class ehUsersController extends ehBaseController
 
         // Set the radio button for the default_role
         // The template used the 'my_roles' array to loop through and decide which one is checked.
-
-
         return view('ecoHelpers::users.user-detail',[
             'form' => $form,
             'user' => $user,
@@ -158,7 +242,6 @@ class ehUsersController extends ehBaseController
             $user->addUserRole($user->id, $request->role_id);
         }
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
         // PASSWORD CHANGE
         // Have we changed the password through the Admin User Profile?
@@ -172,6 +255,7 @@ class ehUsersController extends ehBaseController
         } else {
 
             // If password is the same, then just take it out of the $request and leave it alone.
+            // (or you'll re-hash it and make it unusable!)
             $request->request->remove('password');
         }
 
@@ -190,7 +274,7 @@ class ehUsersController extends ehBaseController
         ///////////////////////////////////////////////////////////////////////////////////////////
         // If all went okay then say so to the flash message.
         if ($result) {
-            session()->flash('message','User profile for <strong>'.$user->fullName().'</strong> saved successfully. ');
+            session()->flash('message','User profile for <strong>'.$user->fullName().'</strong> updated successfully. ');
         } else {
             session()->flash('message','Something went wrong.');
         }
@@ -202,7 +286,9 @@ class ehUsersController extends ehBaseController
     }
 
     public function destroy() {
+
         dd('ehUsersController@destroy');
+
     }
 
 
@@ -223,7 +309,7 @@ class ehUsersController extends ehBaseController
             Auth()->user()->setActingRole($request->role);
         }
 
-        //TODO: This is redundant to the user's notification popup.
+        //TODO: Flash the role change. This is redundant to the user's notification popup.
         // Is there any use case to keep this and if so, should we include
         // a config setting to enable or disable it?
         session()->flash('message','User role changed to <strong>'.ehRole::find($request->role)->name.'</strong>.');
@@ -245,42 +331,119 @@ class ehUsersController extends ehBaseController
 
         // User Profile data validation and custom error messages as needed.
 
-        // Require a name - unique user name, etc. .... ??
+        // Basic validation
         $validated = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',              // for now, this is the login user name so we need it.
-                                                // Or we could require a regular email address then just populate
-                                                // the 'email' field from that. (?)
+
+            // The "registered" email (initial login name) will be assigned from either the personal or alternate email.
+            //'email' => 'required',
+
+            'email' => ['nullable','unique:users'],
+
+            // Require either work or personal.
+            'email_personal' => ['nullable','required_without:email_alternate', 'unique:users'],
+            'email_alternate' => ['nullable', 'unique:users'],
+
+            // If user's login is active (login_active).
+            
+
         ]);
 
-        // DON'T CHECK THESE RULES WHEN ADDING A NEW RECORD:
 
 
-/*
-        dd($user->id,
-            $user->getUserRoles($user->id),
-            $user->getUserRoles($user->id)[0]->role_id
-        );
-*/
+        // BUSINESS RULES
+        ///////////////////////////////////////////////////////////////////////////////////////////
 
-        // 1. If user only has one role assigned then set that to the default_role automatically.
-        if (count($user->getUserRoles($user->id)) == 1) {
-            // Pull out the role_id from the role_lookup returned array.
-            $request->merge(['default_role'=>$user->getUserRoles($user->id)[0]->role_id]);
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // WHEN ADDING: Skip any business rules you don't want to run when adding a new record.
+        // (If there is no id, then this should be a new record.)
+        if (!empty($example->id)) {
+
+            // BUSINESS RULES (skip when adding):
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            // Place any business rules here that will be SKIPPED when adding a new record.
+            // (they will be run when updating.)
+
+
         }
 
-        // 2. If user only has more than one role and no default_role,
-        //      and the default_role is blank - then set it to the first role in the list.
-        if (count($user->getUserRoles($user->id)) > 1 && ($user->default_role == '' || $user->default_role == null)) {
-            // Pull out the role_id from the first role returned from the role_lookup array.
-            $request->merge(['default_role'=>$user->getUserRoles($user->id)[0]->role_id]);
+
+        // BUSINESS RULES (for both adding and update):
+        // Place any business rules here that will RUN when both adding AND updating a record.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+        // RULE GROUP: "If Login is Active"
+        if ($request->login_active) {       // Check these rules only if the login is active.
+
+            // RULE 1. Verify (and create as needed) a unique username.
+            // Do this only if the "name" field is missing or changed.
+            if (empty($user->name) || ($user->name != $request->name)) {
+                // This method contains the algorithm for checking and creating unique user names.
+                $user->name = $user->uniqueUserName($request);
+            }
+
+            // RULE 2. If user only has one role assigned then set that to the default_role automatically.
+            if (count($user->getUserRoles($user->id)) == 1) {
+                // Pull out the role_id from the role_lookup returned array.
+                $request->merge(['default_role' => $user->getUserRoles($user->id)[0]->role_id]);
+            }
+
+            // RULE 3. If user has more than one role and no default_role,
+            //     then set it to the first role in the list.
+            if (count($user->getUserRoles($user->id)) > 1 && ($user->default_role == '' || $user->default_role == null)) {
+                // Pull out the role_id from the first role returned from the role_lookup array.
+                $request->merge(['default_role'=>$user->getUserRoles($user->id)[0]->role_id]);
+            }
+
+            // RULE 4. If acting_role is blank then set it to the default_role.
+            if ($user->acting_role == '' || $user->acting_role == null) {
+                $request->merge(['acting_role'=>$request->default_role]);
+            }
+
+            // RULE 5. Set the "registered" email (as necessary).
+            if (empty($user->email)) {
+
+                // Do we have an alternate email? (Remember that either alternate or personal is required by the standard validation.)
+                // Only do this if the [registered] email has not been previously set.
+                if (!empty($request->email_alternate)) {
+                    $request->merge(['email'=>$request->email_alternate]);
+                } else {
+                    // Otherwise use the personal email.
+                    $request->merge(['email'=>$request->email_personal]);
+                }
+
+            }
+
+            // RULE 6. If default role is blank then assign one.
+            // Use the default role defined in the config file or id #4- NO ACCESS.
+            if (empty($request->default_role)) {
+
+                if (!empty(ehConfig::get('new_user_role'))) {
+                    // Use the eco-helpers config file setting for the default new user role.
+                    //TODO: make sure this role exists a throw an error.
+                    $request->merge(['default_role'=>ehConfig::get('new_user_role')]);
+                } else {
+                    // id #4 is the sample data "NO ACCESS" role.
+                    //TODO: make sure this role exists a throw an error.
+                    $request->merge(['default_role'=>4]);
+                }
+
+            }
+
+        } // end of RULE GROUP: "If Login is Active"
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Any other rules that happen if you're login is not active.
+
+        // RULE 7. Is user Archived, then make sure to disable their login.
+        if ($request->archived) {
+            $request->merge(['login_active'=>0]);
         }
 
-        // 3. If acting_role is blank then set it to the default_role.
-        if ($user->acting_role == '' || $user->acting_role == null) {
-            $request->merge(['acting_role'=>$request->default_role]);
-        }
+
 
 
         return $request;
