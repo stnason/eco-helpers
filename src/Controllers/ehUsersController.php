@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Classes\ehLayout;
@@ -331,25 +332,78 @@ class ehUsersController extends ehBaseController
 
         // User Profile data validation and custom error messages as needed.
 
-        // Basic validation
-        $validated = $request->validate([
+        $validation_rules = [];
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Validation rules for both adding new records and updating.
+        $validation_rules_for_both = [
             'first_name' => 'required',
             'last_name' => 'required',
+        ];
 
-            // The "registered" email (initial login name) will be assigned from either the personal or alternate email.
-            //'email' => 'required',
-
-            'email' => ['nullable','unique:users'],
-
-            // Require either work or personal.
-            'email_personal' => ['nullable','required_without:email_alternate', 'unique:users'],
-            'email_alternate' => ['nullable', 'unique:users'],
-
-            // If user's login is active (login_active).
+        // Validation rules for either updating or adding new records.
+        if (empty($user->id)) {
+            // Validation when adding a new record.
+            $validation_rules = array_merge($validation_rules_for_both, [
+                'email' => ['nullable', 'unique:users,email'],
+                'email_personal' => ['nullable','required_without:email_alternate', 'unique:users,email_personal', 'unique:users,email_alternate'],
+                'email_alternate' => ['nullable', 'unique:users,email_alternate'],
+            ]);
+        } else {
+            // Validation when editing/updating a record.
+            $validation_rules = array_merge($validation_rules_for_both, [
+                'email' => ['nullable', Rule::unique('users')->ignore($user)],
+                'email_personal' => ['nullable','required_without:email_alternate', Rule::unique('users')->ignore($user)],
+                'email_alternate' => ['nullable', Rule::unique('users')->ignore($user)],
+            ]);
             
+        }
 
-        ]);
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Standard Laravel validation (customized above for either insert or updating).
+        $validated = $request->validate($validation_rules);
 
+
+        // Example of sql binding in a DB::select() statment:
+        // $users = DB::select('select * from users where active = ?', [1]);
+
+
+        // Unique against this user's own 3 fields.
+
+
+        // Unique across other user's records.
+
+dd(       DB::select("SELECT * FROM users WHERE email_alternate = ?", [$request->email_alternate],
+"OR email_alternate = ?", [$request->email_personal],
+"OR email_alternate = ?", [$request->email],
+
+"OR email_personal = ?", [$request->email_alternate],
+"OR email_personal = ?", [$request->email_personal],
+"OR email_personal = ?", [$request->email],
+
+"OR email = ?", [$request->email_alternate],
+"OR email = ?", [$request->email_personal],
+"OR email = ?", [$request->email],
+
+)
+
+);
+
+
+//") AND id <> ?", [$user->id]
+
+
+
+        /* this syntax seems to work
+
+        dd(DB::select("
+SELECT * 
+FROM users 
+WHERE 
+  email_personal = ?", [$request->email_personal],
+            "OR email_alternate = ?", [$request->email_personal],
+
+        )); */
 
 
         // BUSINESS RULES
@@ -358,13 +412,12 @@ class ehUsersController extends ehBaseController
         ///////////////////////////////////////////////////////////////////////////////////////////
         // WHEN ADDING: Skip any business rules you don't want to run when adding a new record.
         // (If there is no id, then this should be a new record.)
-        if (!empty($example->id)) {
+        if (!empty($user->id)) {
 
             // BUSINESS RULES (skip when adding):
             ///////////////////////////////////////////////////////////////////////////////////////////
             // Place any business rules here that will be SKIPPED when adding a new record.
             // (they will be run when updating.)
-
 
         }
 

@@ -288,16 +288,16 @@
 
                 <div class="spacer-line"></div>
 
-
+{{-- OPTIONAL: Extended business fields
                 <div class="row">
-                    {{-- Left column of form data. --}}
+                    {{-- Left column of form data.
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
                             {!! $control::label(['field_name'=>'title', 'display_name'=>$user, 'errors'=>$errors]) !!}
                             {!! $control::input(['field_name'=>'title', 'model'=>$user, 'errors'=>$errors]) !!}
                         </div>
                     </div>
-                    {{-- Right column of form data. --}}
+                    {{-- Right column of form data.
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
                             {!! $control::label(['field_name'=>'description', 'display_name'=>$user, 'errors'=>$errors]) !!}
@@ -307,14 +307,14 @@
                 </div>
 
                 <div class="row">
-                    {{-- Left column of form data. --}}
+                    {{-- Left column of form data.
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
                             {!! $control::label(['field_name'=>'company', 'display_name'=>$user, 'errors'=>$errors]) !!}
                             {!! $control::input(['field_name'=>'company', 'model'=>$user, 'errors'=>$errors]) !!}
                         </div>
                     </div>
-                    {{-- Right column of form data. --}}
+                    {{-- Right column of form data.
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
                             {!! $control::label(['field_name'=>'reports_to', 'display_name'=>$user, 'errors'=>$errors]) !!}
@@ -323,19 +323,15 @@
                     </div>
                 </div>
 
-
-                <div class="spacer-line"></div>
-
-
                 <div class="row">
-                    {{-- Left column of form data. --}}
+                    {{-- Left column of form data.
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
                             {!! $control::label(['field_name'=>'phone_work_desk', 'display_name'=>$user, 'errors'=>$errors]) !!}
                             {!! $control::input(['field_name'=>'phone_work_desk', 'model'=>$user, 'errors'=>$errors]) !!}
                         </div>
                     </div>
-                    {{-- Right column of form data. --}}
+                    {{-- Right column of form data.
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
                             {!! $control::label(['field_name'=>'phone_work_cell', 'display_name'=>$user, 'errors'=>$errors]) !!}
@@ -343,6 +339,28 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="row">
+                    {{-- Left column of form data.
+                    <div class="col-md">
+                        <div class="form-group d-inline-flex">
+                            {!! $control::label(['field_name'=>'email_work', 'display_name'=>$user, 'errors'=>$errors]) !!}
+                            {!! $control::input(['field_name'=>'email_work', 'model'=>$user, 'errors'=>$errors]) !!}
+                        </div>
+                    </div>
+                    {{-- Right column of form data.
+                    <div class="col-md">
+                        <div class="form-group d-inline-flex">
+
+                        </div>
+                    </div>
+                </div>
+--}}
+
+
+
+                <div class="spacer-line"></div>
 
                 <div class="row">
                     {{-- Left column of form data. --}}
@@ -366,15 +384,15 @@
                     {{-- Left column of form data. --}}
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
-                            {!! $control::label(['field_name'=>'email_work', 'display_name'=>$user, 'errors'=>$errors]) !!}
-                            {!! $control::input(['field_name'=>'email_work', 'model'=>$user, 'errors'=>$errors]) !!}
+                            {!! $control::label(['field_name'=>'email_personal', 'display_name'=>$user, 'errors'=>$errors]) !!}
+                            {!! $control::input(['field_name'=>'email_personal', 'model'=>$user, 'errors'=>$errors]) !!}
                         </div>
                     </div>
                     {{-- Right column of form data. --}}
                     <div class="col-md">
                         <div class="form-group d-inline-flex">
-                            {!! $control::label(['field_name'=>'email_personal', 'display_name'=>$user, 'errors'=>$errors]) !!}
-                            {!! $control::input(['field_name'=>'email_personal', 'model'=>$user, 'errors'=>$errors]) !!}
+                            {!! $control::label(['field_name'=>'email_alternate', 'display_name'=>$user, 'errors'=>$errors]) !!}
+                            {!! $control::input(['field_name'=>'email_alternate', 'model'=>$user, 'errors'=>$errors]) !!}
                         </div>
                     </div>
                 </div>
