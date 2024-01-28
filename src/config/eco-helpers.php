@@ -68,7 +68,7 @@ return [
     | Datatables class
     |--------------------------------------------------------------------------
     | The html class(es) to use when creating datatables on a page.
-    | Note: "small" is the Bootstrap 5 text helper. - But along with the override css that's too small now.
+    |  Note: "small" is the Bootstrap 5 text helper. - But along with the override css that's too small now.
     |
     */
     'datatables_class' => 'display compact cell-border nowrap order-column stripe hover',
@@ -79,7 +79,7 @@ return [
     | Copy "From" Role
     |--------------------------------------------------------------------------
     | This is used by the Roles module to control which role id is the default "copy-from" group.
-    | (for the permissions copy)
+    |  (for the permissions copy)
     |
     */
     'default_copy_from_role_id' => 6,      // 6 was the legacy "outside company with lowest access" group.
@@ -146,8 +146,8 @@ return [
         | CSS & JS Auto-Loaders:
         |--------------------------------------------------------------------------
         | Static and auto loaded entries for css and js.
-        | These are handled by the master template as "per page" directives which
-        | can be called by the controller.
+        |  These are handled by the master template as "per page" directives which
+        |   can be called by the controller.
         |
         */
         'css_loader_file' => 'css-loader',
@@ -362,8 +362,8 @@ return [
         | Access (permissions) System
         |--------------------------------------------------------------------------
         | Turn on (or off) the Access System (page control <-> Role permissions by route)
-        | This is implemented in the ehBaseController's __construct() method.
-        | and in the ehCheckPermissions middleware.
+        |  This is implemented in the ehBaseController's __construct() method.
+        |   and in the ehCheckPermissions middleware.
         |
         */
         'enabled' => true,
@@ -373,9 +373,9 @@ return [
         | Allow Unauthenticated Child Menus
         |--------------------------------------------------------------------------
         | When a child page is set to public and the parent module is
-        | set to authenticate or check permissions;
-        | true = allow direct uri access to that route.
-        | false = use the parent module's setting.
+        |  set to authenticate or check permissions;
+        |   true = allow direct uri access to that route.
+        |   false = restrict children to the same security setting as the parent module.
         |
         */
         'allow_unauthenticated_children' => true,

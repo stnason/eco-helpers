@@ -70,7 +70,7 @@ class ecoHelpersSampleData extends Command
 
         $this->info('
 This procedure will COMPLETELY WIPE OUT and replace
- these tables with NEW DATA:
+ these tables with fresh, clean, NEW SAMPLE DATA:
 
     - eh_examples
     - eh_roles

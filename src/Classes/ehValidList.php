@@ -21,6 +21,16 @@ use Illuminate\Support\Facades\DB;
 
 
 class ehValidList {
+    
+    /**
+     * The default, appended Archive flag.
+     * (has to be pretty simply since <select> won't allow any styling inside it.)
+     * This will appear behind the selection name if the passed "criteria" is met.
+     *
+     * @var string
+     */
+    protected static $def_inactive_style = '*';
+
 
     /**
      * Sample key-value pair for direct access using ValidList::getList(').
@@ -190,9 +200,9 @@ class ehValidList {
                                                     // The Laravel pathname to the Model
                 $where_clause = ""; // Add a complete WHERE clause if needed
                 $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = '';                // If we define a column here we'll check to see if it is false
-                $active_field = '';                 // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                $inactive_true = '';                // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = '';               // When this field is false, we'll add the inactive symbol (like 'active')
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
 
             case "module_list_all":                 // Name to use when calling getList()
@@ -204,9 +214,9 @@ class ehValidList {
                 $where_clause = "WHERE type = 'module' ";
                                                     // Add a complete WHERE clause if needed
                 $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = null;              // If we define a column here we'll check to see if it is false
-                $active_field = null;               // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
 
             case "module_list_active":              // Name to use when calling getList()
@@ -218,9 +228,9 @@ class ehValidList {
                 $where_clause = "WHERE type = 'module' AND active = 1 ";
                                                     // Add a complete WHERE clause if needed
                 $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = null;              // If we define a column here we'll check to see if it is false
-                $active_field = null;               // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = null;               // When this field is false, we'll add the inactive symbol (like 'active')
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
 
             // Used by pages-detail for the parent_id dropdown (must be either a module or submenu)
@@ -231,21 +241,21 @@ class ehValidList {
                 $model_path = 'ScottNason\EcoHelpers\Models\ehPage';       // The Laravel pathname to the Model
                 $where_clause = "WHERE type = 'module' OR type = 'submenu' "; // Add a complete WHERE clause if needed
                 $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = null;              // If we define a column here we'll check to see if it is false
-                $active_field = null;               // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
 
-            case "role_list":                      // Name to use when calling getList()
+            case "role_list":                       // Name to use when calling getList()
                 $key = 'id';                        // The table column name used for the "key"
                 $value = 'name';                    // The table column name used for the "value"
                 $orderBy = 'name';                  // ORDER BY clause field(s)
                 $model_path = 'ScottNason\EcoHelpers\Models\ehRole';       // The Laravel pathname to the Model
                 $where_clause = '';                 // Add a complete WHERE clause if needed
                 $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = null;              // If we define a column here we'll check to see if it is false
-                $active_field = null;               // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
 
 
@@ -258,9 +268,9 @@ class ehValidList {
                 $model_path = 'App\AssetMaster';    // The Laravel pathname to the Model
                 $where_clause = 'WHERE active = 1'; // Add a complete WHERE clause if needed
                 $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = null;              // If we define a column here we'll check to see if it is false
-                $active_field = null;               // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
             */
 
@@ -271,9 +281,9 @@ class ehValidList {
                 $model_path = 'ScottNason\EcoHelpers\Models\ehPage';       // The Laravel pathname to the Model
                 $where_clause = 'WHERE menu_item = 1'; // Add a complete WHERE clause if needed
                 $include_key_in_name = true;        // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = null;              // If we define a column here we'll check to see if it is false
-                $active_field = null;               // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
 
 
@@ -285,12 +295,12 @@ class ehValidList {
                 $model_path = 'ScottNason\EcoHelpers\Models\ehPage';       // The Laravel pathname to the Model
                 $where_clause = "WHERE type = 'page' AND active = 1"; // Add a complete WHERE clause if needed
                 $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = null;              // If we define a column here we'll check to see if it is false
-                $active_field = null;               // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
 
-            //TODO: We'll have to build a dual capable (first_name+last_name) pullQuery
+            //TODO: Might want to think about building a dual capable (first_name+last_name) pullQuery
             // or some move this list pull into the user model as its own method.
 
             // User list for the User Profile Go-To
@@ -298,15 +308,19 @@ class ehValidList {
                 $key = 'id';                        // The table column name used for the "key"
 
                 // This can be changed based on whether or not you're using a different username than email
-                $value = 'first_name';              // The table column name used for the "value"
-                $orderBy = 'first_name';            // ORDER BY clause field(s)
+                $value = 'name';                    // The table column name used for the "value"
+                $orderBy = 'name';                  // ORDER BY clause field(s)
 
                 $model_path = 'App\Models\User';    // The Laravel pathname to the Model
                 $where_clause = ""; // Add a complete WHERE clause if needed
                 $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $archive_field = 'archived';        // If we define a column here we'll check to see if it is false
-                $active_field = 'login_active';     // If we define a column here we'll check to see if it is true
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $archive_field, $active_field);
+
+
+                // TODO: see below in pullQuery() -- how do we specify when to add the inactive symbol and when to NOT include the actual data??
+                $inactive_true = 'archived';        // When this field is true, we'll add the inactive symbol (like 'archived')
+                $inactive_false = 'login_active';   // When this field is false, we'll add the inactive symbol (like 'active')
+
+                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
                 break;
 
             default:
@@ -392,8 +406,9 @@ class ehValidList {
 
     /**
      * Builds the array from the passed parameters
-     *
-     * Note: If you include the name of the archive field for this model, then we'll check and identify any entry that is archived.
+     * Note: Include the name of the archive and/or active field for this model,
+     *       then we'll check and identify any entry that is archived and add the
+     *       self::$def_inactive_style symbol to the individual <select> entries.
      *
      * @param $key
      * @param $value
@@ -401,66 +416,73 @@ class ehValidList {
      * @param null $orderBy
      * @param null $where_clause
      * @param bool $include_key_in_name
-     * @param string $archive_field
-     * @param string $active_field
+     * @param string $inactive_true
+     * @param string $inactive_false
      * @return array
      */
-    protected static function pullQuery($key, $value, $model_path, $orderBy=null, $where_clause=null, $include_key_in_name=false, $archive_field='', $active_field='') {
+    protected static function pullQuery($key, $value, $model_path, $orderBy=null, $where_clause=null, $include_key_in_name=false, $inactive_true='', $inactive_false='') {
 
-        $thisArray = array();
-        $t = New $model_path;
-        $t->getTable();
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        $thisArray = array();           // Container for the <select> list data.
+        $t = New $model_path;           // Model instance from the passed model name.
+        $table_name = $t->getTable();   // Raw table name.
 
-        $query =  'SELECT '.$key.','.$value.' FROM '.$t->getTable().' ';
 
-        if (!empty($archive_field)) {
-            $query =  'SELECT '.$key.','.$value.','.$archive_field.' FROM '.$t->getTable().' ';
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Build to SELECT portion of the query.
+        //  (Note: None of these fields are from "user" input. They are supplied by the class code above.)
+        $query =  'SELECT '.$key.','.$value.' FROM '.$table_name.' ';
+        if (!empty($inactive_true)) {
+            $query =  'SELECT '.$key.','.$value.','.$inactive_true.' FROM '.$table_name.' ';
         }
-        if (!empty($active_field)) {
-            $query =  'SELECT '.$key.','.$value.','.$active_field.' FROM '.$t->getTable().' ';
+        if (!empty($inactive_false)) {
+            $query =  'SELECT '.$key.','.$value.','.$inactive_false.' FROM '.$table_name.' ';
         }
-        if (!empty($active_field) && !empty($archive_field)) {
-            $query =  'SELECT '.$key.','.$value.','.$active_field.','.$archive_field.' FROM '.$t->getTable().' ';
-        }
-
-
-        if ($where_clause) {
-            $query .= $where_clause." ";
-        }
-
-        if ($orderBy) {
-            $query .= "ORDER BY `" . $orderBy."`;";                              // set the default list order
+        if (!empty($inactive_false) && !empty($inactive_true)) {
+            $query =  'SELECT '.$key.','.$value.','.$inactive_false.','.$inactive_true.' FROM '.$table_name.' ';
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Build the additional WHERE clause and ORDER portion of the query. 
+        if (!empty($where_clause)) {
+            $query .= $where_clause." ";                    // Note: Add a blank space to the end of the passed WHERE to be safe.
+        }
+        if (!empty($orderBy)) {
+            $query .= "ORDER BY `" . $orderBy."`;";         // Set the default list order and terminate the query.
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
         // Execute the query
         $r = DB::select($query);
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        $def_archive_style = '*';   // The default, prepended Archive flag (has to be pretty simply since <select> won't allow any styling inside it.)
+        // This is defined as a class property at the top.
+        // $this->def_inactive_style = '*';
 
 
-        //Convert the result set to a key value array
+        // Convert the result set to a key value array
+        // And add the "inactive" symbol.
         foreach($r as $row) {
 
             ///////////////////////////////////////////////////////////////////////////////////////////
             // Check if this record is archived or not active and prepend the styling.
-            $archive_style = '';
+            $inactive_style = '';
 
             // Archived record?
-            if (!empty($archive_field) && $row->$archive_field == 1) {
-                $archive_style = $def_archive_style;
+            if (!empty($inactive_true) && $row->$inactive_true == 1) {
+                $inactive_style = self::$def_inactive_style;
             }
 
             // Active record?
-            if (!empty($active_field) && $row->$active_field != 1) {
-                $archive_style = $def_archive_style;
+            if (!empty($inactive_false) && $row->$inactive_false != 1) {
+                $inactive_style = self::$def_inactive_style;
             }
 
             if ($include_key_in_name) {
-                $thisArray[$row->$key] = $row->$key.'-'.$archive_style.$row->$value;    // The result set is now an object
+                $thisArray[$row->$key] = $row->$key.'-'.$row->$value.$inactive_style;    // The result set is now an object
             } else {
-                $thisArray[$row->$key] = $archive_style.$row->$value;                   // The result set is now an object
+                $thisArray[$row->$key] = $row->$value.$inactive_style;                   // The result set is now an object
             }
 
         }

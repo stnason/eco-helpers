@@ -10,6 +10,7 @@ namespace ScottNason\EcoHelpers\Models;
 
 use ScottNason\EcoHelpers\Traits\ehAllModelsBoot;
 use ScottNason\EcoHelpers\Traits\ehConvertNumbersToSavable;
+use ScottNason\EcoHelpers\Traits\ehGetLabels;
 use ScottNason\EcoHelpers\Traits\ehHasUserstamps;
 
 use Illuminate\Database\Eloquent\Model;
@@ -29,6 +30,7 @@ class ehBaseModel extends Model
     //use ehConvertDatesToSavable;        // An override of the Laravel fromDateTime() method.
     use ehConvertNumbersToSavable;        // My routine for removing comma separators from numbers before storing.
     use ehAllModelsBoot;                  // The boot() method that sets up the listener events.
+    use ehGetLabels;                      // A convenience method to retrieve the Label associated with a field name.
 
 
     /*

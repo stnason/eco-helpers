@@ -9,6 +9,7 @@ namespace ScottNason\EcoHelpers\Models;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use ScottNason\EcoHelpers\Traits\ehGetLabels;
 use ScottNason\EcoHelpers\Traits\ehHasUserstamps;
 //use ScottNason\EcoHelpers\Traits\ehConvertDatesToSavable;
 use ScottNason\EcoHelpers\Traits\ehConvertNumbersToSavable;
@@ -26,10 +27,12 @@ class ehBaseAuthenticatable extends Authenticatable
 
     //use ScottNason\EcoHelpers\Traits\CustomModelProperties;          // getCustomProperty() to retrieve my custom model lists (mostly for Controls use on forms)
     use ehHasUserstamps;
-    //use ehConvertDatesToSavable;          // An override of the Laravel fromDateTime() method.
+    //use ehConvertDatesToSavable;        // An override of the Laravel fromDateTime() method.
     use ehConvertNumbersToSavable;        // My routine for removing comma separators from numbers before storing.
     use ehAllModelsBoot;                  // The boot() method that sets up the listener events.
     //use CanResetPassword;
+    use ehGetLabels;                      // A convenience method to retrieve the Label associated with a field name.
 
     use HasApiTokens, HasFactory, Notifiable;
+
 }

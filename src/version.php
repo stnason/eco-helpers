@@ -1,13 +1,16 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.28',
-    'APP_LASTUPDATE' => '01/22/2024'
+    'APP_VER' => 'v1.0.29',
+    'APP_LASTUPDATE' => '01/28/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 01/20/2024:v01.00.28: 2.00 :User add/update and validation rules. Trying to check for multiple email uniqueness. (and properly use aa bound DB;;select() query)
+ * 01/27/2024:v01.00.29: 1.00 :Looking nat adding rule (CheckEmails) to registration controller. (still working through New vs Update)
+ * 01/27/2024:v01.00.28: 2.50 :Create Rule object to check email uniqueness.
+ * 01/25/2024:v01.00.28: 0.75 :Still struggling with the unique email validation for users (across all email fields).
+ * 01/22/2024:v01.00.28: 2.00 :User add/update and validation rules. Trying to check for multiple email uniqueness. (and properly use aa bound DB;;select() query)
  * 01/20/2024:v01.00.28: 2.50 :Continue work on user edit Extended fields and data validation. (basically a series of fields commented out across the board.)
  * 01/20/2024:v01.00.28: 0.50 :Fix broken authentication (still working on right place and way to do the setActingRole at login).
  * 01/19/2024:v01.00.28: 1.50 :Work out base vs extended user fields.
