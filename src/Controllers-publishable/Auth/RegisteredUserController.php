@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             //'name' => $request->name,     // Unless I modify it, the original Laravel migration doesn't include a default value so it needs something.
             'login_created'=>date("Y-m-d"),             // Stamp the time this login was created.
-            'name' => $this->uniqueUserName($request),
+            'name' => User::uniqueUserName($request),
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'login_active' => 1,                                // All new registrations will start out as active.

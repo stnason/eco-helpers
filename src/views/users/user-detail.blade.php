@@ -4,7 +4,7 @@
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 
 @inject('role', 'ScottNason\EcoHelpers\Models\ehRole')
-@inject('valid','App\Classes\ecoHelpers\ValidList')
+@inject('valid','App\Classes\ValidList')
 
 
 @section('base_head')

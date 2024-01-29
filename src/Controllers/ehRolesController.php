@@ -3,7 +3,7 @@
 namespace ScottNason\EcoHelpers\Controllers;
 
 
-use App\Classes\ecoHelpers\ValidList;           // Use the package published version (not ehValidList internal).
+use App\Classes\ValidList;           // Use the package published version (not ehValidList internal).
 
 use ScottNason\EcoHelpers\Classes\ehAccess;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
@@ -12,7 +12,6 @@ use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use ScottNason\EcoHelpers\Models\ehUser;

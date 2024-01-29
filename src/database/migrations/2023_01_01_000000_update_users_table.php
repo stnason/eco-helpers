@@ -38,7 +38,8 @@ return new class extends Migration
             $table->string('password')->nullable()->change();
 
             // Added fields for eco-helpers
-            $table->tinyInteger('archived')->after('id')->nullable()->default(0);
+            $table->string('account_id')->after('id')->nullable()->default(null);
+            $table->tinyInteger('archived')->after('account_id')->nullable()->default(0);
             $table->string('first_name')->after('archived')->nullable()->default(null);
             $table->string('last_name')->after('first_name')->nullable()->default(null);
             $table->string('middle_name')->after('last_name')->nullable()->default(null);
@@ -57,7 +58,7 @@ return new class extends Migration
             $table->string('phone_personal_home')->after('middle_name')->nullable()->default(null);         // Use this one when not using the Extended fields
             //$table->string('phone_personal_home')->after('phone_work_cell')->nullable()->default(null);   // Use this one when using the Extended fields
             $table->string('phone_personal_cell')->after('phone_personal_home')->nullable()->default(null);
-            $table->string('email_personal')->after('email_work')->nullable()->default(null);
+            $table->string('email_personal')->after('phone_personal_cell')->nullable()->default(null);
             $table->string('email_alternate')->after('email_personal')->nullable()->default(null);
             $table->text('comments')->after('email_personal')->nullable()->default(null);
 

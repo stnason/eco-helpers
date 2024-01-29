@@ -3,7 +3,7 @@
 @inject('config', 'ScottNason\EcoHelpers\Classes\ehConfig')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
-@inject('valid','App\Classes\ecoHelpers\ValidList')
+@inject('valid','App\Classes\ValidList')
 
 @section ('base_head')
     <style>

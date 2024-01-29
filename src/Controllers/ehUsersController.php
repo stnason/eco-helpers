@@ -405,7 +405,7 @@ class ehUsersController extends ehBaseController
             // Do this only if the "name" field is missing or changed.
             if (empty($user->name) || ($user->name != $request->name)) {
                 // This method contains the algorithm for checking and creating unique user names.
-                $user->name = $user->uniqueUserName($request);
+                $user->name = $user::uniqueUserName($request);
             }
 
             // RULE 2. If user only has one role assigned then set that to the default_role automatically.

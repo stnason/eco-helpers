@@ -1,12 +1,13 @@
 <?php
 return [
     'APP_VER' => 'v1.0.29',
-    'APP_LASTUPDATE' => '01/28/2024'
+    'APP_LASTUPDATE' => '01/29/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 01/29/2024:v01.00.30: 1.00 :Cleaning up paths and namespacing while deploying to JMP.
  * 01/27/2024:v01.00.29: 1.00 :Looking nat adding rule (CheckEmails) to registration controller. (still working through New vs Update)
  * 01/27/2024:v01.00.28: 2.50 :Create Rule object to check email uniqueness.
  * 01/25/2024:v01.00.28: 0.75 :Still struggling with the unique email validation for users (across all email fields).

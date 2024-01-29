@@ -1,7 +1,7 @@
 {{-- Site Settings detail form  --}}
 @extends('ecoHelpers::core.eh-app-template')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
-@inject('valid', 'App\Classes\ecoHelpers\ValidList')
+@inject('valid', 'App\Classes\ValidList')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 
 @section ('base_head')

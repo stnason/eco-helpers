@@ -1,4 +1,4 @@
-@inject('valid', 'App\Classes\ecoHelpers\ValidList')
+@inject('valid', 'App\Classes\ValidList')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @extends('ecoHelpers::core.eh-app-template')
 

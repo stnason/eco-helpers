@@ -151,7 +151,7 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
      * @param Request $request
      * @return string
      */
-    public function uniqueUserName(Request $request) {
+    public static function uniqueUserName(Request $request) {
         $user_name = '';
         $user_name =    substr(strtolower($request->first_name),0,3) . substr(strtolower($request->last_name),0,3);
 

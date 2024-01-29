@@ -166,7 +166,7 @@ class EcoHelpersServiceProvider extends ServiceProvider
 
         // This is designed to be immediately extended and modified by the end-users.
         $this->publishes([
-            __DIR__.'/Classes-publishable/ValidList.php' => app_path('Classes/ecoHelpers/ValidList.php'),
+            __DIR__.'/Classes-publishable/ValidList.php' => app_path('Classes/ValidList.php'),
         ], 'classes');
 
 
