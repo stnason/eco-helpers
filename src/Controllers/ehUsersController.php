@@ -360,7 +360,7 @@ class ehUsersController extends ehBaseController
                     'nullable',
                     'required_without:email_alternate',
                     Rule::unique('users')->ignore($user),
-                    new CheckEmails ],
+                    new CheckEmails($user) ],
 
                 'email_alternate' => ['nullable', Rule::unique('users')->ignore($user)],
 
@@ -409,6 +409,7 @@ class ehUsersController extends ehBaseController
             }
 
             // RULE 2. If user only has one role assigned then set that to the default_role automatically.
+            // TODO: somehow we need to check this when assigning the first role to a user that previously didn't have any. (?)
             if (count($user->getUserRoles($user->id)) == 1) {
                 // Pull out the role_id from the role_lookup returned array.
                 $request->merge(['default_role' => $user->getUserRoles($user->id)[0]->role_id]);
@@ -427,7 +428,7 @@ class ehUsersController extends ehBaseController
             }
 
             // RULE 5. Set the "registered" email (as necessary).
-            if (empty($user->email)) {
+            if (empty($request->email)) {
 
                 // Do we have an alternate email? (Remember that either alternate or personal is required by the standard validation.)
                 // Only do this if the [registered] email has not been previously set.

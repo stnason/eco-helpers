@@ -138,6 +138,7 @@
                             'selections'=>$valid::getList('role_list'),
                             //'auto_submit' => true,                        // 2/24/2023 - default behavior of Control is gotoSubmit()
                             'auto_submit' => 'this.form.submit()',
+                            'add_blank' => true,
                             'errors'=>$errors]) !!}
                         </div>
                     </div>

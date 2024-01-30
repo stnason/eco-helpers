@@ -15,15 +15,15 @@ class CheckEmails implements DataAwareRule, ValidationRule
      *
      * @var array<string, mixed>
      */
-    protected $data = [];       // Automatically pulls in the request()->input() object.
+    protected $data = [];       // Somehow automatically pulls in the request()->input() object.
     protected $user;            // Calling program passes the $user object we're validating here.
-                                // ????? BUt his works even if the calling program DOES NOT pass the $user variable.
-                                // Where is it coming from???
+                                // ? But his worked on test vm without it. But JMP required it??
 
     protected $emails_to_check = [
         'email_personal',
         'email_alternate',
-        'email'];               // List of email fields to check.
+        //'email'   // this is really one of the other 2 (personal or alternate) - so don't check it.
+    ];               // List of email fields to check.
 
     /**
      * Added a __construct method to allow passing in the current $user
@@ -55,8 +55,6 @@ class CheckEmails implements DataAwareRule, ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-
-
 
 
         if (empty($this->user['id'])) {

@@ -302,9 +302,12 @@ return [
 
             //'round' => false,             // Round what -- all the box areas or what ??
 
-            // The farthest "outside" container??
-            'width_full' => true,           // I think this is bs specific so not sure how to generify? (ask for a basic container class?)
-            'page_container_class' => 'container pt-2',
+            // The farthest "outside" container.
+            'full_width' => true,
+
+            // Specific to Bootstrap 5.3 for now.
+            'page_container_class_normal' => 'container pt-2',
+            'page_container_class_full' => 'container-fluid ps-0 pe-0',
 
             // Used by Controls to colorize any "alert_if" message.
             'alert_if_class' => 'bg-warning bg-opacity-25',

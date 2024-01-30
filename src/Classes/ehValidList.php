@@ -31,100 +31,76 @@ class ehValidList {
      */
     protected static $def_inactive_style = '*';
 
-
-    /**
-     * Sample key-value pair for direct access using ValidList::getList(').
-     * Note: see the getList() case statement below for list naming and calling.
-     *
-     * Kinds of camping site surfaces.
-     *
-     * @var string[]
-     */
-    public static $_site_surface = array(
-        1=>'Dirt',
-        2=>'Grass',
-        3=>'Gravel',
-        4=>'Asphalt',
-        5=>'Concrete',
-        6=>'Sand',
-        9=>'Other'
-    );
-
-    protected static $_month = [
-        '01'=>'Jan',
-        '02'=>'Feb',
-        '03'=>'Mar',
-        '04'=>'Apr',
-        '05'=>'May',
-        '06'=>'Jun',
-        '07'=>'Jul',
-        '08'=>'Aug',
-        '09'=>'Sep',
-        '10'=>'Oct',
-        '11'=>'Nov',
-        '12'=>'Dec'
-    ];
-
-    protected static $_day = [
-        '01'=>'01',
-        '02'=>'02',
-        '03'=>'03',
-        '04'=>'04',
-        '05'=>'05',
-        '06'=>'06',
-        '07'=>'07',
-        '08'=>'08',
-        '09'=>'09',
-        '10'=>'10',
-        '11'=>'11',
-        '12'=>'12',
-        '13'=>'13',
-        '14'=>'14',
-        '15'=>'15',
-        '16'=>'16',
-        '17'=>'17',
-        '18'=>'18',
-        '19'=>'19',
-        '20'=>'20',
-        '21'=>'21',
-        '22'=>'22',
-        '23'=>'23',
-        '24'=>'24',
-        '25'=>'25',
-        '26'=>'26',
-        '27'=>'27',
-        '28'=>'28',
-        '29'=>'29',
-        '30'=>'30',
-        '31'=>'31',
-    ];
-
-    /**
-     * Valid time zone entries.
-     * @var array
-     */
-    protected static $_valid_timezones = array(
-        "America/New_York"=>"Eastern",
-        "America/Chicago"=>"Central",
-        "America/Denver"=>"Mountain",
-        "America/Phoenix"=>"Mountain no DST",
-        "America/Los_Angeles"=>"Pacific",
-        "America/Anchorage"=>"Alaska",
-        "America/Adak"=>"Hawaii",
-        "Pacific/Honolulu"=>"Hawaii no DST"
-    );
+    protected static $lists = [];
 
 
+    protected static $_month =
+        [
+            1=>'Jan',
+            2=>'Feb',
+            3=>'Mar',
+            4=>'Apr',
+            5=>'May',
+            6=>'Jun',
+            7=>'Jul',
+            8=>'Aug',
+            9=>'Sep',
+            10=>'Oct',
+            11=>'Nov',
+            12=>'Dec'
+        ];
+    protected static $_day =
+        [
+            1=>'01',
+            2=>'02',
+            3=>'03',
+            4=>'04',
+            5=>'05',
+            6=>'06',
+            7=>'07',
+            8=>'08',
+            9=>'09',
+            10=>'10',
+            11=>'11',
+            12=>'12',
+            13=>'13',
+            14=>'14',
+            15=>'15',
+            16=>'16',
+            17=>'17',
+            18=>'18',
+            19=>'19',
+            20=>'20',
+            21=>'21',
+            22=>'22',
+            23=>'23',
+            24=>'24',
+            25=>'25',
+            26=>'26',
+            27=>'27',
+            28=>'28',
+            29=>'29',
+            30=>'30',
+            31=>'31',
+        ];
+    protected static $_timezone =
+        [
+            "America/New_York"=>"Eastern",
+            "America/Chicago"=>"Central",
+            "America/Denver"=>"Mountain",
+            "America/Phoenix"=>"Mountain no DST",
+            "America/Los_Angeles"=>"Pacific",
+            "America/Anchorage"=>"Alaska",
+            "America/Adak"=>"Hawaii",
+            "Pacific/Honolulu"=>"Hawaii no DST"
+        ];
     protected static $_page_security =
         [
             0=>'0-No Access',
             3=>'3-Full Permissions Check',
             2=>'2-Authenticated Only',
             1=>'1-Public Access',
-
         ];
-
-
     protected static $_page_type =
         [
             'page'=>'Page',
@@ -132,277 +108,184 @@ class ehValidList {
             'resource'=>'Resource',
             'module'=>'Module',
             'submenu'=>'Submenu',
-
         ];
-
-    /* Added these fields to the pages table.
-    protected static $_route_type =
+    protected static $_menus_list =
         [
-            'GET|HEAD'=>'GET|HEAD',
-            'PUT|PATCH'=>'PUT|PATCH',
-            'POST'=>'POST',
-            'DELETE'=>'DELETE',
+            'method'=>'pullQuery',                  // The ValidList method used for this query.
+            'key' => 'id',                          // The table column name used for the "key"
+            'value' => 'name',                      // The table column name used for the "value"
+            'model_path' => 'ScottNason\EcoHelpers\Models\ehPage',
+                                                    // The Laravel pathname to the Model
+            'orderBy' => 'id',                      // ORDER BY clause field(s)
+            'criteria' => 'WHERE menu_item = 1',    // Add a complete WHERE or LIKE clause if needed
+            'include_key_in_name' => false,         // 1=>'Value Name' would be -> "01-Value Name"
+            'inactive_true' => null,                // When this field is true, we'll add the inactive symbol (like 'archived')
+            'inactive_false' => null,               // When this field is false, we'll add the inactive symbol (like 'active')
         ];
-    */
+
+    protected static $_module_list_all =
+        [
+            'method'=>'pullQuery',                  // The ValidList method used for this query.
+            'key' => 'id',                          // The table column name used for the "key"
+            'value' => 'name',                      // The table column name used for the "value"
+            'model_path' => 'ScottNason\EcoHelpers\Models\ehPage',
+                                                    // The Laravel pathname to the Model
+            'orderBy' => 'order',                   // ORDER BY clause field(s)
+            'criteria' => "WHERE type = 'module'",  // Add a complete WHERE or LIKE clause if needed
+            'include_key_in_name' => false,         // 1=>'Value Name' would be -> "01-Value Name"
+            'inactive_true' => null,                // When this field is true, we'll add the inactive symbol (like 'archived')
+            'inactive_false' => null,               // When this field is false, we'll add the inactive symbol (like 'active')
+        ];
+
+    protected static $_role_list =
+        [
+            'method'=>'pullQuery',                  // The ValidList method used for this query.
+            'key' => 'id',                          // The table column name used for the "key"
+            'value' => 'name',                      // The table column name used for the "value"
+            'model_path' => 'ScottNason\EcoHelpers\Models\ehRole',
+                                                    // The Laravel pathname to the Model
+            'orderBy' => 'name',                    // ORDER BY clause field(s)
+            'criteria' => "",                       // Add a complete WHERE or LIKE clause if needed
+            'include_key_in_name' => false,         // 1=>'Value Name' would be -> "01-Value Name"
+            'inactive_true' => null,                // When this field is true, we'll add the inactive symbol (like 'archived')
+            'inactive_false' => null,               // When this field is false, we'll add the inactive symbol (like 'active')
+        ];
+
+    // Used by pages-detail for the parent_id dropdown (must be either a module or submenu)
+    protected static $_modules_submenus_list =
+        [
+            'method'=>'pullQuery',                  // The ValidList method used for this query.
+            'key' => 'id',                          // The table column name used for the "key"
+            'value' => 'name',                      // The table column name used for the "value"
+            'model_path' => 'ScottNason\EcoHelpers\Models\ehPage',
+                                                    // The Laravel pathname to the Model
+            'orderBy' => 'order',                   // ORDER BY clause field(s)
+            'criteria' => "WHERE type = 'module' OR type = 'submenu'",
+                                                    // Add a complete WHERE or LIKE clause if needed
+            'include_key_in_name' => false,         // 1=>'Value Name' would be -> "01-Value Name"
+            'inactive_true' => null,                // When this field is true, we'll add the inactive symbol (like 'archived')
+            'inactive_false' => null,               // When this field is false, we'll add the inactive symbol (like 'active')
+        ];
+
+    // User list for the User Profile Go-To
+    protected static $_user_list =
+        [
+            'method'=>'pullQuery',                  // The ValidList method used for this query.
+            'key' => 'id',                          // The table column name used for the "key"
+            'value' => 'name',                      // The table column name used for the "value"
+            'model_path' => 'App\Models\User',
+                                                    // The Laravel pathname to the Model
+            'orderBy' => 'name',                    // ORDER BY clause field(s)
+            'criteria' => "",                       // Add a complete WHERE or LIKE clause if needed
+            'include_key_in_name' => false,         // 1=>'Value Name' would be -> "01-Value Name"
+            'inactive_true' => 'archived',          // When this field is true, we'll add the inactive symbol (like 'archived')
+            'inactive_false' => 'login_active',     // When this field is false, we'll add the inactive symbol (like 'active')
+        ];
+    // Examples list for the Example Detail Go-To
+    protected static $_example_list =
+        [
+            'method'=>'pullQuery',                  // The ValidList method used for this query.
+            'key' => 'id',                          // The table column name used for the "key"
+            'value' => 'name',                      // The table column name used for the "value"
+            'model_path' => 'ScottNason\EcoHelpers\Models\ehExample',
+                                                    // The Laravel pathname to the Model
+            'orderBy' => 'name',                    // ORDER BY clause field(s)
+            'criteria' => "",                       // Add a complete WHERE or LIKE clause if needed
+            'include_key_in_name' => false,         // 1=>'Value Name' would be -> "01-Value Name"
+            'inactive_true' => 'archived',          // When this field is true, we'll add the inactive symbol (like 'archived')
+            'inactive_false' => 'active',           // When this field is false, we'll add the inactive symbol (like 'active')
+        ];
+    /*
+
+
+
+     */
+
+
+
 
 
 
     /**
-     * Primary way to return the list from ValidList.
-     * getList() will return the assigned array (above) -
-     * or it will pull the needed data from a table.
-     * You can start with an array defined here --- and change to a table later on.
+     * Return the list (either static or dynamically pulled) from the internal $lists array.
      *
-     * @param $list
-     * @return array|string[]
+     * @param $list_name
+     * @return mixed|string
      */
-    public static function getList($list = '') {
+    public static function getList($list_name)
+    {
+        // If the $list_name does not exist then return some kind of 'no list' message.
+        if (!empty(self::$lists[$list_name])) {
 
+            // Check to see if this is a dynamic query request.
+            // Note: Just checking for 2 of the fields in the required $arg parameters for a pullQuery().
+            //       That should be enough to establish this is a query request rather than a request
+            //       for a statically defined list.
+            if (key_exists('key',self::$lists[$list_name]) && key_exists('orderBy',self::$lists[$list_name])) {
 
-        // Return the key=>value pair from a static list defined above.
-        switch ($list) {
+                // Return the query called for in the 'method' parameter passing it the $arg contained in the $list_name.
+                $func = self::$lists[$list_name]['method'];
+                return self::$func(self::$lists[$list_name]);
 
-            case "month":
-                return self::$_month;
-                break;
-
-            case "day":
-                return self::$_day;
-                break;
-
-            case "timezone":
-                return self::$_valid_timezones;
-                break;
-
-            case "page_type":
-                return self::$_page_type;
-                break;
-
-            case "page_security":
-                return self::$_page_security;
-                break;
-
-                /*
-            case "route_type":
-                return self::$_route_type;
-                break;
-*/
-
-            // User list for the User Profile Go-To
-            case "example_list":                    // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-
-                // This can be changed based on whether or not you're using a different username than email
-                $value = 'name';                    // The table column name used for the "value"
-                $orderBy = 'name';                  // ORDER BY clause field(s)
-
-                $model_path = 'ScottNason\EcoHelpers\Models\ehExample';
-                                                    // The Laravel pathname to the Model
-                $where_clause = ""; // Add a complete WHERE clause if needed
-                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $inactive_true = '';                // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = '';               // When this field is false, we'll add the inactive symbol (like 'active')
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-
-            case "module_list_all":                 // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-                $value = 'name';                    // The table column name used for the "value"
-                $orderBy = 'order';                 // ORDER BY clause field(s)
-                $model_path = 'ScottNason\EcoHelpers\Models\ehPage';
-                                                    // The Laravel pathname to the Model
-                $where_clause = "WHERE type = 'module' ";
-                                                    // Add a complete WHERE clause if needed
-                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-
-            case "module_list_active":              // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-                $value = 'name';                    // The table column name used for the "value"
-                $orderBy = 'order';                 // ORDER BY clause field(s)
-                $model_path = 'ScottNason\EcoHelpers\Models\ehPage';
-                                                    // The Laravel pathname to the Model
-                $where_clause = "WHERE type = 'module' AND active = 1 ";
-                                                    // Add a complete WHERE clause if needed
-                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = null;               // When this field is false, we'll add the inactive symbol (like 'active')
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-
-            // Used by pages-detail for the parent_id dropdown (must be either a module or submenu)
-            case "modules_submenus_list":           // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-                $value = 'name';                    // The table column name used for the "value"
-                $orderBy = 'order';                 // ORDER BY clause field(s)
-                $model_path = 'ScottNason\EcoHelpers\Models\ehPage';       // The Laravel pathname to the Model
-                $where_clause = "WHERE type = 'module' OR type = 'submenu' "; // Add a complete WHERE clause if needed
-                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-
-            case "role_list":                       // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-                $value = 'name';                    // The table column name used for the "value"
-                $orderBy = 'name';                  // ORDER BY clause field(s)
-                $model_path = 'ScottNason\EcoHelpers\Models\ehRole';       // The Laravel pathname to the Model
-                $where_clause = '';                 // Add a complete WHERE clause if needed
-                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-
-
-            // Return the key=>value pair from a database table query.
-            /*
-            case "master_whole_models":             // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-                $value = 'model_whole';             // The table column name used for the "value"
-                $orderBy = 'model_whole';           // ORDER BY clause field(s)
-                $model_path = 'App\AssetMaster';    // The Laravel pathname to the Model
-                $where_clause = 'WHERE active = 1'; // Add a complete WHERE clause if needed
-                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-            */
-
-            case "menus_list":                      // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-                $value = 'name';                    // The table column name used for the "value"
-                $orderBy = 'id';                    // ORDER BY clause field(s)
-                $model_path = 'ScottNason\EcoHelpers\Models\ehPage';       // The Laravel pathname to the Model
-                $where_clause = 'WHERE menu_item = 1'; // Add a complete WHERE clause if needed
-                $include_key_in_name = true;        // 1=>'Value Name' would be -> "01-Value Name"
-                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-
-
-            // The GroupsController uses this to present a list of pages for the Default Home Page selection.
-            case "page_list_active":                // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-                $value = 'name';                    // The table column name used for the "value"
-                $orderBy = 'name';                  // ORDER BY clause field(s)
-                $model_path = 'ScottNason\EcoHelpers\Models\ehPage';       // The Laravel pathname to the Model
-                $where_clause = "WHERE type = 'page' AND active = 1"; // Add a complete WHERE clause if needed
-                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-                $inactive_true = null;              // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = null;             // When this field is false, we'll add the inactive symbol (like 'active')
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-
-            //TODO: Might want to think about building a dual capable (first_name+last_name) pullQuery
-            // or some move this list pull into the user model as its own method.
-
-            // User list for the User Profile Go-To
-            case "user_list":                       // Name to use when calling getList()
-                $key = 'id';                        // The table column name used for the "key"
-
-                // This can be changed based on whether or not you're using a different username than email
-                $value = 'name';                    // The table column name used for the "value"
-                $orderBy = 'name';                  // ORDER BY clause field(s)
-
-                $model_path = 'App\Models\User';    // The Laravel pathname to the Model
-                $where_clause = ""; // Add a complete WHERE clause if needed
-                $include_key_in_name = false;       // 1=>'Value Name' would be -> "01-Value Name"
-
-
-                // TODO: see below in pullQuery() -- how do we specify when to add the inactive symbol and when to NOT include the actual data??
-                $inactive_true = 'archived';        // When this field is true, we'll add the inactive symbol (like 'archived')
-                $inactive_false = 'login_active';   // When this field is false, we'll add the inactive symbol (like 'active')
-
-                return self::pullQuery($key, $value, $model_path, $orderBy, $where_clause, $include_key_in_name, $inactive_true, $inactive_false);
-                break;
-
-            default:
-                return array("No List");
-        }
-    }
-
-
-
-    /**
-     * Combine a current getList($list) item with new [$key=>$value] pair items.
-     *
-     * @param $list
-     * @param $new_items
-     * @param bool $top
-     * @return array
-     */
-    public static function combineList($list, $new_items=[], $top=false) {
-
-        $new_list = [];
-        $current_list = self::getList($list);
-
-        if ($top) {
-            // Add both arrays to the new list - starting with the new items:
-            foreach ($new_items as $key => $value) {
-                $new_list[$key] = $value;
             }
-            foreach ($current_list as $key => $value) {
-                $new_list[$key] = $value;
-            }
+
+            // If not a dynamic query, then we'll assume this is a static list.
+            return self::$lists[$list_name];
+
         } else {
-            // Just add this to the current list
-            foreach ($new_items as $key => $value) {
-                $current_list[$key] = $value;
-            }
-            $new_list = $current_list;
+
+            // This list key does not seem to exist.
+            return 'no list';
         }
 
-        return $new_list;
+        // Check to see if the list is a query request rather than a static list.
+        // Does the 'model_path' AND 'orderBy' entry exist?
+        //return self::pullQuery($key, $value, $model_path, $orderBy, $criteria, $include_key_in_name, $inactive_true, $inactive_false);
+        // return pullQuery($parameters);
+
+
     }
+
 
     /**
-     * Pull a Unique list from a table
-     *  - returns a $key(id) => $value(name) pair
+     * Add all the static and dynamic lists for this class.
      *
-     * @param $key
-     * @param $value
-     * @param $model_path
-     * @param null $orderBy
-     * @param null $where_clause
-     * @param bool $include_key_in_name
-     * @return array
+     * @return void
      */
-    protected static function pullUnique($key, $value, $model_path, $orderBy=null, $where_clause=null, $include_key_in_name=false) {
+    protected static function initLists() {
 
-        $thisArray = array();
-        $t = New $model_path;
-        $t->getTable();
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Initialize the base (included) lists for the package ehValidList class.
+        // To add additional lists, define them as protected static variables above and then add them here.
+        self::addList('month', self::$_month);
+        self::addList('day', self::$_day);
+        self::addList('timezone', self::$_timezone);
+        self::addList('page_security', self::$_page_security);
+        self::addList('page_type', self::$_page_type);
+        self::addList('menus_list', self::$_menus_list);
+        self::addList('module_list_all', self::$_module_list_all);
+        self::addList('role_list', self::$_role_list);
+        self::addList('modules_submenus_list', self::$_modules_submenus_list);
+        self::addList('user_list', self::$_user_list);
+        self::addList('example_list', self::$_example_list);
 
-        $query =  "SELECT DISTINCT ".$key.",".$value.",".$orderBy." FROM ". $t->getTable() ." ";
-
-        if ($where_clause) {
-            $query .= $where_clause." ";
-        }
-
-        if ($orderBy) {
-            $query .= "ORDER by ".$orderBy;                              // set the default list order
-        }
-
-        $r = DB::select($query);
-
-        //Convert the result set to a key value array
-        foreach($r as $row) {
-           // $thisArray[$row[$key]] = htmlentities($row[$value]);
-            // Trying to clean up some odd characters -- but not really working; just need to fix the underlying data.
-            $thisArray[$row->$key] = htmlentities(utf8_decode($row->$value));    // The result set is now an object
-        }
-
-        unset($t,$r,$query);
-
-        return $thisArray;
     }
+
+
+    /**
+     * A function to add another $list "key" to the internal $lists array.
+     *
+     * @param $list_name
+     * @param $list_array
+     * @return void
+     */
+    protected static function addList($list_name, $list_array) {
+        self::$lists = array_merge(self::$lists, [$list_name=>$list_array]);
+    }
+
+
+
+
 
     /**
      * Builds the array from the passed parameters
@@ -414,41 +297,42 @@ class ehValidList {
      * @param $value
      * @param $model_path
      * @param null $orderBy
-     * @param null $where_clause
+     * @param null $criteria
      * @param bool $include_key_in_name
      * @param string $inactive_true
      * @param string $inactive_false
      * @return array
      */
-    protected static function pullQuery($key, $value, $model_path, $orderBy=null, $where_clause=null, $include_key_in_name=false, $inactive_true='', $inactive_false='') {
+    //protected static function pullQuery($key, $value, $model_path, $orderBy=null, $criteria=null, $include_key_in_name=false, $inactive_true='', $inactive_false='') {
+    protected static function pullQuery($args) {
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         $thisArray = array();           // Container for the <select> list data.
-        $t = New $model_path;           // Model instance from the passed model name.
+        $t = New $args['model_path'];   // Model instance from the passed model name.
         $table_name = $t->getTable();   // Raw table name.
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Build to SELECT portion of the query.
         //  (Note: None of these fields are from "user" input. They are supplied by the class code above.)
-        $query =  'SELECT '.$key.','.$value.' FROM '.$table_name.' ';
-        if (!empty($inactive_true)) {
-            $query =  'SELECT '.$key.','.$value.','.$inactive_true.' FROM '.$table_name.' ';
+        $query =  'SELECT '.$args['key'].','.$args['value'].' FROM '.$table_name.' ';
+        if (!empty($args['inactive_true'])) {
+            $query =  'SELECT '.$args['key'].','.$args['value'].','.$args['inactive_true'].' FROM '.$table_name.' ';
         }
-        if (!empty($inactive_false)) {
-            $query =  'SELECT '.$key.','.$value.','.$inactive_false.' FROM '.$table_name.' ';
+        if (!empty($args['inactive_false'])) {
+            $query =  'SELECT '.$args['key'].','.$args['value'].','.$args['inactive_false'].' FROM '.$table_name.' ';
         }
-        if (!empty($inactive_false) && !empty($inactive_true)) {
-            $query =  'SELECT '.$key.','.$value.','.$inactive_false.','.$inactive_true.' FROM '.$table_name.' ';
+        if (!empty($args['inactive_false']) && !empty($args['inactive_true'])) {
+            $query =  'SELECT '.$args['key'].','.$args['value'].','.$args['inactive_false'].','.$args['inactive_true'].' FROM '.$table_name.' ';
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Build the additional WHERE clause and ORDER portion of the query. 
-        if (!empty($where_clause)) {
-            $query .= $where_clause." ";                    // Note: Add a blank space to the end of the passed WHERE to be safe.
+        // Build the additional WHERE/LIKE clause and ORDER portion of the query.
+        if (!empty($args['criteria'])) {
+            $query .= $args['criteria']." ";                        // Note: Add a blank space to the end of the passed WHERE to be safe.
         }
-        if (!empty($orderBy)) {
-            $query .= "ORDER BY `" . $orderBy."`;";         // Set the default list order and terminate the query.
+        if (!empty($args['orderBy'])) {
+            $query .= "ORDER BY `" . $args['orderBy']."`;";         // Set the default list order and terminate the query.
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -461,39 +345,47 @@ class ehValidList {
         // $this->def_inactive_style = '*';
 
 
-        // Convert the result set to a key value array
+        // Convert the result set to a key value pair array
         // And add the "inactive" symbol.
         foreach($r as $row) {
 
             ///////////////////////////////////////////////////////////////////////////////////////////
-            // Check if this record is archived or not active and prepend the styling.
+            // The styling character if this record is archived or not active (appended to the end).
             $inactive_style = '';
 
-            // Archived record?
-            if (!empty($inactive_true) && $row->$inactive_true == 1) {
+            // Create local function variables so they will work in the "$row->$var" syntax below.
+            $inactive_false = $args['inactive_false'];
+            $inactive_true = $args['inactive_true'];
+            $key = $args['key'];
+            $value = $args['value'];
+
+            // Example of an Archived (archived=1) record. Add style when this field is "true".
+            if (!empty($args['inactive_true']) && $row->$inactive_true == 1) {
                 $inactive_style = self::$def_inactive_style;
             }
 
-            // Active record?
-            if (!empty($inactive_false) && $row->$inactive_false != 1) {
+            // Example of an Active (active=1) record. Add style when this field is "false".
+            if (!empty($args['inactive_false']) && $row->$inactive_false != 1) {
                 $inactive_style = self::$def_inactive_style;
             }
 
-            if ($include_key_in_name) {
-                $thisArray[$row->$key] = $row->$key.'-'.$row->$value.$inactive_style;    // The result set is now an object
+            // Add the key name to the value (if calling for it).
+            if ($args['include_key_in_name']) {
+                $thisArray[$row->$key] = $row->$key.'-'.$row->$value.$inactive_style;
             } else {
-                $thisArray[$row->$key] = $row->$value.$inactive_style;                   // The result set is now an object
+                $thisArray[$row->$key] = $row->$value.$inactive_style;
             }
+
 
         }
 
-
         // Clean up.
-        unset($t,$r,$query);
+        unset($t, $table_name, $r, $key_tmp, $value_tmp, $query);
 
-        // Return the formatted array list.
+        // Return the properly formatted list array.
         return $thisArray;
     }
+
 
 
 }

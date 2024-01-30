@@ -253,7 +253,7 @@ class ehSampleData {
 
                 /* OPTIONAL: Extended business fields
                'title' => '',
-               'description' => 'ecoHelpers startup admin account.',
+               'description' => 'ecoHelpers startup user account.',
                'company' => 'Eco Helpers',
                'reports_to' => '',
                'phone_work_desk' => '',

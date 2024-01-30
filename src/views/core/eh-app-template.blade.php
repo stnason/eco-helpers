@@ -56,20 +56,20 @@ The standard button area must be contained within each CRUD <form>
     Remember that content for the id="system-page-buttons" is built out in the Controls@buttonArea() call.
 ///////////////////////////////////////////////////////////////////////////////////////
 --}}
-@inject('settings', 'ScottNason\EcoHelpers\Classes\ehConfig')
+@inject('ehConfig', 'ScottNason\EcoHelpers\Classes\ehConfig')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     {{--
         Include all of the standard meta tags, base and auto-loaded css (configure in views/eco-configure).
         --}}
-    @if(View::exists('ecoHelpers.'.$settings::get('layout.html_head_file')))
-        @include('ecoHelpers.'.$settings::get('layout.html_head_file'))
+    @if(View::exists('ecoHelpers.'.$ehConfig::get('layout.html_head_file')))
+        @include('ecoHelpers.'.$ehConfig::get('layout.html_head_file'))
     @endif
 
     {{-- Include the global css loader file. --}}
-    @if(View::exists('ecoHelpers.'.$settings::get('layout.css_loader_file')))
-        @include('ecoHelpers.'.$settings::get('layout.css_loader_file'))
+    @if(View::exists('ecoHelpers.'.$ehConfig::get('layout.css_loader_file')))
+        @include('ecoHelpers.'.$ehConfig::get('layout.css_loader_file'))
     @endif
 
     @if (!empty($form['layout']['name']['content']))
@@ -99,26 +99,26 @@ The standard button area must be contained within each CRUD <form>
 {{--
     You may have the need to add other elements to your base template. (dropzones, modals, user notifcations, etc.)
     --}}
-@if(View::exists('ecoHelpers.'.$settings::get('layout.app_add_ins_file')))
-    @include('ecoHelpers.'.$settings::get('layout.app_add_ins_file'))
+@if(View::exists('ecoHelpers.'.$ehConfig::get('layout.app_add_ins_file')))
+    @include('ecoHelpers.'.$ehConfig::get('layout.app_add_ins_file'))
 @endif
 
 {{--
     Include the user configurable nav bar content.
     --}}
 
-@if(View::exists('ecoHelpers.'.$settings::get('layout.navbar_header_file')))
-    @include('ecoHelpers.'.$settings::get('layout.navbar_header_file'))
+@if(View::exists('ecoHelpers.'.$ehConfig::get('layout.navbar_header_file')))
+    @include('ecoHelpers.'.$ehConfig::get('layout.navbar_header_file'))
 @endif
 
 
 {{--
 The system banner displays on every page right below the navigation banner
 For security reasons; the banner is configuarble to enforce being logged in to view.
-@if ( ($settings::get('layout.options.banner_auth') && Auth::check()) )
+@if ( ($ehConfig::get('layout.options.banner_auth') && Auth::check()) )
 --}}
 {{-- If the configuration says not to check if authorized then show banner all the time. --}}
-@if (!$settings::get('layout.options.banner_auth'))
+@if (!$ehConfig::get('layout.options.banner_auth'))
         @php $show_banner = true; @endphp
 @else
         {{-- If the configuration says TO check if authorized then check that. --}}
@@ -132,24 +132,25 @@ For security reasons; the banner is configuarble to enforce being logged in to v
         Is it turned on - and if so, should it blink.
         --}}
 @if ($show_banner)
-        @if ($form['layout']['banner']['state'])
-                @if($form['layout']['banner']['blink'])
-                        <div class="{{$form['layout']['banner']['class']}} blink" id="layout-page-banner">{!! $form['layout']['banner']['content'] !!}</div>
-                @else
-                        <div class="{{$form['layout']['banner']['class']}}" id="layout-page-banner">{!! $form['layout']['banner']['content'] ?? '' !!}</div>
-                @endif
+    @if ($form['layout']['banner']['state'])
+        @if($form['layout']['banner']['blink'])
+            <div class="{{$form['layout']['banner']['class']}} blink" id="layout-page-banner">{!! $form['layout']['banner']['content'] !!}</div>
+        @else
+            <div class="{{$form['layout']['banner']['class']}}" id="layout-page-banner">{!! $form['layout']['banner']['content'] ?? '' !!}</div>
         @endif
+    @endif
 @endif
-
 
 
 {{--
     Set up a container for the main page just below the system banner.
     Set the main container class in the eco-helpers.layout.options section.
     --}}
-
-<main class="{{$settings::get('layout.options.page_container_class')}}">
-
+@if (!empty($form['layout']['full-width']) && $form['layout']['full-width']['state'])
+    <main class="{{$ehConfig::get('layout.options.page_container_class_full')}}">
+@else
+    <main class="{{$ehConfig::get('layout.options.page_container_class_normal')}}">
+@endif
     {{--
         Check to see if any of the content areas in the Title area are on. If not then disable the whole thing.
         --}}
@@ -189,7 +190,7 @@ For security reasons; the banner is configuarble to enforce being logged in to v
                 --}}
             @if ($form['layout']['description']['state'])
                 <div class="container-fluid" id="layout-page-description">
-                    <span>{!!$settings::get('layout.options.description_bullet')!!}{{ $form['layout']['description']['content'] }}</span></div>
+                    <span>{!!$ehConfig::get('layout.options.description_bullet')!!}{{ $form['layout']['description']['content'] }}</span></div>
             @endif
 
             {{--
@@ -280,8 +281,8 @@ For security reasons; the banner is configuarble to enforce being logged in to v
     @include('ecoHelpers::core.eh-app-template_footer_shell')
     --}}
 
-@if(View::exists('ecoHelpers.'.$settings::get('layout.footer_file')))
-    @include('ecoHelpers.'.$settings::get('layout.footer_file'))
+@if(View::exists('ecoHelpers.'.$ehConfig::get('layout.footer_file')))
+    @include('ecoHelpers.'.$ehConfig::get('layout.footer_file'))
 @else
     <p>NO USER FOOTER FILE PRESENT.</p>
     <p><em>Configure filename in config/eco-helpers.php and place the blade template file in views/ecoHelpers/configurable folder.</em></p>
@@ -291,8 +292,8 @@ For security reasons; the banner is configuarble to enforce being logged in to v
 {{-- Include the user configurable static Javascript and auto-loader file.
      If present, this file must reside in the views/ecoHelpers/configurable folder.
      --}}
-@if(View::exists('ecoHelpers.'.$settings::get('layout.js_loader_file')))
-    @include('ecoHelpers.'.$settings::get('layout.js_loader_file'))
+@if(View::exists('ecoHelpers.'.$ehConfig::get('layout.js_loader_file')))
+    @include('ecoHelpers.'.$ehConfig::get('layout.js_loader_file'))
 @endif
 
 

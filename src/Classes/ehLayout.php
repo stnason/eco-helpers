@@ -9,9 +9,6 @@ use ScottNason\EcoHelpers\Models\ehPage;
 
 
 
-
-
-
 /**
  * Layout class.
  * Handles all standard page/form area display control interaction to the base template.
@@ -65,9 +62,17 @@ class ehLayout
      * @var string[]
      */
     protected static $defined_areas = [
-
         'banner','name','icon','description','linkbar','dynamic','flash','attention','option-block'
+    ];
 
+    /**
+     * Custom keys that can be used as "methods" to call methods that are not directly related to display areas.
+     * Example: the full-width page setting.
+     *
+     * @var string[]
+     */
+    protected static $custom_keys = [
+        'full-width',
     ];
 
 
@@ -99,7 +104,8 @@ class ehLayout
 
 
 
-        // Grab all of the default/initial values defined in config('eco-helpers.layout')
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Grab all of the default and options initial values defined in config('eco-helpers.layout')
         $default = ehConfig::get('layout.default');
 
 
@@ -124,6 +130,7 @@ class ehLayout
         }
 
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
         // Build out the initial layout array using these layout default values defined in eco-helpers['layout.default'].
         foreach(self::$defined_areas as $area) {
 
@@ -143,6 +150,11 @@ class ehLayout
             }
 
         }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Manually set the defaults for any $custom_keys:
+        self::$layout['full-width']['state'] = ehConfig::get('layout.options.full_width');
+
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -287,10 +299,18 @@ class ehLayout
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Check the final name to see if it matches one of the pre-defined display area names.
         // Note: these "non user configurable" areas are defined at the top: self::$defined_areas.
+        $hard_stop = false;
         if (!in_array($name, self::$defined_areas)) {
-            // In that case, just hard stop with an error to let you know.
-            dd('Error: Invalid display area: '. $name . '. No method name '.$method.'(). ', self::$defined_areas);
+
+            // Also check the $custom_keys before declaring the hard stop error.
+            if (!in_array($name, self::$custom_keys)) {
+                $hard_stop = true;
+            }
         }
+        if ($hard_stop) {
+            dd('Error: Invalid display area: '. $name . '. No method name '.$method.'(). ', self::$defined_areas, self::$custom_keys);
+        }
+
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -442,6 +462,21 @@ class ehLayout
     public static function setOptionBlock($value=null) {
         // Use the catch-all setter to build a method call to this.
         return self::__callStatic('setOptionBlock', $value);
+    }
+
+    /**
+     * Call with () or (true) to turn on full width.
+     * Call with (false) to turn off full width.
+     * Note - these will use the 2 keys defined in the eco-helpers config file:
+     * 'page_container_class_normal' => 'xxxxx',
+     * 'page_container_class_full' => 'xxxxx',
+     *
+     * @param $value
+     * @return null
+     */
+    public static function setFullWidth($value=null) {
+        // Use the catch-all setter to build a method call to set the page name.
+        return self::__callStatic('setFullWidth', $value);
     }
 
     /**

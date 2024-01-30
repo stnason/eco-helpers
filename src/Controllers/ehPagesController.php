@@ -169,7 +169,6 @@ class ehPagesController extends ehBaseController
     {
 
 
-
         ehLayout::initLayout();
         ehLayout::setOptionBlock(false);
 
@@ -452,7 +451,7 @@ class ehPagesController extends ehBaseController
             // 2a. RULE - Auto set the module route name to "module.page_id".
             if (empty($request->id)) {
                 // if we're adding a new record then page is "will be" one higher than highest page id
-                $q = "SELECT id from pages ORDER BY id desc LIMIT 1";
+                $q = "SELECT id from eh_pages ORDER BY id desc LIMIT 1";
                 $result = DB::select($q);
                 $page_id = $result[0]->id + 1;      // Add 1 to the highest id on file.
             } else {
