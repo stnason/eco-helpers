@@ -1,12 +1,14 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.31',
-    'APP_LASTUPDATE' => '01/31/2024'
+    'APP_VER' => 'v1.0.32',
+    'APP_LASTUPDATE' => '02/03/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 02/03/2024:v01.00.32: 1.75 :Implement ehUsersController@destray(). Add $user=null to getAll() notifications.
+ * 01/31/2024:v01.00.31: 1.00 :Fix issue with ehMenus@getMyChildren() not building query correctly.
  * 01/30/2024:v01.00.31: 3.50 :Design changes based on attempts to use with JMP. Implement full_width for eco-config and ehLayout,
  * 01/29/2024:v01.00.30: 5.50 :Cleaning up paths and namespacing while deploying to JMP. Rebuilding ehValidList structure so it can be extended.
  * 01/27/2024:v01.00.29: 1.00 :Looking nat adding rule (CheckEmails) to registration controller. (still working through New vs Update)

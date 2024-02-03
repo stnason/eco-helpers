@@ -286,10 +286,34 @@ class ehUsersController extends ehBaseController
 
     }
 
-    public function destroy()
+    public function destroy(User $user)
     {
 
-        dd('ehUsersController@destroy');
+        //dd('ehUsersController@destroy', $user, $user->getUserRoles($user->id), ehNotificationsController::getAll($user->id));
+
+        // Delete any pending Notifications.
+        // Currently, the only notifications are for Role changes which auto-clear so this is a safety net for any possible future use.
+        DB::delete("DELETE FROM eh_notifications WHERE user_id=".$user->id);
+
+        // Delete all of this user's Role memberships.
+        DB::delete("DELETE FROM eh_roles_lookup WHERE user_id=".$user->id);
+
+        // Finally, remove the actual user's record.
+        $result = $user->delete();
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // If all went okay then say so to the flash message.
+        if ($result) {
+            session()->flash('message', 'User profile and Role memberships for <strong>' . $user->fullName() . '</strong> have been deleted. ');
+        } else {
+            session()->flash('message', 'Something went wrong.');
+        }
+
+        // Go back to the Users list page.
+        // Note: There is no users.list so return to the show page with this user id
+        //       (that's what happens when you hit users.list -- but if you call that from here, you lose the flash message.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        return redirect(route('users.show',[Auth()->user()->id]));
 
     }
 

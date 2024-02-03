@@ -343,6 +343,7 @@ class ehPagesController extends ehBaseController
         // I can only think of this one condition to NOT delete a page.
         //  (anything else that may come up can be placed under this one.)
 
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         // 1. You can't delete any item that has children
         //      (which should only be modules or submenus).

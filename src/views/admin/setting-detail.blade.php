@@ -69,8 +69,12 @@
             <div class="row">
                 <div class="form-group d-inline flex-wrap">
                     <label>&nbsp;</label>
+                    {{--
                     <span class="form-em">Note: leave <strong>System Banner</strong> blank to display the current
                     date: <strong>{{ date("l jS \\o\\f F, o") }}</strong></span>
+                    --}}
+                    <span class="form-em">Note: leave <strong>System Banner</strong> blank to display the default from eco-helpers.php
+                    : <strong>{{ config('eco-helpers.layout.default.banner.content') }}</strong></span>
                 </div>
             </div>
 

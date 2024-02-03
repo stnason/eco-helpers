@@ -74,14 +74,18 @@ class ehConfig
 
         // If we have more than one part, then run this recursive check again.
         if (count($param_array)>1) {
+
             // Pull out this "leg" of the settings and pass it onto the next recursive check.
             $new_data = $data[$param_array[0]];
             // Pass the second part of the input parameter for another check.
             return self::recurseParameters($param_array[1], $new_data);
+
         } else {
+
             // If we only have one part of the input $parameters, then just return that part of the $data.
-            if (isset($data[$param_array[0]])) {
-                return $data[$param_array[0]];        // Just return this key from settings.
+            //if (isset($data[$param_array[0]])) {          // This errors our on an empty of null entry
+            if (key_exists($param_array[0], $data)) {       // So just check to see if the actual key exists.
+                return $data[$param_array[0]];              // Just return this key from settings.
             } else {
                 return 'Error (ehConfig): parameter '.$param_array[0].' not found.';
             }

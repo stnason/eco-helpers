@@ -25,7 +25,7 @@
 
 
             {{-- ######################################################################## --}}
-            {{-- Standard form information header; for endu-user form content headings. --}}
+            {{-- Standard form information header; for end-user form content headings. --}}
             {{-- ######################################################################## --}}
             <div><p class="form-header-information">system banner:</p></div>
 

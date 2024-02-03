@@ -356,24 +356,23 @@ class ehMenus
      */
     public static function getMyChildren($page_id, $active_only = false, $menu_item = false) {
 
-        // If we passed the whole $page object then just grab the id
+        // If we passed the whole $page object then just grab the id.
+        // Otherwise we assume that it is just a page id number.
         if (is_object($page_id)) {
             $page_id = $page_id->id;
         }
 
         // Build out the part of the query to deal with any passed parameters
         if ($active_only) {
-            $active_only = ['active','=',1];
+            $active_only = [['active','=',1]];
         } else {
-            $active_only = [];
+            //$active_only = [];
         }
         if ($menu_item) {
-            $menu_item = ['menu_item','=',1];
+            $menu_item = [['menu_item','=',1]];
         } else {
-            $menu_item = [];
+            //$menu_item = [];
         }
-
-
 
         //return collect(ehPage::where('parent_id', $page_id)->get());
         /*
@@ -388,13 +387,24 @@ class ehMenus
         );
         */
 
+
+        // Build the whole query based on the arrays above.
+        $whole_query = [
+            ['parent_id', '=', $page_id],
+        ];
+        if (!empty($active_only)) {
+            $whole_query = array_merge($whole_query, $active_only);
+        }
+        if (!empty($menu_item)) {
+            $whole_query = array_merge($whole_query, $menu_item);
+        }
+
+
         // Return the Eloquent Collection as a Support Collection
         return collect(
-            ehPage::where([
-                ['parent_id', '=', $page_id],
-                $menu_item,
-                $active_only
-            ])
+            ehPage::where(
+               $whole_query             // Where clause with multiple parts built out above here.
+            )
                 ->orderBy('order')
                 ->get()
         );

@@ -298,7 +298,7 @@ return [
         'options' => [
 
             'banner_blink' => false,        // User controllable banner blink. (for on-the-fly setting of more important messages)
-            'banner_auth' => false,         // Show banner only when authenticated.
+            'banner_auth' => true,          // Show banner only when authenticated.
 
             //'round' => false,             // Round what -- all the box areas or what ??
 

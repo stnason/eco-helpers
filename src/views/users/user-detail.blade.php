@@ -560,7 +560,8 @@
         var goto_url = "{{ config('app.url') }}" + '/users';
 
         // Set the Standard "Delete Me" message
-        delete_me_message = "Are you sure you want to permanently delete this User record?";
+        delete_me_message = "Are you sure you want to permanently delete this User record?\n\n" +
+            "This will also delete their Role memberships and any pending notifications. (Consider Archiving them if you're not sure.)";
     </script>
     <script type="text/javascript" src="{{ asset('vendor/ecoHelpers/js/eh-goto-submit.js') }}"></script>
 

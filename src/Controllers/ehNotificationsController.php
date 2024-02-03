@@ -6,6 +6,7 @@ namespace ScottNason\EcoHelpers\Controllers;
 use ScottNason\EcoHelpers\Models\ehNotification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use ScottNason\EcoHelpers\Models\ehUser;
 
 /**
  * Note: this was setup as a controller so we could extend the base controller which used the web middleware.
@@ -39,18 +40,29 @@ class ehNotificationsController extends ehBaseController
     /**
      * Get all the current notification for this user.
      *
-     * @return mixed
+     * @param $user         // Either a user_id or the whole user object. (will default to Auth()->user() without it.)
+     * @return false|mixed
      */
-    public static function getAll() {
+    public static function getAll($user=null) {
 
         // Minimum security check.
         if (!self::authorized()) {return false;}
+
+        // if we pass a user id (or object then use that for the delete)
+        // Note: Adding this functionality so others can check (such as an Admin when deleting..)
+        if (!empty($user)) {
+            // If we passed either a $user id or object then normalize it to the whole $user object.
+            $user = ehUser::normalizeUserID($user);
+        } else {
+            // If we didn't pass a $user, then just use the currently logged in one.
+            $user = Auth()->user();
+        }
 
         // First remove any expired notifications.
         self::removeExpired();
 
         // Build and execute the get all notifications for this user query.
-        $q = "SELECT * FROM eh_notifications WHERE user_id=".Auth()->user()->id." ORDER BY created_by ASC";
+        $q = "SELECT * FROM eh_notifications WHERE user_id=".$user->id." ORDER BY created_by ASC";
         $result = DB::select($q);
         if (count($result) > 0) {
             return $result[0];
