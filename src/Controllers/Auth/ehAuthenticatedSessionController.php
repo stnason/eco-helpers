@@ -303,7 +303,10 @@ class ehAuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect(route('eco'));
+        // TODO: I think we should add a config setting--maybe for both--home page after login and home page after logout.
+
+        // Go here after logging out.
+        return redirect(route('/'));
     }
 
 

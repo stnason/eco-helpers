@@ -108,6 +108,7 @@ trait ehUserFunctions
     /**
      * Quick utility for getting all roles associated with a user.
      * If $user_id is null, it will attempt to use the currently logged in user.
+     * Note: this is returning a roles_lookup query so it only has $user_id, $role_id to choose from.
      *
      * @param $user_id
      * @return mixed
@@ -132,7 +133,6 @@ trait ehUserFunctions
         if ($active) {
             $having = ' HAVING active = 1 ';
         }
-
 
         // Get all the roles this user is assigned to -- filtered by the $active role flag above.
         // Since we're pulling from the eh_roles_lookup,
@@ -297,13 +297,15 @@ trait ehUserFunctions
         //////////////////////////////////////////////////////////////////////////////////
         // 3. Make sure this user has this role assigned AND that it's active.
         //      Note: this check is the only way to get $i_have_this_role_assigned set to true.
-        $this->getUserRoles();      // with no parameters this should return the currently logged in user's active roles only.
+        $active_roles = $this->getUserRoles();      // With no parameters this will return the currently logged in user's active roles only.
 
-        foreach ($this->getUserRoles() as $role) {
+        // Note: Since the getUserRoles() function returns a role_lookup you have to look for $roles_lookup->role_id (not $roles_lookup0>id)
+        foreach ($active_roles as $role_lookup) {
             // Is the user assigned to the role that's being requested?
-            if ($role->id == $acting_role_id) {
+            if ($role_lookup->role_id == $acting_role_id) {
                 $i_have_this_role_assigned = true;
             }
+
         }
 
         //////////////////////////////////////////////////////////////////////////////////

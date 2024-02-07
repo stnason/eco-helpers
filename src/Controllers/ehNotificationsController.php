@@ -49,7 +49,7 @@ class ehNotificationsController extends ehBaseController
         if (!self::authorized()) {return false;}
 
         // if we pass a user id (or object then use that for the delete)
-        // Note: Adding this functionality so others can check (such as an Admin when deleting..)
+        // Note: Adding this functionality so others (Admin -- or maybe a Dashboard) can check as needed.
         if (!empty($user)) {
             // If we passed either a $user id or object then normalize it to the whole $user object.
             $user = ehUser::normalizeUserID($user);

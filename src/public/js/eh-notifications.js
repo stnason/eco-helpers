@@ -152,7 +152,7 @@ var next_notification = getNext();
        */
 
 // Is there a next notification?
-if (next_notification !== null) {
+if (next_notification !== null && next_notification !== "") {
     if (next_notification.auto_popup === 1 || next_notification.auto_popup === "1") {
 
         message_modal_title.html(next_notification.title);

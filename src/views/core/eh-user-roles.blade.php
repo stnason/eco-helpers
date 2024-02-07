@@ -66,12 +66,12 @@
 
                                     {{-- Note: the $myRoles array has no "name" field. It's from the eh_role_lookup table;
                                                 so it just has user id and role id.
-                                                So we need to pull the real $role to get the name. --}}
+                                                So we need to pull the real $role to get that name. --}}
                                     <a class="dropdown-item" href="#"
                                        title="{{ $role->find($myRoleLookup->role_id)->name }}"
 
                                        {{-- Build out a hidden field to POST the requested role id to the back-side.
-                                            Note: security checks apply. --}}
+                                            Note: back-end security checks apply. --}}
                                        onclick="
                                 event.preventDefault();
                                 myvar = document.createElement('input');

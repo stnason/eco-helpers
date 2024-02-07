@@ -334,10 +334,10 @@ class ehUsersController extends ehBaseController
             Auth()->user()->setActingRole($request->role);
         }
 
-        //TODO: Flash the role change. This is redundant to the user's notification popup.
+        //TODO: Flash the role change. This flash message is redundant to the user's popup notification.
         // Is there any use case to keep this and if so, should we include
         // a config setting to enable or disable it?
-        session()->flash('message', 'User role changed to <strong>' . ehRole::find($request->role)->name . '</strong>.');
+        session()->flash('message', 'Users role changed to <strong>' . ehRole::find($request->role)->name . '</strong>.');
 
 
         // Return to the calling page.

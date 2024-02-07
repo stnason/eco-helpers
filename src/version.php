@@ -1,12 +1,14 @@
 <?php
 return [
     'APP_VER' => 'v1.0.32',
-    'APP_LASTUPDATE' => '02/03/2024'
+    'APP_LASTUPDATE' => '02/05/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 02/05/2024:v01.00.32: 1.50 :Find issue with roles not changing intermittently. ehUserFunction@setActingRole() change ->id to ->role_id.
+ * 02/05/2024:v01.00.32: 0.25 :Fix issue with eh-notifications.js only checking next_notification for null. Added check for "" (default from getNext() with no data).
  * 02/03/2024:v01.00.32: 1.75 :Implement ehUsersController@destray(). Add $user=null to getAll() notifications.
  * 01/31/2024:v01.00.31: 1.00 :Fix issue with ehMenus@getMyChildren() not building query correctly.
  * 01/30/2024:v01.00.31: 3.50 :Design changes based on attempts to use with JMP. Implement full_width for eco-config and ehLayout,
