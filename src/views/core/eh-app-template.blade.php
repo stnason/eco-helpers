@@ -315,6 +315,13 @@ For security reasons; the banner is configuarble to enforce being logged in to v
 
 </main>
 
+{{--
+Final override css or js (last to load).
+--}}
+@if(View::exists('ecoHelpers.'.$config::get('layout.override_loader_file')))
+    @include('ecoHelpers.'.$config::get('layout.override_loader_file'))
+@endif
+
 </body>
 </html>
 

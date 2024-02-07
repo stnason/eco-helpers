@@ -143,7 +143,7 @@ return [
 
         /*
         |--------------------------------------------------------------------------
-        | CSS & JS Auto-Loaders:
+        | CSS, JS and Final Override Auto-Loader files:
         |--------------------------------------------------------------------------
         | Static and auto loaded entries for css and js.
         |  These are handled by the master template as "per page" directives which
@@ -152,6 +152,9 @@ return [
         */
         'css_loader_file' => 'css-loader',
         'js_loader_file' => 'js-loader',
+        'override_loader_file' => 'override-loader',
+
+
 
         /*
         |--------------------------------------------------------------------------
