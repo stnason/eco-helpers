@@ -1,12 +1,13 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.33',
-    'APP_LASTUPDATE' => '02/07/2024'
+    'APP_VER' => 'v1.0.34',
+    'APP_LASTUPDATE' => '02/09/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 02/07/2024:v01.00.34: 1.00 :
  * 02/07/2024:v01.00.33: 1.50 :Add a final_override section to the master template along with a loader file and config entry.
  * 02/05/2024:v01.00.32: 1.50 :Find issue with roles not changing intermittently. ehUserFunction@setActingRole() change ->id to ->role_id.
  * 02/05/2024:v01.00.32: 0.25 :Fix issue with eh-notifications.js only checking next_notification for null. Added check for "" (default from getNext() with no data).

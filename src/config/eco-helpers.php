@@ -155,7 +155,6 @@ return [
         'override_loader_file' => 'override-loader',
 
 
-
         /*
         |--------------------------------------------------------------------------
         | CSS & JS Auto-Loaders Commands:
