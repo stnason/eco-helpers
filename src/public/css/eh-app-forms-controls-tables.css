@@ -3,399 +3,18 @@
 /*
 /* https://www.color-hex.com */
 /******************************************************************************************/
-/*
-SYSTEM and PAGE MESSAGES ORDER
 
-    Navbar
-    System Banner
-    Page Name (Icon / Title)
-    Page Heading
-    LinkBar
-    CRUD Heading (Dynamic heading??)
-    standard flash messages
-*/
 @media screen {
 
     /******************************************************************************************/
-    /* Navigation Banner */
+    /* Cards */
     /******************************************************************************************/
-
-
-    /******************************************************************************************/
-    /* Home page - page elements spacing */
-    /******************************************************************************************/
-
-
-    /******************************************************************************************/
-    /* Fontawesome */
-    /******************************************************************************************/
-
-
-    /******************************************************************************************/
-    /* eco-helper page areas */
-    /******************************************************************************************/
-
-    #layout-page-banner {
-
-        z-index: 99; /* Used with position: to bring to the font - on top of the jumbotron */
-        position: relative;
-        align-content: center;
-        text-align: center;
-        font-size: medium;
-        font-weight: bold;
-        color: darkslateblue;
-        border-top: solid lightgrey 1px;
-        border-bottom: solid lightgrey 1px;
-        background-color: rgba(255, 255, 255, 0.6);
-
-    }
-
-    /* Standard page name/title display at the top of every page; usually from Tbl_Pages.
-        Can be turned of with System::setPage_name_show().
-     */
-    #layout-page-title {
-        /*background: lightcoral;*/
-    }
-    #layout-page-title > h1 {
-        font-weight: lighter;
-        /*background: lightcoral;*/
-    }
-
-    /* Standard page descriptive heading displayed under the page name for every page; usually from Tbl_Pages.
-        Can be turned of with System::setPage_heading_show().
-     */
-    #layout-page-description {
-        margin-top: -12px; /* Page name is an H1 so overcoming some of that padding. */
-        margin-bottom: 4px;
-    }
-
-    #layout-page-description > span {
-        padding-left: 12px; /* Give a little indent on the left side for the page heading. */
-        color: darkgray;
-        font-style: italic;
-        font-weight: lighter;
-    }
-
-    /* LinkBar with links to other pages in this modules group.
-        Displays directly under the Page Heading area and must be set by the controller.
-        Build it with into  System::setPage_linkbar()
-        Turn on/off with    System::setPage_linkbar_show()
-    */
-    #layout-page-linkbar {
-        /*margin-top: -16px;*/
-        /*background: yellow;*/
-    }
-
-    /* Optional CRUD heading provided bv the specific page controller.
-        Displays directly under the LinkBar area and must be set by the controller.
-        Set with            System::setPage_crud_heading()
-        Turn on/off with    System::setPage_crud_heading_show()
-     */
-
-    /*#system-page-dynamic-heading {*/
-    #layout-page-dynamic {
-        /*margin-top: -20px;*/
-        /*background: red;*/
-        color: gray;
-        font-size: larger;
-        font-weight: bold;
-    }
-
-    #layout-page-dynamic a { /* When applying links to page headers, remove the indication of a link. */
-        color: inherit;
-    }
-
-    #layout-page-dynamic a:hover {
-        text-decoration: none;
-    }
-
-
-    /* Standard system flash message.
-        Displays below all other messages - right before main page content or form.
-    */
-    #layout-page-flash {
-        /*margin-top: -16px;*/
-        /*background: orange;*/
-        color: red;
-        margin-bottom: 5px;
-    }
-
-    #layout-page-option-block {
-        margin-left: -10px;
-        width: min-content;
-        float: left;
-    }
-
-    #layout-page-attention {
-        /* CHECK IN THE base.blade template first and see which Bootstrap classes are being applied there. */
-        padding-right: 2px; /* needed to square off (to looks) this message are with the rest of the header; left and right. */
-        padding-left: 4px;
-
-    }
-
-    #layout-page-attention h4 {
-        /* CHECK IN THE base.blade template first and see which Bootstrap classes are being applied there. */
-        border-radius: 4px; /* added so it matched the other rounded corners in the header area. */
-    }
-
-
-    /* Default img corner radius for images in the option block (Contact Photo).
-        Contact photo is 128px so 64px = full circle.
-        8/23/2022 update; This used to be only used for the contact photo. Now we're using it for the asset image too.
-                          So will change that individually per page.
-    */
-    #layout-page-option-block img {
-        border-radius: 64px;
-    }
-
-
-
-
-    /* The button area for each form. This is built out by the Controls@buttonArea() call. */
-    #system-page-buttons {
-        /*  These all change based on where Controls places the #system-page-buttons id (row, col, form div...)
-        margin-left: 1em;
-        margin-right: 1em;
-        margin-top: 1em;
-         */
-        margin-bottom: 1em;     /* This controls the starting point of the first form element below the buttons. */
-        /*background: #FBFBFB;  /* Almost white but just a tad of color behind the button form cutout. */
-        background: white;
-    }
-
-    #system-page-buttons hr {
-        /*width: 97%;*/     /* If we cutting out a white background, then keep the line length full, left to right. */
-        margin: auto;       /* This centers a shorter line. But for some reason increases the top and bottom margins beyond the control below. */
-    }
-    /* Set the spacing between the top/bottom of the buttons and the <hr> */
-    #system-page-buttons .button-group {
-        margin-top: 6px;
-        margin-bottom: 6px;
-    }
-
-    /* Set a space between the buttons. */
-    .button-group > .btn {
-        margin-right: 4px;
-    }
-
-
-
-    /******************************************************************************************/
-    /* System Footer control */
-    /******************************************************************************************/
-    /* Standard page footer
-       Moved the footer stying into the footer_content template for ease of use.
-    */
-
-
-
-    /******************************************************************************************/
-    /* LinkBar styling
-        Note: there is the ability to add a hard coded bullet (&bull;) in the LinkBar class.
-    */
-    /******************************************************************************************/
-    /* top of page Link Bar area */
-    ul.linkbar {
-        list-style-type: none;
-        color: lightgrey; /* Only affects text the link bar area that is not a link. */
-        padding-top: 0;
-        padding-left: 0;
-        margin-bottom: 4px;
-        margin-left: 0;
-        margin-top: -4px;
-    }
-
-    .linkbar li {
-        list-style-type: none;
-        display: inline;
-    }
-
-    .linkbar li a {
-        text-decoration: none;
-        font-size: small;
-        padding-top: 4px;
-        padding-bottom: 5px;
-        padding-left: 3px;
-        padding-right: 4px;
-        /*padding-right: 4px;*/
-    }
-
-    /* Change the link color on hover. */
-    .linkbar li a:hover {
-        border-radius: 2px;
-        /*background-color: #f4f4f4; Too light. */
-        background-color: #eaeaea;
-        color: black;
-        /*color: white; */
-    }
-
-
-
-
-
-    /******************************************************************************************/
-    /* Animated Loading ellipsis. */
-    /* Usage: <div class="loading">Counting lines</div> */
-    /******************************************************************************************/
-    .loading {
-        /* font-size: 30px; */
-    }
-
-    .loading:after {
-        overflow: hidden;
-        display: inline-block;
-        vertical-align: bottom;
-        -webkit-animation: ellipsis steps(4, end) 900ms infinite;
-        animation: ellipsis steps(4, end) 900ms infinite;
-        content: "\2026"; /* ascii code for the ellipsis character */
-        width: 0;
-    }
-
-    @keyframes ellipsis {
-        to {
-            width: 1.25em;
-        }
-    }
-
-    @-webkit-keyframes ellipsis {
-        to {
-            width: 1.25em;
-        }
-    }
-
-
-    /******************************************************************************************/
-    /* Panel Tabs */
-    /******************************************************************************************/
-
-
-    /******************************************************************************************/
-    /* Standard Progress Modal */
-    /******************************************************************************************/
-
-
-    /******************************************************************************************/
-    /* Custom Elements */
-    /******************************************************************************************/
-    .vertical-center {
-        position: absolute;
-        top: 44%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    /* used for the banner display on demo and development sites and the flashing aged activity */
-    /* @group Blink */
-    .blink {
-        -webkit-animation: blink .75s linear infinite;
-        -moz-animation: blink .75s linear infinite;
-        -ms-animation: blink .75s linear infinite;
-        -o-animation: blink .75s linear infinite;
-        animation: blink .75s linear infinite;
-    }
-
-    @-webkit-keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-
-    @-moz-keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-
-    @-ms-keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-
-    @-o-keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-
-    @keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-    /* @end */
-    /* Used for setting opacity
-    */
-    .black-opacity-50 {
-        background-color: rgba(0, 0, 0, 0.5) !important;
-    }
-
-    /* Used to draw a separator line across the page - usually applied to a <p> tag */
-    .spacer-line {
-        clear: both;
-        margin-top: 3px; /* You need a <label> tag if you have a blank right column; Otherwise the this 3px is not required. */
-        margin-bottom: 7px;
-        border-bottom: solid 1px;
-        color: lightgrey;
-    }
-
-    /* Used for the 'spacer' form controls used to help hold the layout in place */
-    .invisible {
-        border: white;
-    }
-
 
     /* Basic cards */
     .card-body.pre-scrollable {
         overflow-y: auto; /* Hide the scroll bar if not needed */
         padding-bottom: 0;
     }
-
 
     /******************************************************************************************/
     /* Form display and controls styling */
@@ -507,7 +126,6 @@ SYSTEM and PAGE MESSAGES ORDER
     }
 
 
-
     /* Use to create a row spacer between form elements. */
     form.form-crud div.row.form-space {
         height: 38px;
@@ -583,10 +201,6 @@ SYSTEM and PAGE MESSAGES ORDER
     .form-check-input[type=checkbox] {
         margin-top: 10px;       /* Need to push the default bootstrap checkbox down to line up with our modified labels. */
     }
-
-
-
-
 
 
     /* Used to emphasize certain explanation text on a form */
@@ -677,7 +291,6 @@ SYSTEM and PAGE MESSAGES ORDER
         color: forestgreen;
     !important;
     }
-
 
 
     /******************************************************************************************/
@@ -823,8 +436,6 @@ SYSTEM and PAGE MESSAGES ORDER
         font-style: italic;
     }
 
-
-
     /******************************************************************************************/
     /* TinyMCE overrides */
     /******************************************************************************************/
@@ -876,7 +487,6 @@ SYSTEM and PAGE MESSAGES ORDER
         margin-bottom: 12px; /* Distance between the Search box and the header row of the table. */
     }
 
-
     div[id^="datatable"][id$="_filter"].dataTables_filter input {
         /*div#datatable_filter.dataTables_filter input { */
         -webkit-transition: all 0.30s ease-in-out;
@@ -923,7 +533,6 @@ SYSTEM and PAGE MESSAGES ORDER
     /* Sticky Search Bar
     /******************************************************************************************/
 
-
     /******************************************************************************************/
     /* Custom Button appearance */
     /******************************************************************************************/
@@ -932,11 +541,9 @@ SYSTEM and PAGE MESSAGES ORDER
     /* Texting system components */
     /******************************************************************************************/
 
-
     /******************************************************************************************/
     /* File lists on any upload page (can be used on any <li> list of items) */
     /******************************************************************************************/
-
 
     /******************************************************************************************/
     /* Dropzone.
@@ -945,26 +552,12 @@ SYSTEM and PAGE MESSAGES ORDER
     */
     /******************************************************************************************/
 
-
     /******************************************************************************************/
     /* User/Group Profile Rights Grid */
     /******************************************************************************************/
 
 }
 
-
-/*
 @media print {
 
-    td {
-        font-size: .6em;    !important;
-        font-family: Arial, Helvetica, sans-serif;  !important;
-    }
-
-    td a:link {
-        text-decoration: none;
-        font-size: .6em;
-        font-family: Arial, Helvetica, sans-serif;
-    }
 }
-*/

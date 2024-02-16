@@ -140,7 +140,6 @@ return [
         */
         'footer_file' => 'footer-1',
 
-
         /*
         |--------------------------------------------------------------------------
         | CSS, JS and Final Override Auto-Loader files:

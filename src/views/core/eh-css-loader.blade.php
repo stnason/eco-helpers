@@ -20,8 +20,9 @@ SECTION 2 - CSS AUTOLOADER SECTION
 {{-- A required eco-helpers file that contains the base css for the main page layout and design.
      This can be (carefully) modified for your own use.
     <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-app-template.css')}}">
+    Note: moved this to the override-loader file.
      --}}
-<link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-app-template.css')}}">
+
 
 
 

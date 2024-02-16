@@ -3,6 +3,43 @@
 https://datatables.net/download/
 
 --}}
+
+
+// Initialize the Datatables object
+
+// Set the default sort column
+if (typeof dtsortcolumn === "undefined") {
+    dtsortcolumn = 0;
+}
+
+// Set the default sort direction
+if (typeof dtsortdirection === "undefined") {
+    dtsortdirection = "asc";
+}
+
+// Set the default sort direction
+if (typeof dtrowgroup === "undefined") {
+    var dtrowgroup = "0";
+}
+/*zero config
+    $(document).ready(function() {
+        $('#datatable').dataTable()
+    } );
+ */
+
+/* server-side
+    $(document).ready(function() {
+        $('#datatable').dataTable( {
+            "processing": true,
+            "serverSide": true,
+            "ajax": "<?php echo config('app.url');?>/media_content/datatables-old/server_processing.php"
+        } );
+    } );
+  */
+
+
+
+
 var datatable_table = $("table[id^='datatable']").DataTable( {
 
 /*dom: 'B<"clear">lfrtip',*/
@@ -61,8 +98,8 @@ dom: 'Bfrtip',
 scrollY: 400,               // Size of scroll window (when not using pagination)
 scrollX: true,              // Needs for Fixed Cols but breaks service cost (too short) - fixed with sScrollXInner
 scrollCollapse: true,
-paging: false,
+paging: false,              // Returns a set number per page and shows page selection buttons on the lower left
 sScrollXInner: '100%',
 fixedColumns: true,         // doesn't work here (?)
-order: [[dtsortcolumn, dtsortdirection]]
+order: [[dtsortcolumn, dtsortdirection]]        // Set these variables in the calling view to override the defaults.
 });

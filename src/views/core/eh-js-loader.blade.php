@@ -225,110 +225,14 @@ SECTION 2 - JS AUTOLOADER SECTION
 
     <script type="text/javascript" class="init">
 
-        // Initialize the Datatables object
-
-        // Set the default sort column
-        if (typeof dtsortcolumn === "undefined") {
-            dtsortcolumn = 0;
-        }
-
-        // Set the default sort direction
-        if (typeof dtsortdirection === "undefined") {
-            dtsortdirection = "asc";
-        }
-
-        // Set the default sort direction
-        if (typeof dtrowgroup === "undefined") {
-            var dtrowgroup = "0";
-        }
-
-        /*zero config
-            $(document).ready(function() {
-                $('#datatable').dataTable()
-            } );
-         */
-
-        /* server-side
-            $(document).ready(function() {
-                $('#datatable').dataTable( {
-                    "processing": true,
-                    "serverSide": true,
-                    "ajax": "<?php echo config('app.url');?>/media_content/datatables-old/server_processing.php"
-            } );
-        } );
-      */
-
-
         /* fixed heading-columns */
         $(document).ready(function () {
 
             {{-- var usefields = {{ form.usefields | json_encode | raw }}; --}}
 
-                    {{-- Using the JQuery "starts with" selector to target multiple on each page as needed. --}}
-                    {{-- var table = $("#datatable").DataTable({ --}}
-
-                    @include('ecoHelpers.dt-standard-init')
-
-            /*
-            $("table[id^='datatable']").DataTable( {
-
-                // dom: 'B<"clear">lfrtip',
-                // dom: 'Bfrtip',
-                dom: 'Bfrtip',
-
-                @if ($form['dtrowgroup'] ?? false)
-            rowGroup: {
-                dataSrc: dtrowgroup
-            },
-@endif
-
-            {{-- Does this user have the rights to show the Save button --}}
-            @if ($form['layout']['right']['SEC_EXPORT_DISPLAYED'] ?? false)
-
-            buttons: {
-                dom: {
-                    button: {
-                        tag: 'button',
-                        className: ''       // This removes the default datatables button class so the below can override it.
-                    }
-                },
-                buttons: [                  // I have no idea why the buttons are justifying the images differently but the spaces are need to faux center.
-                    {
-                        extend: 'copy',
-                        className: 'btn btn-sm btn-outline-secondary',
-                        titleAttr: 'Copy to Clipboard',
-                        text: '&nbsp;&nbsp;&nbsp;<i class="far fa-copy"></i>&nbsp;&nbsp;&nbsp;'
-                    },
-                    {
-                        extend: 'print',
-                        className: 'btn btn-sm btn-outline-secondary',
-                        titleAttr: 'Print Preview',
-                        text: '&nbsp;&nbsp;&nbsp;<i class="fas fa-print"></i>'
-                    },
-                    {
-                        extend: 'csv',
-                        className: 'btn btn-sm btn-outline-secondary',
-                        titleAttr: 'Export a CSV file',
-                        text: '&nbsp;&nbsp;&nbsp;<i class="fas fa-file-csv"></i>'
-                        // filename: '',         // set a static file name like "export"
-                        // extension: '.csv'     // Already default to csv so only if you need something different.
-                    }
-                ]
-            },
-
-
-@else
-            buttons: [],
-@endif
-            scrollY: 400,           // Size of scroll window (when not using pagination)
-            scrollX: true,          // Needs for Fixed Cols but breaks service cost (too short) - fixed with sScrollXInner
-            scrollCollapse: true,
-            paging: false,
-            sScrollXInner: '100%',
-            fixedColumns: true,     // doesn't work here (?)
-            order: [[dtsortcolumn, dtsortdirection]]
-        });
-        */
+            {{-- This uses the JQuery "starts with" selector to target multiple on each page as needed. --}}
+            {{-- var table = $("table[id^='datatable']").DataTable({ --}}
+            @include('ecoHelpers.dt-standard-init')
 
         });
 
@@ -380,7 +284,6 @@ SECTION 2 - JS AUTOLOADER SECTION
         });
     </script>
 @endif
-
 
 
 {{--///////////////////////////////////////////////////////////////////////////////////////////

@@ -1,13 +1,16 @@
 <?php
 return [
     'APP_VER' => 'v1.0.34',
-    'APP_LASTUPDATE' => '02/09/2024'
+    'APP_LASTUPDATE' => '02/13/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 02/07/2024:v01.00.34: 1.00 :
+ * 
+ * 02/13/2024:v01.00.35: 1.00 :Split out override css into form and layout. Add to the override-loader file.
+ * 02/13/2024:v01.00.34: 1.00 :Rework the master override css so it's now in the override-loader. (still need to break it apart but it's a start)
+ * 02/10/2024:v01.00.34: 1.00 :Clean up while trying to implement in JMP.
  * 02/07/2024:v01.00.33: 1.50 :Add a final_override section to the master template along with a loader file and config entry.
  * 02/05/2024:v01.00.32: 1.50 :Find issue with roles not changing intermittently. ehUserFunction@setActingRole() change ->id to ->role_id.
  * 02/05/2024:v01.00.32: 0.25 :Fix issue with eh-notifications.js only checking next_notification for null. Added check for "" (default from getNext() with no data).
