@@ -295,7 +295,6 @@ class ehLayout
 
         }
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Check the final name to see if it matches one of the pre-defined display area names.
         // Note: these "non user configurable" areas are defined at the top: self::$defined_areas.
@@ -311,7 +310,8 @@ class ehLayout
             dd('Error: Invalid display area: '. $name . '. No method name '.$method.'(). ', self::$defined_areas, self::$custom_keys);
         }
 
-
+//TODO: Umm...Looks like if we set an Attention message value AND THEN call (true), it resets the layout display class to the default (??)
+// Works fine if you call (true) first AND THEN set the content after that. (why??)
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Then finally, process the request from the original setter call.

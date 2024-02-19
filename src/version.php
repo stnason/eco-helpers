@@ -1,13 +1,13 @@
 <?php
 return [
     'APP_VER' => 'v1.0.34',
-    'APP_LASTUPDATE' => '02/13/2024'
+    'APP_LASTUPDATE' => '02/19/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 
+ * 02/19/2024:v01.00.35: 1.00 :Start work on an auto-loader redesign.
  * 02/13/2024:v01.00.35: 1.00 :Split out override css into form and layout. Add to the override-loader file.
  * 02/13/2024:v01.00.34: 1.00 :Rework the master override css so it's now in the override-loader. (still need to break it apart but it's a start)
  * 02/10/2024:v01.00.34: 1.00 :Clean up while trying to implement in JMP.
