@@ -108,7 +108,7 @@ return [
         | Additional template of your own to include in the base template (at the top of the <body>).
         |
         */
-        'app_add_ins_file' => 'app-add-ins',
+        'app_add_ins_file' => 'eh-app-add-ins',
 
 
         /*
@@ -118,7 +118,7 @@ return [
         | (metadata section).
         |
         */
-        'html_head_file' => 'html-head',
+        'html_head_file' => 'eh-html-head',
 
 
         /*
@@ -128,7 +128,7 @@ return [
         | Standard NAV header configuration (User configurable navbar file).
         |
         */
-        'navbar_header_file' => 'navbar-header',
+        'navbar_header_file' => 'eh-navbar-header',
 
 
         /*
@@ -138,7 +138,7 @@ return [
         | Standard footer configuration (User configurable footer file).
         |
         */
-        'footer_file' => 'footer-1',
+        'footer_file' => 'eh-footer-1',
 
         /*
         |--------------------------------------------------------------------------
@@ -149,9 +149,14 @@ return [
         |   can be called by the controller.
         |
         */
-        'css_loader_file' => 'css-loader',
-        'js_loader_file' => 'js-loader',
-        'override_loader_file' => 'override-loader',
+
+        /* DEPRECATED with 2/19/2024 change in auto-load system.
+            It now uses the auto-load folder (views/ecoHelper/auto-load)
+            and calls the number as defined in with the array below.
+        'css_loader_file' => 'eh-css-loader',
+        'js_loader_file' => 'eh-js-loader',
+         */
+        'override_loader_file' => 'eh-override-loader',
 
 
         /*
@@ -160,15 +165,16 @@ return [
         |--------------------------------------------------------------------------
         | CSS & JS auto-loaders defined in the loader files above.
         | These are available in the controller as:
-        |   ehLayout::setAutoload('unsaved');
-        |   ehLayout::setAutoload('datatables');
-        |   ehLayout::setAutoload('datepicker');
+        |   ehLayout::setAutoload('unsaved');       or ehLayout::setAutoload(1);
+        |   ehLayout::setAutoload('datatables');    or ehLayout::setAutoload(6);
+        |   ehLayout::setAutoload('datepicker');    or ehLayout::setAutoload(2);
         |
         */
         'auto_loaders' => [
-            1 => 'unsaved',           // Included by default in the base-template.
-            2 => 'datepicker',        // Jquery UI
-            3 => 'datetimepicker',    // JQuery UI
+            0 => 'static',            // The initial--global--js and css for all pages.
+            1 => 'unsaved',           // CRUD 'unsaved changes'; Included by default in the base-template.
+            2 => 'datepicker',        // From jQuery UI
+            3 => 'datetimepicker',    // From jQuery UI
             4 => 'help-system',       // Integrated pop-over help system by field.
             5 => 'chosen',            // Multi-select plugin
             6 => 'datatables',        // Datatables plugin
@@ -303,15 +309,17 @@ return [
 
             //'round' => false,             // Round what -- all the box areas or what ??
 
+
             // The farthest "outside" container.
             'full_width' => true,
-
             // Specific to Bootstrap 5.3 for now.
             'page_container_class_normal' => 'container pt-2',
             'page_container_class_full' => 'container-fluid ps-0 pe-0',
 
+
             // Used by Controls to colorize any "alert_if" message.
             'alert_if_class' => 'bg-warning bg-opacity-25',
+
 
             'description_bullet' => '&#x2014; '    // Pre-pended to the left of the page's descriptive heading text.
         ],

@@ -209,8 +209,10 @@ class ehLayout
 
         }
 
+        // Auto-Loader default -- Hard code '0' (the all page globals) as always on.
+        self::$layout['auto_load'][0] = 'static';    // Moved this to the init method
 
-
+        return null;
 
     }
 
@@ -624,9 +626,10 @@ class ehLayout
      * Turns on the user configurable loading of per page js and css needed for specialty functions.
      * Can call either by name or number (as defined in eco-helpers.layout.auto_loaders)
      *
-     *  In use in the eesfm.com standard header/footer (10/12/2019);
-     *  (auto_loader areas are editable in the user configurable custom_js/css_loader files)
+     * The actual code for each of these is contained in the views/ecoHelpers/auto-load/nn-autoload.php
+     * file associated with each.
      *
+     *  EXAMPLES OF THINGS INCLUDED IN THE AUTO-LOAD FILES:
      *  - textedit
      *  - datepicker
      *  - datetimepicker
@@ -685,6 +688,10 @@ class ehLayout
             // 4. Set the auto_loader name into the layout variable.
             // (Note: that if an auto_loader name exists--not empty--then it is "on".)
             // No need for -> self::$layout['auto_load'][$auto_loader_number][$auto_loader_name] = true;
+
+
+            // Hard code '0' (the all page globals) as always on.
+            // self::$layout['auto_load'][0] = 'static';    // Moved this to the init method
 
             // It's just a $key=>value pair for this auto_loader for the template to check.
             self::$layout['auto_load'][$auto_loader_number] = $auto_loader_name;

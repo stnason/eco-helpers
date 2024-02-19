@@ -1,0 +1,21 @@
+!!! DO NOT DELETE ANY OF THESE FILES. !!!
+
+They are used by the auto-load system and can be modified here to suite your needs.
+
+The numbers are associated with the auto-loaders defined in the eco-helpers config file
+under layout['auto_loaders'] and can be called from the controller by:
+
+    ehLayout::setAutoload('name');
+    or
+    ehLayout::setAutoload(1);
+    or
+    ehLayout::setAutoload([1,5,7]);
+
+
+Note: file '0' is the global (all page) loader and will always be loaded.
+
+Each numbered auto-loader requires to files to load properly:
+    css/1-css-autoload.blade.php
+    js/1-js-autoload.blade.php
+
+

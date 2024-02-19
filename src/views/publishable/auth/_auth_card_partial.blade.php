@@ -72,7 +72,7 @@
 
 
 @section('base_head')
-    <link rel="stylesheet" type="text/css" href="{{ config('app.url').'/vendor/ecoHelpers/css/login-page.css' }}">
+    <link rel="stylesheet" type="text/css" href="{{ config('app.url').'/vendor/ecoHelpers/css/eh-login-page.css' }}">
 @endsection
 
 @section('base_body')

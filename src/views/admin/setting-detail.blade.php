@@ -24,7 +24,7 @@
 
             {{-- ######################################################################## --}}
             {{-- Build out the BUTTON area and enumerate over any possible buttons --}}
-            {!! $control::buttonArea($form['layout']['buttons']) !!}
+            {!! $control::buttonAreaHTML($form['layout']['buttons']) !!}
             {{-- ######################################################################## --}}
 
 

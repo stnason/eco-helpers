@@ -1,4 +1,8 @@
-/* ecoFramework Override & Custom CSS */
+/* ecoFramework Override & Custom CSS
+    This is specifically for the eh-app-template and controls all of the
+    primary display areas.
+
+*/
 
 /*
 /* https://www.color-hex.com */
@@ -124,33 +128,6 @@
     }
 
 
-    /* The button area for each form. This is built out by the Controls@buttonArea() call. */
-    #system-page-buttons {
-        /*  These all change based on where Controls places the #system-page-buttons id (row, col, form div...)
-        margin-left: 1em;
-        margin-right: 1em;
-        margin-top: 1em;
-         */
-        margin-bottom: 1em;     /* This controls the starting point of the first form element below the buttons. */
-        /*background: #FBFBFB;  /* Almost white but just a tad of color behind the button form cutout. */
-        background: white;
-    }
-
-    #system-page-buttons hr {
-        /*width: 97%;*/     /* If we cutting out a white background, then keep the line length full, left to right. */
-        margin: auto;       /* This centers a shorter line. But for some reason increases the top and bottom margins beyond the control below. */
-    }
-    /* Set the spacing between the top/bottom of the buttons and the <hr> */
-    #system-page-buttons .button-group {
-        margin-top: 6px;
-        margin-bottom: 6px;
-    }
-
-    /* Set a space between the buttons. */
-    .button-group > .btn {
-        margin-right: 4px;
-    }
-
 
 
     /******************************************************************************************/
@@ -162,9 +139,7 @@
 
 
     /******************************************************************************************/
-    /* LinkBar styling
-        Note: there is the ability to add a hard coded bullet (&bull;) in the LinkBar class.
-    */
+    /* LinkBar styling */
     /******************************************************************************************/
     /* top of page Link Bar area */
     ul.linkbar {
@@ -254,80 +229,41 @@
     }
 
     @-webkit-keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
+        0% { opacity: 1; }
+        50% { opacity: 1; }
+        50.01% { opacity: 0; }
+        100% { opacity: 0; }
     }
 
     @-moz-keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
+        0% { opacity: 1; }
+        50% { opacity: 1; }
+        50.01% { opacity: 0; }
+        100% { opacity: 0; }
     }
 
     @-ms-keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
+        0% { opacity: 1; }
+        50% { opacity: 1; }
+        50.01% { opacity: 0; }
+        100% { opacity: 0; }
     }
 
     @-o-keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
+        0% { opacity: 1; }
+        50% { opacity: 1; }
+        50.01% { opacity: 0; }
+        100% { opacity: 0; }
     }
 
     @keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 1;
-        }
-        50.01% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
+        0% { opacity: 1; }
+        50% { opacity: 1; }
+        50.01% { opacity: 0; }
+        100% { opacity: 0; }
     }
     /* @end */
+
     /* Used for setting opacity
     */
     .black-opacity-50 {

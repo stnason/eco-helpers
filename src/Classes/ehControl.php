@@ -463,7 +463,6 @@ public static function button($parameters) {
 }
 */
 
-
     /**
      * Use the $form['buttons'] array to build out the complete html button area.
      * Note: this is used in all forms with buttons:
@@ -474,7 +473,7 @@ public static function button($parameters) {
 
         {{-- ######################################################################## --}}
         {{-- Build out the BUTTON area and enumerate over any possible buttons ###### --}}
-        {!! $control::buttonArea($form['buttons']) !!}
+        {!! $control::buttonAreaHTML($form['buttons']) !!}
         {{-- ######################################################################## --}}
 
         <div class="row">
@@ -484,17 +483,17 @@ public static function button($parameters) {
      * @return string
      *
      */
-    public static function buttonArea($buttonArray)
+    public static function buttonAreaHTML($buttonArray)
     {
 
         // Remove any empty elements
         $buttonArray = array_filter( $buttonArray, 'strlen' );
 
-        $buttonArea = '';
+        $buttonAreaHTML = '';
 
         if (!empty($buttonArray)) {         // This is just to remove the 2 <hr> elements when there are no buttons to display.
 
-            $buttonArea = '
+            $buttonAreaHTML = '
               
             <div id="system-page-buttons"class="row">
                 <div class="col-md">
@@ -512,10 +511,10 @@ public static function button($parameters) {
 
             if (!empty($buttonArray)) {
                 foreach ($buttonArray as $button) {
-                    $buttonArea .= $button;
+                    $buttonAreaHTML .= $button;
                 }
             }
-            $buttonArea .= '
+            $buttonAreaHTML .= '
                                 </div> <!-- Button layout colunn 10 on the right. </div> -->
                             </div> <!-- The internal button row to hold the 2 column layout. </div> -->                            
                         </div>  <!-- The buttons form-group </div> -->
@@ -529,7 +528,7 @@ public static function button($parameters) {
 
 // Note for now there is no setButtonArea functionality -- the Controller can just leave out the buttons and they won't show.
 //        if (Layout::getLayout('buttons_show')) {
-            return $buttonArea;
+            return $buttonAreaHTML;
 //        } else {
             return '';
 //        }

@@ -4,7 +4,7 @@
 
 @section ('base_head')
     {{-- Get the Menu & Page List styling.  --}}
-    <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/page-list.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-page-list.css')}}">
     <style>
 
         /* Override the left padding from pages-list.css - since we are only showing modules. */
@@ -53,7 +53,7 @@
 
             {{-- ######################################################################## --}}
             {{-- Build out the BUTTON area and enumerate over any possible buttons ###### --}}
-            {!! $control::buttonArea($form['layout']['buttons']) !!}
+            {!! $control::buttonAreaHTML($form['layout']['buttons']) !!}
             {{-- ######################################################################## --}}
 
 

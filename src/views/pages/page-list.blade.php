@@ -1,7 +1,7 @@
 @extends('ecoHelpers::core.eh-app-template')
 @section ('base_head')
     {{-- specific css to get the Menu & Page List to Display  --}}
-    <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/page-list.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-page-list.css')}}">
 
     {{-- Disable all of the auto-generated links in the legend display.
          (because the id's are not real and will throw an exception when they don't line up with real page id's)

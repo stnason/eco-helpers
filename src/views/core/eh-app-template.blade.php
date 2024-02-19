@@ -51,10 +51,10 @@ The standard button area must be contained within each CRUD <form>
     @method($form['layout']['form_method'] ?? 'PATCH')
     {{-- ########################################################################
     {{-- Build out the BUTTON area and enumerate over any possible buttons ######
-    {!! $control::buttonArea($form['buttons']) !!}
+    {!! $control::buttonAreaHTML($form['buttons']) !!}
     {{-- ########################################################################
 
-    Remember that content for the id="system-page-buttons" is built out in the Controls@buttonArea() call.
+    Remember that content for the id="system-page-buttons" is built out in the Controls@buttonAreaHTML() call.
 ///////////////////////////////////////////////////////////////////////////////////////
 --}}
 @inject('config', 'ScottNason\EcoHelpers\Classes\ehConfig')
@@ -68,11 +68,19 @@ The standard button area must be contained within each CRUD <form>
         @include('ecoHelpers.'.$config::get('layout.html_head_file'))
     @endif
 
-    {{-- Include the global css loader file. --}}
+
+    {{-- Include the user configurable static CSS and auto-loader file. --}}
+    @include('ecoHelpers::core.eh-css-loader')
+
+
+    {{-- Include the global css loader file.
+    TODO: Remove after testing the new CSS auto-loader system.
     @if(View::exists('ecoHelpers.'.$config::get('layout.css_loader_file')))
         @include('ecoHelpers.'.$config::get('layout.css_loader_file'))
     @endif
+    --}}
 
+    {{-- The <title> (or 'name') of the page. --}}
     @if (!empty($form['layout']['name']['content']))
         <title>{{ $form['layout']['name']['content'] }}</title>
     @else
@@ -290,13 +298,14 @@ For security reasons; the banner is configuarble to enforce being logged in to v
 @endif
 
 
-{{-- Include the user configurable static Javascript and auto-loader file.
-     If present, this file must reside in the views/ecoHelpers/configurable folder.
-     --}}
+{{-- Include the user configurable static Javascript and auto-loader file. --}}
+@include('ecoHelpers::core.eh-js-loader')
+
+        {{-- TODO: Remove after testing the new js loader system.
 @if(View::exists('ecoHelpers.'.$config::get('layout.js_loader_file')))
     @include('ecoHelpers.'.$config::get('layout.js_loader_file'))
 @endif
-
+--}}
 
 {{-- Global js required by all crud pages - DELETE BUTTON ROUTING: --}}
 <script type="text/javascript" src="{{asset('vendor/ecoHelpers/js/eh-delete-me.js')}}"></script>
@@ -316,8 +325,8 @@ For security reasons; the banner is configuarble to enforce being logged in to v
 </main>
 
 {{--
-Final override css or js (last to load).
---}}
+Final override css or js (last to load). --}}
+
 @if(View::exists('ecoHelpers.'.$config::get('layout.override_loader_file')))
     @include('ecoHelpers.'.$config::get('layout.override_loader_file'))
 @endif
