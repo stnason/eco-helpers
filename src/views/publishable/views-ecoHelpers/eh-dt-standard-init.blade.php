@@ -2,6 +2,9 @@
 
 https://datatables.net/download/
 
+REMEMBER; that the js-autoloader with add this to the bottom of the page when 'datatables'
+is called for by ehLayou::setAutoload('datatables').
+
 --}}
 
 
@@ -38,14 +41,11 @@ if (typeof dtrowgroup === "undefined") {
   */
 
 
-
-
 var datatable_table = $("table[id^='datatable']").DataTable( {
 
 /*dom: 'B<"clear">lfrtip',*/
 /*dom: 'Bfrtip',*/
 dom: 'Bfrtip',
-
 
 
 @if ($form['dtrowgroup'] ?? false)
@@ -90,7 +90,6 @@ dom: 'Bfrtip',
     }
     ]
     },
-
 
 @else
     buttons: [],

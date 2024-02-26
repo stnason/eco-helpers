@@ -34,7 +34,6 @@ trait ehUserFunctions
      */
     public function isAdmin() {
 
-
         // Get the current role.
         $role = $this->getActingRole();
 
@@ -218,7 +217,6 @@ trait ehUserFunctions
         // Normalize the $user_id.
         $user = self::normalizeUserID($user_id);
 
-
         // TODO: I'm thinking this should move to a static method off of the ehNotification model -- or even a new ehNotifications Class.
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Just a safety net for the notification system (if it got stuck or hung up for any reason).
@@ -250,15 +248,14 @@ trait ehUserFunctions
         // Is the user's acting role active?
         $acting_role = ehRole::find($user->acting_role);
 
-
         if (!$acting_role->active) {
-            // redirect to logout
-            //TODO: I'm not sure we should be doing any redirects from within this class.
+            // I'm not sure we should be doing any redirects from within this class.
             // Whose responsibility is it? Where should redirects reside? The Controller??
             // The ehLoginController controls the error message that are thrown during a login process (so there's that).
             // But (?) doing the redirect here and above since this will be used for BOTH the initial login and any subsequent role change.
-             //return redirect()->route('logout');        // If the acting role is not active then force a logout.
-            Auth::logout();
+            // return redirect()->route('logout');        // If the acting role is not active then force a logout.
+            // Especially considering that we're passing a user id that may not be the current.
+            // Auth::logout();
             return false;
         };
 

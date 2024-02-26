@@ -6,8 +6,8 @@
 {{-- ###################################################################################################################### --}}
 
 {{-- Loop through the auto_load array and include any called for. --}}
-@foreach($form['layout']['auto_load'] as $auto_load)
-    @if (isset($form['layout']['auto_load'][$loop->index]))
-        @include('ecoHelpers.auto-load.js.'.$loop->index.'-js-autoload')
+@foreach($form['layout']['auto_load'] as $key=>$auto_load)
+    @if (isset($auto_load))
+        @include('ecoHelpers.auto-load.js.'.$key.'-js-autoload')
     @endif
 @endforeach

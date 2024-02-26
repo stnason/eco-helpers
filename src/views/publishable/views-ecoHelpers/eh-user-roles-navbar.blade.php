@@ -86,8 +86,8 @@
                             @endforeach
 
 
-                            {{-- TODO: Should the role change be an Ajax call instead of a form post? (This is from the live site.)
-                                       Each role in the dropdown has a js onclick handler (above). --}}
+                            {{-- Role change is handled as a form submit rather than an ajax call so that
+                                 the whole page, header, menus are all refreshed for this role. --}}
                             <form id="change-role" action="{{ route('users.role')}}" method="POST"
                                   style="display: none;">
                                 @csrf

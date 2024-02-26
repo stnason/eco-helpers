@@ -4,8 +4,8 @@
 @if(!$form['layout']['when_adding'])
 
 
-    {{-- FEATURE 1 controls access to the rights grid. --}}
-    @if ($access->getUserRights()->feature_1 && $role->id != 3)
+    {{-- FEATURE 1 (or full site_admin) controls access to the rights grid. --}}
+    @if ($access->getUserRights()->feature_1 || $role->id == 3)
 
     <div class="row edit-right">
 

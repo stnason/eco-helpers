@@ -36,3 +36,4 @@ Route::resource('examples', ehExamplesController::class);
 // Named routes.
 // - Initial OOTB splash screen and examples.
 Route::get('/eh-home',[ehHomeController::class, 'index'])->name('eh-home');
+

@@ -72,7 +72,7 @@ class CheckEmails implements DataAwareRule, ValidationRule
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Unique against this user's own 3 fields.
         // Check to see if this user is using this email in any of the other email fields.
-        // TODO: Not sure, but is this already being handled by the default validation rules? (I don't think so?)
+        // Not sure, but is this already being handled by the default validation rules? (I don't think so?)
         //  (except the one that called this rule)
         $result = [];               // Make sure we don't try to count() a missing variable.
         foreach ($this->emails_to_check as $email) {
@@ -84,10 +84,10 @@ class CheckEmails implements DataAwareRule, ValidationRule
             }
         }
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Check for unique against all other user's email fields. (except for this user's id)
-        // TODO: Can we construct this query using the $emails_to_check field defined at the top?
+        // If we add anymore emails, may want to think about constructing this query using the
+        // $emails_to_check field defined at the top?
         $result = DB::select("SELECT * FROM users WHERE 
         (  email_alternate = ? 
         OR email_alternate = ?

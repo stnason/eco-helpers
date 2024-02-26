@@ -77,7 +77,7 @@
                     @endif
 
                     {{-- The User Role display and dropdown menu. --}}
-                    @include('ecoHelpers::core.eh-user-roles')
+                    @include('ecoHelpers.eh-user-roles-navbar')
 
 
                     {{-- The logout button.

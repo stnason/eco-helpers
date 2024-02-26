@@ -403,13 +403,11 @@ class ehRolesController extends ehBaseController
         }
 
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Save the Modules access (saveAccessToken can accept either a complete encoded integer or an array)
         // Get the route name for the currently selected Module
         $module_page_id = $request->input('frm_module_list');   // Just use the page number of the Module we're working on.
         ehAccess::saveAccessToken($module_page_id, array_sum($access_token_array_modules), $role->id);
-
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -502,15 +500,20 @@ class ehRolesController extends ehBaseController
 
         $consistency_message = '';
 
+        dd($request->input());
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set any default values.
+        /* Not sure what we're trying to accomplish here but this zeros out the actual ADMIN account!
+        apparently we are not passing the site_admin input (?)
         if (empty($request->site_admin)) {$request->merge([
             'site_admin'=>0
         ]);}
+        */
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // 4. Laravel validation rules (with custom messages):
+        // 1. Laravel validation rules (with custom messages):
         // Note: run any "aut-set" rules before this check.)
         $request->validate(
             [
@@ -524,18 +527,34 @@ class ehRolesController extends ehBaseController
             ]
         );
 
-
-
-        //TODO: don't allow admin (3) or no access (1) to be deleted
-        // don't allow admin to be set to active=0 (always enabled)
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // 2. Don't allow the default admin account to be edited at all.
+        // don't allow the default admin account to be set to active=0 (always enabled)
         // admin restriction should always be No
-        // admin maybe can't edit at all?
+        // admin maybe can't edit the whole thing at all?
 
-        // NO ACCESS - do not allow to be deleted or edited -- this is the default for new users is another is not specified.
+        //TODO:
+        // Don't allow the default admin account to be edited at all.
+        // Is there some other way than the hard-coded id to do this??
+        // If we're keeping it from being edited then maybe use site_admin = 1 and name = 'ADMIN' ??
+
+        $request->validate(
+            [
+                // Custom closure validation:
+                function (string $attribute, mixed $value, Closure $fail) {
+                    if ($request->site_admin && $request->name = 'admin') {
+                        $fail("The default ADMIN account cannot be edited.");
+                    }
+                },
+            ],
+            [
+                // Custom message:
+            ]
+        );
 
 
-
-
+        //TODO:
+        // Role name = 'NO ACCESS' - do not allow to be deleted or edited -- this is the default for new users is another is not specified.
 
 
 

@@ -22,7 +22,6 @@ trait ehHasUserstamps
 
 {
 
-
     /**
      * Mechanism for disabling the auto table timestamp updates.
      *  There may be occasions (system updates and data consistency checks)
@@ -100,12 +99,13 @@ trait ehHasUserstamps
 
     /**
      * User name stamp formatter.
-     * Return the user name + (id) of the authenticated user (and/or define the format here)
-     * Or, if no authenticated user, then return 'system' as the user name.
+     * Return the format as configured in the eco-helpers config file
+     * under 'user_update_stamp'
      *
-     * (if you want it to look different or have different information in it, then change it here)
+     * If there is no user logged in, then return 'system' as the username.
      *
-     * @return string
+     * @return string       // Returns the contents of $user_value which is the formatted user stamp
+     *                      // for created_by and updated_by.
      */
 
     protected static function formatUserStamp()
@@ -115,16 +115,30 @@ trait ehHasUserstamps
 
         if ($user) {
 
-            // This is the format definition of how we want the user name to appear in the updated_by field
-            //TODO: Might need to think about making this system configurable through settings or the config file.
+            // This is the format definition of how what we want the user name to look likde in the updated_by field.
+            // Note: this is set in the eco-helpers config file under 'user_update_stamp'
 
-            //$user_value = $user->username;                    // Username only
-            //$user_value = $user->email;                       // Registered email only
+            // Default, out of the box user name stamp.
             $user_value = $user->name .' ('.$user->id.')';      // Username + (id)
+
+            // Separate out the $field names from the text
+            // and then just concat them all together in the $user_value.
+            $uc = ehConfig::get('user_update_stamp');
+            $user_value = '';
+            foreach($uc as $attr) {
+                if (substr($attr,0, 1) == '$') {
+                    // This is a field name
+                    $attr = ltrim($attr, '$');    // Remove the prepended $ before using this.
+                    $user_value .= $user->$attr;
+                } else {
+                    // This is just text to include as is.
+                    $user_value .= $attr;
+                }
+            }
 
         } else {
 
-            // Without a logged in user -- we'll just use 'system' as the username.
+            // But if there is no logged in user -- we'll just use 'system' as the username.
             $user_value = "system";
 
         }

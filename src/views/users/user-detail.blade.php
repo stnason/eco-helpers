@@ -1,11 +1,12 @@
-{{-- User Profile detail form (for admins) -- Not the same as My Account (for end-users)--}}
+{{-- User Detail edit for admins only. --
+     End users will use the user-profile template to edit their own,
+    --}}
 @extends('ecoHelpers::core.eh-app-template')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 
 @inject('role', 'ScottNason\EcoHelpers\Models\ehRole')
 @inject('valid','App\Classes\ValidList')
-
 
 @section('base_head')
     <style>
@@ -37,14 +38,6 @@
 
     </style>
 @endsection
-
-
-{{-- ######################################################################## --}}
-{{-- TODO: Right now this is intended for admin use only with appropriate privledges.
-        Will have to add a user only version and a possible admin-restricted version. --}}
-{{-- ######################################################################## --}}
-
-
 
 @section('base_body')
 
@@ -164,9 +157,9 @@
                             @endif
 
 
+                            {{-- THIS WOULD BE THE PLACE TO RESTRICT THE ABILITY TO SET ROLES TO something like FEATURE_1 or Admin ONLY.
+                                 Currently, if you have Edit rights, you have everything.
 
-                            {{-- TODO: Decision: SHOULD THIS RESTRICT THE ABILITY TO SET ROLES TO something like FEATURE_1 or Admin ONLY?
-                            Or if you have Edit you have everything ??
                             @if ($access::getUserRights()->admin) --}}
 
                             <fieldset id="default_role_group">
@@ -551,7 +544,6 @@
 
 
 @section('base_js')
-    '
 
     {{-- For the goto functionality you have to define the goto url path and include the js file below --}}
     <script type="text/javascript">

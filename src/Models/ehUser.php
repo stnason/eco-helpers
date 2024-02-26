@@ -140,11 +140,8 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
     ];
 
 
-
-
-
     /**
-     * Create a unique username base on this specific algorithm.
+     * Create a unique username based on this specific algorithm.
      * Note: passing the entire $request here so this method can be changed to use a different algorithm as needed.
      * This is used by both the RegisteredUserController and the ehUsersController@dataConsistencyCheck().
      *
@@ -174,6 +171,43 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
     }
 
 
+    /**
+     * Create a unique account number based on this specific algorithm.
+     * Note: passing the entire $request here so this method can be changed to use a different algorithm as needed.
+     * This is used by both the RegisteredUserController and the ehUsersController@dataConsistencyCheck().
+     *
+     * @param Request $request
+     * @return string
+     */
+    public static function uniqueAccountNumber(Request $request) {
 
+        $starting_account_number = 100001;
+        $user_account_number = '';
+
+        // Get the highest account number in use.
+        $highest = DB::select("SELECT account_id FROM users ORDER BY account_id DESC LIMIT 1;");
+
+        if (count($highest) > 0) {
+            // If we got a result from the query then add 1 to it to get the next available account id.
+           $user_account_number = $highest->account_id + 1;
+        } else {
+            // Otherwise, it looks like no account ids have been assigned yet so use the starting one.
+            $user_account_number = $starting_account_number;
+        }
+
+        // But, make sure this user doesn't already have one assigned.
+        if (!empty($request->id)) {
+            $current_account = DB::select("SSELECT account_id FROM users WHERE id = {$request->id};");
+        }
+
+        if (count($current_account) > 0) {
+            // Looks like the user already has an account id so just return that one.
+            return $current_account->account_id;
+        } else {
+            // Looks like user did not have an account id assigned so use the one we created above.
+            return $user_account_number;
+        }
+
+    }
 
 }

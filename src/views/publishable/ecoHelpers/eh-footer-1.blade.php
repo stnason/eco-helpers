@@ -1,1 +1,0 @@
-@include('ecoHelpers::core.eh-footer')

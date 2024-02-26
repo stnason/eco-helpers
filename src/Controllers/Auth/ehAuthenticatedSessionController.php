@@ -77,7 +77,16 @@ class ehAuthenticatedSessionController extends Controller
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // ecoHelpers additional login checks
-        // TODO: Most of these same checks will need to be run when a user changes roles. Should these all be in a callable method()?
+        //TODO: Most of these same checks will need to be run when a user changes roles.
+        // Should these all be in a callable method() / or trait?
+        // Try to separate out the things that would be needed elsewhere and then see
+        // what $variable (dependencies) issues may be created.
+        // What would make sense for a trait name? UserSecurity@checkUser(id or Auth()->user) ??
+        // NOT SURE THIS IS DOABLE -- or at least fairly challenging since the error messages for the login attemp
+        // are all built in here. How would those be implemented in a trait??
+        // And what use are they to a role change?? Could it through you back to the login page with that message ??
+
+
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1. Since we have to do this before the login attempt, let's see if we can even find the user name.
@@ -273,11 +282,23 @@ class ehAuthenticatedSessionController extends Controller
         // 6.And finally, redirect to where the login person should go.
         if (!empty(Auth()->user()->getDefaultHomePage())) {
             // If the user's default role has a default_home_page route defined then use it.
-            // TODO: Umm..have to figure out how to get the page id stored in sql, it's route and then redirect.
+            // TODO: Umm..have to figure out how to get the page id that's stored in sql, its route and then redirect.
             //return redirect()->intended(route(Auth()->user()->getDefaultHomePage()));
         } else {
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////
             // Go to the intended route or the global HOME page.
-            return redirect()->intended(RouteServiceProvider::HOME);    // This works if you hit a protected route and it forces you to login.
+            if (empty(ehConfig::get('access.login_home_page'))) {
+                // If the key in eco-helpers in cleared out then use whatever is defined in this constant.
+                return redirect()->intended(RouteServiceProvider::HOME);
+            } else {
+                // If the key has something in it, then use it.
+                return redirect(route(ehConfig::get('access.login_home_page')));
+            }
+
+            // TESTING TRYING TO CONTINUE ON TO AN INTENDED ROUTE.
+            //return redirect()->intended(RouteServiceProvider::HOME);    // This works if you hit a protected route and it forces you to login.
                                                                         // But if you're on a page and just want to get edit rights by logging in --
                                                                         // then it redirects to HOME.
             // Or does it make more sense to return to the page you're already on?
@@ -305,10 +326,16 @@ class ehAuthenticatedSessionController extends Controller
 
         // TODO: I think we should add a config setting--maybe for both--home page after login and home page after logout.
 
+        ////////////////////////////////////////////////////////////////////////////////////////////
         // Go here after logging out.
-        return redirect(route('/'));
+        if (empty(ehConfig::get('access.logout_home_page'))) {
+            // If the key in eco-helpers in cleared out then use this for the default.
+            return redirect('/');
+        } else {
+            // If the key has something in it, then use it.
+            return redirect(route(ehConfig::get('access.logout_home_page')));
+        }
+
     }
-
-
 
 }

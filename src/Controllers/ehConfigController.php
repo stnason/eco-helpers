@@ -177,19 +177,16 @@ class ehConfigController extends ehBaseController
 
 
 
-
     public function store(Request $request, ehSetting $setting) {
         // There is only one record and you'll never create another one.
     }
 
 
 
-
     protected function dataConsistencyCheck(Request $request) {
 
-        // TODO: Does anything in settings need to have a data validation and consistency check?
-
-
+        // Stubbed out here in case anything in settings needs
+        // to have a data validation and consistency check.
 
         return $request;
     }

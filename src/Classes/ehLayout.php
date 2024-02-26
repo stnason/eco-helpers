@@ -103,12 +103,6 @@ class ehLayout
         }
 
 
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // Grab all of the default and options initial values defined in config('eco-helpers.layout')
-        $default = ehConfig::get('layout.default');
-
-
         // Default value for the $form['layout']['when_adding'] variable
         // Should be set to true in the create() method if the blade template is using it.
         // Allows templates to work as both show() and create() by dropping things or that aren't there yet in create().
@@ -123,17 +117,20 @@ class ehLayout
         // self::initUserRights();  // Moved this functionality to access and took it out of the form variable.
 
 
-
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Grab all of the default and options initial values defined in config('eco-helpers.layout')
+        $default = ehConfig::get('layout.default');
         // Check to ensure that we've published the config/eco-helpers.php file.
         if (empty($default)) {
             dd('Layout error 1403: Remember to run php artisan vendor:publish and choose -  Provider: ScottNason\EcoHelpers\Providers\EcoHelpersServiceProvider');
         }
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Build out the initial layout array using these layout default values defined in eco-helpers['layout.default'].
+        // LAYOUT DEFAULTS: from eco-helpers config file
         foreach(self::$defined_areas as $area) {
 
+            // Loop and build out the initial layout array using the default layout
+            // values defined in eco-helpers['layout.default'].
             self::$layout[$area]['state'] = $default[$area]['state'];
             self::$layout[$area]['content'] = $default[$area]['content'];
             self::$layout[$area]['collapse'] = $default[$area]['collapse'];
@@ -152,30 +149,32 @@ class ehLayout
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Manually set the defaults for any $custom_keys:
+        // Pull and set the defaults for any $custom_keys:
         self::$layout['full-width']['state'] = ehConfig::get('layout.options.full_width');
 
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // AUTOLOADER: defaults -- Hard code '0' (the all-pages global css and js) as always on.
+        // 0-css-autoload.blade.php and 0-js-autoload.blade.php should load for every page refresh.
+        self::$layout['auto_load'][0] = 'static';
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Create the navbar user dropdown menus
-        // ehMenus() will deliver a complete menu hierarchy based on this users acting role page security
-        //  and any individual page security settings (public, auth, full security check).
+        // MAIN DROPDOWN MENUS: Create the navbar user dropdown menus
+        // ehMenus() will deliver a complete menu hierarchy based on the logged in user's acting role
+        // page security along with any individual page security settings (public, auth, full security check).
         $menus = new ehMenus(0,'user');
         self::$layout['menus'] = $menus->getPages();
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // PULL THE ASSOCIATED PAGE INFORMATION FOR THIS ROUTE
-        // Then query the menus table to get the real page information.
-        // Then query the menus table to get the real page information.
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // Pull the page information associated with the current route
+        // PAGE INFORMATION: Pull the page information for this route.
         $p = ehPage::getPageInfo();
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Check to see if this is a resourceful route and modify the page name as appropriate below.
+        // RESOURCEFUL ROUTE?
+        // Check to see if this is a resourceful route and modify the page name for variations.
         $resource_name_pre = '';
         $resource_name_post = '';
         $tmp_route = Route::currentRouteName();
@@ -209,9 +208,6 @@ class ehLayout
 
         }
 
-        // Auto-Loader default -- Hard code '0' (the all page globals) as always on.
-        self::$layout['auto_load'][0] = 'static';    // Moved this to the init method
-
         return null;
 
     }
@@ -219,9 +215,12 @@ class ehLayout
 
 
     /**
-     * Legacy generic method call
-     * Was originally the only individual method call to Layout is Layout::setName.
+     * Generic method call originally used directly to set any of the area parameters (ehLayout::setName).
      *  Where "Name" refers to one of the display areas defined in self::$defined_areas.
+     *
+     *  BUT...to make it easier with IDE type-ahead, each area has its own setter below now
+     *  and it does it's thing before passing off to this generic method that's responsible for
+     *  setting the 'content' value and the 'state'.
      *
      *  Note: that below here, we built out all the needed setters.
      *  Note: that this magic method could be used without the setters, but they are needed for IDE type-ahead help.
@@ -271,9 +270,9 @@ class ehLayout
 
         }
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Create the variable name to be used to pull the state variable name.
+        // CREATE THE DISPLAY AREA $name based on the method name called from
+        // to be used to pull the state variable name.
         // In other words, remove the first 3 characters ("set"), convert any remaining camel case into dashes
         // and then make sure everything is all lower case.
 
@@ -312,9 +311,6 @@ class ehLayout
             dd('Error: Invalid display area: '. $name . '. No method name '.$method.'(). ', self::$defined_areas, self::$custom_keys);
         }
 
-//TODO: Umm...Looks like if we set an Attention message value AND THEN call (true), it resets the layout display class to the default (??)
-// Works fine if you call (true) first AND THEN set the content after that. (why??)
-
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Then finally, process the request from the original setter call.
         // On/ Off
@@ -337,132 +333,209 @@ class ehLayout
 
     /**
      * Call with () to turn the banner on.
+     * Call with (true) to turn the banner on.
      * Call with (false) to turn it off.
      * Call with ('some value') to change its contents.
+     * Call with ('some value', 'class') set the class.
      *
      * @param $value
      * @return null
      */
-    public static function setBanner($value=null) {
-        // Use the catch-all setter to build a method call to set the banner.
+    public static function setBanner($value = null, $class = null) {
+
+        // Save the class (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($class)) {
+            self::$layout['banner']['class'] = $class;
+        }
+        // Call the catch-all generic setter to complete the setter logic for the banner.
         return self::__callStatic('setBanner', $value);
     }
     /**
      * Call with () to turn the name on.
+     * Call with (true) to turn the name on.
      * Call with (false) to turn it off.
      * Call with ('some value') to change its contents.
+     * Call with ('some value', 'class') set the class.
      *
      * @param $value
      * @return null
      */
-    public static function setName($value=null) {
-        // Use the catch-all setter to build a method call to set the page name.
+    public static function setName($value = null, $class = null) {
+
+        // Save the class (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($class)) {
+            self::$layout['name']['class'] = $class;
+        }
+
+        // Call the catch-all generic setter to complete the setter logic for the page name.
         return self::__callStatic('setName', $value);
     }
     /**
      * Call with () to turn the name icon on.
+     * Call with (true) to turn the icon on.
      * Call with (false) to turn it off.
      * Call with ('some value') to change its contents.
+     * Call with ('some value', 'inline_style') set to set an inline css style="" tag.
+     *  Note; That the inline style on the icon is implemented in the eh-app-template file.
+     *        It provides the style = "{{$variable}}"
+     *
      * Note: setIcon will strip off any <i> tag and just leave the icon "class".
      *
      * @param $value
      * @return null
      */
-    public static function setIcon($value=null) {
-        // Use the catch-all setter to build a method call to set the page icon.
-        // Check for and strip off the passed <i> tag; this should be the icon "class" only.
+    public static function setIcon($value = null, $inline_style = null) {
 
-        // <i class="fa-solid fa-watch-smart"></i>
+        // Save the inline style (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($inline_style)) {
+            self::$layout['icon']['class'] = $inline_style;
+        }
+
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Check if the whole Font Awesome 6 class was copied into the field.
-        // And then just pull out the class by itself.
-        // Note: this is duplicated in the PagesController@dataConsistencyCheck section and could be combined/simplified.
+        // Check for and strip off the passed <i> tag; this should be the icon "class" only since
+        // (was the whole Font Awesome 6 class was copied into the field?)
+        // <i class="fa-solid fa-watch-smart"></i>
+        // The eh-app-template is already providing the <i> portion and just expects the class by itself.
+        // So, if it's in the $value, then get rid of it.
+        //  Note: This functionality is duplicated in the PagesController@dataConsistencyCheck
+        //        section and maybe could be combined/simplified.
 
         $tmp = $value;
         $tmp = str_replace('<i class="', "", $tmp);
         $tmp = str_replace('"></i>', "", $tmp);
         $value = $tmp;
 
+        // Call the catch-all generic setter to complete the setter logic for the page icon.
         return self::__callStatic('setIcon', $value);
     }
     /**
      * Call to () to turn the descriptive heading on.
+     * Call with (true) to turn the descriptive heading on.
      * Call with (false) to turn it off.
      * Call with ('some value') to change its contents.
+     * Call with ('some value', 'class') set the class.
      *
      * @param $value
      * @return null
      */
-    public static function setDescription($value=null) {
-        // Use the catch-all setter to build a method call to set the page description.
+    public static function setDescription($value = null, $class = null) {
+
+        // Save the class (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($class)) {
+            self::$layout['description']['class'] = $class;
+        }
+
+        // Call the catch-all generic setter to complete the setter logic for the page description.
         return self::__callStatic('setDescription', $value);
     }
 
     /**
      * Call with () to turn the Linkbar on.
+     * Call with (true) to turn the Linkbar on.
      * Call with (false) to turn it off.
+     * Call with ('some value', 'class') set the class.
      * Call with ($linkbar->getLinkbar()) or pass your own array to change its contents.
      *
      *
      * @param $linkbar
      * @return null
      */
-    public static function setLinkbar($linkbar=null) {
+    public static function setLinkbar($linkbar = null, $class = null) {
+
+        // Save the class (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($class)) {
+            self::$layout['linkbar']['class'] = $class;
+        }
+
+        // Call the catch-all generic setter to complete the setter logic for the linkbar.
         return self::__callStatic('setLinkbar', $linkbar);
     }
 
     /**
      * Call with () to turn the dynamic heading on.
+     * Call with (true) to turn the dynamic heading on.
      * Call with (false) to turn it off.
      * Call with ('some value') to change its contents.
+     * Call with ('some value', 'class') set the class.
      *
      * @param $value
      * @return null
      */
-    public static function setDynamic($value=null) {
-        // Use the catch-all setter to build a method call to this.
+    public static function setDynamic($value = null, $class = null) {
+
+        // Save the class (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($class)) {
+            self::$layout['dynamic']['class'] = $class;
+        }
+
+        // Call the catch-all generic setter to complete the setter logic for the dynamic header.
         return self::__callStatic('setDynamic', $value);
     }
 
     /**
      * Call with () to turn the system flash message on.
+     * Call with (true) to turn the flash message on.
      * Call with (false) to turn it off.
      * Call with ('some value') to change its contents.
+     * Call with ('some value', 'class') set the class.
      *
      * @param $value
      * @return null
      */
-    public static function setFlash($value=null) {
-        // Use the catch-all setter to build a method call to this.
+    public static function setFlash($value = null, $class = null) {
+
+        // Save the class (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($class)) {
+            self::$layout['flash']['class'] = $class;
+        }
+
+        // Save the flash message.
         session(['message' => $value]);
+
+        // Call the catch-all generic setter to complete the setter logic for the flash message.
         return self::__callStatic('setFlash', $value);
     }
 
     /**
      * Call with () to turn the attention message on.
+     * Call with (true) to turn the attention message on.
      * Call with (false) to turn it off.
      * Call with ('some value') to change its contents.
+     * Call with ('some value', 'class') set the class.
      *
      * @param $value
      * @return null
      */
-    public static function setAttention($value=null, $attention_class = 'bg-warning') {
-        // Use the catch-all setter to build a method call to this.
-        self::$layout['attention']['class'] = $attention_class;
+    public static function setAttention($value=null, $class = null) {
+
+        // Save the class (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($class)) {
+            self::$layout['attention']['class'] = $class;
+        }
+
+        // Call the catch-all generic setter to complete the rest of the setter logic.
         return self::__callStatic('setAttention', $value);
 
     }
 
     /**
      * Call with () to turn the option-block area on.
+     * Call with (true) to turn the option block on.
      * Call with (false) to turn it off.
      * Call with ('some value') to change its contents.
+     * Call with ('some value', 'class') set the class.
      *
      * @param $value
      * @return null
      */
-    public static function setOptionBlock($value=null) {
-        // Use the catch-all setter to build a method call to this.
+    public static function setOptionBlock($value = null, $class = null) {
+
+        // Save the class (if present) before passing control off to the catch-all generic method setter.
+        if (!empty($class)) {
+            self::$layout['option-block']['class'] = $class;
+        }
+
+        // Call the catch-all generic setter to complete the rest of the setter logic.
         return self::__callStatic('setOptionBlock', $value);
     }
 
@@ -477,13 +550,12 @@ class ehLayout
      * @return null
      */
     public static function setFullWidth($value=null) {
-        // Use the catch-all setter to build a method call to set the page name.
+        // Call the catch-all generic setter to complete the setter logic for the page name.
         return self::__callStatic('setFullWidth', $value);
     }
 
     /**
-     * Setter to set the buttons array inside the internal layout array.
-     *  NOT IMPLEMENTED: Pass nothing to clear previous buttons -- or pass values to add to the button array.
+     * Setter to set the a single button in the buttons array inside the layout array.
      *
      *  Note: buttons display in the pre-defined base layout button area.
      *
@@ -541,19 +613,19 @@ class ehLayout
                     break;
             }
         } elseif (gettype($parameter) == 'array') {     // if an array is passed, check all elements to see if any match a button name.
-           foreach($parameter as $key) {
-               switch ($key) {
-                   case 'save':
-                       $save = true;
-                       break;
-                   case 'new':
-                       $new = true;
-                       break;
-                   case 'delete':
-                       $delete = true;
-                       break;
-               }
-           }
+            foreach($parameter as $key) {
+                switch ($key) {
+                    case 'save':
+                        $save = true;
+                        break;
+                    case 'new':
+                        $new = true;
+                        break;
+                    case 'delete':
+                        $delete = true;
+                        break;
+                }
+            }
         }
 
 

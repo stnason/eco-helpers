@@ -3,7 +3,6 @@
     Add any class includes here.
     --}}
 
-
 @section ('base_head')
     {{--
         Place any additoinal html head entries here.

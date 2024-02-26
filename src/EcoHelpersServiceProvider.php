@@ -104,9 +104,9 @@ class EcoHelpersServiceProvider extends ServiceProvider
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Publish the end-user editable views.
         $this->publishes([
-            __DIR__.'/views/publishable/ecoHelpers' => resource_path('views/ecoHelpers'),   // The main views
-            __DIR__.'/views/auth' => resource_path('views/auth-ecoHelpers'),                // The auth views
-            __DIR__.'/views/publishable/auto-load' => resource_path('views/ecoHelpers'),    // The auto-loader views
+            __DIR__.'/views/publishable/views-ecoHelpers' => resource_path('views/ecoHelpers'),     // The main views
+            __DIR__.'/views/publishable/views-auth' => resource_path('views/auth-ecoHelpers'),      // This will need to be renamed to just "auth" on the other side.          // The auth views
+            __DIR__.'/views/publishable/views-auto-load' => resource_path('views/ecoHelpers'),      // The auto-loader views
             ], 'views');
 
 
@@ -123,9 +123,9 @@ class EcoHelpersServiceProvider extends ServiceProvider
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Publish the css, js, image and auto-loader resources.
         $this->publishes([
-            __DIR__.'/public-vendor-publishable/css' => public_path('vendor/ecoHelpers/css'),
-            __DIR__.'/public-vendor-publishable/js' => public_path('vendor/ecoHelpers/js'),
-            __DIR__.'/public-vendor-publishable/images' => public_path('vendor/ecoHelpers/images'),
+            __DIR__.'/public-publishable/vendor-ecoHelpers-css' => public_path('vendor/ecoHelpers/css'),
+            __DIR__.'/public-publishable/vendor-ecoHelpers-js' => public_path('vendor/ecoHelpers/js'),
+            __DIR__.'/public-publishable/vendor-ecoHelpers-images' => public_path('vendor/ecoHelpers/images'),
             ], 'public');
 
 

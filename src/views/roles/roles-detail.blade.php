@@ -195,8 +195,9 @@
 
                                 {{-- display an asterisk if they are not Active --}}
 
-
-                            {{-- TODO: we're going to have to somehow pass both a user id AND a group id. --}}
+                                {{-- OLD TO DO: we're going to have to somehow pass both a user id AND a group id.
+                                    (To what? Don't know what this is saying to do.)
+                                    --}}
                                 @if ($user->login_active)
                                     <li class="menu-item"><input type="checkbox" value="{{$user->id}}">
                                         <strong><a target="_blank"

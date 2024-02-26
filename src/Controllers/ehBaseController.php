@@ -72,41 +72,18 @@ class ehBaseController extends BaseController
             $this->middleware('check_permissions');     // ecoHelpers custom (granular/ token-based) permissions check.
 
 
-            //TODO: still struggling with the right way / place to do this using the UTC timestamps.
-            // How do we 'localize' the time displays to the user agent?
-            // But -- it looks like we may not need to do anything at all. The user agent may just take care of this.
-            // If so, we may need to think about getting rid of the timezone field from the user table.
-            //
+            // It looks like we may not need to do anything at all.
+            // The user agent may just take care of this when using UTC timestamps.
+            // Leaving this here just in case something comes up later.
             // 1.Set system to the user's timezone (if set in their profile)
             // This was in the ehAuthenticatedSessionController but was not persistent.
             // UTC is set in the app.php by default.
             //if (!empty(Auth()->user()->timezone)) {
             //    date_default_timezone_set(Auth()->user()->timezone);
             //}
+
         }
     }
-
-    /**
-     * web.php routes redirect a get /login route to forceLogin()
-     * @return mixed
-     */
-    /* DEPRECATED -- I think this was some kind of test when we were attempting to use the modals.
-    public static function forceLogin()
-    {
-        ehLayout::initLayout();
-        $form['layout'] = ehLayout::getLayout();
-
-        //dd(redirect()->intended()->getTargetUrl());
-
-        request()->merge(['login'=>1]); // Flag to tell the template to popup the login modal.
-        //request()->merge(['intended'=>Session::get('url.intended')]);
-        //app('redirect')->setIntendedUrl(route('protected.page'));
-
-        return view('ecoHelpers::core.eh-default-home-page',
-            ['form' => $form]
-        );
-    }
-    */
 
 
     /**

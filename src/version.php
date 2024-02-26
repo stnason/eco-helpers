@@ -1,12 +1,16 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.36',
-    'APP_LASTUPDATE' => '02/19/2024'
+    'APP_VER' => 'v1.0.37',
+    'APP_LASTUPDATE' => '02/25/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 02/25/2024:v01.00.37: 2.00 :Clean up login/logout routing; Add throw exception error message to ehConfig for missing; add login/logout homepage keys under eco-helpers.access;
+ * 02/23/2024:v01.00.37: 4.00 :Working on TODOs. Added the 'user_update_stamp' time stamp eco-helpers key and the ehHasUserstamps implementation.
+ * 02/20/2024:v01.00.36: 2.00 :Working on TODOs (58) low-hanging fruit. Implement $class for all display areas in ehLayout.
+ * 02/19/2024:v01.00.36: 2.00 :Fine-tuning last issues with new auto-load system.
  * 02/19/2024:v01.00.36: 6.00 :More work on css and name-spacing the app template. Start work on an auto-loader redesign.
  * 02/13/2024:v01.00.35: 1.00 :Split out override css into form and layout. Add to the override-loader file.
  * 02/13/2024:v01.00.34: 1.00 :Rework the master override css so it's now in the override-loader. (still need to break it apart but it's a start)

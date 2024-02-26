@@ -76,17 +76,17 @@ class ehCheckPermissions
         // 0.a. IS THE ACCESS SYSTEM ENABLED?
         // Before we do anything let's check to see if we even have the permissions/access system enabled.
         // Note: ehBaseModel has a similar check too.
-        //TODO: Determine if this is even needed here. The way ehBaseController adds in this middleware,
-        // is only after it check for the access.enabled flag.
+        // This is most probably redundant to the way ehBaseController adds in this middleware,
+        // only after it check for the access.enabled flag.
+        // But leaving this here just as a security blanket.
         if (ehConfig::get('access.enabled') != true) {
             return $next($request);     // Then just handoff to the next middleware.
-            //return true;    // if the security and permissions system is not enabled then just return access = true.
         }
         ///////////////////////////////////////////////////////////////////////////////////////////
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 0b. Skip this middleware for any of the auth routes defined in the config file.
-//dd(ehConfig::get('access.auth_routes'));      // This was an idea that was not implemented.
+        // This was an idea that was not implemented.
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
@@ -274,11 +274,9 @@ class ehCheckPermissions
         // (if so, sorry -- we can't let you through)
         if (Auth()->check()) {
             if (Auth()->user()->uforcepwreset == 1) {
-                // TODO: This will have to be a modal popup mechanism. (?).
                 return redirect(config('app.url').'/password/reset');
             }
         }
-
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Otherwise -- if this is NOT a 0-no access or 1-public page, it must be Protected.
@@ -384,7 +382,7 @@ class ehCheckPermissions
     protected function throwPermissionError($error_content) {
 
         //TODO: think about beefing up the error message with a little more information like we had before.
-        // But remember if we're going to use user() anything have to check if logged in first.
+        // But remember if we're going to use user() anything, we have to check if logged in first.
         /*
             if (Auth()->check()) {
                 abort(403, 'Insufficient permissions on '.$route_name.': usid:'.

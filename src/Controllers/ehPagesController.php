@@ -356,15 +356,22 @@ class ehPagesController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // 2. TODO: You can't delete any item that is assigned as a default_home page for a role.
-        //      (will need to display a role link in the error message).
+        // 2. You can't delete any item that is assigned as a default_home page for any role.
+        // Build a query to find out
+        // BUT -- IS DEFAULT HOME PAGE AN ID NUMBER OR A ROUTE !??
 
+        $result = DB::select('SELECT * FROM roles WHERE default_home_page = '.$page->id.';');
+        if (count($result)>0) {
+            throw ValidationException::withMessages(['type' =>
+                // Might be helpful to include a link--at least to the first--offending role.
+                "You can't delete a page being used as a Default Home Page in a Role."
+            ]);
+        }
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // 3. Anything else?
         //
-
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -395,19 +402,17 @@ class ehPagesController extends ehBaseController
     protected function dataConsistencyCheck(Request $request) {
 
         // NOTE: These checks are used in both @store() and @update().
+        $message = '';      // Any Warning message generated after checking here.
 
+        //TODO: need to test this and see if there are any rules left to implement or not.
 
-        //TODO: build out Module rules:
+        // Build out Module rules:
         //                  -> must be a menu_item
         //                  -> name must be unique
         //                  -> route ?? (it's not real [or is it??] so how do we deal with this?
         //                      can't blank it out since it's needed to store the token; maybe just slugify the name?)
 
-
-        $message = '';      // Any Warning message generated after checking here.
-
-
-        //TODO: This is a conceptual design consideration.
+        // This is a conceptual design consideration.
         //  Should the consistency rules decide what "type" this is
         //  and set it automatically in these cases?
         // 'module' = menu_item = 1, parent_id is empty, children is not empty.     (no route required - use module.page->id)
@@ -419,8 +424,6 @@ class ehPagesController extends ehBaseController
         // If this is not a route or a submenu then route is required
 
         // Note: for :AUTO-SET rules, use $request->merge(['whatever_key' => 1]);
-
-
 
 
         /*
@@ -488,9 +491,6 @@ class ehPagesController extends ehBaseController
             $request->merge(['route' => 'submenu'.".".$page_id]);
 
         }
-
-
-
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////

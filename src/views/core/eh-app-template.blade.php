@@ -68,17 +68,8 @@ The standard button area must be contained within each CRUD <form>
         @include('ecoHelpers.'.$config::get('layout.html_head_file'))
     @endif
 
-
-    {{-- Include the user configurable static CSS and auto-loader file. --}}
+    {{-- Include the CSS and auto-loader mechanism. --}}
     @include('ecoHelpers::core.eh-css-loader')
-
-
-    {{-- Include the global css loader file.
-    TODO: Remove after testing the new CSS auto-loader system.
-    @if(View::exists('ecoHelpers.'.$config::get('layout.css_loader_file')))
-        @include('ecoHelpers.'.$config::get('layout.css_loader_file'))
-    @endif
-    --}}
 
     {{-- The <title> (or 'name') of the page. --}}
     @if (!empty($form['layout']['name']['content']))
@@ -120,7 +111,6 @@ The standard button area must be contained within each CRUD <form>
     @include('ecoHelpers.'.$config::get('layout.navbar_header_file'))
 @endif
 
-
 {{--
 The system banner displays on every page right below the navigation banner
 For security reasons; the banner is configuarble to enforce being logged in to view.
@@ -150,7 +140,6 @@ For security reasons; the banner is configuarble to enforce being logged in to v
     @endif
 @endif
 
-
 {{--
     Set up a container for the main page just below the system banner.
     Set the main container class in the eco-helpers.layout.options section.
@@ -173,7 +162,7 @@ For security reasons; the banner is configuarble to enforce being logged in to v
                 --}}
             @if ($form['layout']['option-block']['state'])
                 @if (!empty($form['layout']['option-block']['content']))
-                    <div class="container-fluid" id="layout-page-option-block">
+                    <div class="container-fluid {{$form['layout']['option-block']['class']}}" id="layout-page-option-block">
                         {!! $form['layout']['option-block']['content'] !!}</div>
                 @endif
             @endif
@@ -183,9 +172,9 @@ For security reasons; the banner is configuarble to enforce being logged in to v
                 --}}
             @if (!empty($form['layout']['name']['content']) or !empty($form['layout']['icon']['content']))
                 <div class="container-fluid" id="layout-page-title">
-                    <h1>
+                    <h1 class="{{$form['layout']['name']['class']}}">
                         @if ($form['layout']['icon']['state'])
-                            <i class="{!! $form['layout']['icon']['content'] ?? '' !!}"></i>
+                            <i class="{!! $form['layout']['icon']['content'] ?? '' !!}" style="{{$form['layout']['icon']['class']}}"></i>
                         @endif
                         @if ($form['layout']['name']['state'])
                             {{ $form['layout']['name']['content'] ?? '' }}
@@ -199,7 +188,10 @@ For security reasons; the banner is configuarble to enforce being logged in to v
                 --}}
             @if ($form['layout']['description']['state'])
                 <div class="container-fluid" id="layout-page-description">
-                    <span>{!!$config::get('layout.options.description_bullet')!!}{{ $form['layout']['description']['content'] }}</span></div>
+                    <span class="{{$form['layout']['description']['class']}}">
+                        {!!$config::get('layout.options.description_bullet')!!}{{ $form['layout']['description']['content'] }}
+                    </span>
+                </div>
             @endif
 
             {{--
@@ -207,7 +199,7 @@ For security reasons; the banner is configuarble to enforce being logged in to v
                 --}}
 
             @if ($form['layout']['linkbar']['state'])
-                <div class="container-fluid" id="layout-page-linkbar">
+                <div class="container-fluid {{$form['layout']['linkbar']['class']}}" id="layout-page-linkbar">
                     <div class="row">
                         <div class="col-md">
                             <ul class="linkbar">
@@ -236,7 +228,7 @@ For security reasons; the banner is configuarble to enforce being logged in to v
                 The is an Optional Dynamicly created CRUD heading that displays right below the LinkBar area.
                 --}}
             @if ($form['layout']['dynamic']['state'])
-                <div class="container-fluid" id="layout-page-dynamic">
+                <div class="container-fluid {{$form['layout']['dynamic']['class']}}" id="layout-page-dynamic">
                     {!! $form['layout']['dynamic']['content'] !!}</div>
             @endif
 
@@ -248,7 +240,7 @@ For security reasons; the banner is configuarble to enforce being logged in to v
         - But when overriding the standard page layout just remember to put it back in somewhere!
             --}}
     @if ($form['layout']['flash']['state'])
-        <div class="container-fluid" id="layout-page-flash">
+        <div class="container-fluid {{$form['layout']['flash']['class']}}" id="layout-page-flash">
 
             {{-- This is the standard flash message --}}
             @if (session('message'))
@@ -297,15 +289,8 @@ For security reasons; the banner is configuarble to enforce being logged in to v
     <p><em>Configure filename in config/eco-helpers.php and place the blade template file in views/ecoHelpers/configurable folder.</em></p>
 @endif
 
-
-{{-- Include the user configurable static Javascript and auto-loader file. --}}
+{{-- Include Javascript auto-loader mechanism. --}}
 @include('ecoHelpers::core.eh-js-loader')
-
-        {{-- TODO: Remove after testing the new js loader system.
-@if(View::exists('ecoHelpers.'.$config::get('layout.js_loader_file')))
-    @include('ecoHelpers.'.$config::get('layout.js_loader_file'))
-@endif
---}}
 
 {{-- Global js required by all crud pages - DELETE BUTTON ROUTING: --}}
 <script type="text/javascript" src="{{asset('vendor/ecoHelpers/js/eh-delete-me.js')}}"></script>
@@ -316,6 +301,17 @@ For security reasons; the banner is configuarble to enforce being logged in to v
 {{-- Global js required for User Notifications. --}}
 <script type="text/javascript" src="{{ asset('vendor/ecoHelpers/js/eh-notifications.js') }}"></script>
 
+{{-- Originally from auto-loader[1]['unsaved']. Moved here so it's always included. --}}
+<script type="text/javascript">
+    $("form.form-crud").change(function () {
+
+        // Update the system flash message on any form input change.
+        @if (true)
+        $('#layout-page-flash').html('You have <strong>unsaved</strong> changes.');
+        @endif
+
+    });
+</script>
 
 {{--
     Yield to other templates to add additional javascript elements.

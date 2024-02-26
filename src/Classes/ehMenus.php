@@ -95,8 +95,6 @@ class ehMenus
         }
 
 
-
-
         ///////////////////////////////////////////////////////////////////////////////////////////
         // ORDER; We always want to attempt to place the items in order grouped by their parent and defined order.
         $this->order_by = " ORDER BY parent_id, `order` ";
@@ -142,7 +140,6 @@ class ehMenus
                 // If we're not checking security OR this $item passed the security check, then include it.
                 $this->pages_output[] = $item;
             }
-
 
         }
 

@@ -62,8 +62,6 @@
                             @endif
 
 
-
-
                             {{-- otherwise display key wihtout a link --}}
                             @if (!$continue)   {{-- create a faux php continue statement --}}
                             {{ $example->$key }}

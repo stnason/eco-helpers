@@ -357,7 +357,7 @@ class ehAccess
      * @param     $new_access_token - Can pass either a fully summed integer or an array with individual values
      * @param int $role_id          - The Group's ID number
      * @param int $user_id          - For individual override (cUID)
-     * @return bool             - Completion/ error status
+     * @return bool                 - Completion/ error status
      * @throws \Exception
      */
     //public static function saveAccessToken($route_name, $new_access_token, $role_d = 0, $user_id = 0) {

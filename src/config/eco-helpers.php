@@ -9,8 +9,8 @@ return [
     |--------------------------------------------------------------------------
     | System-wide settings for the date time format to display and for the js datepicker.
     |
-    |   h is used for 12 hour time
-    |   H is used for 24 hour time
+    |   h is used for 12-hour time
+    |   H is used for 24-hour time
     |   i stands for minutes
     |   s seconds
     |   a will return am or pm (use in uppercase for AM PM)
@@ -25,7 +25,32 @@ return [
     'date_format_js_long' => 'MM/DD/YYYY h:i:s A',      // JS date picker format for the web-form display of dates.
     'date_format_sql_short' => 'Y-m-d',                 // Format to store in the mysql database when using the data only.
     'date_format_sql_long' => 'Y-m-d H:i:s',            // Format to store in the mysql database when adding the time to the date.
-                                                        // Remember that we need the "H" 24 hour format here to save the timestamp properly for AM/PM later.
+                                                        // Remember that we need the "H" 24-hour format here to save the timestamp properly for AM/PM later.
+
+    /*
+    |--------------------------------------------------------------------------
+    | Created_by/ Updated_by name stamp
+    |--------------------------------------------------------------------------
+    | How will the updated_by and create_by fields be stamped.
+    |  It may not be readily apparent, but there are use-cases for using something
+    |   other than just the user id. Like just the name or the name and the (id).
+    |    The user may have gotten married and changed their name or
+    |     the user may have been purged or deleted.
+    |
+    |   '$'     - indicates this is a field from the User model.
+    |   'w/o $' - indicates this is just text to include as is.
+    |
+    |   (processed from top to bottom and just concatenated together in the ehHasUserstamps trait.)
+    */
+    'user_update_stamp' => [
+        //'$first_name',
+        //'$last_name',
+        //'$email',
+        '$name',            // The user's registered (User()->name) login name ( as determined by ehUser::uniqueUserName() ).
+        ' (',               // Just wrapping the $id below in parentheses.
+        '$id',              // The User()->id field
+        ')'                 // Display the closing parenthesis around the $id number.
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +82,7 @@ return [
     | Upon completing the self-registration process, the user will be assigned this role.
     |  This will also be used in the ehUsersController@dataConsistencyCheck()
     |   when the login is active and the default role is blank.
-    |    (Eco Sample data creates 3 roles; id: 4 is a NO ACCESS ROLE.
+    |    (Eco Sample data creates 3 roles; id: 4 is a NO ACCESS ROLE.)
     |
     */
     'new_user_role' => 4,
@@ -82,7 +107,7 @@ return [
     |  (for the permissions copy)
     |
     */
-    'default_copy_from_role_id' => 6,      // 6 was the legacy "outside company with lowest access" group.
+    'default_copy_from_role_id' => 6,      // 6 was the legacy "outside company w/lowest access" role.
 
 
     /*
@@ -138,24 +163,22 @@ return [
         | Standard footer configuration (User configurable footer file).
         |
         */
-        'footer_file' => 'eh-footer-1',
+        'footer_file' => 'eh-footer',
+
 
         /*
         |--------------------------------------------------------------------------
         | CSS, JS and Final Override Auto-Loader files:
         |--------------------------------------------------------------------------
-        | Static and auto loaded entries for css and js.
+        | Static an auto-loaded entries for css and js.
         |  These are handled by the master template as "per page" directives which
         |   can be called by the controller.
         |
+        |                                            // DEPRECATED with 2/19/2024 change in autoload system.
+        'css_loader_file' => 'eh-css-loader',        // Auto loaders are now core functionality
+        'js_loader_file' => 'eh-js-loader',          // User interaction is through the views/ecoHelpers/autoload
+        |                                            // folder and this config file's auto_loaders array.
         */
-
-        /* DEPRECATED with 2/19/2024 change in auto-load system.
-            It now uses the auto-load folder (views/ecoHelper/auto-load)
-            and calls the number as defined in with the array below.
-        'css_loader_file' => 'eh-css-loader',
-        'js_loader_file' => 'eh-js-loader',
-         */
         'override_loader_file' => 'eh-override-loader',
 
 
@@ -163,12 +186,12 @@ return [
         |--------------------------------------------------------------------------
         | CSS & JS Auto-Loaders Commands:
         |--------------------------------------------------------------------------
-        | CSS & JS auto-loaders defined in the loader files above.
-        | These are available in the controller as:
-        |   ehLayout::setAutoload('unsaved');       or ehLayout::setAutoload(1);
+        | These are the available methods in the Controller (usage):
         |   ehLayout::setAutoload('datatables');    or ehLayout::setAutoload(6);
         |   ehLayout::setAutoload('datepicker');    or ehLayout::setAutoload(2);
         |
+        |   NOTE: 'unsaved' is now hard-coded into the base template but included
+        |          here for completeness.
         */
         'auto_loaders' => [
             0 => 'static',            // The initial--global--js and css for all pages.
@@ -197,33 +220,24 @@ return [
         ],
 
 
-        /*TODO: This section may need to go away.
-            It starts to be confusing as to where the page info is coming from.
-            The original idea was that we didn't necessarily need a pages table but that's long since gone by the wayside.
-            In order to uses Menus and/or Permissions, eh-pages table is a requirement.
-                !!! ehLayout::initLayout(); IS USING THIS !!!
-            1/4/2024: Commenting the whole block out to see if we have any negative impact before completely deleting it.
-            1/7/2024: Turns out it is used by ehLayout::initLayout();
-                      So back in until we can look into this further and make some design decisions.
-        */
-
         /*
         |--------------------------------------------------------------------------
         | Defaults for Layout::initLayout().
         |--------------------------------------------------------------------------
-        |
-        | Set which content "areas" are default on (displayed) after an initLayout()
-        |   WARNING: Do not delete or rename any of these. They match the base template and Layout files.
+        | Set default values for all display areas after an ehLayout::initLayout().
+        |   WARNING: Do not delete or rename any of these.
+        |            They match the base template and Layout files.
         |
         |   Set the default (starting value) of the page display areas:
         |   state:      (true/false); on or off
         |   content:    "What should it say if not set by the Controller"
         |   class:      css class used to style this base template element.
+        |               Remember: These all have values in the eco-override.css file
+        |                         and would rarely be set individually (ehLayout::setName('content','class'))
         |
         */
 
         'default' => [
-
             'banner' => [
                 'state' => true,
                 'content' => 'Eco Helper Banner - ' . date("l F jS, o"),     // Text based date format
@@ -333,7 +347,7 @@ return [
     */
     'menus' => [
         'enabled' => true,      // If you want to use your own menus system, or just static hard-coded, then just turn this off.
-                                // If this is true, eh-pages is required so you'll need to have run the ecoHelpers migration.
+                                // If this is true, eh-pages is required, so you'll need to have run the ecoHelpers migration.
     ],
 
 
@@ -344,15 +358,16 @@ return [
     */
     'notifications' => [
 
-        //TODO: REVIEW: This may have to be deprecated--or at minimum--have a lot more control built in.
-        // THIS IS SPECIFICALLY used when changing roles -- so it would have to auto-enable or warn the
-        // user to do that in the case that it was off and you enabled the access system.
-        // (Probably best just left on though.)
-        'enabled' => true,   // Enable the eco-helpers notifications system.
+        // 'enabled' => true,   // Must be on for the change role functionality to work and display properly.
 
         // Expansion room here for other notification configuration as needed.
         // auto_delete_when_read (as apposed to just marking as read and letting the user delete it.)
+
+        // Role changes automatically provide an indication in a popup.
+        // Should we additionally send a message to the flash area?
+        'flash_role_change'=>false,
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -391,6 +406,19 @@ return [
         |
         */
         'allow_unauthenticated_children' => true,
+
+        /*
+        |--------------------------------------------------------------------------
+        | Home page after login/ logout
+        |--------------------------------------------------------------------------
+        | The named route to go to after successfully logging in or logging out.
+        |
+        |  Note: Set either of these to blank ( 'login_home_page' => '' ) to use the hard-coded defaults:
+        |   Login default uses whatever is defined in the RouteServiceProvider::HOME
+        |   Logout default uses the root of the website: '/'
+        */
+        'login_home_page' => 'examples.index',
+        'logout_home_page' => 'eco',
 
     ],
 

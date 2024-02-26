@@ -265,13 +265,16 @@ trait ehFileUpload
             // $new_filename = $document->id.'.'. $path_parts['extension'];
             $new_filename = $path_parts['filename'] . '.' . $path_parts['extension'];
 
-            //TODO: we have a check for duplicate method in here now.
-            // Check for duplicate file names.
+
+
+            // TODO: we have a check for duplicate method in here now. chkDuplicateFilename();
+            // Manually check for duplicate file names. ( but there is a method in here for that - chkDuplicateFilename(); )
             $num = 1;
             while (file_exists($absolute_storage_path . $new_filename)) {
                 $new_filename = $path_parts['filename'] . '_' . $num . '.' . $path_parts['extension'];
                 $num++;
             }
+
 
             // If there's a need to clean up by deleting previous files before moving the new file into place.
             // $delete_me_filename = $document->id.'.*';
@@ -393,22 +396,22 @@ trait ehFileUpload
             $absolute_storage_path = Storage::disk($storage_disk)->getDriver()->getAdapter()->getPathPrefix();
         */
 
-        $path_parts = pathinfo($intended_path_filename);      // Separate the base filename from its extension
-        $path_parts['extension'];
-        $path_parts['filename'];
-        $new_filename =  $path_parts['basename'];             // Start out assuming the file is okay.
+        $path_parts = pathinfo($intended_path_filename);    // Separate the base filename from its extension
+            // $path_parts['extension'];                    // Just using these directly below here.
+            // $path_parts['filename'];                     // Just using these directly below here.
+        $new_filename =  $path_parts['basename'];           // Start out assuming the file is okay.
 
-        //return $path_parts;
 
-        // TODO: Do we also want to check for "safe" names too? (replace characters or whatever? maybe not a big deal anymore?)
+
         // Check for duplicate file names in the intended location path.
+        // NOTE: This could also be used to check for "safe" filenames too? ( replace characters or whatever? )
         $num = 1;
         while (Storage::disk($storage_disk)->exists($path_parts['dirname'].'/'.$new_filename)) {
             $new_filename = $path_parts['filename'] . '_' . $num . '.' . $path_parts['extension'];
             $num++;
             // Safety net in case we have a runaway loop situation.
             if ($num > $limit) {
-                return false;       // TODO: this should probably throw an exception?
+                throw new \Exception('chkDuplicateFilename loop failure. Too many iterations.');
             }
         }
 

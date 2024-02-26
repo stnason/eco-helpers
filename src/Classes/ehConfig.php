@@ -87,7 +87,10 @@ class ehConfig
             if (key_exists($param_array[0], $data)) {       // So just check to see if the actual key exists.
                 return $data[$param_array[0]];              // Just return this key from settings.
             } else {
-                return 'Error (ehConfig): parameter '.$param_array[0].' not found.';
+
+                // For now throwing a message -- not sure if we should just return false or null ??
+                throw new \Exception('Error (eco-helpers): parameter "'.$param_array[0].'" not found.');
+                //return 'Error (ehConfig): parameter "'.$param_array[0].'" not found.';
             }
 
         }

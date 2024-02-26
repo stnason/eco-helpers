@@ -55,7 +55,6 @@ class ehExamplesController extends ehBaseController
             'zip' => 'Zip Code'
         ];
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Call the view.
         return view('ecoHelpers::examples.example-list',[

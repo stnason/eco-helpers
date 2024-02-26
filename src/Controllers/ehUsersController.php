@@ -334,10 +334,12 @@ class ehUsersController extends ehBaseController
             Auth()->user()->setActingRole($request->role);
         }
 
-        //TODO: Flash the role change. This flash message is redundant to the user's popup notification.
-        // Is there any use case to keep this and if so, should we include
-        // a config setting to enable or disable it?
-        session()->flash('message', 'Users role changed to <strong>' . ehRole::find($request->role)->name . '</strong>.');
+        // Role changes automatically provide an indication in a popup.
+        // Check the setting in eco-helpers config file to see if we should
+        // additionally send a message to the flash area.
+        if (ehConfig::get('notifications.flash_role_change')) {
+            session()->flash('message', 'Users role changed to <strong>' . ehRole::find($request->role)->name . '</strong>.');
+        }
 
 
         // Return to the calling page.
