@@ -500,7 +500,7 @@ class ehRolesController extends ehBaseController
 
         $consistency_message = '';
 
-        dd($request->input());
+        //dd($request->input());
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set any default values.
