@@ -84,7 +84,7 @@ class ehAuthenticatedSessionController extends Controller
         // What would make sense for a trait name? UserSecurity@checkUser(id or Auth()->user) ??
         // NOT SURE THIS IS DOABLE -- or at least fairly challenging since the error messages for the login attemp
         // are all built in here. How would those be implemented in a trait??
-        // And what use are they to a role change?? Could it through you back to the login page with that message ??
+        // And what use are they to a role change?? Could it throw you back to the login page with that message if appropriate ??
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
@@ -146,15 +146,19 @@ class ehAuthenticatedSessionController extends Controller
                 $this->throwEcoHelperValidation($display_error_message);
             }
 
-            //TODO: Is this where we need to implement the "force password reset" code?
-            // We may decide not to include this feature. There already is the standard forgot password link.
-            // This was originally used by administrators setting up new users to force them to set it the first login
-            // or after having their account re-activated.
-            // Not sure any of that has a use case anymore.
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // This could be where we implement the "force password reset" code?
+            // But for now, we're not including this feature in favor of the standard forgot password mechanism.
+            // This was originally used by administrators setting up new users to force them
+            // to set it the first login (again, already handled by the standard Laravel authentication)
+            // Administrators can sill de-activate anyone's login as needed and force them to contact you for help.
 
 
-            // Note: The user is not completely logged in here yet so anything that happens right after login
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // Note: This is the end of the "preliminary" login checks.
+            //       The user is not completely logged in yet so anything that should happen right after login
             //       must be handled below toward the end of the store() method.
+
         }
 
 
@@ -281,11 +285,11 @@ class ehAuthenticatedSessionController extends Controller
 
         // 6.And finally, redirect to where the login person should go.
         if (!empty(Auth()->user()->getDefaultHomePage())) {
-            // If the user's default role has a default_home_page route defined then use it.
-            // TODO: Umm..have to figure out how to get the page id that's stored in sql, its route and then redirect.
-            //return redirect()->intended(route(Auth()->user()->getDefaultHomePage()));
-        } else {
 
+            // If the user's acting role has a default_home_page defined then use it.
+            return redirect()->intended(route(Auth()->user()->getDefaultHomePage()->route));
+
+        } else {
 
             ////////////////////////////////////////////////////////////////////////////////////////////
             // Go to the intended route or the global HOME page.

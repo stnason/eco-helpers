@@ -374,6 +374,9 @@ class ehExamplesController extends ehBaseController
      */
     protected function dataConsistencyCheck($request, $example) {
 
+        // REMEMBER: (for closure rules) the $request variable IS NOT available inside the
+        //           validate() method but the request() helper IS!
+
         // If you want to include the simple validation, you can do that here.
         ///////////////////////////////////////////////////////////////////////////////////////////
         $request->validate([

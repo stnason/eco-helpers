@@ -210,14 +210,14 @@
         margin-top: 4px; /* Centering label across from the radio button. */
         margin-bottom: 4px;
         padding: 0;
-        width: auto;    /* Reset the width so it's not the same as the <input>. */
+        width: auto;    /* ?? not sure if this does this: Reset the width so it's not the same as the <input>. */
     }
 
 
     /* Don't limit the size of a radio button to the same size as an <input> */
     div.form-control.form-radio {
         /*margin-top: 3px;      /* Line the buttons up with the label. BUT THIS CHANGES THE HORIZONTAL ALIGNMENT. */
-        width: auto; /* Reset the width so it's not the same as the <input>. */
+        width: auto;            /* Reset the width so it's not the same as the <input>. */
         /*border: none;         /* You can use this to kill the border around the radio buttons. (use on the per page css) */
     }
 

@@ -201,6 +201,23 @@ class ehValidList {
 
      */
 
+    /**
+     * A list of "active" page items (not necessarily just "menu" items - could be a static page link)
+     * @var array
+     */
+    protected static $_page_list_active =
+        [
+            'method'=>'pullQuery',                  // The ValidList method used for this query.
+            'key' => 'id',                          // The table column name used for the "key"
+            'value' => 'name',                      // The table column name used for the "value"
+            'model_path' => 'ScottNason\EcoHelpers\Models\ehPage',
+                                                    // The Laravel pathname to the Model
+            'orderBy' => 'name',                    // ORDER BY clause field(s)
+            'criteria' => "WHERE active = 1 AND type = 'page'",       // Add a complete WHERE or LIKE clause if needed
+            'include_key_in_name' => false,         // 1=>'Value Name' would be -> "01-Value Name"
+            'inactive_true' => '',                  // When this field is true, we'll add the inactive symbol (like 'archived')
+            'inactive_false' => '',                 // When this field is false, we'll add the inactive symbol (like 'active')
+        ];
 
 
 
@@ -268,6 +285,7 @@ class ehValidList {
         self::addList('modules_submenus_list', self::$_modules_submenus_list);
         self::addList('user_list', self::$_user_list);
         self::addList('example_list', self::$_example_list);
+        self::addList('page_list_active', self::$_page_list_active);
 
     }
 

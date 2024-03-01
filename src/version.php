@@ -1,12 +1,17 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.37',
-    'APP_LASTUPDATE' => '02/25/2024'
+    'APP_VER' => 'v1.0.38',
+    'APP_LASTUPDATE' => '03/01/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 03/01/2024:v01.00.38: 2.00 :Trouble shooting the new ehNotifier class (no popups or deleting).
+ * 02/29/2024:v01.00.37: 1.50 :Cleaning up TODOs; replace manual duplicate check in file upload with chkDuplicateFilename(); create ehNotifier class.
+ * 02/28/2024:v01.00.37: 1.50 :Start work to implement the default home page mechanism. (selecting, saving and redirecting)
+ * 02/27/2024:v01.00.37: 2.00 :Working on ehRolesController consistency rules for ADMIN and NO ACCESS; and roles-detail form
+ * 02/26/2024:v01.00.37: 1.00 :Rules and template tweaks to make ADMIN and NO ACCESS roles un-editable.
  * 02/25/2024:v01.00.37: 2.00 :Clean up login/logout routing; Add throw exception error message to ehConfig for missing; add login/logout homepage keys under eco-helpers.access;
  * 02/23/2024:v01.00.37: 4.00 :Working on TODOs. Added the 'user_update_stamp' time stamp eco-helpers key and the ehHasUserstamps implementation.
  * 02/20/2024:v01.00.36: 2.00 :Working on TODOs (58) low-hanging fruit. Implement $class for all display areas in ehLayout.

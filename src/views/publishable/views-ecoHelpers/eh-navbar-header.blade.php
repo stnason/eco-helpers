@@ -1,5 +1,5 @@
 @inject('role', 'ScottNason\EcoHelpers\Models\ehRole')
-@inject('notifications', 'ScottNason\EcoHelpers\Controllers\ehNotificationsController')
+@inject('notifications', 'ScottNason\EcoHelpers\Classes\ehNotifier')
 <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/eco"><img src="{{asset('vendor/ecoHelpers/images/eco-helpers_logo-v1.png')}}"></a>
@@ -56,6 +56,7 @@
                 @auth
                     {{-- User is logged in. --}}
 
+
                     {{-- The user notification area. --}}
                     @php
                         $total_notification = $notifications::getTotal()
@@ -75,6 +76,7 @@
                             --}}
                         </li>
                     @endif
+
 
                     {{-- The User Role display and dropdown menu. --}}
                     @include('ecoHelpers.eh-user-roles-navbar')

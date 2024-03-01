@@ -267,13 +267,18 @@ trait ehFileUpload
 
 
 
-            // TODO: we have a check for duplicate method in here now. chkDuplicateFilename();
-            // Manually check for duplicate file names. ( but there is a method in here for that - chkDuplicateFilename(); )
+
+            // Check for duplicate file names. ( but there is a method in here for that - chkDuplicateFilename(); )
+            /* Old manual check -- using the new method chkDuplicateFilename() now.
             $num = 1;
             while (file_exists($absolute_storage_path . $new_filename)) {
                 $new_filename = $path_parts['filename'] . '_' . $num . '.' . $path_parts['extension'];
                 $num++;
             }
+            */
+
+            // chkDuplicateFilename($storage_disk, $intended_path_filename) {
+            $new_filename = chkDuplicateFilename($this->storage_disk, $new_filename);
 
 
             // If there's a need to clean up by deleting previous files before moving the new file into place.

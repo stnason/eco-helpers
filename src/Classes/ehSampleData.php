@@ -330,6 +330,7 @@ class ehSampleData {
             1=>[
                 'active'=>1,
                 'site_admin'=>0,
+                'locked'=>0,
                 'name'=>'SIMPLE',
                 'description'=>'A highly restricted, read-only role.',
                 'restrict_flag'=>0,
@@ -342,6 +343,7 @@ class ehSampleData {
             2=>[
                 'active'=>1,
                 'site_admin'=>0,
+                'locked'=>0,
                 'name'=>'SUPER USER',
                 'description'=>'An advanced power user role.',
                 'restrict_flag'=>0,
@@ -354,8 +356,9 @@ class ehSampleData {
             3=>[
                 'active'=>1,
                 'site_admin'=>1,
+                'locked'=>1,
                 'name'=>'ADMIN',
-                'description'=>'The Site Admin role.',
+                'description'=>'The built in Site Admin role.',
                 'restrict_flag'=>0,
                 'default_home_page'=>null,
                 'created_by'=>'system',
@@ -366,8 +369,9 @@ class ehSampleData {
             4=>[
                 'active'=>1,
                 'site_admin'=>0,
+                'locked'=>1,
                 'name'=>'NO ACCESS',
-                'description'=>'The default new user role.',
+                'description'=>'The built in No Access role.',
                 'restrict_flag'=>0,
                 'default_home_page'=>null,
                 'created_by'=>'system',

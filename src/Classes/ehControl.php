@@ -194,6 +194,12 @@ Class ehControl
                 $strongB = '';
             }
 
+
+            // There is no 'readonly' attribute for a radio button.
+            // But disabled elements are not submitted so, not completely sure of the consequences here.
+            if ($p['disabled']=='readonly') {$p['disabled']='disabled';}
+
+
             // Create each radio button selection.
             // Note: There's a fair bit of css manipulation going on her to make the text selections clickable (see the override css).
             $radio .= '
@@ -810,6 +816,8 @@ if ($parameters['field_name'] == 'wsSiteAssignedTo') {
         ###########################################
         if (!empty($parameters['disabled'])) {
             if ($parameters['disabled']) {
+                // !! NOTE !! disabled elements will not be submitted. (this may cause unintended consequences).
+                // There is no 'readonly' for a radio button.
                 $disabled = 'readonly';
             } else {
                 $disabled = '';

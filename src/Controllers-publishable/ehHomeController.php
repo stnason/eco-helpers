@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 use ScottNason\EcoHelpers\Controllers\ehBaseController;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehConfig;
-use ScottNason\EcoHelpers\Controllers\ehNotificationsController;
 
 
 /**

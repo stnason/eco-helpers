@@ -5,15 +5,18 @@ namespace ScottNason\EcoHelpers\Controllers;
 
 use App\Classes\ValidList;           // Use the package published version (not ehValidList internal).
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\CustomRule;
+use Closure;
 use ScottNason\EcoHelpers\Classes\ehAccess;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
 use ScottNason\EcoHelpers\Classes\ehMenus;
 use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Classes\ehLayout;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use ScottNason\EcoHelpers\Models\ehUser;
 
 class ehRolesController extends ehBaseController
@@ -159,7 +162,7 @@ class ehRolesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Run the data consistency check
-        $consistency_message = $this->dataConsistencyCheck($request);
+        $consistency_message = $this->dataConsistencyCheck($request, $role);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Just type hinting in the model that we type hinted in from the create method.
@@ -206,36 +209,41 @@ class ehRolesController extends ehBaseController
 
         $form['site_admin_class'] = '';
         if ($role->site_admin) {
-            ehLayout::setAttention('WARNING: This Role has complete Site Admin control!', 'bg-danger');
+            ehLayout::setAttention('This Role has complete Site Admin control', 'bg-danger');
             $form['site_admin_class'] = 'bg-warning';
         }
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Set the menu name in the dynamic header.
-        ehLayout::setDynamic($role->name.' ('.$role->id.')');
-
+        // Set the dynamic header tole name.
+        ehLayout::setDynamic($role->name);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         ehLayout::setAutoload('unsaved');         // Include the form data-changed check on this crud page.
 
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // CHECK FOR EDIT LOCK (based on the 'lock' column in the eh_roles table).
+        // Editing ADMIN and NO ACCESS roles is not allowed.
+        // (let the template know so it can disable the fields.)
+        // Note: this is also protected in the data consistency rules at the bottom.
+        $form['role_is_locked'] = false;
+        if ($role->locked) {
+            $form['role_is_locked'] = true;
+            if (ehAccess::chkUserResourceAccess(Auth()->user(),Route::currentRouteName(),ACCESS_ADD)) {
+                // Create buttons: Build out only a 'New' button (No Save or Delete).
+                ehLayout::setButton('new', '<input class="btn btn-primary" type="submit" id="new" name="new" value="New">');
+            }
+            // Add the "not editable" message to the dynamic header..
+            ehLayout::setDynamic($role->name.' - [role cannot be edited]');
+        } else {
+            // Create buttons: Build out all edit buttons for this user's current role permissions.
+            ehLayout::setStandardButtons();
+        }
 
-        // SECURITY: Button control.
-        ehLayout::setStandardButtons();
-        /*
-        if (ehAccess::chkUserResourceAccess(Auth()->user(),Route::currentRouteName(),ACCESS_EDIT)) {
-            ehLayout::setButton('save', '<input class="btn btn-primary" type="submit" id="save" name="save" value="Save">');
-        }
-        if (ehAccess::chkUserResourceAccess(Auth()->user(),Route::currentRouteName(),ACCESS_ADD)) {
-            ehLayout::setButton('new', '<input class="btn btn-primary" type="submit" id="new" name="new" value="New">');
-        }
-        if (ehAccess::chkUserResourceAccess(Auth()->user(),Route::currentRouteName(),ACCESS_DELETE)) {
-            ehLayout::setButton('delete', '<input class="btn btn-primary" type="submit" id="delete" name="delete" value="Delete">');
-        }
-        */
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
         $form['layout'] = ehLayout::getLayout();
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the form action
@@ -293,6 +301,7 @@ class ehRolesController extends ehBaseController
         $form['default_copy_from_role_id'] = ehConfig::get('default_copy_from_role_id');
 
 
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         return view('ecoHelpers::roles.roles-detail',[
             'form' => $form,
@@ -331,7 +340,7 @@ class ehRolesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Run the data consistency check
-        $consistency_message = $this->dataConsistencyCheck($request);
+        $consistency_message = $this->dataConsistencyCheck($request, $role);
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -434,6 +443,12 @@ class ehRolesController extends ehBaseController
     public function destroy(ehRole $role)
     {
 
+        // 0. RULE: Can't delete any 'locked' role.
+        if ($role->locked) {
+            session()->flash('message','<strong>Warning!</strong> The <strong>'.$role->name.'</strong> role is locked and cannot be deleted.');
+            return redirect(route('roles.show',[$role->id]));
+        }
+
         // 1. RULE: Can't delete roles that have people assigned.
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Get a list of current users assigned to this Role.
@@ -496,11 +511,10 @@ class ehRolesController extends ehBaseController
      * @param $request
      * @return string
      */
-    protected function dataConsistencyCheck($request) {
+    protected function dataConsistencyCheck($request, $role) {
 
         $consistency_message = '';
 
-        //dd($request->input());
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set any default values.
@@ -512,13 +526,38 @@ class ehRolesController extends ehBaseController
         */
 
 
+        // REMEMBER: (for closures) the $request variable IS NOT available inside the
+        //           validate() method but the request() helper IS!
+
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         // 1. Laravel validation rules (with custom messages):
         // Note: run any "aut-set" rules before this check.)
         $request->validate(
             [
                 // Laravel stock validation rules
-                'name'=> 'required',
+                'name'=> [
+                    'required',
+                    Rule::unique('eh_roles')->ignore($role),
+
+                    ///////////////////////////////////////////////////////////////////////////////////////////
+                    // 2. Don't allow the default ADMIN account to be edited at all.
+                    // Custom closure validation:
+                    function (string $attribute, mixed $value, Closure $fail) {
+                        if (request()->input('name') == 'ADMIN') {
+                            $fail("The default ADMIN account cannot be edited.");
+                        }
+                    },
+
+                    ///////////////////////////////////////////////////////////////////////////////////////////
+                    // 3. Don't allow the default NO ACCESS account to be edited at all.
+                    // Custom closure validation:
+                    function (string $attribute, mixed $value, Closure $fail) {
+                        if (request()->input('name') == 'NO ACCESS') {
+                            $fail("The default NO ACCESS account cannot be edited.");
+                        }
+                    },
+                ],
             ],
 
             [
@@ -526,37 +565,6 @@ class ehRolesController extends ehBaseController
                 'name.required'=>'All roles must have a <strong>Name</strong>. Please enter a <strong>Name</strong> to continue.',
             ]
         );
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // 2. Don't allow the default admin account to be edited at all.
-        // don't allow the default admin account to be set to active=0 (always enabled)
-        // admin restriction should always be No
-        // admin maybe can't edit the whole thing at all?
-
-        //TODO:
-        // Don't allow the default admin account to be edited at all.
-        // Is there some other way than the hard-coded id to do this??
-        // If we're keeping it from being edited then maybe use site_admin = 1 and name = 'ADMIN' ??
-
-        $request->validate(
-            [
-                // Custom closure validation:
-                function (string $attribute, mixed $value, Closure $fail) {
-                    if ($request->site_admin && $request->name = 'admin') {
-                        $fail("The default ADMIN account cannot be edited.");
-                    }
-                },
-            ],
-            [
-                // Custom message:
-            ]
-        );
-
-
-        //TODO:
-        // Role name = 'NO ACCESS' - do not allow to be deleted or edited -- this is the default for new users is another is not specified.
-
-
 
         return $consistency_message;
     }

@@ -381,7 +381,7 @@ class ehCheckPermissions
      */
     protected function throwPermissionError($error_content) {
 
-        //TODO: think about beefing up the error message with a little more information like we had before.
+        //TODO: think about beefing up the error message with a little more information (on Dev only) like we had before.
         // But remember if we're going to use user() anything, we have to check if logged in first.
         /*
             if (Auth()->check()) {
@@ -409,7 +409,6 @@ class ehCheckPermissions
         if (config('app.debug')) {
             abort(403, $this->error_prefix . $error_content);
         } else {
-            // TODO: can we log this error somehow (by throwing an exception or something?)
             // Remember, for the redirect to work the calling line has to return $this->throwPermissionError()
             return redirect('/');
         }

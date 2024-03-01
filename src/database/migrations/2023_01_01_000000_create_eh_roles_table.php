@@ -13,12 +13,13 @@ return new class extends Migration {
         Schema::create('eh_roles', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->tinyInteger('active');
-            $table->tinyInteger('site_admin');
+            $table->tinyInteger('active')->nullable();
+            $table->tinyInteger('locked')->nullable();              // Role cannot be edited
+            $table->tinyInteger('site_admin')->nullable();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->tinyInteger('restrict_flag');       // Custom Role restriction (and be used bu controllers and views for additional restrictions for this group.
-            $table->string('default_home_page')->nullable();;
+            $table->tinyInteger('restrict_flag')->nullable();       // Custom Role restriction (and be used bu controllers and views for additional restrictions for this group.
+            $table->string('default_home_page')->nullable();
 
             $table->string('created_by');
             $table->timestamp('created_at')->nullable();

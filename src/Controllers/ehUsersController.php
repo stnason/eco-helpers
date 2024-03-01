@@ -289,7 +289,7 @@ class ehUsersController extends ehBaseController
     public function destroy(User $user)
     {
 
-        //dd('ehUsersController@destroy', $user, $user->getUserRoles($user->id), ehNotificationsController::getAll($user->id));
+        //dd('ehUsersController@destroy', $user, $user->getUserRoles($user->id), ehNotifier::getAll($user->id));
 
         // Delete any pending Notifications.
         // Currently, the only notifications are for Role changes which auto-clear so this is a safety net for any possible future use.
@@ -473,11 +473,11 @@ class ehUsersController extends ehBaseController
 
                 if (!empty(ehConfig::get('new_user_role'))) {
                     // Use the eco-helpers config file setting for the default new user role.
-                    //TODO: make sure this role exists a throw an error.
+                    //TODO: make sure this role exists and throw an error if not.
                     $request->merge(['default_role' => ehConfig::get('new_user_role')]);
                 } else {
                     // id #4 is the sample data "NO ACCESS" role.
-                    //TODO: make sure this role exists a throw an error.
+                    //TODO: make sure this role exists and throw an error if not.
                     $request->merge(['default_role' => 4]);
                 }
 

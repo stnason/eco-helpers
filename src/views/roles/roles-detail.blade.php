@@ -3,6 +3,16 @@
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 @inject('valid','App\Classes\ValidList')
 
+@php
+// Use this to disable all the form fields when the 'locked' field is set for this role.
+// Note: that the dataConsistency rules still check for this on the backside so this is just a convenience.
+if ($form['role_is_locked']) {
+    $edit_lock = true;
+} else {
+    $edit_lock = false;
+}
+@endphp
+
 @section ('base_head')
 
     {{-- Get the Menu & Page List styling.  --}}
@@ -106,11 +116,8 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group d-inline-flex">
-                                {{-- Don't allow site admin to be disabled. --}}
-                                @if(!$role->site_admin)
                                 {!! $control::label(['field_name'=>'active', 'display_name'=>$role, 'errors'=>$errors]) !!}
-                                {!! $control::radio(['field_name'=>'active', 'model'=>$role, 'alert_if'=>'0', 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
-                                @endif
+                                {!! $control::radio(['field_name'=>'active', 'model'=>$role, 'alert_if'=>'0', 'errors'=>$errors, 'disabled'=>$edit_lock, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
                             </div>
                         </div>
                         <div class="col-md">
@@ -135,9 +142,14 @@
                         {{-- Left column of form data. --}}
                         <div class="col-md-6">
                             <div class="form-group d-inline-flex">
-                                {!! $control::label(['field_name'=>'name', 'display_name'=>$role, 'errors'=>$errors]) !!}
-                                {!! $control::input(['field_name'=>'name', 'model'=>$role, 'errors'=>$errors]) !!}
+                                {!! $control::label(['field_name'=>'site_admin', 'display_name'=>$role, 'errors'=>$errors]) !!}
+                                {!! $control::radio(['field_name'=>'site_admin', 'model'=>$role, 'disabled'=>$edit_lock, 'alert_if'=>'1', 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
                             </div>
+                            <div class="form-group d-inline-flex">
+                                {!! $control::label(['field_name'=>'name', 'display_name'=>$role, 'errors'=>$errors]) !!}
+                                {!! $control::input(['field_name'=>'name', 'model'=>$role, 'disabled'=>$edit_lock, 'errors'=>$errors]) !!}
+                            </div>
+
                             <div class="form-group d-inline-flex">
                                 {!! $control::label(['field_name'=>'default_home_page', 'display_name'=>$role, 'errors'=>$errors]) !!}
                                 {!! $control::select([
@@ -149,12 +161,13 @@
                                 //'preselect'=>$role->default_home_page,
                                 'auto_submit'=>false,
                                 'add_blank'=>true,          // Blank would be the normal "Home" page.
+                                'disabled'=>$edit_lock,
                                 'errors'=>$errors]) !!}
                             </div>
 
                             <div class="form-group d-inline-flex">
                                 {!! $control::label(['field_name'=>'restrict_flag', 'display_name'=>$role, 'errors'=>$errors]) !!}
-                                {!! $control::radio(['field_name'=>'restrict_flag', 'model'=>$role, 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
+                                {!! $control::radio(['field_name'=>'restrict_flag', 'model'=>$role, 'disabled'=>$edit_lock, 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
                             </div>
 
                         </div>
@@ -174,7 +187,7 @@
                             --}}
                             <div class="form-group d-inline">
                                 {!! $control::label(['field_name'=>'description', 'display_name'=>$role, 'errors'=>$errors]) !!}
-                                {!! $control::textarea(['field_name'=>'description', 'model'=>$role, 'rows'=>'3', 'errors'=>$errors]) !!}
+                                {!! $control::textarea(['field_name'=>'description', 'model'=>$role, 'disabled'=>$edit_lock, 'rows'=>'3', 'errors'=>$errors]) !!}
                             </div>
                         </div>
                     </div>
@@ -225,8 +238,9 @@
 
 
             {{-- Rights grid heading area. --}}
+            @if (!$edit_lock)
             @include ('ecoHelpers::roles.rights-edit-area')
-
+            @endif
 
             {{-- Standard form information header; for endu-user form content headings.  --}}
             @php $model = $role @endphp

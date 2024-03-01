@@ -2,13 +2,16 @@
  * UserNotification
  * functions and Ajax routines.
  *
+ * Note: the notification_url var is setup in the eh-app-template - notifications section
+ *
  */
 
     //TODO: Explore the idea of stacking multiple notifications in the message_modal - each with it's own 'x' button if user clearable.
     // Need to implement the route viewable flag (if auto popup; should it do it on all or just one page?)
     // Need to implement "is user clearable".
 
-//var message_modal = $("#message-modal");  // I think this is new for Bootstrap 5.x. This no longer works directly but must be instantiated like this:
+//var message_modal = $("#message-modal");  // I think this is new for Bootstrap 5.x.
+// This no longer works directly but must be instantiated like this:
 // Activate the modal so js can talk to it.
 const message_modal = new bootstrap.Modal('#message-modal', {
         keyboard: false
@@ -39,7 +42,6 @@ $.ajaxSetup({
 function getNext() {
 
     var notification = "";
-    /* TODO: We were getting a 401 Unauthorized message. Is that fixed for all users--before and after login?? */
     $.ajax({
         type: "POST",
         url: notification_url + "/get-next",
@@ -50,6 +52,8 @@ function getNext() {
         success: function(data){
             notification = data;
         }
+    }).fail(function (data) {
+        alert('getNext fail: '+JSON.stringify(data));
     });
 
     return notification;
@@ -90,6 +94,8 @@ function deleteNext() {
                 user_notification.hide();   // If the notifications are down to zero then hide the Notification link in the title bar.
             }
         }
+    }).fail(function (data) {
+        alert('deleteNext fail: '+JSON.stringify(data));
     });
 
 
