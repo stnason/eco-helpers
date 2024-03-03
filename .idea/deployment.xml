@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;error_log;.ftpquota*;.htaccess*;404*" />
+  <component name="PublishConfigData" serverName="Debian-5000" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;error_log;.ftpquota*;.htaccess*;404*" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
+  </component>
 </project>

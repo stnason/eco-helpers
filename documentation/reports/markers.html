@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -53,7 +54,7 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -66,6 +67,10 @@
             </li>
                     <li>
                 <a href="namespaces/app-http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/app-models.html" class="">Models</a>
                 
             </li>
             </ul>
@@ -102,7 +107,7 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/ScottNason-EcoHelpersRemembertoaddtoconfigapp.html" class="">EcoHelpersRemembertoaddtoconfigapp</a>
+                <a href="packages/ScottNason-EcoHelpersOriginallyhadtoaddtoconfigapp.html" class="">EcoHelpersOriginallyhadtoaddtoconfigapp</a>
                 
             </li>
             </ul>
@@ -122,646 +127,207 @@
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
-        <li><a href="">Home</a></li>
-    </ul>
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                        <section>
+        <ul class="phpdocumentor-breadcrumbs">
+            <li><a href="">Home</a></li>
+        </ul>
 
-    <div class="phpdocumentor-row">
-        <h2 class="phpdocumentor-content__title">Markers</h2>
+        <div class="phpdocumentor-row">
+            <h2 class="phpdocumentor-content__title">Markers</h2>
 
-                    <h3>Table of Contents</h3>
-            <table class="phpdocumentor-table_of_contents">
-                                                            <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/_DO-NOT-DEPLOY/GroupsControllerBU.php">src/_DO-NOT-DEPLOY/GroupsControllerBU.php</a></td>
-                            <td class="phpdocumentor-cell">4</td>
+                            <h3>Table of Contents</h3>
+                <table class="phpdocumentor-table_of_contents">
+                                                                        <tr>
+                                <td class="phpdocumentor-cell"><a href="reports/markers.html#eco-helpers/src/Classes/ehNotifier.php">eco-helpers/src/Classes/ehNotifier.php</a></td>
+                                <td class="phpdocumentor-cell">1</td>
+                            </tr>
+                                                                                                <tr>
+                                <td class="phpdocumentor-cell"><a href="reports/markers.html#eco-helpers/src/Classes/ehSampleData.php">eco-helpers/src/Classes/ehSampleData.php</a></td>
+                                <td class="phpdocumentor-cell">1</td>
+                            </tr>
+                                                                                                <tr>
+                                <td class="phpdocumentor-cell"><a href="reports/markers.html#eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php</a></td>
+                                <td class="phpdocumentor-cell">3</td>
+                            </tr>
+                                                                                                <tr>
+                                <td class="phpdocumentor-cell"><a href="reports/markers.html#eco-helpers/src/Controllers/ehPagesController.php">eco-helpers/src/Controllers/ehPagesController.php</a></td>
+                                <td class="phpdocumentor-cell">1</td>
+                            </tr>
+                                                                                                <tr>
+                                <td class="phpdocumentor-cell"><a href="reports/markers.html#eco-helpers/src/Controllers/ehUsersController.php">eco-helpers/src/Controllers/ehUsersController.php</a></td>
+                                <td class="phpdocumentor-cell">3</td>
+                            </tr>
+                                                                                                <tr>
+                                <td class="phpdocumentor-cell"><a href="reports/markers.html#eco-helpers/src/EcoHelpersServiceProvider.php">eco-helpers/src/EcoHelpersServiceProvider.php</a></td>
+                                <td class="phpdocumentor-cell">2</td>
+                            </tr>
+                                                                                                <tr>
+                                <td class="phpdocumentor-cell"><a href="reports/markers.html#eco-helpers/src/Middleware/ehCheckPermissions.php">eco-helpers/src/Middleware/ehCheckPermissions.php</a></td>
+                                <td class="phpdocumentor-cell">2</td>
+                            </tr>
+                                                            </table>
+            
+                            <a id="eco-helpers/src/Classes/ehNotifier.php"></a>
+                <h3><abbr title="eco-helpers/src/Classes/ehNotifier.php">ehNotifier.php</abbr></h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="phpdocumentor-heading">Type</th>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">121</td>
+                            <td class="phpdocumentor-cell">set the status of this notification that have been seen once already</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/_DO-NOT-DEPLOY/MenusNOTSURE.php">src/_DO-NOT-DEPLOY/MenusNOTSURE.php</a></td>
-                            <td class="phpdocumentor-cell">3</td>
+                                        </tbody>
+                </table>
+                            <a id="eco-helpers/src/Classes/ehSampleData.php"></a>
+                <h3><abbr title="eco-helpers/src/Classes/ehSampleData.php">ehSampleData.php</abbr></h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="phpdocumentor-heading">Type</th>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">60</td>
+                            <td class="phpdocumentor-cell">Aren&#039;t we going to need this once we start testing roles against specific page access?</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/_DO-NOT-DEPLOY/UsersControllerBU.php">src/_DO-NOT-DEPLOY/UsersControllerBU.php</a></td>
-                            <td class="phpdocumentor-cell">2</td>
+                                        </tbody>
+                </table>
+                            <a id="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"></a>
+                <h3><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="phpdocumentor-heading">Type</th>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">80</td>
+                            <td class="phpdocumentor-cell">Most of these same checks will need to be run when a user changes roles.</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Classes/ehAccess.php">src/Classes/ehAccess.php</a></td>
-                            <td class="phpdocumentor-cell">4</td>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">236</td>
+                            <td class="phpdocumentor-cell">Do we want to pursue the idea of being able to login to the uncontrolled Example Detail page</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Classes/ehLayout.php">src/Classes/ehLayout.php</a></td>
-                            <td class="phpdocumentor-cell">3</td>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">331</td>
+                            <td class="phpdocumentor-cell">I think we should add a config setting--maybe for both--home page after login and home page after logout.</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Classes/ehLinkbar.php">src/Classes/ehLinkbar.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
+                                        </tbody>
+                </table>
+                            <a id="eco-helpers/src/Controllers/ehPagesController.php"></a>
+                <h3><abbr title="eco-helpers/src/Controllers/ehPagesController.php">ehPagesController.php</abbr></h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="phpdocumentor-heading">Type</th>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">407</td>
+                            <td class="phpdocumentor-cell">need to test this and see if there are any rules left to implement or not.</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Classes/ehMenus.php">src/Classes/ehMenus.php</a></td>
-                            <td class="phpdocumentor-cell">3</td>
+                                        </tbody>
+                </table>
+                            <a id="eco-helpers/src/Controllers/ehUsersController.php"></a>
+                <h3><abbr title="eco-helpers/src/Controllers/ehUsersController.php">ehUsersController.php</abbr></h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="phpdocumentor-heading">Type</th>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">438</td>
+                            <td class="phpdocumentor-cell">somehow we need to check this when assigning the first role to a user that previously didn&#039;t have any. (?)</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Controllers/ehBaseController.php">src/Controllers/ehBaseController.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">476</td>
+                            <td class="phpdocumentor-cell">make sure this role exists and throw an error if not.</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Controllers/ehGroupsController.php">src/Controllers/ehGroupsController.php</a></td>
-                            <td class="phpdocumentor-cell">4</td>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">480</td>
+                            <td class="phpdocumentor-cell">make sure this role exists and throw an error if not.</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Controllers/ehNotificationsController.php">src/Controllers/ehNotificationsController.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
+                                        </tbody>
+                </table>
+                            <a id="eco-helpers/src/EcoHelpersServiceProvider.php"></a>
+                <h3><abbr title="eco-helpers/src/EcoHelpersServiceProvider.php">EcoHelpersServiceProvider.php</abbr></h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="phpdocumentor-heading">Type</th>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">94</td>
+                            <td class="phpdocumentor-cell">if you run the ui:auth command a second time it warns you that folders already exist.</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Controllers/ehPagesController.php">src/Controllers/ehPagesController.php</a></td>
-                            <td class="phpdocumentor-cell">2</td>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">207</td>
+                            <td class="phpdocumentor-cell">// photos to publish for the sample user (ehAdmin and ehUser)??</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Controllers/ehUsersController.php">src/Controllers/ehUsersController.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
+                                        </tbody>
+                </table>
+                            <a id="eco-helpers/src/Middleware/ehCheckPermissions.php"></a>
+                <h3><abbr title="eco-helpers/src/Middleware/ehCheckPermissions.php">ehCheckPermissions.php</abbr></h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="phpdocumentor-heading">Type</th>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">344</td>
+                            <td class="phpdocumentor-cell">does this mean the controller is responsible and we should allow the access here?</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/database/migrations/2023_01_01_000000_update_users_table.php">src/database/migrations/2023_01_01_000000_update_users_table.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">384</td>
+                            <td class="phpdocumentor-cell">think about beefing up the error message with a little more information (on Dev only) like we had before.</td>
                         </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/EcoHelpersServiceProvider.php">src/EcoHelpersServiceProvider.php</a></td>
-                            <td class="phpdocumentor-cell">2</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Models/ehBaseModel.php">src/Models/ehBaseModel.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Models/ehPage.php">src/Models/ehPage.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Models/ehUser.php">src/Models/ehUser.php</a></td>
-                            <td class="phpdocumentor-cell">4</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Traits/ConvertDatesToSavable.php">src/Traits/ConvertDatesToSavable.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Traits/FileUpload.php">src/Traits/FileUpload.php</a></td>
-                            <td class="phpdocumentor-cell">3</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/Traits/HasUserstamps.php">src/Traits/HasUserstamps.php</a></td>
-                            <td class="phpdocumentor-cell">2</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/views/core/eh-css-loader.blade.php">src/views/core/eh-css-loader.blade.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/views/core/eh-login-modal.blade.php">src/views/core/eh-login-modal.blade.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
-                        </tr>
-                                                                                <tr>
-                            <td class="phpdocumentor-cell"><a href="reports/markers.html#src/views/users/user-detail.blade.php">src/views/users/user-detail.blade.php</a></td>
-                            <td class="phpdocumentor-cell">1</td>
-                        </tr>
-                                                </table>
-        
-                    <a id="src/_DO-NOT-DEPLOY/GroupsControllerBU.php"></a>
-            <h3><abbr title="src/_DO-NOT-DEPLOY/GroupsControllerBU.php">GroupsControllerBU.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">179</td>
-                        <td class="phpdocumentor-cell">get the user rights assignments</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">203</td>
-                        <td class="phpdocumentor-cell">For now use it as it comes in or set it to &quot;1&quot; (change it to first active for group id)</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">237</td>
-                        <td class="phpdocumentor-cell">technically this should check each one of these routes for access by the currently displayed group (skipping that check for now)</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">293</td>
-                        <td class="phpdocumentor-cell">dataConsistency - validation</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/_DO-NOT-DEPLOY/MenusNOTSURE.php"></a>
-            <h3><abbr title="src/_DO-NOT-DEPLOY/MenusNOTSURE.php">MenusNOTSURE.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">10</td>
-                        <td class="phpdocumentor-cell">will need to figure out how to integrate with the security access checks when that&#039;s implemented.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">162</td>
-                        <td class="phpdocumentor-cell">Is there where the children menu security needs to be placed??</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">206</td>
-                        <td class="phpdocumentor-cell">is there a situation where you have deleted the real parent and this is just an orphan?</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/_DO-NOT-DEPLOY/UsersControllerBU.php"></a>
-            <h3><abbr title="src/_DO-NOT-DEPLOY/UsersControllerBU.php">UsersControllerBU.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">316</td>
-                        <td class="phpdocumentor-cell">can this be converted to use $request?</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">514</td>
-                        <td class="phpdocumentor-cell">After we build the save portion of this, determine if we even need the hidden here since we&#039;re only saving the user Add-On Rights</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Classes/ehAccess.php"></a>
-            <h3><abbr title="src/Classes/ehAccess.php">ehAccess.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">75</td>
-                        <td class="phpdocumentor-cell">no logic here - need to build how the actual checks.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">99</td>
-                        <td class="phpdocumentor-cell">no logic here - need to build how the actual checks.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">291</td>
-                        <td class="phpdocumentor-cell">change this to throw an exception.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">576</td>
-                        <td class="phpdocumentor-cell">I think this is going to need to incorporate the ehPage::getPageInfo() call somehow to deal with resource routes.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Classes/ehLayout.php"></a>
-            <h3><abbr title="src/Classes/ehLayout.php">ehLayout.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">31</td>
-                        <td class="phpdocumentor-cell">collapse has some challenges implementing in the base template -- for now, those are not solved so everything naturally collapses.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">131</td>
-                        <td class="phpdocumentor-cell">Not sure how much functionality (vs auto pilot like this) we should have around this. Like should there be a setMenu()?</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">371</td>
-                        <td class="phpdocumentor-cell">this may have to go away -- not sure yet. But I think this should be handled byt the Linkbar class.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Classes/ehLinkbar.php"></a>
-            <h3><abbr title="src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">3</td>
-                        <td class="phpdocumentor-cell">this is copied as-is from eesfm v3L</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Classes/ehMenus.php"></a>
-            <h3><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">10</td>
-                        <td class="phpdocumentor-cell">will need to figure out how to integrate with the security access checks when that&#039;s implemented.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">162</td>
-                        <td class="phpdocumentor-cell">Is there where the children menu security needs to be placed??</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">206</td>
-                        <td class="phpdocumentor-cell">is there a situation where you have deleted the real parent and this is just an orphan?</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Controllers/ehBaseController.php"></a>
-            <h3><abbr title="src/Controllers/ehBaseController.php">ehBaseController.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">33</td>
-                        <td class="phpdocumentor-cell">commenting out these until more of the basic structure is in place to test properly.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Controllers/ehGroupsController.php"></a>
-            <h3><abbr title="src/Controllers/ehGroupsController.php">ehGroupsController.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">196</td>
-                        <td class="phpdocumentor-cell">get the user rights assignments (from where? I think this should be implemented in Layout?)</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">246</td>
-                        <td class="phpdocumentor-cell">This needs to move to the config file.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">287</td>
-                        <td class="phpdocumentor-cell">dataConsistency - validation</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">462</td>
-                        <td class="phpdocumentor-cell">can&#039;t figure out how to put this in order to have sub-menu items immediately follow their parent menu.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Controllers/ehNotificationsController.php"></a>
-            <h3><abbr title="src/Controllers/ehNotificationsController.php">ehNotificationsController.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">100</td>
-                        <td class="phpdocumentor-cell">set the status of this notification to seen once already</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Controllers/ehPagesController.php"></a>
-            <h3><abbr title="src/Controllers/ehPagesController.php">ehPagesController.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">30</td>
-                        <td class="phpdocumentor-cell">would be nice to have an Expand All/ Collapse All (like the Call Codes page in eesfm)</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">450</td>
-                        <td class="phpdocumentor-cell">build out Module rules:</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Controllers/ehUsersController.php"></a>
-            <h3><abbr title="src/Controllers/ehUsersController.php">ehUsersController.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">229</td>
-                        <td class="phpdocumentor-cell">User Profile data validation and custom error messages as needed.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/database/migrations/2023_01_01_000000_update_users_table.php"></a>
-            <h3><abbr title="src/database/migrations/2023_01_01_000000_update_users_table.php">2023_01_01_000000_update_users_table.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">55</td>
-                        <td class="phpdocumentor-cell">experiment with no group_id here and assign a default role instead.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/EcoHelpersServiceProvider.php"></a>
-            <h3><abbr title="src/EcoHelpersServiceProvider.php">EcoHelpersServiceProvider.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">114</td>
-                        <td class="phpdocumentor-cell">are we going to have sample contact photos to publish and if so where since it will have to be</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">121</td>
-                        <td class="phpdocumentor-cell">what exactly should be publishable (extendable)? And what should just be left here?</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Models/ehBaseModel.php"></a>
-            <h3><abbr title="src/Models/ehBaseModel.php">ehBaseModel.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">27</td>
-                        <td class="phpdocumentor-cell">we&#039;ll have to test this with other date fields and see if it still works. (that would be awesome!)</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Models/ehPage.php"></a>
-            <h3><abbr title="src/Models/ehPage.php">ehPage.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">250</td>
-                        <td class="phpdocumentor-cell">this would be a good spot to check the consistency of the route and replace any &#039;/&#039; with dots.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Models/ehUser.php"></a>
-            <h3><abbr title="src/Models/ehUser.php">ehUser.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">195</td>
-                        <td class="phpdocumentor-cell">review all the steps in the original User@setActingRole to see what checks we need to implement here.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">252</td>
-                        <td class="phpdocumentor-cell">What do we do if this field is missing?? (should be handled with data validation and consistency in ehUsersController, but....)</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">330</td>
-                        <td class="phpdocumentor-cell">for now just returning the first group found in the lookup table.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">360</td>
-                        <td class="phpdocumentor-cell">what to do with the middle name if present?</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Traits/ConvertDatesToSavable.php"></a>
-            <h3><abbr title="src/Traits/ConvertDatesToSavable.php">ConvertDatesToSavable.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">59</td>
-                        <td class="phpdocumentor-cell">need error checking to ensure that we have access to the datetime format constants (where ever they end up).</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Traits/FileUpload.php"></a>
-            <h3><abbr title="src/Traits/FileUpload.php">FileUpload.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">268</td>
-                        <td class="phpdocumentor-cell">we have a check for duplicate method in here now.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">403</td>
-                        <td class="phpdocumentor-cell">Do we also want to check for &quot;safe&quot; names too? (replace characters or whatever? maybe not a big deal anymore?)</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">411</td>
-                        <td class="phpdocumentor-cell">this should probably throw an exception?</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/Traits/HasUserstamps.php"></a>
-            <h3><abbr title="src/Traits/HasUserstamps.php">HasUserstamps.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">120</td>
-                        <td class="phpdocumentor-cell">Might need to think about making this system configurable through settings or the config file.</td>
-                    </tr>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">146</td>
-                        <td class="phpdocumentor-cell">error checking for missing date time format.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/views/core/eh-css-loader.blade.php"></a>
-            <h3><abbr title="src/views/core/eh-css-loader.blade.php">eh-css-loader.blade.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">139</td>
-                        <td class="phpdocumentor-cell">they&#039;ve changed their delivery system and folder structure - I have some pages with the DT initialization hard coded.</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/views/core/eh-login-modal.blade.php"></a>
-            <h3><abbr title="src/views/core/eh-login-modal.blade.php">eh-login-modal.blade.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">287</td>
-                        <td class="phpdocumentor-cell">Should this code be moved out to a js file (or another blade template?)</td>
-                    </tr>
-                                </tbody>
-            </table>
-                    <a id="src/views/users/user-detail.blade.php"></a>
-            <h3><abbr title="src/views/users/user-detail.blade.php">user-detail.blade.php</abbr></h3>
-            <table>
-                <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    <tr>
-                        <td class="phpdocumentor-cell">TODO</td>
-                        <td class="phpdocumentor-cell">527</td>
-                        <td class="phpdocumentor-cell">this is probably going to be designed out.</td>
-                    </tr>
-                                </tbody>
-            </table>
-            </div>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                        </tbody>
+                </table>
+                    </div>
+    </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -772,7 +338,6 @@
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="reports/markers.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

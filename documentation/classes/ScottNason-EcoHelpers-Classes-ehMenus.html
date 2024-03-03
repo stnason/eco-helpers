@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,7 +53,7 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -65,6 +66,10 @@
             </li>
                     <li>
                 <a href="namespaces/app-http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/app-models.html" class="">Models</a>
                 
             </li>
             </ul>
@@ -101,7 +106,7 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/ScottNason-EcoHelpersRemembertoaddtoconfigapp.html" class="">EcoHelpersRemembertoaddtoconfigapp</a>
+                <a href="packages/ScottNason-EcoHelpersOriginallyhadtoaddtoconfigapp.html" class="">EcoHelpersOriginallyhadtoaddtoconfigapp</a>
                 
             </li>
             </ul>
@@ -121,8 +126,9 @@
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason.html">ScottNason</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason-ecohelpers.html">EcoHelpers</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason-ecohelpers-classes.html">Classes</a></li>
@@ -143,22 +149,25 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Responsible for building out the menuing system for the standard header.</p>
+            <p class="phpdocumentor-summary">Responsible for building out the menu-ing system data for the standard nav header.</p>
 
-    <section class="phpdocumentor-description"><p>Can use a Pages table for more complex systems or just the array in the eco-menus.php config file.</p>
-<p>Note: This requires the Pages table in order to work.
-Note: A TOP LEVEL (Module) is a page with a 0 parent_id and menu_item = true.</p>
+    <section class="phpdocumentor-description"><p>Uses (depends on) the pages table.</p>
+<p>!! IMPORTANT !! - This IS NOT PART OF THE BACK-END SECURITY CHECK.
+THAT IS HANDLED THROUGH THE check_permissions MIDDLEWARE.
+- ehMenus only controls what shows up on the user's personal menu tree -- not the &quot;access&quot; to it.</p>
 </section>
-
-
-
 
 
 
@@ -166,89 +175,120 @@ Note: A TOP LEVEL (Module) is a page with a 0 parent_id and menu_item = true.</p
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_menu_input">$menu_input</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_apply_security">$apply_security</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_menu_output">$menu_output</a>
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_menu_filter">$menu_filter</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_order_by">$order_by</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_pages_output">$pages_output</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;|mixed            </span>
+</dt>
+<dd>Making these object properties since the recurseChildren() will need to use the same queries.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_parent_filter">$parent_filter</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Constructs the recursive menu tree in order of fly-outs.</dd>
+<dd>Constructor can build out based on 2 different $types: all / user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_addDisplayClass">addDisplayClass()</a>
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getFlatPages">getFlatPages()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Used by the Pages List and Pages Detail pages to format the page items for visual delineation.</dd>
+<dd>Returns the menu/pages records but flattens out the children level so ALL subsequent children are directly under the parent.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getLegend">getLegend()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Returns the array containing the Menus/ Pages List &quot;Legend&quot;
-(the data below)
-Note: this process is mostly duplicated from the __construct at the top.</dd>
+<dd>Returns the array containing the Menus/ Pages List &quot;Legend&quot; for use on the Menus/Pages index page.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyChildren">getMyChildren()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>For use by templates and controllers. Pull all the child page entries for a give parent id.</dd>
+<dd>Return a collection of all pages that list this page_id as their parent.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyModule">getMyModule()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: object    </span>
 </dt>
-<dd>Which Module is at the top of my pages tree?</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyParent">getMyParent()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
+<dd>Which Module is at the top of my pages tree?
+Probably only used by the ehPagesController to display the Module-Tree sidebar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getPages">getPages()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Return the final menus array that was build out in __construct.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_recursiveMyChildren">recursiveMyChildren()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>INTERNAL ONLY;
-Recursively pull children for the passed $menu_input recordset and the parent_id.</dd>
+<dd>Returns the final menus/pages collection that was built out in __construct.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getModules">getModules()</a>
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_addDisplayClass">addDisplayClass()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Return an array of only only type = module.</dd>
+<dd>For internal use. The ehMenus class is now responsible for sending out Menus data
+ with the display_class already assigned.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyParent">getMyParent()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Internal used for getMyModule().</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_legendData">legendData()</a>
@@ -260,11 +300,26 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_pageSecurity">pageSecurity()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool|void    </span>
 </dt>
-<dd></dd>
+<dd>For internal use in building out the menu data to return.</dd>
 
-        </dl>
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_recurseMyChildren">recurseMyChildren()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>For internal use pulling--recursively--the children from a given $parent_id.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_recurseMyFlatChildren">recurseMyFlatChildren()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Internal use for the getFlatPages() method above.</dd>
+
+    </dl>
+
 
 
 
@@ -275,6 +330,7 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
             <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="
@@ -283,16 +339,17 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_menu_input">
-        $menu_input
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_menu_input" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_apply_security">
+        $apply_security
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_apply_security" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -300,13 +357,11 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$menu_input</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+    <span class="phpdocumentor-signature__name">$apply_security</span>
+     = <span class="phpdocumentor-signature__default-value">true</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
+    
+    
     
 
 </article>
@@ -317,16 +372,17 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_menu_output">
-        $menu_output
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_menu_output" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_menu_filter">
+        $menu_filter
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_menu_filter" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -334,13 +390,111 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$menu_output</span>
+    <span class="phpdocumentor-signature__name">$menu_filter</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_order_by">
+        $order_by
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_order_by" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$order_by</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_pages_output">
+        $pages_output
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_pages_output" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Making these object properties since the recurseChildren() will need to use the same queries.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|mixed</span>
+    <span class="phpdocumentor-signature__name">$pages_output</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
-        <section class="phpdocumentor-description"></section>
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_parent_filter">
+        $parent_filter
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_parent_filter" class="headerlink"><i class="fas fa-link"></i></a>
 
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$parent_filter</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+    
+    
     
 
 </article>
@@ -350,6 +504,7 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -360,85 +515,91 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Constructs the recursive menu tree in order of fly-outs.</p>
+        <p class="phpdocumentor-summary">Constructor can build out based on 2 different $types: all / user.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$active_menu_items_only</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$start_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;all&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>all = no filters; no security            - used for Menus/Pages Admin; for Group Admin rights grid
+user = active, menu items, w/security    - auth user's nav bar menus</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$active_menu_items_only</span>
+                <span class="phpdocumentor-signature__argument__name">$start_id</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;all&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>// all (for Menus/Pages Admin), user security filtered (for Navbar)</p>
+</section>
 
             </dd>
             </dl>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
     
 </article>
                     <article
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_addDisplayClass">
-        addDisplayClass()
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_addDisplayClass" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getFlatPages">
+        getFlatPages()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getFlatPages" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">306</span>
+    <span class="phpdocumentor-element-found-in__line">588</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Used by the Pages List and Pages Detail pages to format the page items for visual delineation.</p>
+        <p class="phpdocumentor-summary">Returns the menu/pages records but flattens out the children level so ALL subsequent children are directly under the parent.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">addDisplayClass</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input_pages</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getFlatPages</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-        <section class="phpdocumentor-description"><p>Note: this needs to be recursive in order to add the class to all children too.</p>
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Basically a single-dimensional list of ALL children under this module (and any submenus) at any level.
+SECURITY NOTE: There is no security check since this is only used by the ehRolesController rights grid !!
+This works directly with recurseMyFlatChildren() below.
+Currently, this is only used for the GroupController rights grid (but leaving it here in case other use cases arise).</p>
 </section>
 
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$input_pages</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
+    
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -449,31 +610,35 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
     <h4 class="phpdocumentor-element__name" id="method_getLegend">
         getLegend()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getLegend" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">240</span>
+    <span class="phpdocumentor-element-found-in__line">421</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the array containing the Menus/ Pages List &quot;Legend&quot;
-(the data below)
-Note: this process is mostly duplicated from the __construct at the top.</p>
+        <p class="phpdocumentor-summary">Returns the array containing the Menus/ Pages List &quot;Legend&quot; for use on the Menus/Pages index page.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getLegend</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-    
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Note: the display_class is also added for each item entry.</p>
+<p>The data itself is below in the legendData() method.</p>
+</section>
+
     
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -484,29 +649,50 @@ Note: this process is mostly duplicated from the __construct at the top.</p>
     <h4 class="phpdocumentor-element__name" id="method_getMyChildren">
         getMyChildren()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyChildren" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">185</span>
+    <span class="phpdocumentor-element-found-in__line">354</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">For use by templates and controllers. Pull all the child page entries for a give parent id.</p>
+        <p class="phpdocumentor-summary">Return a collection of all pages that list this page_id as their parent.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getMyChildren</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getMyChildren</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page_id</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$active_only</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$menu_item</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>Note: Static so we can call if easily from other templates or controllers.</p>
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>This can be used for a couple different things based on exactly what is needed.
+It defaults to including everything but you can limit it to just active items and just menu items as needed.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$id</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$page_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
                             </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$active_only</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>// true = Only return active items.
+@param $menu_itme       // true = Only return menu items.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$menu_item</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -514,10 +700,6 @@ Note: this process is mostly duplicated from the __construct at the top.</p>
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
     
 </article>
                     <article
@@ -529,83 +711,49 @@ Note: this process is mostly duplicated from the __construct at the top.</p>
     <h4 class="phpdocumentor-element__name" id="method_getMyModule">
         getMyModule()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyModule" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">201</span>
+    <span class="phpdocumentor-element-found-in__line">292</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Which Module is at the top of my pages tree?</p>
+        <p class="phpdocumentor-summary">Which Module is at the top of my pages tree?
+Probably only used by the ehPagesController to display the Module-Tree sidebar.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getMyModule</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getMyModule</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$id</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|object</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_getMyParent">
-        getMyParent()
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyParent" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">190</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getMyParent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parent_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$parent_id</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>// Accepts a page id number or a page object.</p>
+</section>
 
             </dd>
             </dl>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">object</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>$tmp</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -616,81 +764,30 @@ Note: this process is mostly duplicated from the __construct at the top.</p>
     <h4 class="phpdocumentor-element__name" id="method_getPages">
         getPages()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getPages" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">228</span>
+    <span class="phpdocumentor-element-found-in__line">574</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Return the final menus array that was build out in __construct.</p>
+        <p class="phpdocumentor-summary">Returns the final menus/pages collection that was built out in __construct.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getPages</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_recursiveMyChildren">
-        recursiveMyChildren()
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_recursiveMyChildren" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">150</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">INTERNAL ONLY;
-Recursively pull children for the passed $menu_input recordset and the parent_id.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">recursiveMyChildren</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$menu_input</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parent_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-        <section class="phpdocumentor-description"><p>Creates a $children dataset and returns it to be appended to the original recordset.</p>
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>This is a hierarchical set of data that includes all children and display classes.
+__construct will pull a set for either 'all' or 'user' based on the passed parameter.</p>
 </section>
 
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$menu_input</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$parent_id</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
+    
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
 </article>
                     <article
@@ -699,29 +796,37 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getModules">
-        getModules()
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getModules" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_addDisplayClass">
+        addDisplayClass()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_addDisplayClass" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">131</span>
+    <span class="phpdocumentor-element-found-in__line">205</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Return an array of only only type = module.</p>
+        <p class="phpdocumentor-summary">For internal use. The ehMenus class is now responsible for sending out Menus data
+ with the display_class already assigned.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">getModules</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$menu_input</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">addDisplayClass</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input_pages</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Mainly used by the Pages List and Pages Detail pages to format the page items for visual delineation.
+Note: this is recursive in order to add the display classes to all child levels.
+Note: these css styles are contained in the eh-page-list.css file.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$menu_input</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$input_pages</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -730,10 +835,50 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
 
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getMyParent">
+        getMyParent()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyParent" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">337</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Internal used for getMyModule().</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getMyParent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parent_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Quick helper to just get the whole $page record associated with a single $id number.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$parent_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
     
 </article>
                     <article
@@ -745,11 +890,12 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
     <h4 class="phpdocumentor-element__name" id="method_legendData">
         legendData()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_legendData" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">280</span>
+    <span class="phpdocumentor-element-found-in__line">441</span>
 
     </aside>
 
@@ -759,15 +905,19 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">legendData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, <abbr title="\string">string</abbr>&gt;&gt;</span></code>
 
-    
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Note: the specific use of &quot;collect&quot; and &quot;object&quot; is to get this data to coexist with the methods intended to be used with returned database data.</p>
+</section>
+
     
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, <abbr title="\string">string</abbr>&gt;&gt;</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, <abbr title="\string">string</abbr>&gt;&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -778,107 +928,289 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
     <h4 class="phpdocumentor-element__name" id="method_pageSecurity">
         pageSecurity()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_pageSecurity" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehMenus.php"><a href="files/src-classes-ehmenus.html"><abbr title="src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">361</span>
+    <span class="phpdocumentor-element-found-in__line">493</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">For internal use in building out the menu data to return.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">pageSecurity</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">pageSecurity</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|void</span></code>
 
-        <section class="phpdocumentor-description"></section>
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Checks both the non-user page level security along with the actual user role permissions for this route.</p>
+<p>IMPORTANT NOTE:
+This is a &quot;front-end&quot; security check only. All it does it keep the menu item from showing if you don't have access.
+Back-end permission checks through the permissions middleware will handle the actual back-end lock-out security.</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$page</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
+        <span class="phpdocumentor-signature__response_type">bool|void</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_recurseMyChildren">
+        recurseMyChildren()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_recurseMyChildren" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">162</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">For internal use pulling--recursively--the children from a given $parent_id.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">recurseMyChildren</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parent_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Will use the Class property setting for the query filters and $order_by
+along with the $apply_security setting (these are all set in the __constructor).</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$parent_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_recurseMyFlatChildren">
+        recurseMyFlatChildren()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_recurseMyFlatChildren" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehMenus.php"><a href="files/eco-helpers-src-classes-ehmenus.html"><abbr title="eco-helpers/src/Classes/ehMenus.php">ehMenus.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">621</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Internal use for the getFlatPages() method above.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">recurseMyFlatChildren</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$start_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>SECURITY NOTE: There is no security check since this is only used by the ehRolesController rights grid !!</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$start_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/eco-helpers/src/Classes/ehMenus.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_apply_security">$apply_security<a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_menu_filter">$menu_filter<a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_order_by">$order_by<a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_pages_output">$pages_output<a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#property_parent_filter">$parent_filter<a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html"></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getFlatPages">getFlatPages()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getLegend">getLegend()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyChildren">getMyChildren()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyModule">getMyModule()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getPages">getPages()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_addDisplayClass">addDisplayClass()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_getMyParent">getMyParent()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_legendData">legendData()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_pageSecurity">pageSecurity()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_recurseMyChildren">recurseMyChildren()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#method_recurseMyFlatChildren">recurseMyFlatChildren()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -889,7 +1221,6 @@ Recursively pull children for the passed $menu_input recordset and the parent_id
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/ScottNason-EcoHelpers-Classes-ehMenus.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,7 +53,7 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -65,6 +66,10 @@
             </li>
                     <li>
                 <a href="namespaces/app-http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/app-models.html" class="">Models</a>
                 
             </li>
             </ul>
@@ -101,7 +106,7 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/ScottNason-EcoHelpersRemembertoaddtoconfigapp.html" class="">EcoHelpersRemembertoaddtoconfigapp</a>
+                <a href="packages/ScottNason-EcoHelpersOriginallyhadtoaddtoconfigapp.html" class="">EcoHelpersOriginallyhadtoaddtoconfigapp</a>
                 
             </li>
             </ul>
@@ -121,8 +126,9 @@
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason.html">ScottNason</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason-ecohelpers.html">EcoHelpers</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason-ecohelpers-classes.html">Classes</a></li>
@@ -143,18 +149,19 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
         
-    <section class="phpdocumentor-description"></section>
-
-
-
 
 
 
@@ -162,89 +169,151 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
-<dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__site_surface">$_site_surface</a>
-    <span>
-                        &nbsp;: array&lt;string|int, string&gt;            </span>
-</dt>
-<dd>Sample key-value pair for direct access using ValidList::getList(&#039;).</dd>
 
+
+
+
+
+
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__day">$_day</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__example_list">$_example_list</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__menus_list">$_menus_list</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__module_list_all">$_module_list_all</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__modules_submenus_list">$_modules_submenus_list</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__month">$_month</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_list_active">$_page_list_active</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>A list of &quot;active&quot; page items (not necessarily just &quot;menu&quot; items - could be a static page link)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_security">$_page_security</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_type">$_page_type</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__valid_timezones">$_valid_timezones</a>
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__role_list">$_role_list</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                        &nbsp;: mixed            </span>
 </dt>
-<dd>Valid time zone entries.</dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_combineList">combineList()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__timezone">$_timezone</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                        &nbsp;: mixed            </span>
 </dt>
-<dd>Combine a current getList($list) item with new [$key=&gt;$value] pair items.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__user_list">$_user_list</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property_def_inactive_style">$def_inactive_style</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>The default, appended Archive flag.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property_lists">$lists</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_getList">getList()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|array&lt;string|int, string&gt;    </span>
+                                &nbsp;: mixed|string    </span>
 </dt>
-<dd>Primary way to return the list from ValidList.</dd>
+<dd>Return the list (either static or dynamically pulled) from the internal $lists array.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_makeListWith">makeListWith()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_addList">addList()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Build your own custom list</dd>
+<dd>A function to add another $list &quot;key&quot; to the internal $lists array.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_initLists">initLists()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Add all the static and dynamic lists for this class.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_pullQuery">pullQuery()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Builds the array from the passed parameters</dd>
+<dd>Builds the array from the passed parameters
+Note: Include the name of the archive and/or active field for this model,
+      then we&#039;ll check and identify any entry that is archived and add the
+      self::$def_inactive_style symbol to the individual &lt;select&gt; entries.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_pullUnique">pullUnique()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>Pull a Unique list from a table
- - returns a $key(id) =&gt; $value(name) pair</dd>
+    </dl>
 
-        </dl>
 
 
 
@@ -255,39 +324,37 @@
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
             <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
-            -public
+            -protected
             -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property__site_surface">
-        $_site_surface
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__site_surface" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property__day">
+        $_day
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__day" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Sample key-value pair for direct access using ValidList::getList(&#039;).</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
-    <span class="phpdocumentor-signature__name">$_site_surface</span>
-     = <span class="phpdocumentor-signature__default-value">array(1 =&gt; &#039;Dirt&#039;, 2 =&gt; &#039;Grass&#039;, 3 =&gt; &#039;Gravel&#039;, 4 =&gt; &#039;Asphalt&#039;, 5 =&gt; &#039;Concrete&#039;, 6 =&gt; &#039;Sand&#039;, 9 =&gt; &#039;Other&#039;)</span></code>
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$_day</span>
+     = <span class="phpdocumentor-signature__default-value">[1 =&gt; &#039;01&#039;, 2 =&gt; &#039;02&#039;, 3 =&gt; &#039;03&#039;, 4 =&gt; &#039;04&#039;, 5 =&gt; &#039;05&#039;, 6 =&gt; &#039;06&#039;, 7 =&gt; &#039;07&#039;, 8 =&gt; &#039;08&#039;, 9 =&gt; &#039;09&#039;, 10 =&gt; &#039;10&#039;, 11 =&gt; &#039;11&#039;, 12 =&gt; &#039;12&#039;, 13 =&gt; &#039;13&#039;, 14 =&gt; &#039;14&#039;, 15 =&gt; &#039;15&#039;, 16 =&gt; &#039;16&#039;, 17 =&gt; &#039;17&#039;, 18 =&gt; &#039;18&#039;, 19 =&gt; &#039;19&#039;, 20 =&gt; &#039;20&#039;, 21 =&gt; &#039;21&#039;, 22 =&gt; &#039;22&#039;, 23 =&gt; &#039;23&#039;, 24 =&gt; &#039;24&#039;, 25 =&gt; &#039;25&#039;, 26 =&gt; &#039;26&#039;, 27 =&gt; &#039;27&#039;, 28 =&gt; &#039;28&#039;, 29 =&gt; &#039;29&#039;, 30 =&gt; &#039;30&#039;, 31 =&gt; &#039;31&#039;]</span></code>
 
-        <section class="phpdocumentor-description"><p>Note: see the getList() case statement below for list naming and calling.</p>
-<p>Kinds of camping site surfaces.</p>
-</section>
-
+    
     
     
 
@@ -299,16 +366,17 @@
             -protected
             -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property__day">
-        $_day
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__day" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property__example_list">
+        $_example_list
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__example_list" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">185</span>
 
     </aside>
 
@@ -316,13 +384,182 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$_day</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;01&#039; =&gt; &#039;01&#039;, &#039;02&#039; =&gt; &#039;02&#039;, &#039;03&#039; =&gt; &#039;03&#039;, &#039;04&#039; =&gt; &#039;04&#039;, &#039;05&#039; =&gt; &#039;05&#039;, &#039;06&#039; =&gt; &#039;06&#039;, &#039;07&#039; =&gt; &#039;07&#039;, &#039;08&#039; =&gt; &#039;08&#039;, &#039;09&#039; =&gt; &#039;09&#039;, &#039;10&#039; =&gt; &#039;10&#039;, &#039;11&#039; =&gt; &#039;11&#039;, &#039;12&#039; =&gt; &#039;12&#039;, &#039;13&#039; =&gt; &#039;13&#039;, &#039;14&#039; =&gt; &#039;14&#039;, &#039;15&#039; =&gt; &#039;15&#039;, &#039;16&#039; =&gt; &#039;16&#039;, &#039;17&#039; =&gt; &#039;17&#039;, &#039;18&#039; =&gt; &#039;18&#039;, &#039;19&#039; =&gt; &#039;19&#039;, &#039;20&#039; =&gt; &#039;20&#039;, &#039;21&#039; =&gt; &#039;21&#039;, &#039;22&#039; =&gt; &#039;22&#039;, &#039;23&#039; =&gt; &#039;23&#039;, &#039;24&#039; =&gt; &#039;24&#039;, &#039;25&#039; =&gt; &#039;25&#039;, &#039;26&#039; =&gt; &#039;26&#039;, &#039;27&#039; =&gt; &#039;27&#039;, &#039;28&#039; =&gt; &#039;28&#039;, &#039;29&#039; =&gt; &#039;29&#039;, &#039;30&#039; =&gt; &#039;30&#039;, &#039;31&#039; =&gt; &#039;31&#039;]</span></code>
+    <span class="phpdocumentor-signature__name">$_example_list</span>
+     = <span class="phpdocumentor-signature__default-value">[
+    &#039;method&#039; =&gt; &#039;pullQuery&#039;,
+    // The ValidList method used for this query.
+    &#039;key&#039; =&gt; &#039;id&#039;,
+    // The table column name used for the &quot;key&quot;
+    &#039;value&#039; =&gt; &#039;name&#039;,
+    // The table column name used for the &quot;value&quot;
+    &#039;model_path&#039; =&gt; &#039;ScottNason\\EcoHelpers\\Models\\ehExample&#039;,
+    // The Laravel pathname to the Model
+    &#039;orderBy&#039; =&gt; &#039;name&#039;,
+    // ORDER BY clause field(s)
+    &#039;criteria&#039; =&gt; &quot;&quot;,
+    // Add a complete WHERE or LIKE clause if needed
+    &#039;include_key_in_name&#039; =&gt; false,
+    // 1=&gt;&#039;Value Name&#039; would be -&gt; &quot;01-Value Name&quot;
+    &#039;inactive_true&#039; =&gt; &#039;archived&#039;,
+    // When this field is true, we&#039;ll add the inactive symbol (like &#039;archived&#039;)
+    &#039;inactive_false&#039; =&gt; &#039;active&#039;,
+]</span></code>
 
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
-        <section class="phpdocumentor-description"></section>
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property__menus_list">
+        $_menus_list
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__menus_list" class="headerlink"><i class="fas fa-link"></i></a>
 
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">112</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$_menus_list</span>
+     = <span class="phpdocumentor-signature__default-value">[
+    &#039;method&#039; =&gt; &#039;pullQuery&#039;,
+    // The ValidList method used for this query.
+    &#039;key&#039; =&gt; &#039;id&#039;,
+    // The table column name used for the &quot;key&quot;
+    &#039;value&#039; =&gt; &#039;name&#039;,
+    // The table column name used for the &quot;value&quot;
+    &#039;model_path&#039; =&gt; &#039;ScottNason\\EcoHelpers\\Models\\ehPage&#039;,
+    // The Laravel pathname to the Model
+    &#039;orderBy&#039; =&gt; &#039;id&#039;,
+    // ORDER BY clause field(s)
+    &#039;criteria&#039; =&gt; &#039;WHERE menu_item = 1&#039;,
+    // Add a complete WHERE or LIKE clause if needed
+    &#039;include_key_in_name&#039; =&gt; false,
+    // 1=&gt;&#039;Value Name&#039; would be -&gt; &quot;01-Value Name&quot;
+    &#039;inactive_true&#039; =&gt; null,
+    // When this field is true, we&#039;ll add the inactive symbol (like &#039;archived&#039;)
+    &#039;inactive_false&#039; =&gt; null,
+]</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property__module_list_all">
+        $_module_list_all
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__module_list_all" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">126</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$_module_list_all</span>
+     = <span class="phpdocumentor-signature__default-value">[
+    &#039;method&#039; =&gt; &#039;pullQuery&#039;,
+    // The ValidList method used for this query.
+    &#039;key&#039; =&gt; &#039;id&#039;,
+    // The table column name used for the &quot;key&quot;
+    &#039;value&#039; =&gt; &#039;name&#039;,
+    // The table column name used for the &quot;value&quot;
+    &#039;model_path&#039; =&gt; &#039;ScottNason\\EcoHelpers\\Models\\ehPage&#039;,
+    // The Laravel pathname to the Model
+    &#039;orderBy&#039; =&gt; &#039;order&#039;,
+    // ORDER BY clause field(s)
+    &#039;criteria&#039; =&gt; &quot;WHERE type = &#039;module&#039;&quot;,
+    // Add a complete WHERE or LIKE clause if needed
+    &#039;include_key_in_name&#039; =&gt; false,
+    // 1=&gt;&#039;Value Name&#039; would be -&gt; &quot;01-Value Name&quot;
+    &#039;inactive_true&#039; =&gt; null,
+    // When this field is true, we&#039;ll add the inactive symbol (like &#039;archived&#039;)
+    &#039;inactive_false&#039; =&gt; null,
+]</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property__modules_submenus_list">
+        $_modules_submenus_list
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__modules_submenus_list" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">155</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$_modules_submenus_list</span>
+     = <span class="phpdocumentor-signature__default-value">[
+    &#039;method&#039; =&gt; &#039;pullQuery&#039;,
+    // The ValidList method used for this query.
+    &#039;key&#039; =&gt; &#039;id&#039;,
+    // The table column name used for the &quot;key&quot;
+    &#039;value&#039; =&gt; &#039;name&#039;,
+    // The table column name used for the &quot;value&quot;
+    &#039;model_path&#039; =&gt; &#039;ScottNason\\EcoHelpers\\Models\\ehPage&#039;,
+    // The Laravel pathname to the Model
+    &#039;orderBy&#039; =&gt; &#039;order&#039;,
+    // ORDER BY clause field(s)
+    &#039;criteria&#039; =&gt; &quot;WHERE type = &#039;module&#039; OR type = &#039;submenu&#039;&quot;,
+    // Add a complete WHERE or LIKE clause if needed
+    &#039;include_key_in_name&#039; =&gt; false,
+    // 1=&gt;&#039;Value Name&#039; would be -&gt; &quot;01-Value Name&quot;
+    &#039;inactive_true&#039; =&gt; null,
+    // When this field is true, we&#039;ll add the inactive symbol (like &#039;archived&#039;)
+    &#039;inactive_false&#039; =&gt; null,
+]</span></code>
+
+    
+    
     
 
 </article>
@@ -336,13 +573,14 @@
     <h4 class="phpdocumentor-element__name" id="property__month">
         $_month
         <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__month" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -351,12 +589,62 @@
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$_month</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;01&#039; =&gt; &#039;Jan&#039;, &#039;02&#039; =&gt; &#039;Feb&#039;, &#039;03&#039; =&gt; &#039;Mar&#039;, &#039;04&#039; =&gt; &#039;Apr&#039;, &#039;05&#039; =&gt; &#039;May&#039;, &#039;06&#039; =&gt; &#039;Jun&#039;, &#039;07&#039; =&gt; &#039;Jul&#039;, &#039;08&#039; =&gt; &#039;Aug&#039;, &#039;09&#039; =&gt; &#039;Sep&#039;, &#039;10&#039; =&gt; &#039;Oct&#039;, &#039;11&#039; =&gt; &#039;Nov&#039;, &#039;12&#039; =&gt; &#039;Dec&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[1 =&gt; &#039;Jan&#039;, 2 =&gt; &#039;Feb&#039;, 3 =&gt; &#039;Mar&#039;, 4 =&gt; &#039;Apr&#039;, 5 =&gt; &#039;May&#039;, 6 =&gt; &#039;Jun&#039;, 7 =&gt; &#039;Jul&#039;, 8 =&gt; &#039;Aug&#039;, 9 =&gt; &#039;Sep&#039;, 10 =&gt; &#039;Oct&#039;, 11 =&gt; &#039;Nov&#039;, 12 =&gt; &#039;Dec&#039;]</span></code>
 
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
-        <section class="phpdocumentor-description"></section>
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property__page_list_active">
+        $_page_list_active
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_list_active" class="headerlink"><i class="fas fa-link"></i></a>
 
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">208</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">A list of &quot;active&quot; page items (not necessarily just &quot;menu&quot; items - could be a static page link)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$_page_list_active</span>
+     = <span class="phpdocumentor-signature__default-value">[
+    &#039;method&#039; =&gt; &#039;pullQuery&#039;,
+    // The ValidList method used for this query.
+    &#039;key&#039; =&gt; &#039;id&#039;,
+    // The table column name used for the &quot;key&quot;
+    &#039;value&#039; =&gt; &#039;name&#039;,
+    // The table column name used for the &quot;value&quot;
+    &#039;model_path&#039; =&gt; &#039;ScottNason\\EcoHelpers\\Models\\ehPage&#039;,
+    // The Laravel pathname to the Model
+    &#039;orderBy&#039; =&gt; &#039;name&#039;,
+    // ORDER BY clause field(s)
+    &#039;criteria&#039; =&gt; &quot;WHERE active = 1 AND type = &#039;page&#039;&quot;,
+    // Add a complete WHERE or LIKE clause if needed
+    &#039;include_key_in_name&#039; =&gt; false,
+    // 1=&gt;&#039;Value Name&#039; would be -&gt; &quot;01-Value Name&quot;
+    &#039;inactive_true&#039; =&gt; &#039;&#039;,
+    // When this field is true, we&#039;ll add the inactive symbol (like &#039;archived&#039;)
+    &#039;inactive_false&#039; =&gt; &#039;&#039;,
+]</span></code>
+
+    
+    
     
 
 </article>
@@ -370,13 +658,14 @@
     <h4 class="phpdocumentor-element__name" id="property__page_security">
         $_page_security
         <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_security" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -385,12 +674,10 @@
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$_page_security</span>
-     = <span class="phpdocumentor-signature__default-value">[0 =&gt; &#039;0-No Access&#039;, 1 =&gt; &#039;1-Public Access&#039;, 2 =&gt; &#039;2-Authenticated Only&#039;, 3 =&gt; &#039;3-Full Permissions Check&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[0 =&gt; &#039;0-No Access&#039;, 3 =&gt; &#039;3-Full Permissions Check&#039;, 2 =&gt; &#039;2-Authenticated Only&#039;, 1 =&gt; &#039;1-Public Access&#039;]</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
+    
+    
     
 
 </article>
@@ -404,13 +691,14 @@
     <h4 class="phpdocumentor-element__name" id="property__page_type">
         $_page_type
         <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_type" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -419,12 +707,10 @@
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$_page_type</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;page&#039; =&gt; &#039;Page&#039;, &#039;method&#039; =&gt; &#039;Method&#039;, &#039;resource&#039; =&gt; &#039;Resource&#039;, &#039;module&#039; =&gt; &#039;Module&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;page&#039; =&gt; &#039;Page&#039;, &#039;method&#039; =&gt; &#039;Method&#039;, &#039;resource&#039; =&gt; &#039;Resource&#039;, &#039;module&#039; =&gt; &#039;Module&#039;, &#039;submenu&#039; =&gt; &#039;Submenu&#039;]</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
+    
+    
     
 
 </article>
@@ -435,26 +721,198 @@
             -protected
             -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property__valid_timezones">
-        $_valid_timezones
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__valid_timezones" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property__role_list">
+        $_role_list
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__role_list" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Valid time zone entries.</p>
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$_role_list</span>
+     = <span class="phpdocumentor-signature__default-value">[
+    &#039;method&#039; =&gt; &#039;pullQuery&#039;,
+    // The ValidList method used for this query.
+    &#039;key&#039; =&gt; &#039;id&#039;,
+    // The table column name used for the &quot;key&quot;
+    &#039;value&#039; =&gt; &#039;name&#039;,
+    // The table column name used for the &quot;value&quot;
+    &#039;model_path&#039; =&gt; &#039;ScottNason\\EcoHelpers\\Models\\ehRole&#039;,
+    // The Laravel pathname to the Model
+    &#039;orderBy&#039; =&gt; &#039;name&#039;,
+    // ORDER BY clause field(s)
+    &#039;criteria&#039; =&gt; &quot;&quot;,
+    // Add a complete WHERE or LIKE clause if needed
+    &#039;include_key_in_name&#039; =&gt; false,
+    // 1=&gt;&#039;Value Name&#039; would be -&gt; &quot;01-Value Name&quot;
+    &#039;inactive_true&#039; =&gt; null,
+    // When this field is true, we&#039;ll add the inactive symbol (like &#039;archived&#039;)
+    &#039;inactive_false&#039; =&gt; null,
+]</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property__timezone">
+        $_timezone
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__timezone" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">86</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$_timezone</span>
+     = <span class="phpdocumentor-signature__default-value">[&quot;America/New_York&quot; =&gt; &quot;Eastern&quot;, &quot;America/Chicago&quot; =&gt; &quot;Central&quot;, &quot;America/Denver&quot; =&gt; &quot;Mountain&quot;, &quot;America/Phoenix&quot; =&gt; &quot;Mountain no DST&quot;, &quot;America/Los_Angeles&quot; =&gt; &quot;Pacific&quot;, &quot;America/Anchorage&quot; =&gt; &quot;Alaska&quot;, &quot;America/Adak&quot; =&gt; &quot;Hawaii&quot;, &quot;Pacific/Honolulu&quot; =&gt; &quot;Hawaii no DST&quot;]</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property__user_list">
+        $_user_list
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__user_list" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">171</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$_user_list</span>
+     = <span class="phpdocumentor-signature__default-value">[
+    &#039;method&#039; =&gt; &#039;pullQuery&#039;,
+    // The ValidList method used for this query.
+    &#039;key&#039; =&gt; &#039;id&#039;,
+    // The table column name used for the &quot;key&quot;
+    &#039;value&#039; =&gt; &#039;name&#039;,
+    // The table column name used for the &quot;value&quot;
+    &#039;model_path&#039; =&gt; &#039;App\\Models\\User&#039;,
+    // The Laravel pathname to the Model
+    &#039;orderBy&#039; =&gt; &#039;name&#039;,
+    // ORDER BY clause field(s)
+    &#039;criteria&#039; =&gt; &quot;&quot;,
+    // Add a complete WHERE or LIKE clause if needed
+    &#039;include_key_in_name&#039; =&gt; false,
+    // 1=&gt;&#039;Value Name&#039; would be -&gt; &quot;01-Value Name&quot;
+    &#039;inactive_true&#039; =&gt; &#039;archived&#039;,
+    // When this field is true, we&#039;ll add the inactive symbol (like &#039;archived&#039;)
+    &#039;inactive_false&#039; =&gt; &#039;login_active&#039;,
+]</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_def_inactive_style">
+        $def_inactive_style
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property_def_inactive_style" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The default, appended Archive flag.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$_valid_timezones</span>
-     = <span class="phpdocumentor-signature__default-value">array(&quot;America/New_York&quot; =&gt; &quot;Eastern&quot;, &quot;America/Chicago&quot; =&gt; &quot;Central&quot;, &quot;America/Denver&quot; =&gt; &quot;Mountain&quot;, &quot;America/Phoenix&quot; =&gt; &quot;Mountain no DST&quot;, &quot;America/Los_Angeles&quot; =&gt; &quot;Pacific&quot;, &quot;America/Anchorage&quot; =&gt; &quot;Alaska&quot;, &quot;America/Adak&quot; =&gt; &quot;Hawaii&quot;, &quot;Pacific/Honolulu&quot; =&gt; &quot;Hawaii no DST&quot;)</span></code>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$def_inactive_style</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;*&#039;</span></code>
+
+        <section class="phpdocumentor-description"><p>(has to be pretty simply since <select> won't allow any styling inside it.)
+This will appear behind the selection name if the passed &quot;criteria&quot; is met.</p>
+</section>
+
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_lists">
+        $lists
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property_lists" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$lists</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
     
@@ -467,64 +925,8 @@
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_combineList">
-        combineList()
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_combineList" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">274</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Combine a current getList($list) item with new [$key=&gt;$value] pair items.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">combineList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$list</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$new_items</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$top</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$list</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$new_items</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$top</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
-</article>
                     <article
         class="phpdocumentor-element
             -method
@@ -534,31 +936,30 @@
     <h4 class="phpdocumentor-element__name" id="method_getList">
         getList()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_getList" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Primary way to return the list from ValidList.</p>
+        <p class="phpdocumentor-summary">Return the list (either static or dynamically pulled) from the internal $lists array.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getList</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$list</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|array&lt;string|int, string&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$list_name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|string</span></code>
 
-        <section class="phpdocumentor-description"><p>getList() will return the assigned array (above) -
-or it will pull the needed data from a table.
-You can start with an array defined here --- and change to a table later on.</p>
-</section>
-
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$list</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$list_name</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -566,91 +967,91 @@ You can start with an array defined here --- and change to a table later on.</p>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|array&lt;string|int, string&gt;</span>
-            &mdash;
-        
+        <span class="phpdocumentor-signature__response_type">mixed|string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addList">
+        addList()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_addList" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">300</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">A function to add another $list &quot;key&quot; to the internal $lists array.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">addList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$list_name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$list_array</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$list_name</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$list_array</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
     
 </article>
                     <article
         class="phpdocumentor-element
             -method
-            -public
+            -protected
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_makeListWith">
-        makeListWith()
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_makeListWith" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initLists">
+        initLists()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_initLists" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">311</span>
+    <span class="phpdocumentor-element-found-in__line">272</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Build your own custom list</p>
+        <p class="phpdocumentor-summary">Add all the static and dynamic lists for this class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">makeListWith</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model_path</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$orderBy</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$where_clause</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$include_key_in_name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+    <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">initLists</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"><p>TODO: How is this any different than using pullQuery() directly?? Check its usage in eesfm.com and decide whether we keep this or not.</p>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$model_path</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$orderBy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$where_clause</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$include_key_in_name</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
     
 </article>
                     <article
@@ -662,78 +1063,33 @@ You can start with an array defined here --- and change to a table later on.</p>
     <h4 class="phpdocumentor-element__name" id="method_pullQuery">
         pullQuery()
         <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_pullQuery" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehValidList.php"><a href="files/eco-helpers-src-classes-ehvalidlist.html"><abbr title="eco-helpers/src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">386</span>
+    <span class="phpdocumentor-element-found-in__line">325</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Builds the array from the passed parameters</p>
+        <p class="phpdocumentor-summary">Builds the array from the passed parameters
+Note: Include the name of the archive and/or active field for this model,
+      then we&#039;ll check and identify any entry that is archived and add the
+      self::$def_inactive_style symbol to the individual &lt;select&gt; entries.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">pullQuery</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model_path</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$orderBy</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$where_clause</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$include_key_in_name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$archive_field</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$active_field</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">pullQuery</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-        <section class="phpdocumentor-description"><p>Note: If you include the name of the archive field for this model, then we'll check and identify any entry that is archived.</p>
-</section>
-
+    <div class="phpdocumentor-label-line">
+        </div>
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$args</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$model_path</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$orderBy</span>
-                : <span class="phpdocumentor-signature__argument__return-type">null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$where_clause</span>
-                : <span class="phpdocumentor-signature__argument__return-type">null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$include_key_in_name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$archive_field</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$active_field</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -741,157 +1097,157 @@ You can start with an array defined here --- and change to a table later on.</p>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_pullUnique">
-        pullUnique()
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_pullUnique" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Classes/ehValidList.php"><a href="files/src-classes-ehvalidlist.html"><abbr title="src/Classes/ehValidList.php">ehValidList.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">341</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
 
-    </aside>
-
-        <p class="phpdocumentor-summary">Pull a Unique list from a table
- - returns a $key(id) =&gt; $value(name) pair</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">pullUnique</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model_path</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$orderBy</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$where_clause</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$include_key_in_name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$model_path</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$orderBy</span>
-                : <span class="phpdocumentor-signature__argument__return-type">null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$where_clause</span>
-                : <span class="phpdocumentor-signature__argument__return-type">null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$include_key_in_name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/eco-helpers/src/Classes/ehValidList.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__day">$_day<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__example_list">$_example_list<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__menus_list">$_menus_list<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__module_list_all">$_module_list_all<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__modules_submenus_list">$_modules_submenus_list<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__month">$_month<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_list_active">$_page_list_active<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_security">$_page_security<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__page_type">$_page_type<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__role_list">$_role_list<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__timezone">$_timezone<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__user_list">$_user_list<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property_def_inactive_style">$def_inactive_style<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property_lists">$lists<a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html"></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_getList">getList()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_addList">addList()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_initLists">initLists()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#method_pullQuery">pullQuery()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -902,7 +1258,6 @@ You can start with an array defined here --- and change to a table later on.</p>
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/ScottNason-EcoHelpers-Classes-ehValidList.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

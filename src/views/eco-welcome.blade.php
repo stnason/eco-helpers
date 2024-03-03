@@ -46,6 +46,7 @@
                 <ul>
                 @auth
 
+                    <h5>Authentication Information:</h5>
                     <li>User Name: {{Auth()->user()->name}}</li>
                     <li>Default role: {{Auth()->user()->default_role}}-
                         {{$eh_roles::find(Auth()->user()->default_role)->name}}</li>
@@ -90,8 +91,7 @@
                 </ul>
 
 
-
-                <p><a href="#">Documentation</a></p>
+                <p><a target="+blank" href="https://github.com/stnason/eco-helpers/tree/main/documentation">Documentation</a></p>
 
             </div>
 

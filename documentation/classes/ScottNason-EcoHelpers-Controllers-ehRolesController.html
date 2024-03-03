@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,7 +53,7 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -65,6 +66,10 @@
             </li>
                     <li>
                 <a href="namespaces/app-http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/app-models.html" class="">Models</a>
                 
             </li>
             </ul>
@@ -101,7 +106,7 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/ScottNason-EcoHelpersRemembertoaddtoconfigapp.html" class="">EcoHelpersRemembertoaddtoconfigapp</a>
+                <a href="packages/ScottNason-EcoHelpersOriginallyhadtoaddtoconfigapp.html" class="">EcoHelpersOriginallyhadtoaddtoconfigapp</a>
                 
             </li>
             </ul>
@@ -121,8 +126,9 @@
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason.html">ScottNason</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason-ecohelpers.html">EcoHelpers</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scottnason-ecohelpers-controllers.html">Controllers</a></li>
@@ -146,18 +152,19 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controllers/ehRolesController.php"><a href="files/src-controllers-ehrolescontroller.html"><abbr title="src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
         
-    <section class="phpdocumentor-description"></section>
-
-
-
 
 
 
@@ -165,38 +172,76 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#property_access_token">$access_token</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#property_disabled_flag">$disabled_flag</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#property_form">$form</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
-<dd></dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#method___construct">__construct()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#property_page_bit_names">$page_bit_names</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Create a new controller instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_create">create()</a>
+    <span>
+                                &nbsp;: <abbr title="\Illuminate\Http\Response">Response</abbr>    </span>
+</dt>
+<dd>Show the form for creating a new resource.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_destroy">destroy()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\Illuminate\Http\Response">Response</abbr>    </span>
 </dt>
-<dd>Remove the specified role by id
-Note: should only be used through ajax calls when updating the user profile.</dd>
+<dd>Remove the specified resource from storage.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#method_doesExtendBaseController">doesExtendBaseController()</a>
@@ -205,7 +250,58 @@ Note: should only be used through ajax calls when updating the user profile.</dd
 </dt>
 <dd>A simple check to ensure that subsequent page controllers have been setup to extend this one.</dd>
 
-        </dl>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_edit">edit()</a>
+    <span>
+                                &nbsp;: <abbr title="\Illuminate\Http\Response">Response</abbr>    </span>
+</dt>
+<dd>Show the form for editing the specified resource.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_index">index()</a>
+    <span>
+                                &nbsp;: <abbr title="\Illuminate\Http\Response">Response</abbr>    </span>
+</dt>
+<dd>Display a listing of the resource.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_show">show()</a>
+    <span>
+                                &nbsp;: <abbr title="\Illuminate\Http\Response">Response</abbr>    </span>
+</dt>
+<dd>Display the specified resource.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_store">store()</a>
+    <span>
+                                &nbsp;: <abbr title="\Illuminate\Http\Response">Response</abbr>    </span>
+</dt>
+<dd>Store a newly created resource in storage.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_update">update()</a>
+    <span>
+                                &nbsp;: <abbr title="\Illuminate\Http\Response">Response</abbr>    </span>
+</dt>
+<dd>Update the specified resource in storage.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_dataConsistencyCheck">dataConsistencyCheck()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Check for standard form &quot;save&quot; validation and apply any data consistency (auto-save/update) rules.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_getPageListByModule">getPageListByModule()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get/Create the pageList array for use in the rights grid (page id, page name + all checkboxes)
+Note: Because of the difficulty and number of decisions, this includes all of the fully built HTML checkboxes.</dd>
+
+    </dl>
+
 
 
 
@@ -216,6 +312,7 @@ Note: should only be used through ajax calls when updating the user profile.</dd
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
             <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="
@@ -227,13 +324,14 @@ Note: should only be used through ajax calls when updating the user profile.</dd
     <h4 class="phpdocumentor-element__name" id="property_access_token">
         $access_token
         <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#property_access_token" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controllers/ehBaseController.php"><a href="files/src-controllers-ehbasecontroller.html"><abbr title="src/Controllers/ehBaseController.php">ehBaseController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehBaseController.php"><a href="files/eco-helpers-src-controllers-ehbasecontroller.html"><abbr title="eco-helpers/src/Controllers/ehBaseController.php">ehBaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -244,10 +342,41 @@ Note: should only be used through ajax calls when updating the user profile.</dd
     <span class="phpdocumentor-signature__name">$access_token</span>
      = <span class="phpdocumentor-signature__default-value">0</span></code>
 
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
-        <section class="phpdocumentor-description"></section>
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_disabled_flag">
+        $disabled_flag
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#property_disabled_flag" class="headerlink"><i class="fas fa-link"></i></a>
 
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$disabled_flag</span>
+     = <span class="phpdocumentor-signature__default-value">false</span></code>
+
+    
+    
     
 
 </article>
@@ -261,13 +390,14 @@ Note: should only be used through ajax calls when updating the user profile.</dd
     <h4 class="phpdocumentor-element__name" id="property_form">
         $form
         <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#property_form" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controllers/ehBaseController.php"><a href="files/src-controllers-ehbasecontroller.html"><abbr title="src/Controllers/ehBaseController.php">ehBaseController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehBaseController.php"><a href="files/eco-helpers-src-controllers-ehbasecontroller.html"><abbr title="eco-helpers/src/Controllers/ehBaseController.php">ehBaseController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -278,10 +408,41 @@ Note: should only be used through ajax calls when updating the user profile.</dd
     <span class="phpdocumentor-signature__name">$form</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
-        <section class="phpdocumentor-description"></section>
+    
+    
+    
 
-        <section class="phpdocumentor-description"></section>
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_page_bit_names">
+        $page_bit_names
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#property_page_bit_names" class="headerlink"><i class="fas fa-link"></i></a>
 
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$page_bit_names</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+    
+    
     
 
 </article>
@@ -291,6 +452,7 @@ Note: should only be used through ajax calls when updating the user profile.</dd
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -300,12 +462,13 @@ Note: should only be used through ajax calls when updating the user profile.</dd
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controllers/ehBaseController.php"><a href="files/src-controllers-ehbasecontroller.html"><abbr title="src/Controllers/ehBaseController.php">ehBaseController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -315,17 +478,61 @@ Note: should only be used through ajax calls when updating the user profile.</dd
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>Including this here since all pages will be security controlled by default.</p>
 </section>
 
     
     
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
     
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_create">
+        create()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">114</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Show the form for creating a new resource.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ScottNason-EcoHelpers-Models-ehRole.html"><abbr title="\ScottNason\EcoHelpers\Models\ehRole">ehRole</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/ScottNason-EcoHelpers-Models-ehRole.html"><abbr title="\ScottNason\EcoHelpers\Models\ehRole">ehRole</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -336,21 +543,243 @@ Note: should only be used through ajax calls when updating the user profile.</dd
     <h4 class="phpdocumentor-element__name" id="method_destroy">
         destroy()
         <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_destroy" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controllers/ehRolesController.php"><a href="files/src-controllers-ehrolescontroller.html"><abbr title="src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">443</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Remove the specified role by id
-Note: should only be used through ajax calls when updating the user profile.</p>
+        <p class="phpdocumentor-summary">Remove the specified resource from storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">destroy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ScottNason-EcoHelpers-Models-ehRole.html"><abbr title="\ScottNason\EcoHelpers\Models\ehRole">ehRole</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">destroy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Models\ehRole">ehRole</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Models\ehRole">ehRole</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_doesExtendBaseController">
+        doesExtendBaseController()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#method_doesExtendBaseController" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehBaseController.php"><a href="files/eco-helpers-src-controllers-ehbasecontroller.html"><abbr title="eco-helpers/src/Controllers/ehBaseController.php">ehBaseController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">96</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">A simple check to ensure that subsequent page controllers have been setup to extend this one.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">doesExtendBaseController</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>This function literally does nothing; except ehLayout check to see if it exist() to make
+sure this controller instance has extended ehBaseController.</p>
+</section>
+
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool|mixed</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_edit">
+        edit()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_edit" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">318</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Show the form for editing the specified resource.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">edit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Models\ehRole">ehRole</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Models\ehRole">ehRole</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_index">
+        index()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_index" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Display a listing of the resource.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">index</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_show">
+        show()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_show" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">191</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Display the specified resource.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">show</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Models\ehRole">ehRole</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Models\ehRole">ehRole</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_store">
+        store()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_store" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">160</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Store a newly created resource in storage.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">store</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/ScottNason-EcoHelpers-Models-ehRole.html"><abbr title="\ScottNason\EcoHelpers\Models\ehRole">ehRole</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -372,11 +801,11 @@ Note: should only be used through ajax calls when updating the user profile.</p>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -384,101 +813,304 @@ Note: should only be used through ajax calls when updating the user profile.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_doesExtendBaseController">
-        doesExtendBaseController()
-        <a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#method_doesExtendBaseController" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_update">
+        update()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_update" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controllers/ehBaseController.php"><a href="files/src-controllers-ehbasecontroller.html"><abbr title="src/Controllers/ehBaseController.php">ehBaseController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">331</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">A simple check to ensure that subsequent page controllers have been setup to extend this one.</p>
+        <p class="phpdocumentor-summary">Update the specified resource in storage.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">doesExtendBaseController</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|mixed</span></code>
+                    <span class="phpdocumentor-signature__name">update</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Models\ehRole">ehRole</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span></code>
 
-        <section class="phpdocumentor-description"><p>This function literally does nothing; except to exist() so Layout can check to see if it's there.</p>
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Models\ehRole">ehRole</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Illuminate\Http\Response">Response</abbr></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_dataConsistencyCheck">
+        dataConsistencyCheck()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_dataConsistencyCheck" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">514</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check for standard form &quot;save&quot; validation and apply any data consistency (auto-save/update) rules.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">dataConsistencyCheck</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Will throw a validation error and/or change the $request variable directly as needed.
+Can return a $consistency_message to be appended to the flash message -
+(as a warning or supplemental information even on a successful save).</p>
 </section>
 
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool|mixed</span>
-            &mdash;
-        
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPageListByModule">
+        getPageListByModule()
+        <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_getPageListByModule" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/ehRolesController.php"><a href="files/eco-helpers-src-controllers-ehrolescontroller.html"><abbr title="eco-helpers/src/Controllers/ehRolesController.php">ehRolesController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">594</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get/Create the pageList array for use in the rights grid (page id, page name + all checkboxes)
+Note: Because of the difficulty and number of decisions, this includes all of the fully built HTML checkboxes.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getPageListByModule</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$module_id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Note: This is staying here since it is only used by the ehRolesController.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$module_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
     
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/eco-helpers/src/Controllers/ehRolesController.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#property_access_token">$access_token<a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#property_disabled_flag">$disabled_flag<a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#property_form">$form<a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html"></li>
+                                                    <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#property_page_bit_names">$page_bit_names<a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html"></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_create">create()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_destroy">destroy()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html#method_doesExtendBaseController">doesExtendBaseController()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_edit">edit()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_index">index()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_show">show()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_store">store()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_update">update()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_dataConsistencyCheck">dataConsistencyCheck()</a></li>
+                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#method_getPageListByModule">getPageListByModule()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -489,7 +1121,6 @@ Note: should only be used through ajax calls when updating the user profile.</p>
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

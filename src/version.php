@@ -1,13 +1,14 @@
 <?php
 return [
     'APP_VER' => 'v1.0.38',
-    'APP_LASTUPDATE' => '03/01/2024'
+    'APP_LASTUPDATE' => '03/03/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 03/01/2024:v01.00.38: 2.00 :Trouble shooting the new ehNotifier class (no popups or deleting).
+ * 03/03/2024:v01.00.38: 2.00 :
+ * 03/01/2024:v01.00.38: 2.00 :Trouble shooting the new ehNotifier class (no popups or deleting). Fixed issues with no access to session (added 'web' middleware to route) and with non-json data being returned.
  * 02/29/2024:v01.00.37: 1.50 :Cleaning up TODOs; replace manual duplicate check in file upload with chkDuplicateFilename(); create ehNotifier class.
  * 02/28/2024:v01.00.37: 1.50 :Start work to implement the default home page mechanism. (selecting, saving and redirecting)
  * 02/27/2024:v01.00.37: 2.00 :Working on ehRolesController consistency rules for ADMIN and NO ACCESS; and roles-detail form
