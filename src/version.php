@@ -7,7 +7,7 @@ return [
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 03/12/2024:v01.00.39: 3.50 :More main template tweaks. Got rid of the final override but made it an _bottom "additional".
+ * 03/12/2024:v01.00.39: 3.00 :More main template tweaks; got rid of the final override but made it an _bottom "additional"; reworking the settings form.
  * 03/11/2024:v01.00.39: 3.50 :CSS rework. Decoupling base template from Bootstrap. Fix issue with setIcon not turning it off.
  * 03/10/2024:v01.00.38: 3.50 :Start work on major CSS refactor (namespace and start over on override css).
  * 03/04/2024:v01.00.38: 0.50 :Fix issue with auto-load publication folder wrong. (should be under ecoHelpers)

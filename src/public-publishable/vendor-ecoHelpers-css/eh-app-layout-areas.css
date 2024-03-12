@@ -20,6 +20,12 @@
 html {box-sizing: border-box;}
 * {box-sizing: inherit;}
 
+/* Keep the content from hiding behind the sticky footer.
+    This needs to be at least as big as the footer height.
+    */
+main {
+    margin-block-end: 80px;
+}
 
 /******************************************************************************************/
 /* eco-helper page areas */
@@ -34,9 +40,7 @@ html {box-sizing: border-box;}
     font-weight: bold;
     color: darkslateblue;
     border-block-start: solid lightgrey 1px;
-    /*border-top: solid lightgrey 1px;*/
     border-block-end: solid lightgrey 1px;
-    /*border-bottom: solid lightgrey 1px;*/
     background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -47,7 +51,7 @@ html {box-sizing: border-box;}
     display: flex;              /* Outer wrapper for 2 keep option-block in a full left column. */
     flex-wrap: nowrap;          /* To keep the rest of the header elements in the right column. */
 
-    width: 84%;                 /* Use the full width of the page or something smaller.
+    /*width: 84%;                 /* Use the full width of the page or something smaller.
                                     Don't forget to set the #eh-layout-page-flash-attention-wrapper width too. */
     margin-inline: auto;        /* If smaller than full width, this will center it. */
     margin-block-start: 4px;    /* Space between either the navbar or the system banner (if the banner is turned on). */
@@ -69,7 +73,7 @@ html {box-sizing: border-box;}
 
 /* Wrapper around the system flash and attention message areas. */
 #eh-layout-page-flash-attention-wrapper {
-    width: 84%;                         /* Don't forget to set the #eh-layout-page-heading-outer-wrapper too. */
+    /*width: 84%;                         /* Don't forget to set the #eh-layout-page-heading-outer-wrapper too. */
     margin-inline: auto;                /* And then center it in the viewport too. */
 }
 
@@ -157,6 +161,37 @@ html {box-sizing: border-box;}
 
     border-radius: 6px;         /* added so it matched the other rounded corners in the header area. */
 }
+
+
+/******************************************************************************************/
+/* Buttons - Button Area */
+/******************************************************************************************/
+
+/* The button area for each form. This is built out by the Controls@buttonAreaHTML() call. */
+#system-page-buttons {
+    margin-block-end: 1rem;     /* This controls the starting point of the first form element below the buttons. */
+    /*background: #FBFBFB;      /* Almost white but just a tad of color behind the button form cutout. */
+    background: white;
+}
+
+#system-page-buttons hr {
+    margin: auto;               /* This centers a shorter line.
+                                    But for some reason increases the top and bottom margins beyond the control below. */
+}
+/* Set the spacing between the top/bottom of the buttons and the <hr> spacer line. */
+#system-page-buttons .button-group {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+/* Set a space between the buttons. */
+.button-group > .btn {
+    margin-right: 4px;
+}
+
+
+
+
 
 
 
