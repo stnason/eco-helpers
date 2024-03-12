@@ -8,6 +8,8 @@ use ScottNason\EcoHelpers\Models\ehUser;
 use ScottNason\EcoHelpers\Models\ehNotification;
 
 /**
+ * ehNotifier is responsible for all of the system notifications functions from getting
+ *  them to saving them to deleting them.
  *
  */
 class ehNotifier

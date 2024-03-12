@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 
 /**
+ * The Controller responsible for managing the crud interaction with the system settings in the eh_settings table.
  *
  */
 class ehConfigController extends ehBaseController

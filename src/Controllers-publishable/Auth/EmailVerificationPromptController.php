@@ -7,6 +7,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/**
+ * The package published version of the Laravel Breeze Controller.
+ *
+ */
 class EmailVerificationPromptController extends Controller
 {
     /**

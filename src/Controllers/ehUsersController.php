@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-
 use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
@@ -19,7 +18,10 @@ use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Classes\ehAccess;
 use ScottNason\EcoHelpers\Rules\CheckEmails;
 
-
+/**
+ * The Controller responsible for managing the crud interaction with the users profile data in the users table.
+ *
+ */
 class ehUsersController extends ehBaseController
 {
 

@@ -15,7 +15,14 @@ use ScottNason\EcoHelpers\Traits\ehHasUserstamps;
 
 use Illuminate\Database\Eloquent\Model;
 
-
+/**
+ * The base model for the all models to extend; this extends the underlying Laravel Model.
+ *
+ * Pull together custom functionality that we need for all models
+ * (like the ability to store and retrieve the label names; format data for saving, manage custom time stamps, etc.)
+ *
+ *  See also ehBaseAuthenticatable that needs to be kept in sync with the functionality provided here.
+ */
 class ehBaseModel extends Model
 {
 

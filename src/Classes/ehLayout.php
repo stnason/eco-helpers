@@ -10,11 +10,11 @@ use ScottNason\EcoHelpers\Models\ehPage;
 
 
 /**
- * Layout class.
- * Handles all standard page/form area display control interaction to the base template.
+ * ehLayout is responsible for handling all standard page/form area display control interaction
+ *  between the Controller and the base template.
  *  - banner, name, icon, description, linkbar, heading, flash, attention, option-block, login
+ *  - Note: That the header and footer areas are completely independent and controlled by their own template files.
  *
- *  - NOTE: that the header and footer areas are now completely independent and controlled by their own template files.
  */
 
 class ehLayout
@@ -324,7 +324,7 @@ class ehLayout
         // Set the display areas value.
         // If $value is not true/false (null was already caught above), then change the contents to the $passed_value.
         if (!empty($value)) {
-            //self::$layout[$name]['state'] = true;       // Calling with content assumes we're turning it on. (do we need this?)
+            //self::$layout[$name]['state'] = true;       // Calling with content assumes we're turning it on. (do we even want this behavior?)
             self::$layout[$name]['content'] = $value;
         }
 
@@ -391,19 +391,24 @@ class ehLayout
             self::$layout['icon']['class'] = $inline_style;
         }
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // Check for and strip off the passed <i> tag; this should be the icon "class" only since
-        // (was the whole Font Awesome 6 class was copied into the field?)
-        // <i class="fa-solid fa-watch-smart"></i>
-        // The eh-app-template is already providing the <i> portion and just expects the class by itself.
-        // So, if it's in the $value, then get rid of it.
-        //  Note: This functionality is duplicated in the PagesController@dataConsistencyCheck
-        //        section and maybe could be combined/simplified.
+        // If passing a boolean that use that value directly.
+        // Otherwise, continue processing the pass text to make sure it meets our "no <i class" criteria below.
+        if ((gettype($value) != 'boolean')) {
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            // Check for and strip off the passed <i> tag; this should be the icon "class" only since
+            // (was the whole Font Awesome 6 class was copied into the field?)
+            // <i class="fa-solid fa-watch-smart"></i>
+            // The eh-app-template is already providing the <i> portion and just expects the class by itself.
+            // So, if it's in the $value, then get rid of it.
+            //  Note: This functionality is duplicated in the PagesController@dataConsistencyCheck
+            //        section and maybe could be combined/simplified.
 
-        $tmp = $value;
-        $tmp = str_replace('<i class="', "", $tmp);
-        $tmp = str_replace('"></i>', "", $tmp);
-        $value = $tmp;
+            $tmp = $value;
+            $tmp = str_replace('<i class="', "", $tmp);
+            $tmp = str_replace('"></i>', "", $tmp);
+            $value = $tmp;
+        }
+
 
         // Call the catch-all generic setter to complete the setter logic for the page icon.
         return self::__callStatic('setIcon', $value);
@@ -479,6 +484,10 @@ class ehLayout
      * Call with ('some value') to change its contents.
      * Call with ('some value', 'class') set the class.
      *
+     * Note: This should rarely be used and is included here mostly for completeness and testing.
+     *       The completed crud action should either be setting or returning on redirect
+     *       with this message.
+     *
      * @param $value
      * @return null
      */
@@ -490,7 +499,8 @@ class ehLayout
         }
 
         // Save the flash message.
-        session(['message' => $value]);
+        // session(['message' => $value]); // This does not clear after being viewed when set form ehLayout::setFlash()
+        session()->flash('message', $value);
 
         // Call the catch-all generic setter to complete the setter logic for the flash message.
         return self::__callStatic('setFlash', $value);

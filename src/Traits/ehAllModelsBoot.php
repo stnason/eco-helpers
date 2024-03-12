@@ -1,17 +1,14 @@
 <?php
 
-/**
- * This trait is used in the EcoBaseModel and EcoBaseAuthenticate
- * and defines the boot() method that all models should use.
- *  - handles the modified user time stamps that I built.
- *  - handles removing comma separators from numbers before saving.
- *  - handles formatting date and date-time formats to mysql format before saving.
- *
- */
-
 namespace ScottNason\EcoHelpers\Traits;
 
-
+/**
+ * This trait is used in the ehBaseModel and ehBaseAuthenticatable
+ * and defines the boot() method that all models need access to.
+ *   - handles the modified user time stamps that I built.
+ *   - handles removing comma separators from numbers before saving.
+ *   - handles formatting date and date-time formats to mysql format before saving.
+ */
 trait ehAllModelsBoot
 {
 

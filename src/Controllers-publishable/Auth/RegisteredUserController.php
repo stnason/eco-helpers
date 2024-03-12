@@ -16,6 +16,10 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use ScottNason\EcoHelpers\Classes\ehConfig;
 
+/**
+ * The package published version of the Laravel Breeze Controller.
+ *
+ */
 class RegisteredUserController extends Controller
 {
     /**

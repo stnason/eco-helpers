@@ -1,13 +1,17 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.38',
-    'APP_LASTUPDATE' => '03/03/2024'
+    'APP_VER' => 'v1.0.39',
+    'APP_LASTUPDATE' => '03/12/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 03/03/2024:v01.00.38: 2.00 :
+ * 03/12/2024:v01.00.39: 3.50 :More main template tweaks. Got rid of the final override but made it an _bottom "additional".
+ * 03/11/2024:v01.00.39: 3.50 :CSS rework. Decoupling base template from Bootstrap. Fix issue with setIcon not turning it off.
+ * 03/10/2024:v01.00.38: 3.50 :Start work on major CSS refactor (namespace and start over on override css).
+ * 03/04/2024:v01.00.38: 0.50 :Fix issue with auto-load publication folder wrong. (should be under ecoHelpers)
+ * 03/03/2024:v01.00.38: 4.00 :Cleaning up default eco home page. Filling out the comments inside of ehHomeController. Beefing up the phpDocumentor documentation.
  * 03/01/2024:v01.00.38: 2.00 :Trouble shooting the new ehNotifier class (no popups or deleting). Fixed issues with no access to session (added 'web' middleware to route) and with non-json data being returned.
  * 02/29/2024:v01.00.37: 1.50 :Cleaning up TODOs; replace manual duplicate check in file upload with chkDuplicateFilename(); create ehNotifier class.
  * 02/28/2024:v01.00.37: 1.50 :Start work to implement the default home page mechanism. (selecting, saving and redirecting)

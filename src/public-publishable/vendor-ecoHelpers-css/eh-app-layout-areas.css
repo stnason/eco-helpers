@@ -2,291 +2,316 @@
     This is specifically for the eh-app-template and controls all of the
     primary display areas.
 
+    !!! WARNING - REMINDER !!!
+    The eco-helpers.php configuration file also has class assignments for use with each of these
+    page areas. These are intended for adding in pre-defined classes from a framework such as
+    Bootstrap or Tailwinds, but they will ADD TO what ever is specified here so be aware that
+    you may have to comment out or get rid of section here if you're relying solely on the
+    framework's classes.
 */
 
 /*
 /* https://www.color-hex.com */
 /******************************************************************************************/
 
-@media screen {
-
-    /******************************************************************************************/
-    /* eco-helper page areas */
-    /******************************************************************************************/
-
-    #layout-page-banner {
-
-        z-index: 99; /* Used with position: to bring to the font - on top of the jumbotron */
-        position: relative;
-        align-content: center;
-        text-align: center;
-        font-size: medium;
-        font-weight: bold;
-        color: darkslateblue;
-        border-top: solid lightgrey 1px;
-        border-bottom: solid lightgrey 1px;
-        background-color: rgba(255, 255, 255, 0.6);
-
-    }
-
-    /* Standard page name/title display at the top of every page; usually from Tbl_Pages.
-        Can be turned of with System::setPage_name_show().
-     */
-    #layout-page-title {
-        /*background: lightcoral;*/
-    }
-    #layout-page-title > h1 {
-        font-weight: lighter;
-        /*background: lightcoral;*/
-    }
-
-    /* Standard page descriptive heading displayed under the page name for every page; usually from Tbl_Pages.
-        Can be turned of with System::setPage_heading_show().
-     */
-    #layout-page-description {
-        margin-top: -12px; /* Page name is an H1 so overcoming some of that padding. */
-        margin-bottom: 4px;
-    }
-
-    #layout-page-description > span {
-        padding-left: 12px; /* Give a little indent on the left side for the page heading. */
-        color: darkgray;
-        font-style: italic;
-        font-weight: lighter;
-    }
-
-    /* LinkBar with links to other pages in this modules group.
-        Displays directly under the Page Heading area and must be set by the controller.
-        Build it with into  System::setPage_linkbar()
-        Turn on/off with    System::setPage_linkbar_show()
-    */
-    #layout-page-linkbar {
-        /*margin-top: -16px;*/
-        /*background: yellow;*/
-    }
-
-    /* Optional CRUD heading provided bv the specific page controller.
-        Displays directly under the LinkBar area and must be set by the controller.
-        Set with            System::setPage_crud_heading()
-        Turn on/off with    System::setPage_crud_heading_show()
-     */
-
-    /*#system-page-dynamic-heading {*/
-    #layout-page-dynamic {
-        /*margin-top: -20px;*/
-        /*background: red;*/
-        color: gray;
-        font-size: larger;
-        font-weight: bold;
-    }
-
-    #layout-page-dynamic a { /* When applying links to page headers, remove the indication of a link. */
-        color: inherit;
-    }
-
-    #layout-page-dynamic a:hover {
-        text-decoration: none;
-    }
+/* Calculate boxes on the outside - not from the content (the css default).
+    But something odd with inheritance and box-sizing,
+    but using these 2 together seems to correct it. */
+html {box-sizing: border-box;}
+* {box-sizing: inherit;}
 
 
-    /* Standard system flash message.
-        Displays below all other messages - right before main page content or form.
-    */
-    #layout-page-flash {
-        /*margin-top: -16px;*/
-        /*background: orange;*/
-        color: red;
-        margin-bottom: 5px;
-    }
+/******************************************************************************************/
+/* eco-helper page areas */
+/******************************************************************************************/
 
-    #layout-page-option-block {
-        margin-left: -10px;
-        width: min-content;
-        float: left;
-    }
-
-    #layout-page-attention {
-        /* CHECK IN THE base.blade template first and see which Bootstrap classes are being applied there. */
-        padding-right: 2px; /* needed to square off (to looks) this message are with the rest of the header; left and right. */
-        padding-left: 4px;
-
-    }
-
-    #layout-page-attention h4 {
-        /* CHECK IN THE base.blade template first and see which Bootstrap classes are being applied there. */
-        border-radius: 4px; /* added so it matched the other rounded corners in the header area. */
-    }
-
-
-    /* Default img corner radius for images in the option block (Contact Photo).
-        Contact photo is 128px so 64px = full circle.
-        8/23/2022 update; This used to be only used for the contact photo. Now we're using it for the asset image too.
-                          So will change that individually per page.
-    */
-    #layout-page-option-block img {
-        border-radius: 64px;
-    }
-
-
-
-
-    /******************************************************************************************/
-    /* System Footer control */
-    /******************************************************************************************/
-    /* Standard page footer
-       Moved the footer stying into the footer_content template for ease of use.
-    */
-
-
-    /******************************************************************************************/
-    /* LinkBar styling */
-    /******************************************************************************************/
-    /* top of page Link Bar area */
-    ul.linkbar {
-        list-style-type: none;
-        color: lightgrey; /* Only affects text the link bar area that is not a link. */
-        padding-top: 0;
-        padding-left: 0;
-        margin-bottom: 4px;
-        margin-left: 0;
-        margin-top: -4px;
-    }
-
-    .linkbar li {
-        list-style-type: none;
-        display: inline;
-    }
-
-    .linkbar li a {
-        text-decoration: none;
-        font-size: small;
-        padding-top: 4px;
-        padding-bottom: 5px;
-        padding-left: 3px;
-        padding-right: 4px;
-        /*padding-right: 4px;*/
-    }
-
-    /* Change the link color on hover. */
-    .linkbar li a:hover {
-        border-radius: 2px;
-        /*background-color: #f4f4f4; Too light. */
-        background-color: #eaeaea;
-        color: black;
-        /*color: white; */
-    }
-
-
-    /******************************************************************************************/
-    /* Animated Loading ellipsis. */
-    /* Usage: <div class="loading">Counting lines</div> */
-    /******************************************************************************************/
-    .loading {
-        /* font-size: 30px; */
-    }
-
-    .loading:after {
-        overflow: hidden;
-        display: inline-block;
-        vertical-align: bottom;
-        -webkit-animation: ellipsis steps(4, end) 900ms infinite;
-        animation: ellipsis steps(4, end) 900ms infinite;
-        content: "\2026"; /* ascii code for the ellipsis character */
-        width: 0;
-    }
-
-    @keyframes ellipsis {
-        to {
-            width: 1.25em;
-        }
-    }
-
-    @-webkit-keyframes ellipsis {
-        to {
-            width: 1.25em;
-        }
-    }
-
-
-    /******************************************************************************************/
-    /* Custom Elements */
-    /******************************************************************************************/
-    .vertical-center {
-        position: absolute;
-        top: 44%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    /* used for the banner display on demo and development sites and the flashing aged activity */
-    /* @group Blink */
-    .blink {
-        -webkit-animation: blink .75s linear infinite;
-        -moz-animation: blink .75s linear infinite;
-        -ms-animation: blink .75s linear infinite;
-        -o-animation: blink .75s linear infinite;
-        animation: blink .75s linear infinite;
-    }
-
-    @-webkit-keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 1; }
-        50.01% { opacity: 0; }
-        100% { opacity: 0; }
-    }
-
-    @-moz-keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 1; }
-        50.01% { opacity: 0; }
-        100% { opacity: 0; }
-    }
-
-    @-ms-keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 1; }
-        50.01% { opacity: 0; }
-        100% { opacity: 0; }
-    }
-
-    @-o-keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 1; }
-        50.01% { opacity: 0; }
-        100% { opacity: 0; }
-    }
-
-    @keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 1; }
-        50.01% { opacity: 0; }
-        100% { opacity: 0; }
-    }
-    /* @end */
-
-    /* Used for setting opacity
-    */
-    .black-opacity-50 {
-        background-color: rgba(0, 0, 0, 0.5) !important;
-    }
-
-    /* Used to draw a separator line across the page - usually applied to a <p> tag */
-    .spacer-line {
-        clear: both;
-        margin-top: 3px; /* You need a <label> tag if you have a blank right column; Otherwise the this 3px is not required. */
-        margin-bottom: 7px;
-        border-bottom: solid 1px;
-        color: lightgrey;
-    }
-
-    /* Used for the 'spacer' form controls used to help hold the layout in place */
-    .invisible {
-        border: white;
-    }
-
+#eh-layout-page-banner {
+    z-index: 99;            /* Used with position: to bring to the font - on top of the jumbotron */
+    position: relative;
+    align-content: center;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    color: darkslateblue;
+    border-block-start: solid lightgrey 1px;
+    /*border-top: solid lightgrey 1px;*/
+    border-block-end: solid lightgrey 1px;
+    /*border-bottom: solid lightgrey 1px;*/
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
-@media print {
+/* Wrapper around the whole option-block, title/name, description, linkbar and dynamic heading.
+    Used to force a 2 column layout on the header. */
+#eh-layout-page-heading-outer-wrapper {
 
+    display: flex;              /* Outer wrapper for 2 keep option-block in a full left column. */
+    flex-wrap: nowrap;          /* To keep the rest of the header elements in the right column. */
+
+    width: 84%;                 /* Use the full width of the page or something smaller.
+                                    Don't forget to set the #eh-layout-page-flash-attention-wrapper width too. */
+    margin-inline: auto;        /* If smaller than full width, this will center it. */
+    margin-block-start: 4px;    /* Space between either the navbar or the system banner (if the banner is turned on). */
+
+    border-radius: 6px;
+    background: #f8f8fa;
 }
+
+/* Wrapper around only the title/name, description, linkbar and dynamic heading.*/
+#eh-layout-page-heading-inner-wrapper {
+
+    display: flex;
+    flex-wrap: wrap;            /* Wrap the heading elements in the right column next to the option-block. */
+    flex-basis: auto;           /* If no option-block then use the whole heading area. */
+
+    margin-inline-start: 12px;  /* Left margin for the page title/name block. */
+    padding-block-end: 10px;    /* Bottom space under the dynamic header. */
+}
+
+/* Wrapper around the system flash and attention message areas. */
+#eh-layout-page-flash-attention-wrapper {
+    width: 84%;                         /* Don't forget to set the #eh-layout-page-heading-outer-wrapper too. */
+    margin-inline: auto;                /* And then center it in the viewport too. */
+}
+
+/* Option block in the eco header. Commonly used for a Contact or Asset photo. */
+#eh-layout-page-option-block {
+
+    /*width: min-content;*/
+    /*float: left;
+    padding-inline: 4px;
+    padding-block: 4px;*/
+    border-right: solid black 1px;       /* Line between the option-block and the page title/name area. */
+
+    /*align-content: center;      /* Vertically. */
+    text-align: center;         /* Horizontally. */
+}
+#eh-layout-page-option-block img {
+    outline: solid black 1px;
+    border-radius: 4px;
+    inline-size: 64px;          /* Intended image size. */
+    block-size: 64px;           /*Intended image size. */
+    margin-inline-start: 8px;
+    margin-inline-end: 8px;
+    margin-block-start: 8px;
+}
+
+
+/* Standard page name/title display at the top of every page; usually from Tbl_Pages.
+    Can be turned of with System::setPage_name_show().
+ */
+#eh-layout-page-name {
+    flex-basis: auto;           /* Take up the whole row or share it with the Option Block. */
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+/* Standard page descriptive heading displayed under the page name for every page; usually from Tbl_Pages.
+    Can be turned of with System::setPage_heading_show().
+ */
+#eh-layout-page-description {
+
+    flex-basis: 100%;           /* Force this to use one complete row of the heading layout. */
+    color: darkgray;
+    font-style: italic;
+    font-weight: lighter;
+    /*margin-block-start: -4px;   /* Move this up under the page name/title a little tighter. */
+    /*margin-block-end: 8px;      /* Space below this line. */
+    /*margin-inline-start: 12px;  /* Indent from the left. */
+}
+
+/* Optional CRUD heading provided bv the specific page controller.
+    Displays directly under the LinkBar area and must be set by the controller.
+ */
+#eh-layout-page-dynamic {
+    flex-basis: 100%;       /* Force this to use one complete row of the heading layout. */
+    color: gray;
+    font-size: larger;
+    font-weight: bold;
+    margin-block-start: 10px;     /* Top margin. */
+}
+
+/* When applying links to page headers, remove the indication of a link. */
+#eh-layout-page-dynamic a {
+    color: inherit;
+}
+#eh-layout-page-dynamic a:hover {
+    text-decoration: none;
+}
+
+/* Standard system flash message.
+    Displays below all other messages - right before main page content or form.
+*/
+#eh-layout-page-flash {
+    color: red;
+    /*font-weight: bolder;      If we choose to slightly darken up the flash message */
+    margin-block: 4px;          /* Top and bottom margin on flash message area. */
+}
+
+#eh-layout-page-attention {
+    background: lightyellow;
+    color: whitesmoke;          /* Dependent on background color. Both here and in the config class. */
+    padding-block: 4px;
+    font-size: larger;
+    /*font-weight: bolder;      If we choose to slightly darken up the attention message */
+    text-align: center;
+
+    border-radius: 6px;         /* added so it matched the other rounded corners in the header area. */
+}
+
+
+
+/******************************************************************************************/
+/* System Footer control */
+/******************************************************************************************/
+/* Standard page footer
+   Moved the footer stying into the footer_content template for ease of use.
+*/
+
+
+/******************************************************************************************/
+/* LinkBar styling */
+/******************************************************************************************/
+/* LinkBar with links to other pages in this modules group.
+  Displays directly under the Page Heading area and must be set by the controller.
+  Build it with into  System::setPage_linkbar()
+  Turn on/off with    System::setPage_linkbar_show()
+*/
+#eh-layout-page-linkbar {
+    list-style-type: none;
+    color: lightgrey;       /* Non link text only. */
+    margin-block: 0;
+    padding-block: 0;
+    margin-inline: 0;
+    padding-inline: 0;
+}
+#eh-layout-page-linkbar li {
+    list-style-type: none;
+    display: inline;
+}
+#eh-layout-page-linkbar li a {
+    text-decoration: none;
+    color: gray;
+    font-size: small;
+    margin-block: 0;
+    padding-block: 0;
+}
+/* Change the link color on hover. */
+#eh-layout-page-linkbar li a:hover {
+    border-radius: 2px;
+    /*background-color: #f4f4f4; Too light. */
+    background-color: #eaeaea;
+    color: black;
+    /*color: white; */
+}
+
+
+/******************************************************************************************/
+/* Animated Loading ellipsis. */
+/* Usage: <div class="loading">Counting lines</div> */
+/******************************************************************************************/
+.loading {
+    /* font-size: 30px; */
+}
+
+.loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+    animation: ellipsis steps(4, end) 900ms infinite;
+    content: "\2026"; /* ascii code for the ellipsis character */
+    width: 0;
+}
+
+@keyframes ellipsis {
+    to {
+        width: 1.25em;
+    }
+}
+
+@-webkit-keyframes ellipsis {
+    to {
+        width: 1.25em;
+    }
+}
+
+
+/******************************************************************************************/
+/* Custom Elements */
+/******************************************************************************************/
+.vertical-center {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* used for the banner display on demo and development sites and the flashing aged activity */
+/* @group Blink */
+.blink {
+    -webkit-animation: blink .75s linear infinite;
+    -moz-animation: blink .75s linear infinite;
+    -ms-animation: blink .75s linear infinite;
+    -o-animation: blink .75s linear infinite;
+    animation: blink .75s linear infinite;
+}
+
+@-webkit-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-moz-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-ms-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-o-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+/* @end */
+
+/* Used for setting opacity
+*/
+.black-opacity-50 {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Used to draw a separator line across the page - usually applied to a <p> tag */
+.spacer-line {
+    clear: both;
+    margin-top: 3px; /* You need a <label> tag if you have a blank right column; Otherwise the this 3px is not required. */
+    margin-bottom: 7px;
+    border-bottom: solid 1px;
+    color: lightgrey;
+}
+
+/* Used for the 'spacer' form controls used to help hold the layout in place */
+.invisible {
+    border: white;
+}
+
+
+
 

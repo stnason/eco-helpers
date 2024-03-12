@@ -6,6 +6,10 @@ use App\Models\User;
 use Illuminate\Console\Command;
 use ScottNason\EcoHelpers\Classes\ehSampleData;
 
+/**
+ * Published as the artisan command 'eco-helpers:sample-data' to call the ehSampleData class responsible
+ * for building out the initial (required) system data and examples.
+ */
 class ecoHelpersSampleData extends Command
 {
     /**

@@ -1,16 +1,5 @@
 <?php
 
-/**
- * This trait is responsible for maintaining the ecoFramework fields:
- * created_by
- * created_at
- * updated_by
- * updated_at
- *
- * Include "use App/Traits/ehHasUserstamps" in the Model Class declaration
- *
- */
-
 namespace ScottNason\EcoHelpers\Traits;
 
 use Carbon\Carbon;
@@ -18,6 +7,16 @@ use Illuminate\Support\Facades\Auth;
 
 use ScottNason\EcoHelpers\Classes\ehConfig;
 
+/**
+ * This trait is responsible for maintaining the ecoFramework fields:
+ * created_by
+ * created_at
+ * updated_by
+ * updated_at
+ *
+ * This is included in the ehBaseModel.
+ *
+ */
 trait ehHasUserstamps
 
 {

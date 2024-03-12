@@ -10,10 +10,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use ScottNason\EcoHelpers\Controllers\Auth\ehAuthenticatedSessionController;
 
+/**
+ * This is the package published version that extends the ehAuthenticatedSessionController
+ * which is providing the additional package permission checks.
+ *
+ */
 class AuthenticatedSessionController extends ehAuthenticatedSessionController
 {
-
-
 
 
 

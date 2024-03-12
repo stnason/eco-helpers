@@ -3,7 +3,9 @@
 namespace ScottNason\EcoHelpers\Models;
 
 /**
- * This was formerly the ehRole model.
+ * The model associated with the eh_roles table.
+ * (formerly 'groups')
+ *
  */
 class ehRole extends ehBaseModel
 {

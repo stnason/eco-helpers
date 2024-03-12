@@ -19,6 +19,11 @@ use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Models\ehUser;
 
+/**
+ * The Controller responsible for managing the crud interaction with the roles and permissions
+ * in the eh_roles, eh_roles_lookup and eh_access_tokens tables.
+ *
+ */
 class ehRolesController extends ehBaseController
 {
 

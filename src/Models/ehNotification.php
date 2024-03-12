@@ -4,7 +4,10 @@ namespace ScottNason\EcoHelpers\Models;
 
 use Illuminate\Support\Facades\DB;
 
-
+/**
+ * The model associated with the eh_notifications table.
+ *
+ */
 class ehNotification extends ehBaseModel
 {
 

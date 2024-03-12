@@ -106,7 +106,7 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/ScottNason-EcoHelpersOriginallyhadtoaddtoconfigapp.html" class="">EcoHelpersOriginallyhadtoaddtoconfigapp</a>
+                <a href="packages/ScottNason-EcoHelpers.html" class="">EcoHelpers</a>
                 
             </li>
             </ul>
@@ -158,14 +158,14 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Class Controls (form control helpers)
-Form/ input helpers</p>
+            <p class="phpdocumentor-summary">An html forms helper for building out various input fields and managing persistent data and error highlighting.</p>
 
-    <section class="phpdocumentor-description"><p>passed parameters:
+    <section class="phpdocumentor-description"><p>Form/ input helpers</p>
+<p>passed parameters:
 'field_name'        =&gt; the actual database field name
 'display_name'      =&gt; either the static label text to display or a model instance to check against to see if it has label definitions
 'model'             =&gt; the associated model name
@@ -257,7 +257,7 @@ Form/ input helpers</p>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Use the $form[&#039;buttons&#039;] array to build out the complete html button area.</dd>
+<dd>Use the $form[&#039;layout&#039;][&#039;buttons&#039;] array to build out the complete html button area.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_checkbox">checkbox()</a>
@@ -353,7 +353,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
@@ -386,7 +386,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -419,7 +419,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -452,7 +452,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -485,7 +485,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -523,11 +523,11 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">492</span>
+    <span class="phpdocumentor-element-found-in__line">495</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Use the $form[&#039;buttons&#039;] array to build out the complete html button area.</p>
+        <p class="phpdocumentor-summary">Use the $form[&#039;layout&#039;][&#039;buttons&#039;] array to build out the complete html button area.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -535,7 +535,7 @@ Form/ input helpers</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>Note: this is used in all forms with buttons:</p>
+        <section class="phpdocumentor-description"><p>Note: this is used in all forms with buttons like this:</p>
 <div class="container">
 <form class="form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
 </section>
@@ -587,7 +587,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">356</span>
+    <span class="phpdocumentor-element-found-in__line">358</span>
 
     </aside>
 
@@ -628,7 +628,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -684,7 +684,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -741,7 +741,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">162</span>
+    <span class="phpdocumentor-element-found-in__line">164</span>
 
     </aside>
 
@@ -787,7 +787,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">226</span>
+    <span class="phpdocumentor-element-found-in__line">228</span>
 
     </aside>
 
@@ -833,7 +833,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">306</span>
+    <span class="phpdocumentor-element-found-in__line">308</span>
 
     </aside>
 
@@ -942,7 +942,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 
     </aside>
 
@@ -988,7 +988,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1037</span>
+    <span class="phpdocumentor-element-found-in__line">1040</span>
 
     </aside>
 
@@ -1034,7 +1034,7 @@ Form/ input helpers</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">549</span>
+    <span class="phpdocumentor-element-found-in__line">552</span>
 
     </aside>
 

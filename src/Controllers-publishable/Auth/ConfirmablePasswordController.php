@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
+/**
+ * The package published version of the Laravel Breeze Controller.
+ *
+ */
 class ConfirmablePasswordController extends Controller
 {
     /**

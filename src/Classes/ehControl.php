@@ -2,12 +2,13 @@
 
 namespace ScottNason\EcoHelpers\Classes;
 
-use App\Traits\ehConvertDatesToSavable;
+//use App\Traits\ehConvertDatesToSavable;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Class Controls (form control helpers)
+ * An html forms helper for building out various input fields and managing persistent data and error highlighting.
+ *
  * Form/ input helpers
  *
  * passed parameters:
@@ -38,6 +39,7 @@ use Illuminate\Support\Facades\DB;
  */
 Class ehControl
 {
+    //TODO: these would all be great candidates for moving into the eco-helpers donfig file.
     protected static $text_warning = 'text-danger';      // Bootstrap or custom css class for the error label text.
     protected static $box_warning = 'border-danger';     // Bootstrap or custom css class for the error input box.
     protected static $def_rows = 3;                      // Default rows for a text area input if nothing specified.
@@ -470,8 +472,9 @@ public static function button($parameters) {
 */
 
     /**
-     * Use the $form['buttons'] array to build out the complete html button area.
-     * Note: this is used in all forms with buttons:
+     * Use the $form['layout']['buttons'] array to build out the complete html button area.
+     *
+     * Note: this is used in all forms with buttons like this:
      <div class="container">
         <form class="form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
         @csrf

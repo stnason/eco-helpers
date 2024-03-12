@@ -1,13 +1,5 @@
 <?php
 
-/**
- * This trait is used in any Controller that needs to include a file upload option.
- * Note: This includes utilities and properties for file processing too -- since processing usually follows uploads.
- *
- * Include "use App/Traits/ehFileUpload" in the Controller Class declaration
- *
- */
-
 namespace ScottNason\EcoHelpers\Traits;
 
 use App\Http\Controllers\ProgressController;
@@ -16,6 +8,12 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
+/**
+ * This trait is used in any Controller that needs to include the file upload option.
+ *
+ * Include "use App/Traits/ehFileUpload" in the Controller Class declaration.
+ *
+ */
 trait ehFileUpload
 {
 

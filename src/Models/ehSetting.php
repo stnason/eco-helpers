@@ -2,6 +2,10 @@
 
 namespace ScottNason\EcoHelpers\Models;
 
+/**
+ *  The model associated with the eh_settings table.
+ *
+ */
 class ehSetting extends ehBaseModel
 {
     protected $table = 'eh_settings';

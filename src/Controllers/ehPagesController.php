@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * The Controller responsible for managing the crud interaction with the Menus/Pages entries in the eh_pages table.
+ */
 class ehPagesController extends ehBaseController
 {
 

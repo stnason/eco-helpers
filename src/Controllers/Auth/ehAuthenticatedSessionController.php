@@ -1,10 +1,4 @@
 <?php
-/**
- * This will be used with the publishable AuthenticationSessionController
- * for use with the Breeze scaffolding. It provides the additional eco-helpers checks
- * during login.
- *
- */
 
 namespace ScottNason\EcoHelpers\Controllers\Auth;
 
@@ -21,7 +15,11 @@ use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Models\ehUser;
 
-
+/**
+ * Designed to be the extended by the published AuthenticatedSessionController, this base package class
+ * provides the additional authentication checks above and beyond what Laravel Breeze is providing
+ * (things link active and default roles checked and is user login currently active).
+ */
 class ehAuthenticatedSessionController extends Controller
 {
 

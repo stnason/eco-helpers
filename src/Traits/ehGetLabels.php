@@ -1,19 +1,13 @@
 <?php
 
-/**
- * This trait is responsible for maintaining the ecoFramework fields:
- * created_by
- * created_at
- * updated_by
- * updated_at
- *
- * Include "use App/Traits/ehHasUserstamps" in the Model Class declaration
- *
- */
-
 namespace ScottNason\EcoHelpers\Traits;
 
-
+/**
+ * This trait provides a helper function to getLabel('field_name') from the model.
+ *
+ * This is included in the ehBaseModel.
+ *
+ */
 trait ehGetLabels
 {
 

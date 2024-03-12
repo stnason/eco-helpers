@@ -7,6 +7,10 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 
+/**
+ * The package published version of the Laravel Breeze Controller.
+ *
+ */
 class VerifyEmailController extends Controller
 {
     /**

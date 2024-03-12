@@ -12,12 +12,13 @@ use ScottNason\EcoHelpers\Models\ehUser;
 
 
 /**
- * Responsible for building out the menu-ing system data for the standard nav header.
- * Uses (depends on) the pages table.
+ * ehMenus is responsible for building out the menu-ing system data for the standard nav header
+ *  and those used in the Menus/Pages entry screens.
+ *  It uses (and depends on) the pages table.
  *
  * !! IMPORTANT !! - This IS NOT PART OF THE BACK-END SECURITY CHECK.
- *                   THAT IS HANDLED THROUGH THE check_permissions MIDDLEWARE.
- *                 - ehMenus only controls what shows up on the user's personal menu tree -- not the "access" to it.
+ *                   SECURITY IS HANDLED THROUGH THE check_permissions MIDDLEWARE.
+ *                 - ehMenus only controls what SHOWS up on the user's personal menu tree -- not the "access" to it.
  *
  */
 class ehMenus

@@ -8,11 +8,14 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use ScottNason\EcoHelpers\Classes\ehConfig;
-use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehMenus;
 use ScottNason\EcoHelpers\Models\ehPage;
 
-
+/**
+ * ehBaseController provides the core package hooks into the permissions checking middleware
+ * and all other Controllers must extend it.
+ *
+ */
 class ehBaseController extends BaseController
 {
 

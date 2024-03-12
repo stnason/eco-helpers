@@ -1,12 +1,14 @@
 <?php
 
-//namespace database\factories;
 namespace ScottNason\EcoHelpers\database\factories;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Int;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * Not sure this has been implemented or in use anywhere. (?)
+ */
 class ehExampleFactory extends Factory
 {
     /**

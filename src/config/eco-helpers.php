@@ -93,7 +93,8 @@ return [
     | Datatables class
     |--------------------------------------------------------------------------
     | The html class(es) to use when creating datatables on a page.
-    |  Note: "small" is the Bootstrap 5 text helper. - But along with the override css that's too small now.
+    |  Note: "small" is the Bootstrap 5 text helper.
+    |  - But along with the override css that's too small now.
     |
     */
     'datatables_class' => 'display compact cell-border nowrap order-column stripe hover',
@@ -128,13 +129,14 @@ return [
 
         /*
         |--------------------------------------------------------------------------
-        | Main Template User Add-In file:
+        | Main Template User Add-In files:
         |--------------------------------------------------------------------------
-        | Additional template of your own to include in the base template (at the top of the <body>).
+        | Additional templates of your own to include in the base template
+        |  (at either the top or bottom of the <body></body>).
         |
         */
-        'app_add_ins_file' => 'eh-app-add-ins',
-
+        'app_add_ins_file_top' => 'eh-app-add-ins_top',         // Top of the document; right after <body> but before <main>
+        'app_add_ins_file_bottom' => 'eh-app-add-ins_bottom',   // Bottom; right after </main> but before </body>
 
         /*
         |--------------------------------------------------------------------------
@@ -164,22 +166,6 @@ return [
         |
         */
         'footer_file' => 'eh-footer',
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | CSS, JS and Final Override Auto-Loader files:
-        |--------------------------------------------------------------------------
-        | Static an auto-loaded entries for css and js.
-        |  These are handled by the master template as "per page" directives which
-        |   can be called by the controller.
-        |
-        |                                            // DEPRECATED with 2/19/2024 change in autoload system.
-        'css_loader_file' => 'eh-css-loader',        // Auto loaders are now core functionality
-        'js_loader_file' => 'eh-js-loader',          // User interaction is through the views/ecoHelpers/autoload
-        |                                            // folder and this config file's auto_loaders array.
-        */
-        'override_loader_file' => 'eh-override-loader',
 
 
         /*
@@ -269,9 +255,10 @@ return [
             'linkbar' => [
                 'state' => true,
                 'content' => [
-                    ['href' => 'https://nasonproductions.com', 'name' => 'np.com', 'title' => 'link to np.com', 'target' => '_blank'],
-                    ['href' => 'https://nasonproductions.com', 'name' => 'np.com', 'title' => 'link to np.com', 'target' => '_blank'],
-                    ['href' => 'https://nasonproductions.com', 'name' => 'np.com', 'title' => 'link to np.com', 'target' => '_blank'],
+                    ['href' => '/users', 'name' => 'Users', 'title' => 'edit users', 'target' => '_self'],
+                    ['href' => '/roles', 'name' => 'Roles', 'title' => 'edit roles', 'target' => '_self'],
+                    ['href' => '/pages', 'name' => 'Menus/Pages', 'title' => 'edit the menus tree', 'target' => '_self'],
+                    ['href' => '/config', 'name' => 'System Settings', 'title' => 'system configuration and settings', 'target' => '_self'],
                 ],
                 'collapse' => false,
                 'collapse_chr' => ' ',
@@ -293,7 +280,7 @@ return [
             ],
             'attention' => [
                 'state' => true,
-                'content' => 'Eco Helper Attention message.',
+                'content' => 'Eco Helpers <strong>Attention</strong> message',
                 'collapse' => false,
                 'collapse_chr' => ' ',
                 'class' => 'bg-warning'
@@ -318,24 +305,33 @@ return [
 
         'options' => [
 
+            // System banner blink behavior.
             'banner_blink' => false,        // User controllable banner blink. (for on-the-fly setting of more important messages)
             'banner_auth' => true,          // Show banner only when authenticated.
 
-            //'round' => false,             // Round what -- all the box areas or what ??
+            // Linkbar delimiters (between linkbar items)
+            'linkbar_delimiter'=>' ** ',
 
-
-            // The farthest "outside" container.
+            // The <main> -- "outside" page container.
             'full_width' => true,
-            // Specific to Bootstrap 5.3 for now.
-            'page_container_class_normal' => 'container pt-2',
-            'page_container_class_full' => 'container-fluid ps-0 pe-0',
 
+            // Specific to class to use for either full_width=true or full_width=false (normal).
+            'page_main_class_full' => 'container-fluid ps-0 pe-0',
+            'page_main_class_normal' => 'container pt-2',
 
+            
             // Used by Controls to colorize any "alert_if" message.
             'alert_if_class' => 'bg-warning bg-opacity-25',
 
+            // Pre-pended to the left of the page's descriptive heading text (if desired).
+            'description_bullet' => '&#x2014; '     // An html wide dash.
+            //'description_bullet' => '&bull; '     // An html small bullet.
+            //'description_bullet' => '&#x2609; '   // An html entity.
+                                                    // Using Fontawesome 6 icons.
+            //'description_bullet' => '<i class="fa-solid fa-arrow-right-long"></i> '
+            //'description_bullet' => '<i class="fa-solid fa-circle-info"></i> '
+            //'description_bullet' => '<i class="fa-solid fa-minus"></i> '
 
-            'description_bullet' => '&#x2014; '    // Pre-pended to the left of the page's descriptive heading text.
         ],
 
     ],

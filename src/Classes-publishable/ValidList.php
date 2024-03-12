@@ -5,11 +5,7 @@ namespace App\Classes
 use ScottNason\EcoHelpers\Classes\ehValidList;
 
 /**
- * Add your own $key=>value pair lists here.
- * Then can be statically created arrays and then easily switched to database calls later.
- *
- * Build in functions for:
- *
+ * This is the package published extension of ehValidList and is where you add your own $key=>value pair lists.
  *
  */
 

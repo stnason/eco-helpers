@@ -1,35 +1,24 @@
 <?php
 
-
-
-/*
- * as of 01/16/2023
- *
- *  REMEMBER TO KEEP CHANGES TO THIS FORMAT IN SYNC WITH THE eco-helpers.php config file and the base template.
- *   'items_array' =>
- *      [
-            ['href'=>'https://nasonproductions.com', 'name'=>'np.com', 'title'=>'link to np.com', 'target'=>'_blank'],
-            ['href'=>'https://nasonproductions.com', 'name'=>'np.com', 'title'=>'link to np.com', 'target'=>'_blank'],
-            ['href'=>'https://nasonproductions.com', 'name'=>'np.com', 'title'=>'link to np.com', 'target'=>'_blank'],
-        ]
- */
-
-
-
-
 namespace ScottNason\EcoHelpers\Classes;
 
 use ScottNason\EcoHelpers\Models\ehPage;
 use Illuminate\Support\Facades\Route;
 
 /**
- * Class LinkBar
- *
- * Linkbars provide an automated or manual set of links for all of the child application routes underneath a given menu item.
- * The base template provides a quick horizontal display of all the linkbar items.
- * Also can provide an Export All link for access to underlying table when appropriate (decided by the controller).
+ * ehLinkbar creates links to pages, available for display in the Linkbar area of the master app template.
+ * ehLinkbar can automatically create links for all of the child application routes underneath a given menu item.
  * Note: all items are checked for permissions before adding them to the final output array.
  *
+ * Also can provide an Export All link for access to underlying table with appropriate role access permissions.''
+ *
+ * REMEMBER TO KEEP CHANGES TO THE ARRAY FORMAT IN SYNC WITH THE eco-helpers.php config file and the base template.
+ *    'items_array' =>
+ *       [
+ * ['href'=>'https://nasonproductions.com', 'name'=>'np.com', 'title'=>'link to np.com', 'target'=>'_blank'],
+ * ['href'=>'https://nasonproductions.com', 'name'=>'np.com', 'title'=>'link to np.com', 'target'=>'_blank'],
+ * ['href'=>'https://nasonproductions.com', 'name'=>'np.com', 'title'=>'link to np.com', 'target'=>'_blank'],
+ * ]
  */
 class ehLinkbar {
 
@@ -40,12 +29,14 @@ class ehLinkbar {
      * @var array|array[]
      */
     protected array  $items_array = [
+        /* This is the format for the content, but including this in the definition leaves a blank first array item.
         [
         'href'=>'',
         'name'=>'',
         'title'=>'',
         'target'=>''
         ]
+        */
     ];            // An array of linkbar items.
     protected bool   $hide_export_all = false;     // Show the Export all link yes/no.
     protected bool   $show_self = false;           // Normal behavior is to not show a link to the page we're on.

@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 
 /**
- * eco-helpers class to handle resource and feature permission checks.
- * Note: The Menu/Page System is NOT a security system. Making an item inactive there ONLY removes it from the Menu
- * tree. Note: The security ACCESS permission levels are defined as constants in the non-published eco-constants.php
- * file.
+ * ehAccess is responsible for handling all resource and feature permission checks.
+ * (Remember that the Menu/Page System IS NOT a security system.
+ *   Making an item inactive there ONLY removes it from the Menu tree.)
+ * Note: The security ACCESS permission levels are defined as constants in
+ *       the non-published eco-constants.php configuration file.
  *
  * Remember each page has these access rights now:<br/>
  *  0- No access<br/>

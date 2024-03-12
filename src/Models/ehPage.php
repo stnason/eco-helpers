@@ -5,7 +5,10 @@ namespace ScottNason\EcoHelpers\Models;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
-
+/**
+ * The model associated with the eh_pages table.
+ *
+ */
 class ehPage extends ehBaseModel
 {
 

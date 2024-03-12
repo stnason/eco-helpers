@@ -3,7 +3,8 @@
 namespace ScottNason\EcoHelpers\Models;
 
 /**
- * This was formerly the ehRole model.
+ * The model associated with the eh_roles_lookup table which provides a link between roles and assigned users.
+ *
  */
 class ehRoleLookup extends ehBaseModel
 {

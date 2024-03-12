@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
+/**
+ * The package published version of the Laravel Breeze Controller.
+ *
+ */
 class PasswordController extends Controller
 {
     /**

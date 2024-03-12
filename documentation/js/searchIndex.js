@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehAccess",
             "name": "ehAccess",
-            "summary": "eco\u002Dhelpers\u0020class\u0020to\u0020handle\u0020resource\u0020and\u0020feature\u0020permission\u0020checks.",
+            "summary": "ehAccess\u0020is\u0020responsible\u0020for\u0020handling\u0020all\u0020resource\u0020and\u0020feature\u0020permission\u0020checks.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehAccess.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehAccess\u003A\u003AchkUserResourceAccess\u0028\u0029",
@@ -68,7 +68,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehConfig",
             "name": "ehConfig",
-            "summary": "ehConfig\u0020is\u0020an\u0020interface\u0020that\u0020combines\u0020both\u0020the\u0020settings\u0020table\u0020and\u0020the\u0020eco\u002Dhelpers\u0020config\u0020file.",
+            "summary": "ehConfig\u0020is\u0020a\u0020helper\u0020function\u0020to\u0020provide\u0020access\u0020to\u0020the\u0020values\u0020contained\u0020in\u0020either\nthe\u0020system\u0020settings\u0020table\u0020or\u0020the\u0020eco\u002Dhelpers\u0020configuration\u0020file.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehConfig.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehConfig\u003A\u003Aget\u0028\u0029",
@@ -93,7 +93,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehControl",
             "name": "ehControl",
-            "summary": "Class\u0020Controls\u0020\u0028form\u0020control\u0020helpers\u0029\nForm\/\u0020input\u0020helpers",
+            "summary": "An\u0020html\u0020forms\u0020helper\u0020for\u0020building\u0020out\u0020various\u0020input\u0020fields\u0020and\u0020managing\u0020persistent\u0020data\u0020and\u0020error\u0020highlighting.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehControl.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehControl\u003A\u003Alabel\u0028\u0029",
@@ -133,7 +133,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehControl\u003A\u003AbuttonAreaHTML\u0028\u0029",
             "name": "buttonAreaHTML",
-            "summary": "Use\u0020the\u0020\u0024form\u005B\u0027buttons\u0027\u005D\u0020array\u0020to\u0020build\u0020out\u0020the\u0020complete\u0020html\u0020button\u0020area.",
+            "summary": "Use\u0020the\u0020\u0024form\u005B\u0027layout\u0027\u005D\u005B\u0027buttons\u0027\u005D\u0020array\u0020to\u0020build\u0020out\u0020the\u0020complete\u0020html\u0020button\u0020area.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_buttonAreaHTML"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehControl\u003A\u003AprocessParameters\u0028\u0029",
@@ -173,7 +173,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLayout",
             "name": "ehLayout",
-            "summary": "Layout\u0020class.",
+            "summary": "ehLayout\u0020is\u0020responsible\u0020for\u0020handling\u0020all\u0020standard\u0020page\/form\u0020area\u0020display\u0020control\u0020interaction\n\u0020between\u0020the\u0020Controller\u0020and\u0020the\u0020base\u0020template.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehLayout.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLayout\u003A\u003AinitLayout\u0028\u0029",
@@ -283,7 +283,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar",
             "name": "ehLinkbar",
-            "summary": "Class\u0020LinkBar",
+            "summary": "ehLinkbar\u0020creates\u0020links\u0020to\u0020pages,\u0020available\u0020for\u0020display\u0020in\u0020the\u0020Linkbar\u0020area\u0020of\u0020the\u0020master\u0020app\u0020template.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003A__construct\u0028\u0029",
@@ -328,7 +328,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehMenus",
             "name": "ehMenus",
-            "summary": "Responsible\u0020for\u0020building\u0020out\u0020the\u0020menu\u002Ding\u0020system\u0020data\u0020for\u0020the\u0020standard\u0020nav\u0020header.",
+            "summary": "ehMenus\u0020is\u0020responsible\u0020for\u0020building\u0020out\u0020the\u0020menu\u002Ding\u0020system\u0020data\u0020for\u0020the\u0020standard\u0020nav\u0020header\n\u0020and\u0020those\u0020used\u0020in\u0020the\u0020Menus\/Pages\u0020entry\u0020screens.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehMenus.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehMenus\u003A\u003A__construct\u0028\u0029",
@@ -418,7 +418,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehNotifier",
             "name": "ehNotifier",
-            "summary": "",
+            "summary": "ehNotifier\u0020is\u0020responsible\u0020for\u0020all\u0020of\u0020the\u0020system\u0020notifications\u0020functions\u0020from\u0020getting\n\u0020them\u0020to\u0020saving\u0020them\u0020to\u0020deleting\u0020them.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehNotifier.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehNotifier\u003A\u003AgetTotal\u0028\u0029",
@@ -463,7 +463,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehSampleData",
             "name": "ehSampleData",
-            "summary": "Helper\u0020functions\u0020to\u0020generates\u0020the\u0020initial,\u0020OOTB\u0020startup\u0020data\nneeded\u0020to\u0020configure\u0020and\u0020test\u0020the\u0020ecoHelpers\u0020package.",
+            "summary": "Called\u0020by\u0020the\u0020command\u0020line\u0020utility\u0020eco\u002Dhelpers\u003Asample\u002Ddata,\u0020these\u0020are\u0020functions\u0020to\u0020generates\u0020the\u0020initial,\nOOTB\u0020startup\u0020data\u0020\u0028users,\u0020roles\u0020and\u0020examples\u0029\u0020needed\u0020to\u0020run\u0020and\u0020test\u0020the\u0020ecoHelpers\u0020package.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehSampleData.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehSampleData\u003A\u003AcreateSampleData\u0028\u0029",
@@ -528,7 +528,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehValidList",
             "name": "ehValidList",
-            "summary": "",
+            "summary": "ehValidList\u0020is\u0020the\u0020core\u0020package\u0020list\u0020manager\u0020the\u0020provides\u0020an\u0020easy\u0020way\u0020to\u0020include\u0020dropdown\u0020\u0028\u003Cselect\u003E\u0029\nlists\u0020inside\u0020of\u0020your\u0020forms\u003B\u0020generated\u0020from\u0020either\u0020static\u0020key\u003D\u003Evalue\u0020pair\u0020arrays\u0020or\u0020pulled\u0020from\na\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehValidList.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehValidList\u003A\u003AgetList\u0028\u0029",
@@ -623,7 +623,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Classes\\ValidList",
             "name": "ValidList",
-            "summary": "Add\u0020your\u0020own\u0020\u0024key\u003D\u003Evalue\u0020pair\u0020lists\u0020here.",
+            "summary": "This\u0020is\u0020the\u0020package\u0020published\u0020extension\u0020of\u0020ehValidList\u0020and\u0020is\u0020where\u0020you\u0020add\u0020your\u0020own\u0020\u0024key\u003D\u003Evalue\u0020pair\u0020lists.",
             "url": "classes/App-Classes-ValidList.html"
         },                {
             "fqsen": "\\App\\Classes\\ValidList\u003A\u003AgetList\u0028\u0029",
@@ -638,7 +638,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersSampleData",
             "name": "ecoHelpersSampleData",
-            "summary": "",
+            "summary": "Published\u0020as\u0020the\u0020artisan\u0020command\u0020\u0027eco\u002Dhelpers\u003Asample\u002Ddata\u0027\u0020to\u0020call\u0020the\u0020ehSampleData\u0020class\u0020responsible\nfor\u0020building\u0020out\u0020the\u0020initial\u0020\u0028required\u0029\u0020system\u0020data\u0020and\u0020examples.",
             "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersSampleData\u003A\u003Ahandle\u0028\u0029",
@@ -723,7 +723,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\Auth\\ehAuthenticatedSessionController",
             "name": "ehAuthenticatedSessionController",
-            "summary": "",
+            "summary": "Designed\u0020to\u0020be\u0020the\u0020extended\u0020by\u0020the\u0020published\u0020AuthenticatedSessionController,\u0020this\u0020base\u0020package\u0020class\nprovides\u0020the\u0020additional\u0020authentication\u0020checks\u0020above\u0020and\u0020beyond\u0020what\u0020Laravel\u0020Breeze\u0020is\u0020providing\n\u0028things\u0020link\u0020active\u0020and\u0020default\u0020roles\u0020checked\u0020and\u0020is\u0020user\u0020login\u0020currently\u0020active\u0029.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\Auth\\ehAuthenticatedSessionController\u003A\u003A__construct\u0028\u0029",
@@ -778,7 +778,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehBaseController",
             "name": "ehBaseController",
-            "summary": "",
+            "summary": "ehBaseController\u0020provides\u0020the\u0020core\u0020package\u0020hooks\u0020into\u0020the\u0020permissions\u0020checking\u0020middleware\nand\u0020all\u0020other\u0020Controllers\u0020must\u0020extend\u0020it.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-ehBaseController.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehBaseController\u003A\u003A__construct\u0028\u0029",
@@ -803,7 +803,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehConfigController",
             "name": "ehConfigController",
-            "summary": "",
+            "summary": "The\u0020Controller\u0020responsible\u0020for\u0020managing\u0020the\u0020crud\u0020interaction\u0020with\u0020the\u0020system\u0020settings\u0020in\u0020the\u0020eh_settings\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-ehConfigController.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehConfigController\u003A\u003Aindex\u0028\u0029",
@@ -843,7 +843,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehExamplesController",
             "name": "ehExamplesController",
-            "summary": "",
+            "summary": "The\u0020Controller\u0020responsible\u0020for\u0020managing\u0020the\u0020crud\u0020interaction\u0020with\u0020the\u0020provided\nexample\u0020pages\u0020and\u0020data\u0020in\u0020the\u0020eh_examples\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-ehExamplesController.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehExamplesController\u003A\u003Aindex\u0028\u0029",
@@ -893,7 +893,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehPagesController",
             "name": "ehPagesController",
-            "summary": "",
+            "summary": "The\u0020Controller\u0020responsible\u0020for\u0020managing\u0020the\u0020crud\u0020interaction\u0020with\u0020the\u0020Menus\/Pages\u0020entries\u0020in\u0020the\u0020eh_pages\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-ehPagesController.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehPagesController\u003A\u003Aindex\u0028\u0029",
@@ -943,7 +943,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehRolesController",
             "name": "ehRolesController",
-            "summary": "",
+            "summary": "The\u0020Controller\u0020responsible\u0020for\u0020managing\u0020the\u0020crud\u0020interaction\u0020with\u0020the\u0020roles\u0020and\u0020permissions\nin\u0020the\u0020eh_roles,\u0020eh_roles_lookup\u0020and\u0020eh_access_tokens\u0020tables.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-ehRolesController.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehRolesController\u003A\u003A__construct\u0028\u0029",
@@ -1008,7 +1008,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehUsersController",
             "name": "ehUsersController",
-            "summary": "",
+            "summary": "The\u0020Controller\u0020responsible\u0020for\u0020managing\u0020the\u0020crud\u0020interaction\u0020with\u0020the\u0020users\u0020profile\u0020data\u0020in\u0020the\u0020users\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-ehUsersController.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehUsersController\u003A\u003Aindex\u0028\u0029",
@@ -1053,12 +1053,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\AuthenticatedSessionController",
             "name": "AuthenticatedSessionController",
-            "summary": "",
+            "summary": "This\u0020is\u0020the\u0020package\u0020published\u0020version\u0020that\u0020extends\u0020the\u0020ehAuthenticatedSessionController\nwhich\u0020is\u0020providing\u0020the\u0020additional\u0020package\u0020permission\u0020checks.",
             "url": "classes/App-Http-Controllers-Auth-AuthenticatedSessionController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\ConfirmablePasswordController",
             "name": "ConfirmablePasswordController",
-            "summary": "",
+            "summary": "The\u0020package\u0020published\u0020version\u0020of\u0020the\u0020Laravel\u0020Breeze\u0020Controller.",
             "url": "classes/App-Http-Controllers-Auth-ConfirmablePasswordController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\ConfirmablePasswordController\u003A\u003Ashow\u0028\u0029",
@@ -1073,7 +1073,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController",
             "name": "EmailVerificationNotificationController",
-            "summary": "",
+            "summary": "The\u0020package\u0020published\u0020version\u0020of\u0020the\u0020Laravel\u0020Breeze\u0020Controller.",
             "url": "classes/App-Http-Controllers-Auth-EmailVerificationNotificationController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController\u003A\u003Astore\u0028\u0029",
@@ -1083,7 +1083,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\EmailVerificationPromptController",
             "name": "EmailVerificationPromptController",
-            "summary": "",
+            "summary": "The\u0020package\u0020published\u0020version\u0020of\u0020the\u0020Laravel\u0020Breeze\u0020Controller.",
             "url": "classes/App-Http-Controllers-Auth-EmailVerificationPromptController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\EmailVerificationPromptController\u003A\u003A__invoke\u0028\u0029",
@@ -1093,7 +1093,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\NewPasswordController",
             "name": "NewPasswordController",
-            "summary": "",
+            "summary": "The\u0020package\u0020published\u0020version\u0020of\u0020the\u0020Laravel\u0020Breeze\u0020Controller.",
             "url": "classes/App-Http-Controllers-Auth-NewPasswordController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\NewPasswordController\u003A\u003Acreate\u0028\u0029",
@@ -1108,7 +1108,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\PasswordController",
             "name": "PasswordController",
-            "summary": "",
+            "summary": "The\u0020package\u0020published\u0020version\u0020of\u0020the\u0020Laravel\u0020Breeze\u0020Controller.",
             "url": "classes/App-Http-Controllers-Auth-PasswordController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\PasswordController\u003A\u003Aupdate\u0028\u0029",
@@ -1133,7 +1133,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\RegisteredUserController",
             "name": "RegisteredUserController",
-            "summary": "",
+            "summary": "The\u0020package\u0020published\u0020version\u0020of\u0020the\u0020Laravel\u0020Breeze\u0020Controller.",
             "url": "classes/App-Http-Controllers-Auth-RegisteredUserController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\RegisteredUserController\u003A\u003Acreate\u0028\u0029",
@@ -1148,7 +1148,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\VerifyEmailController",
             "name": "VerifyEmailController",
-            "summary": "",
+            "summary": "The\u0020package\u0020published\u0020version\u0020of\u0020the\u0020Laravel\u0020Breeze\u0020Controller.",
             "url": "classes/App-Http-Controllers-Auth-VerifyEmailController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\Auth\\VerifyEmailController\u003A\u003A__invoke\u0028\u0029",
@@ -1158,7 +1158,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Http\\Controllers\\ehHomeController",
             "name": "ehHomeController",
-            "summary": "Welcome\u0020to\u0020the\u0020eco\u002Dhelpers\u0020framework\u0020and\u0020utilities.",
+            "summary": "A\u0020sample\u0020home\u0020controller\u0020with\u0020some\u0020basic\u0020formatting\u0020page\u0020setup\u0020examples\u0020and\u0020information.",
             "url": "classes/App-Http-Controllers-ehHomeController.html"
         },                {
             "fqsen": "\\App\\Http\\Controllers\\ehHomeController\u003A\u003A__construct\u0028\u0029",
@@ -1173,7 +1173,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\database\\factories\\ehExampleFactory",
             "name": "ehExampleFactory",
-            "summary": "",
+            "summary": "Not\u0020sure\u0020this\u0020has\u0020been\u0020implemented\u0020or\u0020in\u0020use\u0020anywhere.\u0020\u0028\u003F\u0029",
             "url": "classes/ScottNason-EcoHelpers-database-factories-ehExampleFactory.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\database\\factories\\ehExampleFactory\u003A\u003Adefinition\u0028\u0029",
@@ -1183,7 +1183,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\database\\seeders\\ehExamplesSeeder",
             "name": "ehExamplesSeeder",
-            "summary": "",
+            "summary": "Not\u0020sure\u0020this\u0020has\u0020been\u0020implemented\u0020or\u0020in\u0020use\u0020anywhere.\u0020\u0028\u003F\u0029",
             "url": "classes/ScottNason-EcoHelpers-database-seeders-ehExamplesSeeder.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\database\\seeders\\ehExamplesSeeder\u003A\u003Arun\u0028\u0029",
@@ -1193,7 +1193,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\EcoHelpersServiceProvider",
             "name": "EcoHelpersServiceProvider",
-            "summary": "Class\u0020EcoHelperServiceProvider\nScottNason\\EcoHelpers\\EcoHelpersServiceProvider\u003A\u003Aclass",
+            "summary": "Package\u0020Class\u0020EcoHelperServiceProvider\u0020for\nScottNason\\EcoHelpers\\EcoHelpersServiceProvider\u003A\u003Aclass",
             "url": "classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\EcoHelpersServiceProvider\u003A\u003Aregister\u0028\u0029",
@@ -1213,7 +1213,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Middleware\\ehCheckPermissions",
             "name": "ehCheckPermissions",
-            "summary": "The\u0020basic\u0020middleware\u0028\u0027auth\u0027\u0029\u0020checks\u0020only\u0020to\u0020see\u0020if\u0020you\u0027re\u0020logged\u0020in.",
+            "summary": "This\u0020is\u0020the\u0020main\u0020ecoFramework\u0020base\u0020route\u0020permissions\u0020check\u0020for\u0020all\u0020controllers\u0020that\u0020extend\u0020Controller\n\u0020\u0020\u0028added\u0020in\u0020the\u0020base\u0020Controller\u0020__construct\u0020right\u0020after\u0020the\u0020\u0027auth\u0027\u0020middleware\u0020check.\u0029",
             "url": "classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Middleware\\ehCheckPermissions\u003A\u003Ahandle\u0028\u0029",
@@ -1233,7 +1233,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehAccessToken",
             "name": "ehAccessToken",
-            "summary": "",
+            "summary": "The\u0020model\u0020associated\u0020with\u0020the\u0020eh_access_tokens\u0020table\u0020which\u0020stores\u0020role\u0020access\u0020permissions.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehAccessToken.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehAccessToken\u003A\u003A\u0024table",
@@ -1248,7 +1248,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehBaseAuthenticatable",
             "name": "ehBaseAuthenticatable",
-            "summary": "",
+            "summary": "The\u0020base\u0020model\u0020for\u0020the\u0020ehUser\u0020model\u0020to\u0020extend\u003B\u0020this\u0020obviously\u0020extends\u0020the\u0020underlying\u0020Laravel\u0020Authenticatable.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehBaseAuthenticatable.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehBaseAuthenticatable\u003A\u003A\u0024timestamps",
@@ -1258,7 +1258,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehBaseModel",
             "name": "ehBaseModel",
-            "summary": "",
+            "summary": "The\u0020base\u0020model\u0020for\u0020the\u0020all\u0020models\u0020to\u0020extend\u003B\u0020this\u0020extends\u0020the\u0020underlying\u0020Laravel\u0020Model.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehBaseModel.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehBaseModel\u003A\u003A\u0024timestamps",
@@ -1268,7 +1268,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehExample",
             "name": "ehExample",
-            "summary": "",
+            "summary": "The\u0020base\u0020model\u0020for\u0020the\u0020all\u0020models\u0020to\u0020extend\u003B\u0020this\u0020extends\u0020the\u0020underlying\u0020Laravel\u0020Model.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehExample.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehExample\u003A\u003A\u0024table",
@@ -1298,7 +1298,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehNotification",
             "name": "ehNotification",
-            "summary": "",
+            "summary": "The\u0020model\u0020associated\u0020with\u0020the\u0020eh_notifications\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehNotification.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehNotification\u003A\u003A\u0024table",
@@ -1323,7 +1323,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehPage",
             "name": "ehPage",
-            "summary": "",
+            "summary": "The\u0020model\u0020associated\u0020with\u0020the\u0020eh_pages\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehPage.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehPage\u003A\u003AgetPageInfo\u0028\u0029",
@@ -1378,7 +1378,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehRole",
             "name": "ehRole",
-            "summary": "This\u0020was\u0020formerly\u0020the\u0020ehRole\u0020model.",
+            "summary": "The\u0020model\u0020associated\u0020with\u0020the\u0020eh_roles\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehRole.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehRole\u003A\u003A\u0024table",
@@ -1408,7 +1408,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehRoleLookup",
             "name": "ehRoleLookup",
-            "summary": "This\u0020was\u0020formerly\u0020the\u0020ehRole\u0020model.",
+            "summary": "The\u0020model\u0020associated\u0020with\u0020the\u0020eh_roles_lookup\u0020table\u0020which\u0020provides\u0020a\u0020link\u0020between\u0020roles\u0020and\u0020assigned\u0020users.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehRoleLookup.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehRoleLookup\u003A\u003A\u0024table",
@@ -1438,7 +1438,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehSetting",
             "name": "ehSetting",
-            "summary": "",
+            "summary": "The\u0020model\u0020associated\u0020with\u0020the\u0020eh_settings\u0020table.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehSetting.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehSetting\u003A\u003A\u0024table",
@@ -1468,7 +1468,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser",
             "name": "ehUser",
-            "summary": "",
+            "summary": "The\u0020base\u0020model\u0020designed\u0020to\u0020be\u0020extended\u0020to\u0020the\u0020User\u0020model\u003B\u0020this\u0020model\u0020provides\u0020additional\u0020package\nuser\u0020functions\u0020through\u0020the\u0020ehUserFunctions\u0020trait.",
             "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003AuniqueUserName\u0028\u0029",
@@ -1518,7 +1518,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Models\\User",
             "name": "User",
-            "summary": "ecoHelpers\u0020User\u0020Model\u0020the\u0020ehUser\u0020Model.",
+            "summary": "The\u0020publishable\u0020User\u0020model\u0020that\u0020extends\u0020the\u0020ehUser\u0020model\u0020providing\u0020additional\u0020functionality\u003B\nbut,\u0020as\u0020of\u00203\/3\/2024,\u0020this\u0020is\u0020not\u0020actually\u0020published,\u0020but\u0020part\u0020of\u0020the\u0020installation\u0020instructions\nto\u0020modify\u0020User\u0020to\u0020\u0022extend\u0022\u0020the\u0020ehUser\u0020model.",
             "url": "classes/App-Models-User.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Rules\\CheckEmails",
@@ -1558,7 +1558,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehAllModelsBoot",
             "name": "ehAllModelsBoot",
-            "summary": "",
+            "summary": "This\u0020trait\u0020is\u0020used\u0020in\u0020the\u0020ehBaseModel\u0020and\u0020ehBaseAuthenticatable\nand\u0020defines\u0020the\u0020boot\u0028\u0029\u0020method\u0020that\u0020all\u0020models\u0020need\u0020access\u0020to.",
             "url": "classes/ScottNason-EcoHelpers-Traits-ehAllModelsBoot.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehAllModelsBoot\u003A\u003Aboot\u0028\u0029",
@@ -1568,7 +1568,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehConvertNumbersToSavable",
             "name": "ehConvertNumbersToSavable",
-            "summary": "",
+            "summary": "This\u0020trait\u0020is\u0020used\u0020in\u0020the\u0020ehBaseModel\u0020to\u0020convert\u0020fields\u0020defined\u0020as\u0020\u0022numbers\u0022\ninto\u0020mysql\u0020savable\u0020format\u0020\u0028mostly\u0020removing\u0020commas\u0029.",
             "url": "classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehConvertNumbersToSavable\u003A\u003AconvertNumbersToSavable\u0028\u0029",
@@ -1593,7 +1593,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehFileUpload",
             "name": "ehFileUpload",
-            "summary": "",
+            "summary": "This\u0020trait\u0020is\u0020used\u0020in\u0020any\u0020Controller\u0020that\u0020needs\u0020to\u0020include\u0020the\u0020file\u0020upload\u0020option.",
             "url": "classes/ScottNason-EcoHelpers-Traits-ehFileUpload.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehFileUpload\u003A\u003AsetTimeLimit\u0028\u0029",
@@ -1813,7 +1813,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehGetLabels",
             "name": "ehGetLabels",
-            "summary": "",
+            "summary": "This\u0020trait\u0020provides\u0020a\u0020helper\u0020function\u0020to\u0020getLabel\u0028\u0027field_name\u0027\u0029\u0020from\u0020the\u0020model.",
             "url": "classes/ScottNason-EcoHelpers-Traits-ehGetLabels.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehGetLabels\u003A\u003AgetLabel\u0028\u0029",
@@ -1823,7 +1823,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehHasUserstamps",
             "name": "ehHasUserstamps",
-            "summary": "",
+            "summary": "This\u0020trait\u0020is\u0020responsible\u0020for\u0020maintaining\u0020the\u0020ecoFramework\u0020fields\u003A\ncreated_by\ncreated_at\nupdated_by\nupdated_at",
             "url": "classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehHasUserstamps\u003A\u003AcreatingTimestamps\u0028\u0029",
@@ -1858,7 +1858,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserSecurity",
             "name": "ehUserSecurity",
-            "summary": "",
+            "summary": "3\/3\/2024\u0020\u002D\u0020NOT\u0020IMPLEMENTED\u0020\u002D\u002D\u0020This\u0020trait\u0020is\u0020responsible\u0020for\u0020checking\u0020the\u0020user\u0020basic\u0020login\u0020permissions\non\u0020initial\u0020login\u0020and\u0020when\u0020changing\u0020roles.",
             "url": "classes/ScottNason-EcoHelpers-Traits-ehUserSecurity.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserSecurity\u003A\u003AcheckUser\u0028\u0029",

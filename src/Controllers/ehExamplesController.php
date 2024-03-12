@@ -10,7 +10,11 @@ use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
 use ScottNason\EcoHelpers\Classes\ehAccess;
 
-
+/**
+ * The Controller responsible for managing the crud interaction with the provided
+ * example pages and data in the eh_examples table.
+ *
+ */
 class ehExamplesController extends ehBaseController
 {
     /**

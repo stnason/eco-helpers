@@ -106,7 +106,7 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/ScottNason-EcoHelpersOriginallyhadtoaddtoconfigapp.html" class="">EcoHelpersOriginallyhadtoaddtoconfigapp</a>
+                <a href="packages/ScottNason-EcoHelpers.html" class="">EcoHelpers</a>
                 
             </li>
             </ul>
@@ -157,24 +157,24 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Middleware/ehCheckPermissions.php"><a href="files/eco-helpers-src-middleware-ehcheckpermissions.html"><abbr title="eco-helpers/src/Middleware/ehCheckPermissions.php">ehCheckPermissions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">The basic middleware(&#039;auth&#039;) checks only to see if you&#039;re logged in.</p>
+            <p class="phpdocumentor-summary">This is the main ecoFramework base route permissions check for all controllers that extend Controller
+  (added in the base Controller __construct right after the &#039;auth&#039; middleware check.)</p>
 
-    <section class="phpdocumentor-description"><p>This checks the logged in user's assigned permissions by acting role -- to this page/route.</p>
+    <section class="phpdocumentor-description"><p>The basic middleware('auth') only checks to see if you're logged in, so
+this checks the logged in user's ASSIGNED permissions by acting role, against the requested route.</p>
 <p>This middleware's job is to determine, &quot;If the user can access this page/route.&quot;</p>
-<p>This is registered (by the package discovery??) in the App/http/Kernel file under:
+<p>This is registered (by the package discovery) in the App/http/Kernel file under:
 protected $routeMiddleware = [
 'check_permissions' =&gt; \ScottNason\EcoHelpers\Middleware\ehCheckPermissions::class</p>
-<p>This is the main ecoFramework base route permissions check for all controllers that extend Controller.
-(added in the base Controller after the 'auth' middleware check.)</p>
-<p>!! WARNING -- if your controller does not extend Controller and you need this security</p>
+<p>!! WARNING -- if your controller does not extend ehBaseController and you need this security</p>
 <ul>
 <li>just add the middleware 'check_permissions' after 'web' (see the ehBaseController for an example)</li>
 </ul>
-<p>Checks for a fully qualified route name like: examples.index
+<p>This does check for a fully qualified route name like: examples.index
 Then we'll look for page type = 'resource'
 and then check the associated user permission for the requested action
 index, show, create, edit, destroy, store, update</p>
@@ -269,7 +269,7 @@ or to take a more secure approach of just redirecting to the home page.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Middleware/ehCheckPermissions.php"><a href="files/eco-helpers-src-middleware-ehcheckpermissions.html"><abbr title="eco-helpers/src/Middleware/ehCheckPermissions.php">ehCheckPermissions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -310,7 +310,7 @@ or to take a more secure approach of just redirecting to the home page.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Middleware/ehCheckPermissions.php"><a href="files/eco-helpers-src-middleware-ehcheckpermissions.html"><abbr title="eco-helpers/src/Middleware/ehCheckPermissions.php">ehCheckPermissions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -363,7 +363,7 @@ or to take a more secure approach of just redirecting to the home page.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Middleware/ehCheckPermissions.php"><a href="files/eco-helpers-src-middleware-ehcheckpermissions.html"><abbr title="eco-helpers/src/Middleware/ehCheckPermissions.php">ehCheckPermissions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">382</span>
+    <span class="phpdocumentor-element-found-in__line">381</span>
 
     </aside>
 

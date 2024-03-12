@@ -12,6 +12,10 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+/**
+ * The package published version of the Laravel Breeze Controller.
+ *
+ */
 class NewPasswordController extends Controller
 {
     /**

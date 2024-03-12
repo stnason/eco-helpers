@@ -6,17 +6,16 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Http\Kernel;
 
 /**
- * Class EcoHelperServiceProvider
+ * Package Class EcoHelperServiceProvider for
  * ScottNason\EcoHelpers\EcoHelpersServiceProvider::class
- * @package ScottNason\EcoHelpers
+ * @package ScottNason\EcoHelpers.
  *
  * Originally had to add to config/app.php; but it should now auto-discover and register itself properly.
- *
  *
  * NOTE on the "public" paths.
  * ??? I had to register the public path in the AppServiceProvider.php
  *      for the live site in order to get the files to copy to the right place.
- *      (this may only be true when not using the default Laravel public folder).
+ *      (this may only be true when NOT USING the default Laravel public folder).
  *
  */
 
@@ -104,9 +103,9 @@ class EcoHelpersServiceProvider extends ServiceProvider
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Publish the end-user editable views.
         $this->publishes([
-            __DIR__.'/views/publishable/views-ecoHelpers' => resource_path('views/ecoHelpers'),     // The main views
-            __DIR__.'/views/publishable/views-auth' => resource_path('views/auth-ecoHelpers'),      // This will need to be renamed to just "auth" on the other side.          // The auth views
-            __DIR__.'/views/publishable/views-auto-load' => resource_path('views/ecoHelpers'),      // The auto-loader views
+            __DIR__.'/views/publishable/views-ecoHelpers' => resource_path('views/ecoHelpers'),         // The main views
+            __DIR__.'/views/publishable/views-auth' => resource_path('views/auth-ecoHelpers'),          // This will need to be renamed to just "auth" on the other side.          // The auth views
+            __DIR__.'/views/publishable/views-auto-load' => resource_path('views/ecoHelpers/auto-load'),    // The auto-loader views
             ], 'views');
 
 

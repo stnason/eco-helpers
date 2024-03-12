@@ -1,25 +1,17 @@
 <?php
-/**
- * Pull or create a $key=>$value pair for a dropdown <select>
- * ValidList class to either hard code a list for a drop-down or pull from a database query
- * abstracted here so you can quickly hard code an array; and as needed, and then build a real query later
- *
- * created: 12/24/2014
- *
- * Provides methods:
- * getList()
- * pullQuery()
- * pullUnique()
- * combineLists()
- * makeListWith()
- *
- */
-namespace ScottNason\EcoHelpers\Classes;
 
+namespace ScottNason\EcoHelpers\Classes;
 
 use Illuminate\Support\Facades\DB;
 
-
+/**
+ * ehValidList is the core package list manager the provides an easy way to include dropdown (<select>)
+ * lists inside of your forms; generated from either static key=>value pair arrays or pulled from
+ * a table.
+ *
+ * This class is intended to be extended by the published ValidList class.
+ *
+ */
 class ehValidList {
     
     /**

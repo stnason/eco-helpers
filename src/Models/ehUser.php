@@ -11,12 +11,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;          // Needed (and the imple
 
 use ScottNason\EcoHelpers\Traits\ehUserFunctions;
 
-/*
- * 5/14/2023; UPDATE: Moved the trait back here and using ehUser for all the internal framework calls to those functions.
+/**
+ * The base model designed to be extended to the User model; this model provides additional package
+ * user functions through the ehUserFunctions trait.
  *
  */
-
-
 class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
 {
     //use Notifiable;

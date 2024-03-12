@@ -13,8 +13,8 @@ use ScottNason\EcoHelpers\Models\ehPage;
 
 
 /**
- * Helper functions to generates the initial, OOTB startup data
- * needed to configure and test the ecoHelpers package.
+ * Called by the command line utility eco-helpers:sample-data, these are functions to generates the initial,
+ * OOTB startup data (users, roles and examples) needed to run and test the ecoHelpers package.
  *
  * These function are called from the Artisan console command, ecoHelpersSampleData.
  *

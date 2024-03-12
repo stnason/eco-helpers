@@ -1,6 +1,5 @@
 <?php
 
-//namespace App\Http\Middleware;
 namespace ScottNason\EcoHelpers\Middleware;
 
 use App\Classes\Access;
@@ -16,22 +15,22 @@ use ScottNason\EcoHelpers\Models\ehPage;
 
 
 /**
- * The basic middleware('auth') checks only to see if you're logged in.
- * This checks the logged in user's assigned permissions by acting role -- to this page/route.
+ *  This is the main ecoFramework base route permissions check for all controllers that extend Controller
+ *   (added in the base Controller __construct right after the 'auth' middleware check.)
+ *
+ * The basic middleware('auth') only checks to see if you're logged in, so
+ * this checks the logged in user's ASSIGNED permissions by acting role, against the requested route.
  *
  * This middleware's job is to determine, "If the user can access this page/route."
  *
- * This is registered (by the package discovery??) in the App/http/Kernel file under:
+ * This is registered (by the package discovery) in the App/http/Kernel file under:
  *  protected $routeMiddleware = [
  *   'check_permissions' => \ScottNason\EcoHelpers\Middleware\ehCheckPermissions::class
  *
- * This is the main ecoFramework base route permissions check for all controllers that extend Controller.
- *  (added in the base Controller after the 'auth' middleware check.)
- *
- * !! WARNING -- if your controller does not extend Controller and you need this security
+ * !! WARNING -- if your controller does not extend ehBaseController and you need this security
  *  - just add the middleware 'check_permissions' after 'web' (see the ehBaseController for an example)
  *
- * Checks for a fully qualified route name like: examples.index
+ * This does check for a fully qualified route name like: examples.index
  *  Then we'll look for page type = 'resource'
  *  and then check the associated user permission for the requested action
  *  index, show, create, edit, destroy, store, update

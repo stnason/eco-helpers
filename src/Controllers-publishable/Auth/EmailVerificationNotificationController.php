@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
+/**
+ * The package published version of the Laravel Breeze Controller.
+ */
 class EmailVerificationNotificationController extends Controller
 {
     /**

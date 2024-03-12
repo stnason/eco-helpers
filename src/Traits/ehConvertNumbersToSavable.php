@@ -1,25 +1,22 @@
 <?php
 
-/**
- * This trait is used in the BaseModel
- *  to convert fields defined as "numbers" in the mysql table to a mysql savable format.
- *
- *  Note: this works in conjunction with the 'number_format' parameter in Controls
- *  (which is adding the thousands comma separators).
- *
- * Note: MySQL seems to be albel to deal fine with decimals being passed to integer types (i.e. 10.6 rounds up to 11)
- *  Just can't deal withe comma -- it must think it's a string then.
- *
- * Include "use App/Traits/ehConvertNumbersToSavable" in any Model Class declaration
- *  that doesn't extend the BaseModel (if needed).
- *
- */
-
 namespace ScottNason\EcoHelpers\Traits;
 
 use Illuminate\Support\Facades\DB;
 
-
+/**
+ * This trait is used in the ehBaseModel to convert fields defined as "numbers"
+ * into mysql savable format (mostly removing commas).
+ *
+ * Note: this works in conjunction with the 'number_format' parameter in Controls
+ * (which is adding the thousands comma separators).
+ *
+ * Note: MySQL seems to be albel to deal fine with decimals being passed to integer types (i.e. 10.6 rounds up to 11)
+ * Just can't deal withe comma -- it must think it's a string then.
+ *
+ * Include "use App/Traits/ehConvertNumbersToSavable" in any Model Class declaration
+ * that doesn't extend the BaseModel (if needed).
+ */
 trait ehConvertNumbersToSavable
 {
 

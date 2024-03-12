@@ -5,8 +5,8 @@ namespace ScottNason\EcoHelpers\Classes;
 use ScottNason\EcoHelpers\Models\ehSetting;
 
 /**
- * ehConfig is an interface that combines both the settings table and the eco-helpers config file.
- * A convenient way to access all eco helpers settings in one spot from a single interface.
+ * ehConfig is a helper function to provide access to the values contained in either
+ * the system settings table or the eco-helpers configuration file.
  *
  */
 
