@@ -14,28 +14,15 @@ if ($form['role_is_locked']) {
 @endphp
 
 @section ('base_head')
+
     {{-- Get the Menu & Page List styling.  --}}
     <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-page-list.css')}}">
-
 
     <style>
         ul#page-tree {
             /* We need to lock to this to a fixed height for the users display and force it to scrollable. */
             height: 22em;
         }
-        /* This is the "Remove Selected Users" button below the Users dialog box. */
-        button#remove-selected-button {
-            width: 89%;
-            margin-left: 1.4em;
-            margin-right: 1em;
-            margin-top: -14px;
-            margin-bottom: 4px;
-        }
-    </style>
-
-    {{-- Most of the css for the rights grid and edit area is contained in the eh-app-forms-tables.cc file.
-    <style>
-
         /* In the rights grid edit area for the permissions copy to group alignment. */
         .copy-to-group {
             position: absolute;
@@ -49,7 +36,8 @@ if ($form['role_is_locked']) {
             width: 100%;
         }
         table.feature-grid, td.feature-grid-text, td.feature-grid-checkbox, td.feature-grid-label {
-            border-style : hidden !important;
+            border-style : hidden!important;
+
             font-size: 0.94em;
             line-height: 1em;
         }
@@ -59,10 +47,6 @@ if ($form['role_is_locked']) {
             border-bottom: 1px solid darkblue;
         }
          */
-
-        td[class^='grid-col-'] {
-            text-align: center;
-        }
         td.feature-grid-label {
             font-weight: bold;
             vertical-align: top;
@@ -82,16 +66,25 @@ if ($form['role_is_locked']) {
             color: darkgray;
         }
 
-
+        /* This is the "Remove Selected Users" button below the Users dialog box. */
+        button#remove-selected-button {
+            width: 89%;
+            margin-left: 1.4em;
+            margin-right: 1em;
+            margin-top: -14px;
+            margin-bottom: 4px;
+        }
 
     </style>
-    --}}
+
 @endsection ('base_head')
+
 
 
 @section ('base_body')
 
-        <form class="eh-form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
+    <div class="container">
+        <form class="form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
             @csrf
             @method($form['layout']['form_method'] ?? 'PATCH')
 
@@ -107,23 +100,28 @@ if ($form['role_is_locked']) {
 
                     <div class="row">
                         {{-- Left column of form data. --}}
-                        <div class="col-md text-nowrap mb-3">
+                        <div class="col-md text-nowrap">
                             <div class="form-group d-inline-flex">
                                 <label>Role ID: <strong>{{ $role->id }}</strong></label>
                             </div>
                         </div>
-
+                        {{-- Right column of form data. --}}
+                        <div class="col-md">
+                            <div class="form-group d-inline-flex">
+                                <label>&nbsp;</label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md">
-                            <div class="form-group d-inline-flex flex-wrap">
+                            <div class="form-group d-inline-flex">
                                 {!! $control::label(['field_name'=>'active', 'display_name'=>$role, 'errors'=>$errors]) !!}
                                 {!! $control::radio(['field_name'=>'active', 'model'=>$role, 'alert_if'=>'0', 'errors'=>$errors, 'disabled'=>$edit_lock, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-group d-inline-flex flex-wrap">
+                            <div class="form-group d-inline-flex">
                                 {!! $control::label(['field_name'=>'goto', 'display_name'=>'Go To', 'errors'=>$errors]) !!}
                                 {!! $control::select([
                                 'field_name'=>'goto',
@@ -147,12 +145,12 @@ if ($form['role_is_locked']) {
                                 {!! $control::label(['field_name'=>'site_admin', 'display_name'=>$role, 'errors'=>$errors]) !!}
                                 {!! $control::radio(['field_name'=>'site_admin', 'model'=>$role, 'disabled'=>$edit_lock, 'alert_if'=>'1', 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
                             </div>
-                            <div class="form-group d-inline-flex flex-wrap">
+                            <div class="form-group d-inline-flex">
                                 {!! $control::label(['field_name'=>'name', 'display_name'=>$role, 'errors'=>$errors]) !!}
                                 {!! $control::input(['field_name'=>'name', 'model'=>$role, 'disabled'=>$edit_lock, 'errors'=>$errors]) !!}
                             </div>
 
-                            <div class="form-group d-inline-flex flex-wrap">
+                            <div class="form-group d-inline-flex">
                                 {!! $control::label(['field_name'=>'default_home_page', 'display_name'=>$role, 'errors'=>$errors]) !!}
                                 {!! $control::select([
                                 'field_name'=>'default_home_page',
@@ -182,12 +180,12 @@ if ($form['role_is_locked']) {
 
 
                     <div class="row">
-                        <div class="col-sm">
+                        <div class="col-md-10">
                             {{-- Leaving off the -flex at the end of d-inline causes the label to be above
                             the <textarea> but it seems to be the only way I can get the width to be 100%
                             and responsive.
                             --}}
-                            <div class="form-group d-inline-flex flex-wrap">
+                            <div class="form-group d-inline">
                                 {!! $control::label(['field_name'=>'description', 'display_name'=>$role, 'errors'=>$errors]) !!}
                                 {!! $control::textarea(['field_name'=>'description', 'model'=>$role, 'disabled'=>$edit_lock, 'rows'=>'3', 'errors'=>$errors]) !!}
                             </div>
@@ -208,26 +206,18 @@ if ($form['role_is_locked']) {
                         <ul id="page-tree" class="tree-view overflow-auto">
                             @foreach ($form['user_list'] as $user)
 
-                                {{-- Display an asterisk if they are not Active --}}
+                                {{-- display an asterisk if they are not Active --}}
 
-                                {{-- OLD TO DO: we're going to have to somehow pass both a user id AND a role id.
+                                {{-- OLD TO DO: we're going to have to somehow pass both a user id AND a group id.
                                     (To what? Don't know what this is saying to do.)
                                     --}}
-
-                                {{-- Disable the user list radio buttons if this role is edit locked
-                                     (set at top of page from controller). --}}
-                                @php
-                                    $disabled = '';
-                                    if ($edit_lock) { $disabled = 'disabled'; }
-                                @endphp
-
                                 @if ($user->login_active)
-                                    <li class="menu-item"><input type="checkbox" {{$disabled}} value="{{$user->id}}">
+                                    <li class="menu-item"><input type="checkbox" value="{{$user->id}}">
                                         <strong><a target="_blank"
                                                    href="{{config('app.url')}}/users/{{$user->id}}">{{$user->name}}</a></strong>
                                     </li>
                                 @else
-                                    <li class="deactive"><input type="checkbox" {{$disabled}} value="{{$user->id}}">
+                                    <li class="deactive"><input type="checkbox" value="{{$user->id}}">
                                         <a target="_blank"
                                            href="{{config('app.url')}}/users/{{$user->id}}">*{{$user->name}}</a>
                                     </li>
@@ -243,127 +233,125 @@ if ($form['role_is_locked']) {
                 </div>
                 @endif
 
+
             </div>
 
 
             {{-- Rights grid heading area. --}}
-            <p class="mt-3"></p>
             @if (!$edit_lock)
             @include ('ecoHelpers::roles.rights-edit-area')
             @endif
-            <p class="mb-4"></p>
 
-            {{-- Standard form information header; for end-user form content headings.  --}}
+            {{-- Standard form information header; for endu-user form content headings.  --}}
             @php $model = $role @endphp
             @include('ecoHelpers::core.eh-system-info')
 
-        </form>
 
+        </form>
+    </div>
 
 @endsection ('base_body')
 
+
+
 @section ('base_js')
 
-    @if ($edit_lock)
-        {{-- We're not allowing editing ADMIN or NO ACCESS (set in controller) roles so do not load ANY js. --}}
-    @else
-        {{-- Normal editing so go ahead and load all the regular js for editing a role. --}}
+    <script type="text/javascript">
+        // Goto submit for the Module list dropdown
+        goto_url = "{{config('app.url')}}/roles";
 
-        <script type="text/javascript">
-            // Goto submit for the Module list dropdown
-            goto_url = "{{config('app.url')}}/roles";
+        // Set the Standard "Delete Me" message
+        delete_me_message = "Are you sure you want to permanently delete this Role?\n\nWARNING: This will also clear any stored access permissions for this Role!";
+    </script>
 
-            // Set the Standard "Delete Me" message
-            delete_me_message = "Are you sure you want to permanently delete this Role?\n\nWARNING: This will also clear any stored access permissions for this Role!";
-        </script>
 
-        <script type="text/javascript">
+    <script type="text/javascript">
 
-            $(document).ready(function () {
+        $(document).ready(function () {
 
-                ///////////////////////////////////////////////////////////////////////////////////////////
-                // "Copy From" warning box
-                var copy_from_role_name = $("#copy_role_id option:selected").text();
-                var copy_to_role_name = "{{ $role->name }}";
-                $('#copy_from').click(function () {
-                    // Refresh these variables to current whenever called.
-                    copy_from_role_name = $("#copy_role_id option:selected").text();
-                    copy_to_role_name = '{{ $role->name }}';
-                    return confirm("Are you sure you want to Copy from "
-                        + copy_from_role_name + " to " + copy_to_role_name
-                        + "?\n\nThis action will completely REPLACE ALL current permissions for "
-                        + copy_to_role_name + "!");
-                });
-
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            // "Copy From" warning box
+            var copy_from_role_name = $("#copy_gsid option:selected").text();
+            var copy_to_role_name = '{{ $role->role_name }}';
+            $('#copy_from').click(function () {
+                // Refresh these variables to current whenever called.
+                copy_from_role_name = $("#copy_gsid option:selected").text();
+                copy_to_role_name = '{{ $role->role_name }}';
+                return confirm("Are you sure you want to Copy from "
+                    + copy_from_role_name + " to " + copy_to_role_name
+                    + "?\n\nWill completely REPLACE any current permissions for "
+                    + copy_to_role_name + "!");
             });
 
+        });
 
-            // This is the <span? to display how many user are selected out of how many total.
-            var users_selected = $("#users_selected");
-            // This is the initial display of selected / total.
+
+        // This is the <span? to display how many user are selected out of how many total.
+        var users_selected = $("#users_selected");
+        // This is the initial display of selected / total.
+        users_selected.text($(".tree-view input:checkbox:checked").length + "/" + $(".tree-view input:checkbox").length);
+        $(".tree-view input:checkbox").click(function() {
+            // Then this is the updated users selected / users total after each click on one of the check boxes in the Users box.
             users_selected.text($(".tree-view input:checkbox:checked").length + "/" + $(".tree-view input:checkbox").length);
-            $(".tree-view input:checkbox").click(function() {
-                // Then this is the updated users selected / users total after each click on one of the check boxes in the Users box.
-                users_selected.text($(".tree-view input:checkbox:checked").length + "/" + $(".tree-view input:checkbox").length);
-            });
+        });
 
-            // Select all users / select none./
-            $("#select-all-none").click(function() {
-                // Toggle the check box state from the previous.
-                $('.tree-view input:checkbox').prop('checked', !$('.tree-view input:checkbox').prop('checked'));
-                // Then update the users selected / users total in the Users box.
-                users_selected.text($(".tree-view input:checkbox:checked").length + "/" + $(".tree-view input:checkbox").length);
-            });
+        // Select all users / select none./
+        $("#select-all-none").click(function() {
+            // Toggle the check box state from the previous.
+            $('.tree-view input:checkbox').prop('checked', !$('.tree-view input:checkbox').prop('checked'));
+            // Then update the users selected / users total in the Users box.
+            users_selected.text($(".tree-view input:checkbox:checked").length + "/" + $(".tree-view input:checkbox").length);
+        });
 
 
-            // Remove Selected Users button was pressed.
-            $("#remove-selected-button").click(function() {
+        // Remove Selected Users button was pressed.
+        $("#remove-selected-button").click(function() {
 
-                // No checkboxes are checked.
-                if ($(".tree-view input:checkbox:checked").length == 0) {
-                    alert("No users selected.");
+            // No checkboxes are checked.
+            if ($(".tree-view input:checkbox:checked").length == 0) {
+                alert("No users selected.");
+            } else {
+
+                // All checkboxes for the users are checked
+                var confirm_message = "";
+                if ($(".tree-view input:checkbox:checked").length == $(".tree-view input:checkbox").length) {
+                    confirm_message = "You are about to remove ALL of the users from this role. Are you sure?";
                 } else {
+                    confirm_message = "This is going to remove the selected users ("+$(".tree-view input:checkbox:checked").length+") from this role. Are you sure?";
+                }
 
-                    // All checkboxes for the users are checked
-                    var confirm_message = "";
-                    if ($(".tree-view input:checkbox:checked").length == $(".tree-view input:checkbox").length) {
-                        confirm_message = "You are about to remove ALL of the users from this role. Are you sure?";
-                    } else {
-                        confirm_message = "This is going to remove the selected users ("+$(".tree-view input:checkbox:checked").length+") from this role. Are you sure?";
-                    }
+                if ((confirm(confirm_message))) {
 
-                    if ((confirm(confirm_message))) {
+                    // Initialize the array of user_id and role_id.
+                    var deletion_array = [];
 
-                        // Initialize the array of user_id and role_id.
-                        var deletion_array = [];
+                    {{-- Loop through all of the selected (checked) users and build an array for use when deleting them. --}}
+                    //$(".tree-view input:checkbox:checked").each(function () { // For some reason this doesn't work to loop the checked boxes. (?)
+                    $(".tree-view input:checkbox").each(function () {           // This does work to loop all checkboxes, though.
+                       if (this.checked) {
 
-                        {{-- Loop through all of the selected (checked) users and build an array for use when deleting them. --}}
-                        //$(".tree-view input:checkbox:checked").each(function () { // For some reason this doesn't work to loop the checked boxes. (?)
-                        $(".tree-view input:checkbox").each(function () {           // This does work to loop all checkboxes, though.
-                           if (this.checked) {
+                           // "this.value" is the user id from this checkbox value.
+                           {{-- Build out the array to pass to the back-end; --}}
+                           deletion_array.push({'user_id': this.value, 'role_id': {{$role->id}}});
 
-                               // "this.value" is the user id from this checkbox value.
-                               {{-- Build out the array to pass to the back-end; --}}
-                               deletion_array.push({'user_id': this.value, 'role_id': {{$role->id}}});
+                       }
+                    });
 
-                           }
-                        });
+                    {{-- If any were checked then call the api on the array. --}}
+                    {{-- Call the remove users api --}}
+                    // Delete the actual role by id number (back-end permissions will apply).
+                    // alert('deleting here: '+ JSON.stringify(deletion_array));
+                    removeUsersFromRole(deletion_array);
 
-                        {{-- If any were checked then call the api on the array. --}}
-                        {{-- Call the remove users api --}}
-                        // Delete the actual role by id number (back-end permissions will apply).
-                        // alert('deleting here: '+ JSON.stringify(deletion_array));
-                        removeUsersFromRole(deletion_array);
+                }   // If confirm the deletions.
+            }       // If any checkboxes are checked or not.
+        });         // #remove-selected-button clicked.
 
-                    }   // If confirm the deletions.
-                }       // If any checkboxes are checked or not.
-            });         // #remove-selected-button clicked.
-
-            /**
-             * Function to remove an individual user from this Role
-             * This is expecting a deletion_array {user_id: user_id, role_id: role_id}
-             */
-            function removeUsersFromRole(deletion_array) {
+        /**
+         * Function to remove an individual user from this Role
+         * This is expecting a deletion_array {user_id: user_id, role_id: role_id}
+         */
+        function removeUsersFromRole(deletion_array) {
                 $.ajaxSetup({
                     headers: {
                         {{-- Laravel CSRF mechanism. This is needed for the ajax call to match the right token. --}}
@@ -386,29 +374,29 @@ if ($form['role_is_locked']) {
                     {{-- {{session()->flash('message','Selected users successfully removed from this role.')}} --}}
                     location.reload();      // Refresh the page to remove the deleted item and refresh the flash message.
                 });
+        }
+
+
+
+        /**
+         * Using a custom goto (rather than the default which just redirects to this record's id)
+         * We need to add a parameter that is the module number currently selected for view.
+         *
+         * Note: this does have to be outside of the $(document).ready(function () in order to work.
+         */
+        function custom_submit() {
+            // This works when redirecting (GET) to a show for a new id on this controller
+            var id = $('#goto').val();
+            var module_id = $('#frm_module_list').val();
+
+            if (typeof module_id == 'undefined') {
+                $(location).attr('href', goto_url + '/' + id);
+            } else {
+                $(location).attr('href', goto_url + '/' + id + '?module_id=' + module_id);
             }
+        }
 
+    </script>
 
-            /**
-             * Using a custom goto (rather than the default which just redirects to this record's id)
-             * We need to add a parameter that is the module number currently selected for view.
-             *
-             * Note: this does have to be outside of the $(document).ready(function () in order to work.
-             */
-            function custom_submit() {
-                // This works when redirecting (GET) to a show for a new id on this controller
-                var id = $('#goto').val();
-                var module_id = $('#frm_module_list').val();
-
-                if (typeof module_id == 'undefined') {
-                    $(location).attr('href', goto_url + '/' + id);
-                } else {
-                    $(location).attr('href', goto_url + '/' + id + '?module_id=' + module_id);
-                }
-            }
-
-        </script>
-
-    @endif
 
 @endsection ('base_js')

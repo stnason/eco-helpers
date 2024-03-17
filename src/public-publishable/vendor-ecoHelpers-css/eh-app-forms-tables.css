@@ -32,17 +32,26 @@ form.eh-form-crud .form-control {
     margin-block-end: 1.5rem;
 }
 
-/* Radio controls default to the background color of the main page.
+/* Inline Radio control
+    Radio controls default to the background color of the main page.
     This works great when your form background color matches.
     If not, override it here. */
 form.eh-form-crud .form-control.form-radio {
     background-color: transparent;
     border-color: transparent;
-    margin-block-start: -6px;       /* Pulling the radio button control up to visually center on the label. */
+
+    margin-inline-start: 4px;       /* For inline, need a little more left margin when highlighted. */
+    margin-block-start: -6px;       /* Pulling the radio button control up to visually center on the label when inline. */
+    /*margin-block-start: 0;        /* But that's too far when not inline so adding the unique selector below to change it back. */
+}
+/* Non-inline (wrapped) Radio controls
+   When the radio button has it's label positioned on top of it. */
+form.eh-form-crud .flex-wrap .form-control.form-radio {
+    margin-block-start: inherit;
+    margin-inline-start: inherit;
 }
 
-
-
+/* When a field is classed as required then darken up the label. */
 form.eh-form-crud label.form-required {
     font-weight: bold;
 }
@@ -53,20 +62,18 @@ form.eh-form-crud input[readonly], form.form-crud textarea[readonly] {
     /*color: lightslategray;*/
 }
 
-
 /* Styling for any placeholder text. */
 form.eh-form-crud .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     /* color: lightblue; */
     color: #cbcbcb;
 }
 
-/* Correcting issue with form-controls in columns not all sizing the same.
-    Apparently width: 100% is only applied to block elements (?)
+/* Correcting issue with inline form-controls in columns not all sizing the same.
+    Apparently Bootstrap only applies width: 100% to block elements.
     */
-form.eh-form-crud .d-inline-flex.flex-wrap {
+form.eh-form-crud .d-inline-flex, form.eh-form-crud .d-inline-flex.flex-wrap {
     width: 100%;
 }
-
 
 /* Used to emphasize certain explanation text on a form */
 .form-em {
@@ -84,13 +91,185 @@ form.eh-form-crud .d-inline-flex.flex-wrap {
 .form-header-security, .form-header-information {
     width: auto;
     font-weight: bold;
+    font-size: larger;
     font-style: normal;
+    color: darkgray;
     border-block-end: solid 1px;
 }
 
+/* Indication for when an element has a collapsable section. */
+p[data-bs-toggle="collapse"]:hover {
+    cursor: pointer;
+    color:slategray;
+}
 
 
 /******************************************************************************************/
 /* Buttons - Button Area */
 /******************************************************************************************/
 /* See the eh-app-layout-areas.css for the button declarations. */
+
+
+/******************************************************************************************/
+/* Large Check box - http://www.csscheckbox.com */
+/******************************************************************************************/
+input[type=checkbox].css-checkbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left: 37px;
+    height: 32px;
+    margin-top: 4px;        /* Needed to vertically center on dropdown select. */
+    display: inline-block;
+    line-height: 32px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    font-size: 32px;
+    vertical-align: middle;
+    cursor: pointer;
+    /*margin-bottom: -1px;     stn-added to center in cell */
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+   background-position: 0 -32px;
+}
+
+label.css-label {
+    background-image: url(../images/csscheckbox.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+/******************************************************************************************/
+/* User/Group Profile Rights Grid */
+/******************************************************************************************/
+/* Box around the whole edit rights area. */
+div.edit-right {
+    background: snow;
+    border: lightgrey solid 1px;
+    padding: 12px;
+    margin-left: -80px;         /* This requires a lot of space so stretching it to be gibber than the base form container. */
+    margin-right: -80px;        /* This requires a lot of space so stretching it to be gibber than the base form container. */
+    border-radius: 8px;
+}
+
+.copy-to-group {
+    vertical-align: text-top;
+}
+
+
+/* Right Grid header */
+table.rights-grid th {
+    color: black;
+    font-weight: bolder;
+    background: lightcyan;
+}
+
+/* Rights Grid body */
+table.rights-grid td {
+    border: solid lightgrey 1px;
+}
+
+/* Set this for all of the grid columns. */
+[class^="grid-col-"] {
+    font-size: small;
+    font-weight: lighter;
+    padding: 2px;
+    vertical-align: top;
+}
+
+/* X (delete override)
+.grid-col-0 {
+    width: 3%;
+    align-content: center;
+    text-align: center;
+}
+ */
+
+/* mID
+.grid-col-1 {
+    width: 3%;
+    align-content: center;
+    text-align: center;
+}
+ */
+
+/* Name (id-name) */
+.grid-col-2 {
+    width: 13%;
+    align-content: center;
+    text-align: left;
+}
+
+/* All rights checkbox columns */
+.grid-col-3, .grid-col-4, .grid-col-5, .grid-col-6, .grid-col-7, .grid-col-8, .grid-col-9, .grid-col-10, .grid-col-11 {
+    width: 2%;
+    font-style: normal;
+    font-size: x-small;
+    align-content: center;
+    text-align: center;
+}
+
+/* Warning - highlight the ones that have to do with elevated rights
+    Note: selectors need to be this specific for the <th> tags in order to override the setting above.
+    Delete - Export All
+*/
+.grid-col-8, .grid-col-9,
+table.rights-grid th.grid-col-8, table.rights-grid th.grid-col-9 {
+    background: red;
+    color: white;
+}
+
+/* Feature 1,2,3,4  - DEPRECATED.
+.grid-col-10, .grid-col-11,
+table.rights-grid th.grid-col-10, table.rights-grid th.grid-col-11 {
+    background: orange;
+    color: white;
+}
+*/
+
+/* Feature 1,2,3,4 */
+.grid-col-12, .grid-col-13 {
+    width: 19%;
+    color: darkblue;
+}
+
+/* Comments */
+.grid-col-14 {
+    width: 31%;
+}
+
+/* Comments - cell contents */
+td.grid-col-14 {
+    color: grey;
+    font-style: italic;
+}
+
+/* Remove the full outline from the feature boxes and replace with just a bottom line on the upper. */
+table.feature-grid td {
+    border: none;
+}
+tr.feature-grid-top-row td {
+    border-bottom: solid lightgray 1px;
+}
+
+/* This is the explanation field to the right of the feature checkboxes. */
+.feature-grid-text {
+    width: 100%;
+}

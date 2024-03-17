@@ -23,7 +23,7 @@
     @if ($access::getUserRights()->admin)
         <div class="row">
             {{-- Add a warning alert around this control if the site is locked --}}
-            <div class="col-sm {{ $config::get('site_lockout') ? ' alert alert-warning' : '' }}">
+            <div class="pt-2 col-sm {{ $config::get('site_lockout') ? ' bg-warning ' : '' }}">
 
                 <div class="form-group d-inline-flex">
 
@@ -31,9 +31,11 @@
                     @php
                         // Set the alert class to surround the radio button with (should match what we're setting on the column div above)
                         $lockout_class = '';
+/*
                         if ($config::get('site_lockout')) {
                             $lockout_class = 'alert-warning';
                         }
+*/
                     @endphp
 
                     @if ($access::getUserRights()->admin)
@@ -43,7 +45,7 @@
                     {{-- This is just the display on this form and has nothing to do with the actual site lockout message,
                         That's controlled in the index_site_locked.blade.php.
                         --}}
-                    <span class="pt-1 pl-2">{!! ($setting->site_lockout ? ' <strong>Site is currently locked out!</strong>' : '') !!}</span>
+                    <p class="m-0 p-0 text-nowrap">{!! ($setting->site_lockout ? ' <strong>Site is currently locked out!</strong>' : '') !!}</p>
                 </div>
             </div>
         </div>

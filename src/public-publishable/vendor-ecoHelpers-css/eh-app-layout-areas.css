@@ -149,6 +149,7 @@ main {
     color: red;
     /*font-weight: bolder;      If we choose to slightly darken up the flash message */
     margin-block: 4px;          /* Top and bottom margin on flash message area. */
+    margin-inline-start: 12px;  /* Indent the flash message slightly to the right. */
 }
 
 #eh-layout-page-attention {
@@ -189,18 +190,6 @@ main {
     margin-right: 4px;
 }
 
-
-
-
-
-
-
-/******************************************************************************************/
-/* System Footer control */
-/******************************************************************************************/
-/* Standard page footer
-   Moved the footer stying into the footer_content template for ease of use.
-*/
 
 
 /******************************************************************************************/

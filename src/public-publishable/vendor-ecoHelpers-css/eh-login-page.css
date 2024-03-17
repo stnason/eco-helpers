@@ -2,8 +2,9 @@
 body{
     /*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
     background-image: url('../images/bg-login-image.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: auto;      /* "cover" stopped covering the whole page (or maybe it just was never set big enough to see?).
+                                   "auto" does better but still needs the "repeat" */
+    background-repeat: repeat;
 }
 div.card {
     margin-top: 60px;

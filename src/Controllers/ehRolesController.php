@@ -209,12 +209,12 @@ class ehRolesController extends ehBaseController
         if ($role->active) {
             ehLayout::setAttention('Active', 'bg-success');
         } else {
-            ehLayout::setAttention('Not Active', 'bg-secondary');
+            ehLayout::setAttention('Not Active', 'bg-warning');
         }
 
         $form['site_admin_class'] = '';
         if ($role->site_admin) {
-            ehLayout::setAttention('This Role has complete Site Admin control', 'bg-danger');
+            ehLayout::setAttention('This Role has complete <strong>Site Admin</strong> control!', 'bg-danger');
             $form['site_admin_class'] = 'bg-warning';
         }
 
@@ -674,7 +674,6 @@ class ehRolesController extends ehBaseController
                     }
 
                 }
-
 
                 ///////////////////////////////////////////////////////////////////////////////////////////
                 // Create the checkbox for this $page_bit_name

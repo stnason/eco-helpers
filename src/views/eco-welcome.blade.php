@@ -29,7 +29,7 @@
     <div class="container text-left">
         <div class="row align-items-start fixed-height">
 
-            <div class="col bg-light rounded h-100 m-2 ps-4 pe-4">
+            <div class="col bg-light rounded h-100 m-2 ps-4 pe-4 overflow-scroll">
 
                 <h4 class="text-center pt-2">Sample Controller</h4>
                 <p>Take a look at: <strong>App/Http/Controller/ehHomeController.php</strong> to see how to toggle the
@@ -45,9 +45,9 @@
                 </ul>
                 <p>...then pass the layout to the view.</p>
 
-
             </div>
-            <div class="col bg-light rounded h-100 m-2 ps-4 pe-4">
+
+            <div class="col bg-light rounded h-100 m-2 ps-4 pe-4 overflow-scroll">
 
                 <h4 class="text-center pt-2">Configurations</h4>
                 <p>Some quick settings in the <strong>eco-helpers.php</strong> config file:</p>
@@ -71,7 +71,8 @@
                 </ul>
 
             </div>
-            <div class="col bg-light rounded h-100 m-2 ps-4 pe-4">
+
+            <div class="col bg-light rounded h-100 m-2 ps-4 pe-4 overflow-scroll">
 
                 <h4 class="text-center pt-2">More Information</h4>
 
@@ -103,7 +104,6 @@
                 <ul>
                     <li><a target="+blank" href="https://github.com/stnason/eco-helpers/tree/main/documentation">Documentation</a></li>
                 </ul>
-
 
             </div>
 

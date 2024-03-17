@@ -3,7 +3,6 @@
     <thead>
     <tr>
 
-
         {{--
         <th class="grid-col-0">X</th>
         <th class="grid-col-1 rightscheckbox warning">a</th>

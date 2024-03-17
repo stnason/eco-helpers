@@ -12,8 +12,8 @@ if (save_button.length) {
 
         // If more than one form on a page then Firefox will log out on $("form").submit()
         // Both of these just "hang" on Firefox.
-        $(".form-crud").submit();  // All CRUD forms should (?) be using this class.
-        // document.forms[".form-crud"].submit();
+        $(".eh-form-crud").submit();  // All CRUD forms should (?) be using this class.
+        // document.forms[".eh-form-crud"].submit();
 
     });
 }
