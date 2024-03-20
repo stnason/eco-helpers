@@ -43,6 +43,7 @@ class ehLinkbar {
     protected bool   $show_self = false;           // Normal behavior is to not show a link to the page we're on.
     protected string $export_table_name = '';      // Set the name of the table to be exported. Without it we'll just assume the base route.
     protected string $target = '_self';            // The href target (_blank, _self)
+    protected bool $auto_generate = true;          // Normal behavior is to auto generate based on the parent module of this route.
 
     /**
      * LinkBar constructor.
@@ -56,14 +57,17 @@ class ehLinkbar {
      */
     public function __construct($auto_generate = true)
     {
-        
+        $this->auto_generate = $auto_generate;
+
+        /*
         if ($auto_generate) {
             // Pull the default link bar information from the parent module's items.
             $this->buildParentModuleLinkArray();
 
             // Then add the Export All link when appropriate (it's not turned off and the user has permissions).
-            $this->addExportItem();
+            $this->addExportAllLink();
         }
+        */
 
     }
 
@@ -131,10 +135,13 @@ class ehLinkbar {
 
     /**
      * Check this user's permissions on the current route and add the Export All link if called for.
+     * Note: This function assumes that the table name is the same as the base route.
+     *       http://site-name/pages = 'pages' table
+     *       So, if it's different, the controller must set ehLinkbar::setExportTableName('name').
      *
      * @return void
      */
-    protected function addExportItem()
+    protected function addExportAllLink()
     {
         ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -147,7 +154,7 @@ class ehLinkbar {
                 if (empty($this->export_table_name)) {
 
                     // We're assuming the table_name is the name of the base route
-                    // so extract that here.
+                    //  so extract that name here.
                     $r = explode('.', Route::currentRouteName());
 
                     $export_table = '';
@@ -156,14 +163,15 @@ class ehLinkbar {
                     }
 
                 } else {
-                    // Otherwise, use the provided export table name
+                    // Otherwise, use the provided export table name.
                     $export_table = $this->export_table_name;
                 }
+
 
                 ////////////////////////////////////////////////////////////////////////////////////////////
                 // Looks like we're not explicitly hiding the Export ALL link
                 // and the user has appropriate permissions so go ahead and add this item.
-                /*
+                /* original eesfm html generated code
                 $output .= '&nbsp;|&nbsp;<li><a href="' .
                     config('app.url') . '/export/' . $export_table . '">' . 'Export All' .
                     '</a></li>' . config('app.nl');
@@ -173,7 +181,7 @@ class ehLinkbar {
                         'href'=>url(config('app.url') . '/export/' . $export_table),
                         'name'=>'Export All',
                         'title'=>'Export the table for this page.',
-                        'target'=>'_self'
+                        'target'=>$this->target
                     ];
             }
         }
@@ -188,6 +196,16 @@ class ehLinkbar {
      * @return array|array[]
      */
     public function getLinkbar() {
+
+        // Construct the array (note: doing it here instead of __construct since the controller and change things that affect it).
+        if ($this->auto_generate) {
+            // Pull the default link bar information from the parent module's items.
+            $this->buildParentModuleLinkArray();
+
+            // Then add the Export All link when appropriate (it's not turned off and the user has permissions).
+            $this->addExportAllLink();
+        }
+
         return $this->items_array;
     }
 
@@ -198,13 +216,9 @@ class ehLinkbar {
      * Export All already checks to see if you have rights; but additionally can be toggled off here.
      * @param bool $hide_export_all
      */
-    public function setHideExportAll($hide_export_all = true) {
+    public function setHideExportAll($hide_export_all = true):void {
         $this->hide_export_all = $hide_export_all;
     }
-
-
-
-
 
 
 

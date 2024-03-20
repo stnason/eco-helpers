@@ -1,13 +1,15 @@
 <?php
 return [
     'APP_VER' => 'v1.0.40',
-    'APP_LASTUPDATE' => '03/17/2024'
+    'APP_LASTUPDATE' => '03/20/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 03/17/2024:v01.00.40: 1.00 :ehLinkbar add Export All function.
+ * 03/20/2024:v01.00.40: 1.50 :Port eesfm Utility class to ehCSV for use in table export.
+ * 03/18/2024:v01.00.40: 2.50 :Redesigning export()@ehImportExportController.
+ * 03/17/2024:v01.00.40: 1.00 :ehLinkbar add Export All function; begin work on ehImportExportController.
  * 03/17/2024:v01.00.39: 1.00 :Clean up css for non-inline radio buttons; roles-detail and remove js and user-list functions for $edit_lock.
  * 03/14/2024:v01.00.39: 4.00 :Clean up eco-welcome; start work on role-detail, edit area and css;
  * 03/13/2024:v01.00.39: 3.00 :Final tweaks on settings-detail; start on user-detail;

@@ -42,6 +42,8 @@ class ehPagesController extends ehBaseController
 
 
         $linkbar = new ehLinkbar();
+        //$linkbar->setHideExportAll(true);
+        $linkbar->setExportTableName('eh_pages');
         ehLayout::setLinkbar($linkbar->getLinkbar());
 
 
@@ -171,13 +173,13 @@ class ehPagesController extends ehBaseController
     public function show(ehPage $page)
     {
 
-
         ehLayout::initLayout();
         ehLayout::setOptionBlock(false);
 
         $linkbar = new ehLinkbar();
+        //$linkbar->setHideExportAll(true);
+        $linkbar->setExportTableName('eh_pages');
         ehLayout::setLinkbar($linkbar->getLinkbar());
-
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
