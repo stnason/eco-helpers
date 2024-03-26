@@ -186,7 +186,9 @@ Class ehControl
         foreach($p['radio'] as $btn_value=>$display) {
 
             // Check to see which value is already checked.
-            if ($p['value'] == $btn_value) {
+            // Making sure to account for teh case where the stored value may be undetermined (null)
+            //  rather than No or "0" -- that should show nothing checked.
+            if ($p['value'] === $btn_value && $p['value'] !== null) {
                 $checked = 'checked';
                 $strongF = '<strong>';      // make the current selection label bold
                 $strongB = '</strong>';
@@ -195,7 +197,6 @@ Class ehControl
                 $strongF = '';
                 $strongB = '';
             }
-
 
             // There is no 'readonly' attribute for a radio button.
             // But disabled elements are not submitted so, not completely sure of the consequences here.

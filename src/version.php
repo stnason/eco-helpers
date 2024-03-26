@@ -1,13 +1,16 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.40',
-    'APP_LASTUPDATE' => '03/20/2024'
+    'APP_VER' => 'v1.0.41',
+    'APP_LASTUPDATE' => '03/26/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 03/20/2024:v01.00.40: 1.50 :Port eesfm Utility class to ehCSV for use in table export.
+ * 03/26/2024:v01.00.41: 0.50 :
+ * 03/25/2024:v01.00.40: 2.00 :Trying Laravel 11 (released). Setup on port 5006.
+ * 03/20/2024:v01.00.40: 0.75 :Fix issue with radio() in ehControl showing "No" checked when value is null. (nothing should be checked in that case.)
+ * 03/20/2024:v01.00.40: 2.00 :Port eesfm Utility class to ehCSV for use in table export. (this turning out to be a mess; will have to redesign ehImportExportController)
  * 03/18/2024:v01.00.40: 2.50 :Redesigning export()@ehImportExportController.
  * 03/17/2024:v01.00.40: 1.00 :ehLinkbar add Export All function; begin work on ehImportExportController.
  * 03/17/2024:v01.00.39: 1.00 :Clean up css for non-inline radio buttons; roles-detail and remove js and user-list functions for $edit_lock.

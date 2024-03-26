@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
-// Intercept the Save button (duplicate prevention)
-// This is intended to disable the save button while waiting on back-end server; form is posting so it will eventually redirect and redraw itself.
+// Intercept the Save button for duplicate prevention.
+// This is intended to disable the save button while waiting on back-end server;
+//  form is posting so it will eventually redirect and should redraw itself.
 var save_button = $("#save");
 
 if (save_button.length) {
@@ -12,7 +13,8 @@ if (save_button.length) {
 
         // If more than one form on a page then Firefox will log out on $("form").submit()
         // Both of these just "hang" on Firefox.
-        $(".eh-form-crud").submit();  // All CRUD forms should (?) be using this class.
+        //$(".eh-form-crud").submit();          // Internal eco-forms are now namespaced with the "eh-".
+        $("[class$='form-crud']").submit();     // Allowing user forms to just use form-crud
         // document.forms[".eh-form-crud"].submit();
 
     });

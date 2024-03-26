@@ -11,7 +11,7 @@ use ScottNason\EcoHelpers\Traits\ehHasUserstamps;
 use ScottNason\EcoHelpers\Traits\ehConvertNumbersToSavable;
 use ScottNason\EcoHelpers\Traits\ehAllModelsBoot;
 
-use Laravel\Sanctum\HasApiTokens;
+//use Laravel\Sanctum\HasApiTokens;     // commenting our for L11 (?)
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 
@@ -37,6 +37,7 @@ class ehBaseAuthenticatable extends Authenticatable
     //use CanResetPassword;
     use ehGetLabels;                    // A convenience method to retrieve the Label associated with a field name.
 
-    use HasApiTokens, HasFactory, Notifiable;
+    //use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;         // Removing HasApiTokens for L11
 
 }
