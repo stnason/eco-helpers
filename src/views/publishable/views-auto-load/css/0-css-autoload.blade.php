@@ -34,5 +34,6 @@
 <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-app-forms-tables.css')}}">
 {{-- This controls and styles the multilevel menu dropdowns in the navbar. --}}
 <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-navbar-multilevel.css')}}">
-{{-- Sticky footer control. Force the footer to the bottom of the viewport or page - whichever is farther. --}}
-<link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-sticky-footer-navbar.css')}}">
+{{-- Sticky footer control. Force the footer to the bottom of the viewport or page - whichever is farther.
+     NOTE: This shouldn't be needed when using Bootstrap 5.3 "fixed-bottom" class.
+<link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-sticky-footer-navbar.css')}}">--}}

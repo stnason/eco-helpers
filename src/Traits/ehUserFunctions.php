@@ -60,15 +60,20 @@ trait ehUserFunctions
 
     }
 
+    /**
+     * Is this user's login profile active?
+     *  - checks both archived and login_active.
+     * @param $user_id
+     * @return int
+     */
     public static function isUserActive($user_id=null) {
         $user = self::normalizeUserID($user_id);
-        if (!$user) {
-            // User is not logged in.
-            return 0;
-            //return false;
+        if ($user->archived || !$user->login_active) {
+            // User is not active.
+            return false;
         } else {
-            // User is logged in.
-            return $user->login_active;
+            // User login is active.
+            return true;
         }
 
     }

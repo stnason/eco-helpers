@@ -1,13 +1,15 @@
 <?php
 return [
     'APP_VER' => 'v1.0.41',
-    'APP_LASTUPDATE' => '03/26/2024'
+    'APP_LASTUPDATE' => '03/28/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 03/26/2024:v01.00.41: 0.50 :
+ * 03/28/2024:v01.00.42: 0.50 :Fix issue with ehUserFunctions@isUserActive() checking logged in rather than login_active.
+ * 03/28/2024:v01.00.41: 0.50 :Fix issues on Registration with ehUser@uniqueAccountNumber().
+ * 03/28/2024:v01.00.41: 0.50 :More cleanup on adding flex-wrap to views (page-detail). (more to do...)
  * 03/25/2024:v01.00.40: 2.00 :Trying Laravel 11 (released). Setup on port 5006.
  * 03/20/2024:v01.00.40: 0.75 :Fix issue with radio() in ehControl showing "No" checked when value is null. (nothing should be checked in that case.)
  * 03/20/2024:v01.00.40: 2.00 :Port eesfm Utility class to ehCSV for use in table export. (this turning out to be a mess; will have to redesign ehImportExportController)

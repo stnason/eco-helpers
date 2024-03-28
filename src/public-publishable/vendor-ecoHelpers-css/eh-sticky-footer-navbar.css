@@ -1,4 +1,7 @@
 /* Sticky footer styles
+
+NOTE: This shouldn't be needed when using Bootstrap 5.3 "fixed-bottom" class.
+
 -------------------------------------------------- */
 html {
     position: relative;

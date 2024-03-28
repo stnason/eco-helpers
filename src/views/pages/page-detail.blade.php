@@ -47,7 +47,7 @@
     <div class="container">
 
 
-        <form class="form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
+        <form class="eh-form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
             @csrf
             @method($form['layout']['form_method'] ?? 'PATCH')
 
@@ -65,9 +65,9 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'id', 'display_name'=>$page, 'errors'=>$errors]) !!}
-                                <span class="no-control">{{$page->id}}</span>
+                                <span class="no-control ps-2">{{$page->id}}</span>
                                 {{--
                                 {!! $control::input(['field_name'=>'id', 'model'=>$page, 'errors'=>$errors,  'additional_class'=>'input-narrow', 'disabled'=>'true' ]) !!}
                                 --}}
@@ -75,7 +75,7 @@
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
 
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'active', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::radio(['field_name'=>'active', 'model'=>$page, 'alert_if'=>'0', 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
                             </div>
@@ -94,7 +94,7 @@
                         <div class="col-md">
 
                             @if(!$form['layout']['when_adding'])      {{-- This is not available yet when adding a new record. --}}
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'goto', 'display_name'=>'Go To', 'errors'=>$errors]) !!}
                                 {!! $control::select([
                                 'field_name'=>'goto',
@@ -118,7 +118,7 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'security', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::select([
                                'field_name'=>'security',
@@ -131,7 +131,7 @@
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
 
                                 {{--
                                 0=>'No Access',
@@ -159,7 +159,7 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'type', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::select([
                                'field_name'=>'type',
@@ -173,7 +173,7 @@
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
 
 
                                 <p class="small text-danger">
@@ -214,14 +214,14 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'name', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::input(['field_name'=>'name', 'model'=>$page, 'errors'=>$errors]) !!}
                             </div>
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
 
                             </div>
                         </div>
@@ -229,14 +229,14 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'icon', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::input(['field_name'=>'icon', 'model'=>$page, 'errors'=>$errors]) !!}
                             </div>
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="form-em"><i id="page-icon" class="{{$page->icon}}"></i>A <strong><a href="https://fontawesome.com/icons?d=gallery" target="_blank">Fontawesome</a></strong>-class name only-(appears left of page name).</p>
                             </div>
                         </div>
@@ -244,14 +244,14 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'alt_text', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::input(['field_name'=>'alt_text', 'model'=>$page, 'additional_class'=>'input-wide', 'errors'=>$errors]) !!}
                             </div>
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
 
                             </div>
                         </div>
@@ -259,14 +259,14 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'description', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::input(['field_name'=>'description', 'model'=>$page, 'additional_class'=>'input-wide', 'errors'=>$errors]) !!}
                             </div>
                         </div>
                         {{-- Right column of form. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <!--
                                 <p class="form-em">Brief <strong>page explanation</strong> to display right below the page name.
                                 </p>
@@ -281,7 +281,7 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 @php
                                 // Get the whole menu list but add a "0-TOP LEVEL" selection at the top.
 
@@ -302,7 +302,7 @@
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="form-em">Which <strong>module</strong> or <strong>submenu</strong> does this <strong>page belong to</strong>?
                                 </p>
                             </div>
@@ -312,14 +312,14 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'menu_item', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::radio(['field_name'=>'menu_item', 'model'=>$page, 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
                             </div>
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="shift-right form-em"><strong>Include</strong> this page in the <strong>Menu System </strong>(y/n)?
                                 </p>
                             </div>
@@ -329,7 +329,7 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 @php
                                     if ($page->menu_item != '1') {
                                         $disabled = true;
@@ -343,7 +343,7 @@
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="form-em">Assign the <strong>position</strong> in the
                                     <strong>Menu</strong> tree.</p>
                             </div>
@@ -354,7 +354,7 @@
                     <div class="row">
                         {{-- Left column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 @php
                                     if ($page->menu_item != '1') {
                                         $disabled = true;
@@ -368,7 +368,7 @@
                         </div>
                         {{-- Right column of form data. --}}
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="form-em">The Laravel <strong>route</strong> name.</p>
                             </div>
                         </div>
@@ -378,7 +378,7 @@
                     <div class="row">
                         {{-- Left column of form data.
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 @php
                                     if ($page->menu_item != '1') {
                                         $disabled = true;
@@ -398,7 +398,7 @@
                         </div>
                         {{-- Right column of form data.
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="form-em">The HTML <strong>method</strong> name for this route.</p>
                             </div>
                         </div>
@@ -412,14 +412,14 @@
                     <div class="row">
 
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'http_get_head', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::checkbox(['field_name'=>'http_get_head', 'model'=>$page, 'errors'=>$errors ]) !!}
                             </div>
                         </div>
 
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="shift-right form-em">The http <strong>method</strong> type for this route.
                                 </p>
                             </div>
@@ -429,14 +429,14 @@
                     <div class="row">
 
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'http_put_patch', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::checkbox(['field_name'=>'http_put_patch', 'model'=>$page, 'errors'=>$errors ]) !!}
                             </div>
                         </div>
 
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="shift-right form-em">The http <strong>method</strong> type for this route.
                                 </p>
                             </div>
@@ -447,14 +447,14 @@
                     <div class="row">
 
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'http_post', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::checkbox(['field_name'=>'http_post', 'model'=>$page, 'errors'=>$errors ]) !!}
                             </div>
                         </div>
 
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="shift-right form-em">The http <strong>method</strong> type for this route.
                                 </p>
                             </div>
@@ -464,14 +464,14 @@
                     <div class="row">
 
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 {!! $control::label(['field_name'=>'http_delete', 'display_name'=>$page, 'errors'=>$errors]) !!}
                                 {!! $control::checkbox(['field_name'=>'http_delete', 'model'=>$page, 'errors'=>$errors ]) !!}
                             </div>
                         </div>
 
                         <div class="col-md">
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <p class="shift-right form-em">The http <strong>method</strong> type for this route.
                                 </p>
                             </div>
@@ -493,7 +493,7 @@
                             and responsive.
                             --}}
 
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <label>&nbsp;</label>
                                 <p class="form-em">Are there any <strong>special permissions</strong> hard coded in this page?
                                     (displayed in <strong>Group permissions</strong>)</p>
@@ -555,7 +555,7 @@
                             and responsive.
                             --}}
 
-                            <div class="form-group d-inline-flex">
+                            <div class="form-group d-inline-flex flex-wrap">
                                 <label>&nbsp;</label>
                                 <p class="form-em"><strong>General comments</strong> to help clarify when assigning
                                     <strong>permissions</strong>.

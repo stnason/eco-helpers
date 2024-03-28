@@ -180,15 +180,15 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
      */
     public static function uniqueAccountNumber(Request $request) {
 
-        $starting_account_number = 100001;
+        $starting_account_number = 100001;      // TODO: Move this to eco-helper.php
         $user_account_number = '';
 
         // Get the highest account number in use.
         $highest = DB::select("SELECT account_id FROM users ORDER BY account_id DESC LIMIT 1;");
 
-        if (count($highest) > 0) {
+        if (!empty($highest[0]->account_id)) {
             // If we got a result from the query then add 1 to it to get the next available account id.
-           $user_account_number = $highest->account_id + 1;
+            $user_account_number = $highest[0]->account_id + 1;
         } else {
             // Otherwise, it looks like no account ids have been assigned yet so use the starting one.
             $user_account_number = $starting_account_number;
@@ -196,12 +196,12 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
 
         // But, make sure this user doesn't already have one assigned.
         if (!empty($request->id)) {
-            $current_account = DB::select("SSELECT account_id FROM users WHERE id = {$request->id};");
+            $current_account = DB::select("SELECT account_id FROM users WHERE id = {$request->id};");
         }
 
-        if (count($current_account) > 0) {
+        if (!empty($current_account[0]->account_id)) {
             // Looks like the user already has an account id so just return that one.
-            return $current_account->account_id;
+            return $current_account[0]->account_id;
         } else {
             // Looks like user did not have an account id assigned so use the one we created above.
             return $user_account_number;

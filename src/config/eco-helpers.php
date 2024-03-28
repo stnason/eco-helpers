@@ -310,7 +310,7 @@ return [
             'banner_auth' => true,          // Show banner only when authenticated.
 
             // Linkbar delimiters (between linkbar items)
-            'linkbar_delimiter'=>' ** ',
+            'linkbar_delimiter'=>' | ',
 
             // The <main> -- "outside" page container.
             'full_width' => true,
@@ -413,8 +413,8 @@ return [
         |   Login default uses whatever is defined in the RouteServiceProvider::HOME
         |   Logout default uses the root of the website: '/'
         */
-        'login_home_page' => 'examples.index',
-        'logout_home_page' => 'eco',
+        'login_home_page' => '/',
+        'logout_home_page' => '/',
 
     ],
 
