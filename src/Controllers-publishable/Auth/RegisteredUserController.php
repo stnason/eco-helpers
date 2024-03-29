@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             //'name' => $request->name,     // Unless I modify it, the original Laravel migration doesn't include a default value so it needs something.
             //'login_created'=>date("Y-m-d"),             // Stamp the time this login was created.
-            'login_created'=>ehConfig::get('date_format_sql_long'),             // Stamp the time this login was created.
+            'login_created'=>date(ehConfig::get('date_format_sql_long')),             // Stamp the time this login was created.
             'name' => User::uniqueUserName($request),
             'account_id' => User::uniqueAccountNumber($request),// Create a unique account number for this user.
             'first_name' => $request->first_name,
@@ -68,7 +68,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('home', absolute: false));
+        return redirect('/');
     }
 
 

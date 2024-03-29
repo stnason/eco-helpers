@@ -51,6 +51,8 @@ class ehAuthenticatedSessionController extends Controller
      *
      * @var string
      */
+
+    // ?? This may have no affect when using Breeze. ??
     protected $username;
 
 
@@ -66,8 +68,11 @@ class ehAuthenticatedSessionController extends Controller
     {
         // $this->middleware('guest')->except('logout');
         // $this->middleware('web');
+
+
+        // ?? This may have no affect when using Breeze. ??
         // Allow signing in with either username or email address.
-        // $this->username = $this->findUsername();
+        $this->username = $this->findUsername();
     }
 
 
@@ -168,15 +173,18 @@ class ehAuthenticatedSessionController extends Controller
      * Get the login username to be used by the controller.
      *  (originally from the ehLoginController [ui] version)
      *
+     *              // ?? This may have no affect when using Breeze. ??
+     *
      * @return string
      */
     public function findUsername()
     {
         // Get the 'name to login with' field.
-        $login = request()->input('email');   // From authentication login form
+        $login = request()->input('email');   // The value from 'user name' on the authentication login form
 
-        // supply the 2 field names for sql to search by: 1-if it is a valid email; 2- if it's not.
-        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';      // 'name' is the login username.
+        // If the $login value looks like and email address then use the 'email' field.
+        // Otherwise use the 'name' field (which is the system generated user name.
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
 
         request()->merge([$fieldType => $login]);
 
@@ -192,6 +200,7 @@ class ehAuthenticatedSessionController extends Controller
      */
     public function username()
     {
+        // ?? This may have no affect when using Breeze. ??
         return $this->username;
     }
 
@@ -326,7 +335,6 @@ class ehAuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        // TODO: I think we should add a config setting--maybe for both--home page after login and home page after logout.
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Go here after logging out.

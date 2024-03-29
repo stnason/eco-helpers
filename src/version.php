@@ -1,12 +1,14 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.41',
-    'APP_LASTUPDATE' => '03/28/2024'
+    'APP_VER' => 'v1.0.42',
+    'APP_LASTUPDATE' => '03/29/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 03/29/2024:v01.00.42: 0.50 :Modified LoginRequest@authenticate() to allow login with email or username.
+ * 03/28/2024:v01.00.42: 1.50 :Fix numerous issues with registration and first time validation.
  * 03/28/2024:v01.00.42: 0.50 :Fix issue with ehUserFunctions@isUserActive() checking logged in rather than login_active.
  * 03/28/2024:v01.00.41: 0.50 :Fix issues on Registration with ehUser@uniqueAccountNumber().
  * 03/28/2024:v01.00.41: 0.50 :More cleanup on adding flex-wrap to views (page-detail). (more to do...)
