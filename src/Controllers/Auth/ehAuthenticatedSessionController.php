@@ -44,6 +44,7 @@ class ehAuthenticatedSessionController extends Controller
      * @return mixed
      */
     protected $login_error_key = 'description';     // Less secure; tell exactly why you can't login.
+    //TODO: Add this choice to eco-helpers.php
     //protected $login_error_key = 'number';        // More secure; just show an ambiguous error number (listed above).
 
     /**
@@ -53,7 +54,7 @@ class ehAuthenticatedSessionController extends Controller
      */
 
     // ?? This may have no affect when using Breeze. ??
-    protected $username;
+    //protected $username;
 
 
     /**
@@ -72,7 +73,7 @@ class ehAuthenticatedSessionController extends Controller
 
         // ?? This may have no affect when using Breeze. ??
         // Allow signing in with either username or email address.
-        $this->username = $this->findUsername();
+        //$this->username = $this->findUsername();
     }
 
 
@@ -177,6 +178,7 @@ class ehAuthenticatedSessionController extends Controller
      *
      * @return string
      */
+    /*
     public function findUsername()
     {
         // Get the 'name to login with' field.
@@ -190,6 +192,7 @@ class ehAuthenticatedSessionController extends Controller
 
         return $fieldType;
     }
+    */
 
     /**
      * Get username property. (override method)
