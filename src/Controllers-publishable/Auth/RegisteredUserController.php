@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use ScottNason\EcoHelpers\Rules\CheckEmails;
+use ScottNason\EcoHelpers\Classes\ehConfig;
 
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-use ScottNason\EcoHelpers\Classes\ehConfig;
+
 
 /**
  * The package published version of the Laravel Breeze Controller.
@@ -50,7 +52,10 @@ class RegisteredUserController extends Controller
         $user = User::create([
             //'name' => $request->name,     // Unless I modify it, the original Laravel migration doesn't include a default value so it needs something.
             //'login_created'=>date("Y-m-d"),             // Stamp the time this login was created.
-            'login_created'=>date(ehConfig::get('date_format_sql_long')),             // Stamp the time this login was created.
+
+            // Stamp the time this login was created.
+            // date(ehConfig::get('date_format_sql_long')); // Appears to be identical to Carbon now()
+            'login_created'=> Carbon::now()->format(ehConfig::get('date_format_sql_long')),
             'name' => User::uniqueUserName($request),
             'account_id' => User::uniqueAccountNumber($request),// Create a unique account number for this user.
             'first_name' => $request->first_name,
@@ -68,7 +73,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect('home');
     }
 
 

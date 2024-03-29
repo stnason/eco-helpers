@@ -114,7 +114,7 @@ trait ehHasUserstamps
 
         if ($user) {
 
-            // This is the format definition of how what we want the user name to look likde in the updated_by field.
+            // This is the format definition of how what we want the user name to look like in the updated_by field.
             // Note: this is set in the eco-helpers config file under 'user_update_stamp'
 
             // Default, out of the box user name stamp.

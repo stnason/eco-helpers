@@ -496,7 +496,6 @@ class ehUsersController extends ehBaseController
             $request->merge(['login_active' => 0]);
         }
 
-
         return $request;
     }
 

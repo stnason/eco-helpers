@@ -63,7 +63,8 @@ return new class extends Migration
             $table->text('comments')->after('email_personal')->nullable()->default(null);
 
             // Specific to the user login profile
-            $table->tinyInteger('login_active')->after('comments')->nullable()->default(null);
+            $table->string('timezone')->after('comments')->nullable()->default(null);
+            $table->tinyInteger('login_active')->after('time_zone')->nullable()->default(null);
             $table->Integer('default_role')->after('login_active')->nullable()->default(null);
             $table->Integer('acting_role')->after('default_role')->nullable()->default(null);
             $table->tinyInteger('force_password_reset')->after('login_active')->nullable()->default(null);

@@ -4,8 +4,9 @@
 @extends('ecoHelpers::core.eh-app-template')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
-
+@inject('config', 'ScottNason\EcoHelpers\Classes\ehConfig')
 @inject('role', 'ScottNason\EcoHelpers\Models\ehRole')
+
 @inject('valid','App\Classes\ValidList')
 
 @section('base_head')
@@ -78,7 +79,7 @@
             <div class="col-sm">
                 <div class="form-group d-inline-flex">
                     <label>&nbsp;</label>
-                    <p class="form-em">(* indicates user is archived)</p>
+                    <p class="form-em">(* indicates user is archived or not active.)</p>
                 </div>
             </div>
         </div>
@@ -495,7 +496,7 @@
             <div class="col-sm">
                 <div class="form-group d-inline-flex flex-wrap">
                     {!! $control::label(['field_name'=>'login_created', 'display_name'=>$user, 'errors'=>$errors]) !!}
-                    {!! $control::input(['field_name'=>'login_created', 'model'=>$user, 'disabled'=>true,'errors'=>$errors]) !!}
+                    {!! $control::input(['field_name'=>'login_created', 'model'=>$user, 'disabled'=>true,'date_long'=>true, 'errors'=>$errors]) !!}
                 </div>
             </div>
         </div>
@@ -515,7 +516,7 @@
             <div class="col-sm">
                 <div class="form-group d-inline-flex flex-wrap">
                     {!! $control::label(['field_name'=>'last_login', 'display_name'=>$user, 'errors'=>$errors]) !!}
-                    {!! $control::input(['field_name'=>'last_login', 'model'=>$user, 'disabled'=>true,'errors'=>$errors]) !!}
+                    {!! $control::input(['field_name'=>'last_login', 'model'=>$user, 'disabled'=>true, 'date_long'=>true, 'errors'=>$errors]) !!}
                 </div>
             </div>
         </div>
@@ -534,11 +535,11 @@
             <div class="col-sm">
                 <div class="form-group d-inline-flex flex-wrap">
                     <label>User Logins</label>
-                    <div class="form-control"><strong>{{ number_format($user->login_count) }}</strong> times since {{ $user->ucreated }}.</div>
+                    <div class="form-control text-secondary"><strong>{{ number_format($user->login_count) }}</strong>
+                        times since {{ $user->login_created->tz($user->getBestTimezone())->format($config::get('date_format_php_long')) }}</div>
                 </div>
             </div>
         </div>
-
 
         {{-- ######################################################################## --}}
         {{-- Standard form information header; for endu-user form content headings. --}}
@@ -561,8 +562,8 @@
         var goto_url = "{{ config('app.url') }}" + '/users';
 
         // Set the Standard "Delete Me" message
-        delete_me_message = "Are you sure you want to permanently delete this User record?\n\n" +
-            "This will also delete their Role memberships and any pending notifications. (Consider Archiving them if you're not sure.)";
+        delete_me_message = "Are you sure you want to permanently delete the user record for {{$user->name}}?\n\n" +
+            "This will also delete Role memberships and any pending notifications. (Consider Archiving them if you're unsure.)";
     </script>
     <script type="text/javascript" src="{{ asset('vendor/ecoHelpers/js/eh-goto-submit.js') }}"></script>
 

@@ -673,7 +673,6 @@ if ($parameters['field_name'] == 'created_at') {
             }
             */
 
-
             // Note: this is expecting a Carbon instance which is controlled
             //  by ensuring that the Model has a $casts array defined.
             if (!empty($value) && $value->year < 1) {
@@ -682,28 +681,33 @@ if ($parameters['field_name'] == 'created_at') {
 
             // Note that if defined in the model, this $value is already a Carbon instance.
             // So if the field is not blank, then format to the system date format.
-            // "_short" for date only; "_long" for date + time.
+            // "_short" for date only; "_long" for date + time (as defined in the eco-helpers config file).
             if (!empty($value)) {
 
                 ///////////////////////////////////////////////////////////////////////////////////////////
                 // Deal with setting the appropriate timezone to display this date (timestamp) data.
                 $tz = '';
-                // First see if the user has a timezone set in their profile.
                 if (!empty(Auth()->user()->timezone)) {
+                    // First see if the user has a timezone set in their profile.
                     $tz = Auth()->user()->timezone;
-                // If not, then check to see if a system default timezone is set.
                 } elseif (!empty(ehConfig::get('default_time_zone'))) {
+                    // If not, then check to see if a system default timezone is set.
                     $tz = ehConfig::get('default_time_zone');
+                } elseif (!empty(config('app.timezone'))) {
+                    // If not, then check to see if the system has a default timezone.
+                    $tz = config('app.timezone');
+                }
+
+                // Set the timezone from above.
+                // Note: This was inside of the date_long processing below but moved it out here because it can
+                //       effect the short date too if it's close enough to midnight.
+                if (!empty($tz)) {
+                    $value = $value->tz($tz);
                 }
 
                 ///////////////////////////////////////////////////////////////////////////////////////////
                 // date_long is a parameter passed with the input data to select a date with time or just a date by itself.
                 if ($parameters['date_long']) {
-                    // If the time zone for either the user or the system default was present,
-                    // then change the timezone of this carbon instance date to either the default or the user defined.
-                    if (!empty($tz)) {
-                        $value = $value->tz($tz);
-                    }
                     $value = $value->format(ehConfig::get('date_format_php_long'));
                 } else {
                     $value = $value->format(ehConfig::get('date_format_php_short'));

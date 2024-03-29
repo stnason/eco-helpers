@@ -2,6 +2,11 @@
 
 namespace ScottNason\EcoHelpers\Controllers\Auth;
 
+use ScottNason\EcoHelpers\Classes\ehConfig;
+use ScottNason\EcoHelpers\Models\ehRole;
+//use ScottNason\EcoHelpers\Models\ehUser;
+
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
@@ -11,9 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use ScottNason\EcoHelpers\Classes\ehConfig;
-use ScottNason\EcoHelpers\Models\ehRole;
-use ScottNason\EcoHelpers\Models\ehUser;
+
 
 /**
  * Designed to be the extended by the published AuthenticatedSessionController, this base package class
@@ -278,7 +281,8 @@ class ehAuthenticatedSessionController extends Controller
 
 
         // 1.Update the user's last_login timestamp. (use the eco-helpers configured sql long time format)
-        Auth()->user()->last_login = date(ehConfig::get('date_format_sql_long'));
+        // date(ehConfig::get('date_format_sql_long')); // Appears to be identical to Carbon now()
+        Auth()->user()->last_login = Carbon::now()->format(ehConfig::get('date_format_sql_long'));
 
 
         // 2.Increment the user's login counter.

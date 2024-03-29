@@ -1,13 +1,15 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.42',
+    'APP_VER' => 'v1.0.43',
     'APP_LASTUPDATE' => '03/29/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 03/29/2024:v01.00.42: 0.50 :Modified LoginRequest@authenticate() to allow login with email or username.
+ * 03/29/2024:v01.00.43: 1.00 :Added a ehUser@getBestTimezone() and use it to display 'times since last login' (updated ehControl to use this too)
+ * 03/29/2024:v01.00.42: 1.50 :Added time_zone back to user migration. Moved the ->tz() setting in ehControl to outside of the date_long processing.
+ * 03/29/2024:v01.00.42: 2.50 :Modified LoginRequest@authenticate() to allow login with email or username. Replace all route('eco') references with 'home'.
  * 03/28/2024:v01.00.42: 1.50 :Fix numerous issues with registration and first time validation.
  * 03/28/2024:v01.00.42: 0.50 :Fix issue with ehUserFunctions@isUserActive() checking logged in rather than login_active.
  * 03/28/2024:v01.00.41: 0.50 :Fix issues on Registration with ehUser@uniqueAccountNumber().

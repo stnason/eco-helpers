@@ -19,8 +19,30 @@
 
     <div class="input-group form-group">
 
-        {{-- user first name input area --}}
+        {{-- user email input area. Note: putting this first since it already gets focus in all auth views. --}}
         <div class="input-group">
+            {{-- user email prepend image --}}
+            <span class="input-group-text" id="basic-addon1"><i class="fa-regular fa-envelope"></i></span>
+            <input class="form-control {{ $errors->has('first_name') || $errors->has('last_name') || $errors->has('email') ? ' is-invalid' : '' }}"
+                   type="text"
+                   name="email"
+                   id="email"
+                   value="{{ old('email') }}"
+                   placeholder="your email address"
+                   required autocomplete="off" autofocus>
+        </div>
+
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ ($errors->first('first_name') ?: $errors->first('last_name')) ?: $errors->first('email') }}</strong>
+        </span>
+
+    </div>
+
+
+    <div class="input-group form-group">
+
+        {{-- user first name input area --}}
+        <div class="input-group mt-3">
             {{-- user first name prepend image --}}
             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
             <input class="form-control {{ $errors->has('first_name') || $errors->has('last_name') || $errors->has('email') ? ' is-invalid' : '' }}"
@@ -52,26 +74,7 @@
 
     </div>
 
-    <div class="input-group form-group">
 
-        {{-- user email input area --}}
-        <div class="input-group mt-3">
-            {{-- user email prepend image --}}
-            <span class="input-group-text" id="basic-addon1"><i class="fa-regular fa-envelope"></i></span>
-            <input class="form-control {{ $errors->has('first_name') || $errors->has('last_name') || $errors->has('email') ? ' is-invalid' : '' }}"
-                   type="text"
-                   name="email"
-                   id="email"
-                   value="{{ old('email') }}"
-                   placeholder="your email address"
-                   required autocomplete="off" autofocus>
-        </div>
-
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ ($errors->first('first_name') ?: $errors->first('last_name')) ?: $errors->first('email') }}</strong>
-        </span>
-
-    </div>
 
     <div class="input-group form-group">
 
@@ -113,7 +116,6 @@
     <div class="d-grid gap-2 mt-3">
         <button class="btn btn-secondary" type="submit">{{ __('Submit') }}</button>
     </div>
-
 
 @endsection
 

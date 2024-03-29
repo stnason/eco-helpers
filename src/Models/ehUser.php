@@ -2,11 +2,20 @@
 
 namespace ScottNason\EcoHelpers\Models;
 
+
+//TODO: Move any functions here to the ehUserFunctions trait and then make this a publishable User.php file
+// There are things in here that you have to have access to going forward like casts and fillable, etc.
+
+use ScottNason\EcoHelpers\Classes\ehConfig;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Contracts\Auth\MustVerifyEmail;          // Needed (and the implementation on the class) to force email validation for a new user.
+
+// Needed (and the implementation on the class) to force email validation for a new user.
+// NOTE: You still have to protect the routes with the 'verified' middleware, though.
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 
 use ScottNason\EcoHelpers\Traits\ehUserFunctions;
@@ -29,8 +38,8 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
      *
      * @var string[]
      */
-    public $dates = ['created_at', 'updated_at'];
-
+    //TODO: This appears to still be used by ecControls -- should use $casts instead
+    public $dates = ['created_at', 'updated_at', 'last_login', 'login_created'];
 
 
     /**
@@ -72,6 +81,7 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
         'email_alternate'=>'Alternate Email',
         'comments'=>'Comments',
 
+        'timezone'=>'Timezone',
         'login_active'=>'Login Active',
         'default_role'=>'Default Group',
         'acting_role'=>'Acting Role',
@@ -124,6 +134,8 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
+        'last_login' => 'datetime',
+        'login_created' => 'datetime',
         'password' => 'hashed',
     ];
 
@@ -208,5 +220,36 @@ class ehUser extends ehBaseAuthenticatable implements MustVerifyEmail
         }
 
     }
+
+    /**
+     * Check to see if the user has a time zone assigned and return it.
+     * Otherwise check to see if an eco-helpers default is set and return it.
+     * Otherwise check the Laravel app timezone and return it.
+     *
+     * Note: this same logic is hard-coded into ehControl date processing.
+     *  (didn't use this function since ehControl is available to all models; didn't want to just make it static.)
+     *
+     * @return string
+     */
+    public function getBestTimezone() {
+
+        // Does this user have a time zone set?
+        if (!empty($this->time_zone)) {
+            return $this->time_zone;
+        }
+
+        // Does eco-helpers config have a default_time_zone set?
+        if (!empty(ehConfig::get('default_time_zone'))) {
+            return ehConfig::get('default_time_zone');
+        }
+
+        // Does app config have a system wide default time zone set?
+        if (!empty(config('app.timezone'))) {
+            return config('app.timezone');
+        }
+
+        return '';
+    }
+
 
 }
