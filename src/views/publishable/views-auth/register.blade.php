@@ -3,12 +3,19 @@
 
 @section('auth_card_inside_form')
 
+    {{-- Include the code for the Google ReCaptcha widget below.
+    https://significanttechno.com/how-to-add-google-recaptcha-to-laravel-forms          (bloated validation)
+    https://www.cloudways.com/blog/use-recaptcha-laravel-forms-validation/#controller   (simple validation)
+        --}}
+    <script async src="https://www.google.com/recaptcha/api.js"></script>
+
     <p class="text-warning">
         @if ($errors->any())
             @error('email') {{ $errors->first('email') }} @enderror
             @error('name') {{ $errors->first('name') }} @enderror
             @error('password') {{ $errors->first('password') }} @enderror
             @error('password') {{ $errors->first('password_confirm') }} @enderror
+            @error('g-recaptcha-response') {{ $errors->first('g-recaptcha-response') }} @enderror
         @elseif(!empty(session('status')))
             {{session('status')}}
         @else
@@ -111,6 +118,8 @@
 
     </div>
 
+    {{-- Google Recaptcha Widget --}}
+    <div class="g-recaptcha mt-3 d-flex justify-content-center form-control" data-sitekey={{config('services.recaptcha.key')}}></div>
 
     {{-- Full card width login submit button. --}}
     <div class="d-grid gap-2 mt-3">
@@ -118,10 +127,3 @@
     </div>
 
 @endsection
-
-
-
-
-
-
-

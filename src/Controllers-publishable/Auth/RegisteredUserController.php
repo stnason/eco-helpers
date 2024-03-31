@@ -39,15 +39,22 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            //'name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            //'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],    // Lowercase? Really?
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
 
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        $request->validate([
+                //TODO: I don't think this is a complete implementation of this. (where is the site_key checked?)
+                // But it looks to be enough to thwart the auto register bots.
+                'g-recaptcha-response' => 'required',   // Google ReCaptcha Validation
+                //'name' => ['required', 'string', 'max:255'],
+                'first_name' => ['required', 'string', 'max:255'],
+                'last_name' => ['required', 'string', 'max:255'],
+                //'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],    // Lowercase? Really?
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            ],
+            [
+                'g-recaptcha-response.required' => 'You must complete the reCAPTCHA form.',
+            ]
+        );
 
         $user = User::create([
             //'name' => $request->name,     // Unless I modify it, the original Laravel migration doesn't include a default value so it needs something.

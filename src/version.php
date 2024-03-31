@@ -1,12 +1,14 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.43',
-    'APP_LASTUPDATE' => '03/29/2024'
+    'APP_VER' => 'v1.0.44',
+    'APP_LASTUPDATE' => '03/31/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 03/31/2024:v01.00.44: 1.00 :Add ehIPBlocker class to after all the /register issues. (simple static list for now)
+ * 03/30/2024:v01.00.43: 1.75 :Adding Google ReCaptcha to the registration form after getting multiple users registered at np.com.
  * 03/29/2024:v01.00.43: 1.00 :Added a ehUser@getBestTimezone() and use it to display 'times since last login' (updated ehControl to use this too)
  * 03/29/2024:v01.00.42: 1.50 :Added time_zone back to user migration. Moved the ->tz() setting in ehControl to outside of the date_long processing.
  * 03/29/2024:v01.00.42: 2.50 :Modified LoginRequest@authenticate() to allow login with email or username. Replace all route('eco') references with 'home'.
