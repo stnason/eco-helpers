@@ -10,13 +10,20 @@ use Illuminate\Foundation\Http\Kernel;
  * ScottNason\EcoHelpers\EcoHelpersServiceProvider::class
  * @package ScottNason\EcoHelpers.
  *
- * Originally had to add to config/app.php; but it should now auto-discover and register itself properly.
+ * No need to add to config/app.php manually anymore.
+ * Laravel now auto-discovers and registers it properly.
  *
- * NOTE on the "public" paths.
- * ??? I had to register the public path in the AppServiceProvider.php
- *      for the live site in order to get the files to copy to the right place.
- *      (this may only be true when NOT USING the default Laravel public folder).
+ *  register()   - "To make available to the app w/o copying any files."
+ *  boot()       - "Copy files to the laravel app so the app developer can modify them."
  *
+ * NOTE: On the "public" path.
+ *       Only when using a public path other than the default Laravel app/public:
+ *       I had to register the public path in the AppServiceProvider.php
+ *       in order to get the public files to copy to the right place.
+ *       (this seems to only be needed when NOT USING the default Laravel public folder)
+ *
+ * Note: Had to go with the camel-cased "ecoHelpers" for the target folders
+ *       since "eco-helpers" appears to be an invalid namespace name.
  */
 
 class EcoHelpersServiceProvider extends ServiceProvider
@@ -24,6 +31,7 @@ class EcoHelpersServiceProvider extends ServiceProvider
 
     protected $commands = [
         'ScottNason\EcoHelpers\Commands\ecoHelpersSampleData',
+        'ScottNason\EcoHelpers\Commands\ecoHelpersInstall',
     ];
 
 
@@ -35,29 +43,41 @@ class EcoHelpersServiceProvider extends ServiceProvider
     public function register()
     {
 
-        // This section is for registering --
-        //  merging into the current Laravel app - w/o copying the files --
-        // (like the routes file, disk definition, some of the core views amd the eco-constants.)
+        /*
+         * REGISTER
+         * This section "registers" the package which basically "merges" these settings
+         * into the current Laravel app - W/O copying any files.
+         * (like the routes file, disk definition, some of the core views amd the eco-constants.)
+         *
+         * Note: in the boot() method below we will actually publish (copy) files for end user use.
+         */
 
-        // Note: in the boot() method below we will actually publish (copy) files for end user use.
-
-        // Core security and permissions constants.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // CONSTANTS
+        // The core eco-helpers security and permissions constants.
+        // These are used by all security permissions checks.
         $this->mergeConfigFrom(__DIR__.'/config/eco-constants.php', 'eco-helpers');
 
 
-        // Package Routes file.
-        // (? Laravel documentation shows this under the boot() section.)
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // ROUTES
+        // The core eco-helpers package routes file.
+        // This provides access to the core package functions like roles, menus/pages, users.
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
 
-        // Use this syntax in views to access non-published (package) views:
-        // ecoHelpers::folder.view-name
-        // (? Laravel documentation shows this under the boot() section.)
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // VIEWS
+        // Provide access to the eco-helpers core package views
+        // Note on proper syntax when calling any of these views from within the app:
+        //      ecoHelpers::folder.view-name
         $this->loadViewsFrom(__DIR__.'/views', 'ecoHelpers');
 
 
-        // Merge in a disk definition into the application's filesystems config file.
-        // For eco-helpers.contact_photo_disk name (default: users)
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // FIELSYSTEM
+        // Merge this disk definition into the application's filesystems config file.
+        // This is ror eco-helpers.contact_photo_disk name (default: users)
         app()->config["filesystems.disks.users"] = [
             'driver' => 'local',
             'root' => storage_path('app/users'),
@@ -67,11 +87,12 @@ class EcoHelpersServiceProvider extends ServiceProvider
         ];
 
 
-        // Publish middleware?
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // MIDDLEWARE
         // Add the Global middleware.
-        // $kernel->pushMiddleware(ehCheckPermissions::class);  // $kernel only exists below in the boot() method. ??
+        // $kernel->pushMiddleware(ehCheckPermissions::class);  // $kernel only exists below in the boot() method.
+        // This is the syntax that works for "registering" this middleware for use in the app.
         app('router')->aliasMiddleware('check_permissions', \ScottNason\EcoHelpers\Middleware\ehCheckPermissions::class);
-
 
     }
 
@@ -84,43 +105,43 @@ class EcoHelpersServiceProvider extends ServiceProvider
      */
     public function boot(Kernel $kernel)
     {
+
+        /*
+         * PUBLISH
+         * This section publishes resources (copies them) to the host project.
+         * Usage:
+         *  php artisan vendor:publish --provider="ScottNason\eco-helpers\EcoHelpersServiceProvider"
+         *      - or simply:
+         *  php artisan vendor:publish
+         *      - will provide a list of vendor packages with publishable assets to choose from.
+         */
+
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // How to publish resources in the host project:
-        // php artisan vendor:publish --provider="ScottNason\eco-helpers\EcoHelpersServiceProvider"
-        // php artisan vendor:publish (will give you a list of packages with publishable assets to choose from)
-
-
-        //TODO: if you run the ui:auth command a second time it warns you that folders already exist.
-        // How are they doing that (and then use that in here.)
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
+        // CONFIG
         // Publish the end-user editable eco-helpers config file.
-        // Note: We're specifically excluding the eco-constants.php file (it's being registered above).
+        // Note: We're specifically excluding the eco-constants.php file.
+        //       (it's been registered above already)
         $this->publishes([
             __DIR__.'/config/eco-helpers.php' => config_path('eco-helpers.php'),
         ], 'config');
 
+
         ///////////////////////////////////////////////////////////////////////////////////////////
+        // VIEWS
         // Publish the end-user editable views.
         $this->publishes([
-            __DIR__.'/views/publishable/views-ecoHelpers' => resource_path('views/ecoHelpers'),         // The main views
-            __DIR__.'/views/publishable/views-auth' => resource_path('views/auth-ecoHelpers'),          // This will need to be renamed to just "auth" on the other side.          // The auth views
+            __DIR__.'/views/publishable/views-ecoHelpers' => resource_path('views/ecoHelpers'),             // The main views
             __DIR__.'/views/publishable/views-auto-load' => resource_path('views/ecoHelpers/auto-load'),    // The auto-loader views
+
+            // Moving this to an artisan executable install command
+            // __DIR__.'/views/publishable/views-auth' => resource_path('views/auth-ecoHelpers'),
+
             ], 'views');
 
 
-        /* TODO: publish the final end-user auth views
-        ?? can we rename the current views/auth folder if it exists ??
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Publish the end-user editable views.
-        $this->publishes([
-            __DIR__.'/views/auth' => resource_path('views/auth'),
-        ], 'views');
-        */
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // Publish the css, js, image and auto-loader resources.
+        // ASSETS
+        // Publish the css, js, image and auto-loader resources (public vendor assets).
         $this->publishes([
             __DIR__.'/public-publishable/vendor-ecoHelpers-css' => public_path('vendor/ecoHelpers/css'),
             __DIR__.'/public-publishable/vendor-ecoHelpers-js' => public_path('vendor/ecoHelpers/js'),
@@ -129,49 +150,29 @@ class EcoHelpersServiceProvider extends ServiceProvider
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Publish or Register (?) the database migrations.
-        // This copies the migrations to the parent app's migrations folder rather than just "using" them from the package
-        /*
+        // MIGRATIONS
+        // Note: this section can Publish or Register database migrations.
+        //
+        /* This copies the migrations to the parent app's migrations folder.
         $this->publishes([
             __DIR__.'/database/migrations' => database_path('/migrations'),
         ], 'migrations');
         */
 
-        // This registers them for use without the need to copy them.
+        // This simply "registers" them for use without the copying them out to the app's migration folder.
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Publish the Classes-publishable resources.
-        // register()   - "To make available to the app w/o copying the files."
-        // boot()       - "Copy files to the laravel app so the developer has access to them."
-
-        // Note: Had to go with the camel-cased "ecoHelpers" for the target folders
-        //       since "eco-helpers" appeared to be an invalid
-        //       namespace name.
-
-        // This will depend on whether the drop-down menu creation--and the auto-loaders check--stays
-        // in the Layout class and is passed to the $layout array -- or -- moved to an @inject
-        // so the template can handle it.
-
-        // The verdict was to keep ehLayout in the package. (rather than publish a user accessible Layout class)
-        // (but hanging onto this code as a reminder until the final testing.)
-        /*
-        $this->publishes([
-            __DIR__.'/Classes-publishable/Layout.php' => app_path('Classes/ecoHelpers'),
-        ], 'eco-helpers-classes');
-        */
-
-        // This is designed to be immediately extended and modified by the end-users.
+        // CLASSES
+        // These are designed to be immediately modified by the end-users.
         $this->publishes([
             __DIR__.'/Classes-publishable/ValidList.php' => app_path('Classes/ValidList.php'),
         ], 'classes');
 
 
-        /* TODO: I think the final decision was to "modify" (the extends and the public $casts)
-            the original user file rather than publishing a new one.
-            !!! BUT: there may be value in doing this and adding all the needed $labels !!!
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        /* Can't overwrite the original User model here so moving this to an executable artisan install command.
         // Publish any models?
         // So far, there is only 1 model to publish. The others are all kept in the package for now.
             __DIR__.'/Models-publishable/User.php' => app_path('Models/ecoHelpers/User.php'),
@@ -179,21 +180,17 @@ class EcoHelpersServiceProvider extends ServiceProvider
         */
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Publish the controllers.
-        //  So far, I don't know how to force (or ask) an overwrite from here --
-        //  So I opted for appending "-ecoHelpers" to the end of the Auth directory (for now)
-        //  and having that be a manual edit (like the views) after the fact.
-        //  === To implement, you will have to delete the originals and rename these. ===
+        // CONTROLLERS
+        // Publish the user modifiable eco-helpers controllers.
         $this->publishes([
 
             //Laravel UI Auth only:
             //__DIR__.'/Controllers-publishable/Auth/LoginController.php' => app_path('Http/Controllers/Auth/ecoHelpers_LoginController.php'),
 
-
             // Laravel Breeze Auth:
             // (copy all of the "modified" Breeze controllers)
-            __DIR__.'/Controllers-publishable/Auth' => app_path('Http/Controllers/Auth-ecoHelpers'),
-
+            // Moving this to an executable artisan install command.
+            // __DIR__.'/Controllers-publishable/Auth' => app_path('Http/Controllers/Auth-ecoHelpers'),
 
             // Sample OOTB Home Controller:
             __DIR__.'/Controllers-publishable/ehHomeController.php' => app_path('Http/Controllers/ehHomeController.php'),
@@ -201,28 +198,27 @@ class EcoHelpersServiceProvider extends ServiceProvider
         ], 'controllers');
 
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
+        // PHOTOS
         //TODO:
         // photos to publish for the sample user (ehAdmin and ehUser)??
         // (Note: the storage disk is defined above in the register() method)
         // Sample data is executed by the console command registered below.
 
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Register the package's artisan console commands.
-        // Right now it's just the one to create the sample data.
+        // COMMANDS
+        // Register the eco-helpers artisan console commands.
+        //
         //  (see the protected $commands variable at the top.)
         //  Note: Because of how potentially dangerous this command could be on Live data,
         //       I opted not to do this automatically with a post install script
         //       -> composer.json -> post-install-cmd.
         //  Note: That w/o registering, you get:
         //       ERROR  There are no commands defined in the "eco-helpers" namespace.
-
-        //  This only works when all the namespacing is exactly correct. (see the command $signature)
+        //  THIS ONLY WORKS when all the namespacing is EXACTLY correct.
+        //      (see the command protected $signature in the Commands\commandName file)
         $this->commands($this->commands);
-
 
     }
 }

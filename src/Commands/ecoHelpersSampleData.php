@@ -2,29 +2,26 @@
 
 namespace ScottNason\EcoHelpers\Commands;
 
-use App\Models\User;
 use Illuminate\Console\Command;
 use ScottNason\EcoHelpers\Classes\ehSampleData;
 
 /**
- * Published as the artisan command 'eco-helpers:sample-data' to call the ehSampleData class responsible
- * for building out the initial (required) system data and examples.
+ * Published as the artisan command 'eco-helpers:sample-data' to call the ehSampleData class
+ * that's responsible for building out the initial (required) system data and examples.
  */
 class ecoHelpersSampleData extends Command
 {
     /**
      * The name and signature of the console command.
-     *
      * @var string
      */
     protected $signature = 'eco-helpers:sample-data';
 
     /**
      * The console command description.
-     *
      * @var string
      */
-    protected $description = 'Create sample data for the ecoHelpers framework.';
+    protected $description = 'Create the sample data for the eco-helpers package.';
 
     /**
      * Execute the console command.
@@ -42,7 +39,8 @@ class ecoHelpersSampleData extends Command
             // Execute the code to build out the sample data here.
             $this->info('Setting up the initial sample data now:' . "\n");
 
-           $this->info(ehSampleData::createSampleData());
+            // Do the work here (create all the sample data).
+            $this->info(ehSampleData::createSampleData());
 
         } else {
 
@@ -53,16 +51,13 @@ class ecoHelpersSampleData extends Command
         }
 
         $this->newLine(2);
-
     }
-
 
     /**
      * Build out and display the script's startup, on-screen
      * warning message explaining what's about to happen.
-     * (just separating this down here to keep the main
-     *  body of the code a little cleaner)
      *
+     * (separating this here to keep the main body of the code cleaner)
      * @return void
      */
     protected function showOnScreenWarning() {

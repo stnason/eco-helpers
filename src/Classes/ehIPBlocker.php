@@ -12,34 +12,29 @@ class ehIPBlocker
 {
 
     /**
-     * Hard coded list of IP addresses to block.
-     *
-     * @var string[]
-     */
-    protected static $blacklist = [
-        "74.138.60.72",
-    ];
-
-    /**
-     * Where to redirect to when one of the blocked IP addresses makes a request.
-     * @var string
-     */
-    protected static $on_block_redirect = "https://example.com/";
-
-    /**
      * Execute the ip blocking check and redirect if address is found to be in the black-list.
-     * @param $ip
+     * For now, this is executed on a hard-coded list that is passed.
+     * You can also pass a url to direct to and/or an ip address other than the default REMOTE_ADDR.
+     *
+     * @param $blacklist
+     * @param $redirect_to
+     * @param $remote_ip
      * @return void
      */
-    public static function checkIP($ip=null) {
+    public static function checkIP($blacklist=[], $redirect_to=null, $remote_ip=null) {
 
-        if (empty($ip)) {
-            $ip = $_SERVER['REMOTE_ADDR'];
+        // Use the remote host access ip if none provided.
+        if (empty($remote_ip)) {
+            $remote_ip = $_SERVER['REMOTE_ADDR'];
+        }
+        // Redirect to here when blacklisted if none provided
+        if (empty($redirect_to)) {
+            $redirect_to = 'https://example.com/';
         }
         
-        if (in_array($ip, self::$blacklist))
+        if (in_array($remote_ip, $blacklist))
         {
-            header("location: ".self::$on_block_redirect);
+            header("location: ".$redirect_to);
             exit();
         }
     }

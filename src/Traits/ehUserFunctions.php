@@ -741,4 +741,109 @@ trait ehUserFunctions
     }
 
 
+    /**
+     * Create a unique username based on this specific algorithm.
+     * Note: passing the entire $request here so this method can be changed to use a different algorithm as needed.
+     * This is used by both the RegisteredUserController and the ehUsersController@dataConsistencyCheck().
+     *
+     * @param Request $request
+     * @return string
+     */
+    public static function uniqueUserName(Request $request) {
+        $user_name = '';
+        $user_name =    substr(strtolower($request->first_name),0,3) . substr(strtolower($request->last_name),0,3);
+
+
+        // Determine if this user name is unique. (And create a unique one if needed by adding a number)
+        $name_is_unique = false;            // Check to see if this user name is unique among all users.
+        $unique_cnt = 1;                    // A number to add after the user name to make it unique.
+        $unique_user_name = $user_name;     // The newly created unique user name.
+        do {
+            $r = DB::select("SELECT * FROM users WHERE name = '".$unique_user_name."';");
+            if (count($r) > 0) {          // This name is already in use.
+                $unique_user_name = $user_name.$unique_cnt;
+                $unique_cnt++;
+            } else {
+                $name_is_unique = true;     // Drop us out of this unique check and return this version of the user name.
+            }
+        }  while (!$name_is_unique);
+
+        return $unique_user_name;
+    }
+
+
+    /**
+     * Create a unique account number based on this specific algorithm.
+     * Note: passing the entire $request here so this method can be changed to use a different algorithm as needed.
+     * This is used by both the RegisteredUserController and the ehUsersController@dataConsistencyCheck().
+     *
+     * @param Request $request
+     * @return string
+     */
+    public static function uniqueAccountNumber(Request $request) {
+
+        $starting_account_number = 100001;      // TODO: Move this to eco-helper.php
+        $user_account_number = '';
+
+        // Get the highest account number in use.
+        $highest = DB::select("SELECT account_id FROM users ORDER BY account_id DESC LIMIT 1;");
+
+        if (!empty($highest[0]->account_id)) {
+            // If we got a result from the query then add 1 to it to get the next available account id.
+            $user_account_number = $highest[0]->account_id + 1;
+        } else {
+            // Otherwise, it looks like no account ids have been assigned yet so use the starting one.
+            $user_account_number = $starting_account_number;
+        }
+
+        // But, make sure this user doesn't already have one assigned.
+        if (!empty($request->id)) {
+            $current_account = DB::select("SELECT account_id FROM users WHERE id = {$request->id};");
+        }
+
+        if (!empty($current_account[0]->account_id)) {
+            // Looks like the user already has an account id so just return that one.
+            return $current_account[0]->account_id;
+        } else {
+            // Looks like user did not have an account id assigned so use the one we created above.
+            return $user_account_number;
+        }
+
+    }
+
+
+
+
+    /**
+     * Check to see if the user has a time zone assigned and return it.
+     * Otherwise check to see if an eco-helpers default is set and return it.
+     * Otherwise check the Laravel app timezone and return it.
+     *
+     * Note: this same logic is hard-coded into ehControl date processing.
+     *  (didn't use this function since ehControl is available to all models; didn't want to just make it static.)
+     *
+     * @return string
+     */
+    public function getBestTimezone() {
+
+        // Does this user have a time zone set?
+        if (!empty($this->time_zone)) {
+            return $this->time_zone;
+        }
+
+        // Does eco-helpers config have a default_time_zone set?
+        if (!empty(ehConfig::get('default_time_zone'))) {
+            return ehConfig::get('default_time_zone');
+        }
+
+        // Does app config have a system wide default time zone set?
+        if (!empty(config('app.timezone'))) {
+            return config('app.timezone');
+        }
+
+        return '';
+    }
+
+
+
 }
