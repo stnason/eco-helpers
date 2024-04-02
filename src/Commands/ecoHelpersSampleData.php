@@ -29,6 +29,7 @@ class ecoHelpersSampleData extends Command
     public function handle()
     {
 
+        system('clear');     // Clear the screen before starting.
         // Display the onscreen script warning message.
         $this->showOnScreenWarning();
 

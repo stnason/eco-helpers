@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use ScottNason\EcoHelpers\Traits\ehUserFunctions;
+use ScottNason\EcoHelpers\Models\ehBaseAuthenticatable;
 
 /**
  * The eco-helpers modified User model.
