@@ -183,10 +183,6 @@ class ehPagesController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        ehLayout::setAutoload('unsaved');         // Include the form data changed check on any crud page.
-        //ehLayout::setAutoload([3,6]);
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
         // Create the Dynamic header.
         $delimiter = '<span class="fw-light"> | </span>';
         $display_parent = 'TOP LEVEL';     // Default if no parent id.

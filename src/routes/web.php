@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Web;
-use ScottNason\EcoHelpers\Models\ehUser;
 use ScottNason\EcoHelpers\Classes\ehNotifier;
 use ScottNason\EcoHelpers\Controllers\ehPagesController;
 use ScottNason\EcoHelpers\Controllers\ehRolesController;
@@ -24,8 +23,8 @@ use ScottNason\EcoHelpers\Controllers\ehImportExportController;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // - Role maintenance.
-    Route::delete('/delete-role-from-user/{role_lookup}', [ehUser::class, 'deleteRoleFromUser']);
-    Route::delete('/delete-user-from-role', [ehUser::class, 'removeUsersFromRole']);
+    Route::delete('/delete-role-from-user/{role_lookup}', [User::class, 'deleteRoleFromUser']);
+    Route::delete('/delete-user-from-role', [User::class, 'removeUsersFromRole']);
     Route::post('/users/role', [ehUsersController::class, 'role'])->name('users.role');
 
     ///////////////////////////////////////////////////////////////////////////////////////////

@@ -2,10 +2,9 @@
 
 namespace ScottNason\EcoHelpers\Classes;
 
-//use App\Models\User;      // Note; using ehUser here instead of User -
-                            // since we're just accessing the core methods of that class.
+use App\Models\User;            // Using this to access the ehUserFunctions trait methods.
+
 use http\Exception;
-use ScottNason\EcoHelpers\Models\ehUser;
 use ScottNason\EcoHelpers\Models\ehPage;
 use ScottNason\EcoHelpers\Models\ehAccessToken;
 
@@ -89,7 +88,7 @@ class ehAccess
      *      Note: When building a form, this is a convenience, "front-side check" only and not considered "secure"
      *            (that is handled by the Middleware check).
      *
-     *      Note: If $user_id is blank or null, ehUser::normalizeUserID() will attempt to use the currently logged in user.
+     *      Note: If $user_id is blank or null, User::normalizeUserID() will attempt to use the currently logged in user.
      *            If $route_name is null, the current route name will be used.
      *
      * @param $user_id      // The person to check the permissions for (default to currently logged in user).
@@ -107,7 +106,7 @@ class ehAccess
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Normalize the $user_id and $route_name.
-        $user = ehUser::normalizeUserID($user_id);
+        $user = User::normalizeUserID($user_id);
         $route_name = ehPage::normalizeRouteName($route_name);
 
         ////////////////////////////////////////////////////////////////////////////////////////////
@@ -123,12 +122,12 @@ class ehAccess
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1. Is the user's login active?
-        if (!ehUser::isUserActive()) {
+        if (!User::isUserActive()) {
             return false;
         }
 
         // 2. Is the user's acting role active?
-        if (!ehUser::isActingRoleActive()) {
+        if (!User::isActingRoleActive()) {
             return false;
         }
 
@@ -256,7 +255,7 @@ class ehAccess
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // We have to have a role_id so if it's missing or blank for any reason then grab the user's
-        $role = ehUser::normalizeRoleID($role_id);
+        $role = User::normalizeRoleID($role_id);
 
         // Normalize the page id to a page object.
         $page = ehPage::normalizePageID($page_id);
@@ -647,7 +646,7 @@ class ehAccess
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // We can accept a $role object instance or a $role_id number
-        $role = ehUser::normalizeRoleID($role_id);
+        $role = User::normalizeRoleID($role_id);
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Check the route name and normalize slashes or convert to a name if it's a number.
@@ -733,7 +732,7 @@ class ehAccess
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Normalize the user id
-        $user = ehUser::normalizeUserID($user_id);
+        $user = User::normalizeUserID($user_id);
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////

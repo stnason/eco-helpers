@@ -1,12 +1,14 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.46',
-    'APP_LASTUPDATE' => '04/02/2024'
+    'APP_VER' => 'v1.0.48',
+    'APP_LASTUPDATE' => '04/04/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 04/04/2024:v01.00.48: 2.00 :Forcing an update for testing all changes.
+ * 04/02/2024:v01.00.47: 2.00 :Remove all references to ehUser. Fix GoTo not working on role-detail $edit_lock. Modify the base template "unsaved" code to leave out the "goto" button. Remove all references to Autoload('unsaved).
  * 04/02/2024:v01.00.46: 2.00 :Working on eco-helpers;install artisan command.
  * 04/01/2024:v01.00.45: 3.00 :Clean up ehUser in preparation for making in just User and publishable. Frame out 2 more commands for initial install.
  * 03/31/2024:v01.00.44: 1.00 :Add ehIPBlocker class to after all the /register issues. (simple static list for now)

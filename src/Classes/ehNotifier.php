@@ -2,9 +2,10 @@
 
 namespace ScottNason\EcoHelpers\Classes;
 
+use App\Models\User;            // Using this to access the ehUserFunctions trait methods.
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use ScottNason\EcoHelpers\Models\ehUser;
+
 use ScottNason\EcoHelpers\Models\ehNotification;
 
 /**
@@ -24,7 +25,7 @@ class ehNotifier
         if (!self::authorized()) {return json_encode(['responseText'=>'ehNotifier: Not authorized']);}
 
         // Note: will use Auth()->user() if null.
-        $user = ehUser::normalizeUserID($user);
+        $user = User::normalizeUserID($user);
 
         // First remove any expired notifications.
         self::removeExpired($user);
@@ -51,7 +52,7 @@ class ehNotifier
         if (!self::authorized()) {return json_encode(['responseText'=>'ehNotifier: Not authorized']);}
 
         // Note: will use Auth()->user() if null.
-        $user = ehUser::normalizeUserID($user);
+        $user = User::normalizeUserID($user);
 
         // First remove any expired notifications.
         self::removeExpired($user);
@@ -78,7 +79,7 @@ class ehNotifier
         if (!self::authorized()) {return json_encode(['responseText'=>'ehNotifier: Not authorized']);}
 
         // Note: will use Auth()->user() if null.
-        $user = ehUser::normalizeUserID($user);
+        $user = User::normalizeUserID($user);
 
 
         // First remove any expired notifications.
@@ -106,7 +107,7 @@ class ehNotifier
         if (!self::authorized()) {return json_encode(['responseText'=>'ehNotifier: Not authorized']);}
 
         // Note: will use Auth()->user() if null.
-        $user = ehUser::normalizeUserID($user);
+        $user = User::normalizeUserID($user);
 
         // First remove any expired notifications.
         self::removeExpired($user);

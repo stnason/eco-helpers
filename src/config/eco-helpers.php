@@ -46,7 +46,7 @@ return [
         //'$first_name',
         //'$last_name',
         //'$email',
-        '$name',            // The user's registered (User()->name) login name ( as determined by ehUser::uniqueUserName() ).
+        '$name',            // The user's registered (User()->name) login name ( as determined by User::uniqueUserName() ).
         ' (',               // Just wrapping the $id below in parentheses.
         '$id',              // The User()->id field
         ')'                 // Display the closing parenthesis around the $id number.
@@ -265,7 +265,7 @@ return [
                 'class' => ''
             ],
             'dynamic' => [
-                'state' => true,
+                'state' => false,
                 'content' => 'dynamic helper descriptive heading area',
                 'collapse' => false,
                 'collapse_chr' => ' ',
@@ -279,14 +279,14 @@ return [
                 'class' => ''
             ],
             'attention' => [
-                'state' => true,
+                'state' => false,
                 'content' => 'Eco Helpers <strong>Attention</strong> message',
                 'collapse' => false,
                 'collapse_chr' => ' ',
                 'class' => 'bg-warning'
             ],
             'option-block' => [
-                'state' => true,
+                'state' => false,
                 'content' => 'Option Block',
                 'collapse' => false,
                 'collapse_chr' => ' ',

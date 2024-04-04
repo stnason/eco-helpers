@@ -3,7 +3,8 @@
 namespace ScottNason\EcoHelpers\Controllers;
 
 
-use App\Classes\ValidList;           // Use the package published version (not ehValidList internal).
+use App\Classes\ValidList;          // Use the package published version (not ehValidList internal).
+use App\Models\User;                // Using this to access the ehUserFunctions trait methods.
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ use ScottNason\EcoHelpers\Classes\ehMenus;
 use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Classes\ehLayout;
-use ScottNason\EcoHelpers\Models\ehUser;
+
 
 /**
  * The Controller responsible for managing the crud interaction with the roles and permissions
@@ -222,9 +223,6 @@ class ehRolesController extends ehBaseController
         // Set the dynamic header tole name.
         ehLayout::setDynamic($role->name);
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        ehLayout::setAutoload('unsaved');         // Include the form data-changed check on this crud page.
-
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // CHECK FOR EDIT LOCK (based on the 'lock' column in the eh_roles table).
@@ -296,7 +294,7 @@ class ehRolesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Get a list of current users assigned to this Role.
-        $form['user_list'] = ehUser::getUsersInRole($role->id);
+        $form['user_list'] = User::getUsersInRole($role->id);
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -457,7 +455,7 @@ class ehRolesController extends ehBaseController
         // 1. RULE: Can't delete roles that have people assigned.
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Get a list of current users assigned to this Role.
-        $user_list = ehUser::getUsersInRole($role->id);
+        $user_list = User::getUsersInRole($role->id);
         if (count($user_list) > 0) {
             session()->flash('message','<strong>Warning!</strong> You cannot delete a role that <strong>has Users assigned</strong>. You must first <strong>remove Users</strong> from the role before deleting it.');
             return redirect(route('roles.show',[$role->id]));
@@ -602,7 +600,7 @@ class ehRolesController extends ehBaseController
         $pageList = [];
 
 
-        $role = ehUser::normalizeRoleID($role_id);
+        $role = User::normalizeRoleID($role_id);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Get the pages for this module (TOP LEVEL) - selected in the form grid rights area dropdown.

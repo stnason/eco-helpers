@@ -4,7 +4,6 @@ namespace ScottNason\EcoHelpers\Controllers\Auth;
 
 use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Models\ehRole;
-//use ScottNason\EcoHelpers\Models\ehUser;
 
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;

@@ -13,7 +13,6 @@ use Illuminate\Validation\Rule;
 use ScottNason\EcoHelpers\Classes\ehConfig;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
-use ScottNason\EcoHelpers\Models\ehUser;
 use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Classes\ehAccess;
 use ScottNason\EcoHelpers\Rules\CheckEmails;
@@ -39,7 +38,7 @@ class ehUsersController extends ehBaseController
         // You could just as easily implement a list here (see ehExamplesController@index().
 
         if (Auth()->guest()) {
-            return redirect('/users/' . ehUser::first()->id);
+            return redirect('/users/' . User::first()->id);
         } else {
             return redirect('/users/' . Auth()->user()->id);
         }
@@ -139,7 +138,7 @@ class ehUsersController extends ehBaseController
 
     }
 
-    public function show(Request $request, ehUser $user)
+    public function show(Request $request, User $user)
     {
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -167,11 +166,8 @@ class ehUsersController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Setup the User's image (or no image file)
-        ehLayout::setOptionBlock('<img alt="' . $user->id . '" title="' . $user->fullName() . '" src="' . ehUser::getUserPhoto($user->id) . '">');
+        ehLayout::setOptionBlock('<img alt="' . $user->id . '" title="' . $user->fullName() . '" src="' . User::getUserPhoto($user->id) . '">');
 
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        ehLayout::setAutoload('unsaved');         // Include the form data changed check on any crud page.
 
         // SECURITY: Button control.
         ehLayout::setStandardButtons();
@@ -218,10 +214,10 @@ class ehUsersController extends ehBaseController
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request             $request
-     * @param \ScottNason\EcoHelpers\Models\ehUser $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ehUser $user)
+    public function update(Request $request, User $user)
     {
 
         // Crud Router - new

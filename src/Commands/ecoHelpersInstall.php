@@ -67,6 +67,13 @@ class ecoHelpersInstall extends Command
             );
             $this->newLine(2);
 
+            $this->replaceOrOverwrite(
+                app_path('Http/Requests'),
+                app_path('Http/Requests-original'),
+                __DIR__.'/../Requests-publishable'
+            );
+            $this->newLine(2);
+
             /*
             ////////////////////////////////////////////////////////////////////////////////////////////
             // User.php model

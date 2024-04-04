@@ -264,15 +264,18 @@ if ($form['role_is_locked']) {
 
 @section ('base_js')
 
+    {{-- Note: this has to be outside of the @if()$edit_lock block so the GoTo dropdown works. --}}
+    <script type="text/javascript">
+        // Goto submit for the Module list dropdown
+        goto_url = "{{config('app.url')}}/roles";
+    </script>
+
     @if ($edit_lock)
         {{-- We're not allowing editing ADMIN or NO ACCESS (set in controller) roles so do not load ANY js. --}}
     @else
         {{-- Normal editing so go ahead and load all the regular js for editing a role. --}}
 
         <script type="text/javascript">
-            // Goto submit for the Module list dropdown
-            goto_url = "{{config('app.url')}}/roles";
-
             // Set the Standard "Delete Me" message
             delete_me_message = "Are you sure you want to permanently delete this Role?\n\nWARNING: This will also clear any stored access permissions for this Role!";
         </script>
@@ -388,27 +391,30 @@ if ($form['role_is_locked']) {
                 });
             }
 
-
-            /**
-             * Using a custom goto (rather than the default which just redirects to this record's id)
-             * We need to add a parameter that is the module number currently selected for view.
-             *
-             * Note: this does have to be outside of the $(document).ready(function () in order to work.
-             */
-            function custom_submit() {
-                // This works when redirecting (GET) to a show for a new id on this controller
-                var id = $('#goto').val();
-                var module_id = $('#frm_module_list').val();
-
-                if (typeof module_id == 'undefined') {
-                    $(location).attr('href', goto_url + '/' + id);
-                } else {
-                    $(location).attr('href', goto_url + '/' + id + '?module_id=' + module_id);
-                }
-            }
-
         </script>
 
     @endif
+
+    {{-- Note: this has to be outside of the @if()$edit_lock block so the GoTo dropdown works. --}}
+    <script>
+        /**
+         * Using a custom goto (rather than the default which just redirects to this record's id)
+         * We need to add a parameter that is the module number currently selected for view.
+         *
+         * Note: this does have to be outside of the $(document).ready(function () in order to work.
+         */
+        function custom_submit() {
+            // This works when redirecting (GET) to a show for a new id on this controller
+            var id = $('#goto').val();
+            var module_id = $('#frm_module_list').val();
+
+            if (typeof module_id == 'undefined') {
+                $(location).attr('href', goto_url + '/' + id);
+            } else {
+                $(location).attr('href', goto_url + '/' + id + '?module_id=' + module_id);
+            }
+        }
+    </script>
+
 
 @endsection ('base_js')

@@ -345,11 +345,12 @@ The standard button area must be contained within each CRUD <form>
                 src="{{ asset('vendor/ecoHelpers/js/eh-notifications.js') }}"></script>
         {{-- Unsaved warning message. --}}
         <script type="text/javascript">
-            $("form.eh-form-crud").change(function () {
+            $("form.eh-form-crud").change(function (e) {
                 // Update the system flash message on any form input change.
-                @if (true)
-                $('#eh-layout-page-flash').html('You have <strong>unsaved</strong> changes.');
-                @endif
+                // EXCEPT: do not do it on any "goto" button change since we're just changing pages.
+                if (e.target.id != "goto") {
+                    $('#eh-layout-page-flash').html('You have <strong>unsaved</strong> changes.');
+                }
             });
         </script>
         {{--

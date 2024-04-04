@@ -2,12 +2,11 @@
 
 namespace ScottNason\EcoHelpers\Classes;
 
+use App\Models\User;            // Using this to access the ehUserFunctions trait methods.
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
 use ScottNason\EcoHelpers\Models\ehPage;
-use ScottNason\EcoHelpers\Models\ehUser;
-
 
 
 
@@ -542,7 +541,7 @@ class ehMenus
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 5. Acting Role error check.
         // Make sure we have an "acting role" or default group set before continuing.
-        if (empty(ehUser::getActingRole())) {
+        if (empty(User::getActingRole())) {
             return false;
         }
 

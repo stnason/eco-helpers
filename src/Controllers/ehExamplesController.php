@@ -195,7 +195,6 @@ class ehExamplesController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        ehLayout::setAutoload('unsaved');         // Include the form data changed check on any crud page.
         ehLayout::setAutoload('datepicker');      // Include the datepicker js and css for this page.
 
 

@@ -85,10 +85,8 @@ class ehConfigController extends ehBaseController
         }
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set any needed auto loaders for this page
-        //ehLayout::setAutoload('textedit');        // Include the TextEditor plugin.
-
+        //ehLayout::setAutoload('textedit');            // Include the TextEditor plugin.
         ehLayout::setAutoload('datepicker');      // Include the datepicker plugin.
-        ehLayout::setAutoload('unsaved');         // Include the form data changed check.
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////

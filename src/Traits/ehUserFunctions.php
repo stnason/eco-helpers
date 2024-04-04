@@ -2,6 +2,7 @@
 
 namespace ScottNason\EcoHelpers\Traits;
 
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -12,7 +13,6 @@ use ScottNason\EcoHelpers\Classes\ehNotifier;
 use ScottNason\EcoHelpers\Models\ehPage;
 use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Models\ehRoleLookup;
-use ScottNason\EcoHelpers\Models\ehUser;
 
 /**
  * ecoHelpers functions for the Users Model.
@@ -456,7 +456,7 @@ trait ehUserFunctions
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Get a user instance for the subsequent checks below.
-        $user = ehUser::find($role_lookup->user_id);
+        $user = User::find($role_lookup->user_id);
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -621,7 +621,7 @@ trait ehUserFunctions
         // Normalize the $user_id.
         // Are we passing a user id number only or the complete ehUser object?
         if (is_numeric($user_id)) {
-            $user = ehUser::find($user_id);     // $user_id is an id number so create the ehUser instance.
+            $user = User::find($user_id);       // $user_id is an id number so create the ehUser instance.
         } else {
             $user = $user_id;                   // $user_id is the ehUser instance so use it directly.
         }
