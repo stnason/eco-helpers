@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Web;
+use App\Models\User;
 use ScottNason\EcoHelpers\Classes\ehNotifier;
 use ScottNason\EcoHelpers\Controllers\ehPagesController;
 use ScottNason\EcoHelpers\Controllers\ehRolesController;
