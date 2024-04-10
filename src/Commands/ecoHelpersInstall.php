@@ -28,10 +28,17 @@ class ecoHelpersInstall extends Command
      */
     protected string $description = 'Complete the installation of the User model and authentication for the eco-helpers package.';
 
-    // TODO: add a flag for when the user has selected Rename on anything. Then display the rename message at the end.
+    /**
+     * Did the user select Rename on any of the questions?
+     * @var bool
+     */
     protected bool $did_rename = false;
-    protected string $rename_message = "Remember to review your code and copy out and delete the renamed items.";
 
+    /**
+     * If the user selected Rename on any of the choices then show this message at the end of the install script.
+     * @var string
+     */
+    protected string $rename_message = "Remember to review your code and copy out and delete the renamed items.";
 
     /**
      * Execute the console command.
