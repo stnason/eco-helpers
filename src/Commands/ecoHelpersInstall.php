@@ -6,8 +6,13 @@ use Illuminate\Console\Command;
 use File;
 
 /**
- * Published as the artisan command 'eco-helpers:sample-data' to call the ehSampleData class
- * that's responsible for building out the initial (required) system data and examples.
+ * Published as the artisan command 'eco-helpers:install' this command
+ * is responsible for copy over files and folders that need to be overwritten from the originals.
+ *  - User.php
+ *  - views\auth
+ *  - Controllers\Auth
+ *  - Requests\LoginRequest.php
+ *  - adds the sample routes to the web.php file.
  */
 class ecoHelpersInstall extends Command
 {
@@ -79,12 +84,16 @@ class ecoHelpersInstall extends Command
             ////////////////////////////////////////////////////////////////////////////////////////////
             // Sample Routes
             // Append the sample routes to the web.php file here. (with a question of course).
-            if (confirm('Do you want to add the eco-helpers sample routes to the web.php routes file?',false)) {
+            if ($this->confirm('Do you want to add the eco-helpers sample routes to the web.php routes file?',false)) {
                 $routes_file = fopen(base_path('routes/web.php'), "a") or die("Unable to open app routes file!");
+                $append_this = "///////////////////////////////////////////////////////////////////////////////////////////\n";
+                fwrite($routes_file, $append_this);
+                $append_this = "// For initial eco-helpers testing and integration.\n";
+                fwrite($routes_file, $append_this);
                 $append_this = "require __DIR__.'/../vendor/scott-nason/eco-helpers/src/routes/eco-sample-routes.php';\n";
                 fwrite($routes_file, $append_this);
                 fclose($routes_file);
-                $this->info('Sample routes have been appended to the routes/web.php');
+                $this->line('Sample routes have been appended to the routes/web.php');
             }
 
             /*
@@ -119,7 +128,7 @@ class ecoHelpersInstall extends Command
         }
 
         $this->newLine(2);
-        $this->info("Install Completed.");
+        $this->line("Install Completed.");
         $this->newLine(1);
     }
 
@@ -159,7 +168,7 @@ If this is not a fresh clean Laravel install, you may
         //$this->line($full_filename);
         //$this->line($rename_to);
 
-        // Need a different copy command if we're copying a directory so check here.
+        // We need to use a different copy command if we're copying a directory so check here first.
         $is_dir = false;
         if (is_dir($copy_from)) {
             $is_dir = true;
@@ -169,8 +178,9 @@ If this is not a fresh clean Laravel install, you may
         if (file_exists($full_filename)) {
 
             $this->line($full_filename." already exists.");
-            $answer = $this->ask('[R]ename or [O]verwrite it?', 'r');
+            $answer = $this->ask('[R]ename, [O]verwrite or [S]kip it?', 's');
 
+            // User selected Rename.
             if ( strtoupper($answer) == 'R') {
                 // Rename the original file to the $rename_to
                 rename($full_filename, $rename_to);
@@ -186,6 +196,8 @@ If this is not a fresh clean Laravel install, you may
                 }
                 $this->info('Contents of '.$copy_from.' have been copied to '.$full_filename);
             }
+
+            // User selected Overwrite.
             if ( strtoupper($answer) == 'O') {
                 // Overwrite the original User.php
                 // Then to the copy
@@ -197,6 +209,13 @@ If this is not a fresh clean Laravel install, you may
                     File::copy($copy_from, $full_filename);
                 }
                 $this->info('Contents of '.$copy_from.' have been copied to '.$full_filename);
+            }
+
+            // User selected Skip.
+            if ( strtoupper($answer) == 'S') {
+                // For now we do nothing but exit this function and return.
+                // Just stubbing this out for clarity of purpose and any possible future use.
+                return null;
             }
 
         } else {
@@ -214,6 +233,7 @@ If this is not a fresh clean Laravel install, you may
 
         }
 
+        return null;
     }
 
 }
