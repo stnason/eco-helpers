@@ -37,15 +37,10 @@ class ecoHelpersInstall extends Command
         if ($this->confirm('Do you still want to continue?', false)) {
 
 
-            // Might be nice to have these options too (but maybe too confusing/ dangerous to have in this command with User copy?)
-            // Maybe this can be a separate "overwrite" command or something like that.
-            // Do you want ot overwrite the original vendor published Config file?
-            // Do you want ot overwrite the original vendor published Views?
-            // Do you want ot overwrite the original vendor published Auto-Load files?
-            // Do you want to overwrite the original vendor public assets (css, js, images) [individually?)
-
-
             // Do the work here.
+
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // User.php
             $this->replaceOrOverwrite(
                 app_path('Models/User.php'),
                 app_path('Models/User-original.php'),
@@ -53,6 +48,8 @@ class ecoHelpersInstall extends Command
             );
             $this->newLine(2);
 
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // Auth Views (folder)
             $this->replaceOrOverwrite(
                 base_path('resources/views/auth'),
                 base_path('resources/views/auth-original'),
@@ -60,6 +57,8 @@ class ecoHelpersInstall extends Command
             );
             $this->newLine(2);
 
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // Auth Controller (folder)
             $this->replaceOrOverwrite(
                 app_path('Http/Controllers/Auth'),
                 app_path('Http/Controllers/Auth-original'),
@@ -67,12 +66,26 @@ class ecoHelpersInstall extends Command
             );
             $this->newLine(2);
 
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // Requests (folder) [LoginRequest.php]
             $this->replaceOrOverwrite(
                 app_path('Http/Requests'),
                 app_path('Http/Requests-original'),
                 __DIR__.'/../Requests-publishable'
             );
             $this->newLine(2);
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // Sample Routes
+            // Append the sample routes to the web.php file here. (with a question of course).
+            if (confirm('Do you want to add the eco-helpers sample routes to the web.php routes file?',false)) {
+                $routes_file = fopen(base_path('routes/web.php'), "a") or die("Unable to open app routes file!");
+                $append_this = "require __DIR__.'/../vendor/scott-nason/eco-helpers/src/routes/eco-sample-routes.php';\n";
+                fwrite($routes_file, $append_this);
+                fclose($routes_file);
+                $this->info('Sample routes have been appended to the routes/web.php');
+            }
 
             /*
             ////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,6 +119,8 @@ class ecoHelpersInstall extends Command
         }
 
         $this->newLine(2);
+        $this->info("Install Completed.");
+        $this->newLine(1);
     }
 
     /**
