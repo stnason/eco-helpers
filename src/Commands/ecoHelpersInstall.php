@@ -20,13 +20,18 @@ class ecoHelpersInstall extends Command
      * The name and signature of the console command.
      * @var string
      */
-    protected $signature = 'eco-helpers:install';
+    protected string $signature = 'eco-helpers:install';
 
     /**
      * The console command description.
      * @var string
      */
-    protected $description = 'Complete the installation of the User model and authentication for the eco-helpers package.';
+    protected string $description = 'Complete the installation of the User model and authentication for the eco-helpers package.';
+
+    // TODO: add a flag for when the user has selected Rename on anything. Then display the rename message at the end.
+    protected bool $did_rename = false;
+    protected string $rename_message = "Remember to review your code and copy out and delete the renamed items.";
+
 
     /**
      * Execute the console command.
@@ -128,6 +133,11 @@ class ecoHelpersInstall extends Command
         }
 
         $this->newLine(2);
+        // If anything was renamed then show that alert message.
+        if ($this->did_rename) {
+            $this->info($this->rename_message);
+        }
+        $this->newLine(1);
         $this->line("Install Completed.");
         $this->newLine(1);
     }
@@ -182,6 +192,9 @@ If this is not a fresh clean Laravel install, you may
 
             // User selected Rename.
             if ( strtoupper($answer) == 'R') {
+                // Set the Rename flag for the final display message.
+                $this->did_rename = true;
+
                 // Rename the original file to the $rename_to
                 rename($full_filename, $rename_to);
                 $this->info('Contents of '.$full_filename.' renamed to '.$rename_to);
