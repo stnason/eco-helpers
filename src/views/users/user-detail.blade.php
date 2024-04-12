@@ -408,10 +408,6 @@
 
         <div class="row">
             <div class="col-sm">
-                {{-- Leaving off the -flex at the end of d-inline causes the label to be above
-                the <textarea> but it seems to be the only way I can get the width to be 100%
-                and responsive.
-                --}}
                 <div class="form-group d-inline-flex flex-wrap">
                     {!! $control::label(['field_name'=>'comments', 'display_name'=>$user, 'errors'=>$errors]) !!}
                     {!! $control::textarea(['field_name'=>'comments', 'model'=>$user, 'rows'=>'3', 'errors'=>$errors]) !!}

@@ -557,6 +557,7 @@ class ehMenus
             return true;
         }
 
+
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 7. If we dropped through to here, then the user has failed all other checks for this menu item, so no-go.
         return false;

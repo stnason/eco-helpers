@@ -323,11 +323,12 @@ class ehLayout
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the display areas value.
         // If $value is not true/false (null was already caught above), then change the contents to the $passed_value.
-        if (!empty($value)) {
+        //if (!empty($value)) {     // umm -- using this we can't pass an empty string or array to wipe a previous value out.
+
+        if (gettype($value) != 'boolean') {
             //self::$layout[$name]['state'] = true;       // Calling with content assumes we're turning it on. (do we even want this behavior?)
             self::$layout[$name]['content'] = $value;
         }
-
 
     }
 

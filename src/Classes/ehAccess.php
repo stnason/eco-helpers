@@ -131,11 +131,9 @@ class ehAccess
             return false;
         }
 
-
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Get the page information for this route.
         $page = ehPage::getPageInfo($route_name);
-
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 3. No page information returned.
@@ -143,7 +141,6 @@ class ehAccess
         if (!isset($page->id)) {
             return false;
         }
-
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Get this user's acting role token for this page.

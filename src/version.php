@@ -1,12 +1,17 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.48',
-    'APP_LASTUPDATE' => '04/10/2024'
+    'APP_VER' => 'v1.0.49',
+    'APP_LASTUPDATE' => '04/12/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 04/12/2024:v01.00.49: 1.50 :Design change; ehLayout can now have blank values passed to wipe out previous. (blank was previously ignored)
+ * 04/12/2024:v01.00.49: 0.50 :Fix issue with ehUserFunctions@isUserActive() for crashing when no one is logged in.
+ * 04/12/2024:v01.00.49: 1.50 :Working on making ehLinkbar home page aware and return base modules.
+ * 04/10/2024:v01.00.48: 0.25 :Fix issue with ehLinkbar items not dealing with named vs resourceful links properly.
+ * 04/10/2024:v01.00.48: 0.75 :Refactor example-detail for new eh-form namespace.
  * 04/10/2024:v01.00.48: 1.50 :Light clean up and commenting on install command. Add [Skip] option. Add $did_rename flag and final message.
  * 04/04/2024:v01.00.48: 0.75 :Add "append sample routes" to the eco-helpers install command.
  * 04/04/2024:v01.00.48: 1.50 :Very strange problem with blade templates showing @entends() and all other blade specific code in browser. Added an @if(View;;exists('view-name')) and then it worked! (And after that could remove the @if) ???)

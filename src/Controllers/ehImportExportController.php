@@ -133,7 +133,6 @@ class ehImportExportController extends ehBaseController
         // -- Neither is practical for export since they have nearly half a million records.
 
 
-
         // Unless individual processing is needed, this is the generic -- export all -- for any table.
         ///////////////////////////////////////////////////////////////////////////////////////////
         ini_set('max_execution_time', 300);
@@ -142,8 +141,7 @@ class ehImportExportController extends ehBaseController
         if (!Schema::hasTable($this->table_name)) {
 
             //dd($this->table_name, $table_name_parameter, $calling_url, $calling_url['3'], Schema::hasTable($this->table_name));
-            return redirect(route()->previous());      // If this is not a valid table name then go back.
-
+            return redirect()->back();              // If this is not a valid table name then go back.
         }
 
 

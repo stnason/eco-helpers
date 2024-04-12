@@ -12,8 +12,10 @@
 
 @section('base_body')
 
+    {{--<div class="spacer-line"></div>--}}
+
     <div class="container">
-        <form class="form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
+        <form class="eh-form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
             @csrf
             @method($form['layout']['form_method'] ?? 'PATCH')
 
@@ -23,29 +25,16 @@
             {{-- ######################################################################## --}}
 
 
-
             {{-- ######################################################################## --}}
             {{-- Standard form information header; for end-user form content headings. --}}
             {{-- ######################################################################## --}}
             <div><p class="form-header-information">system banner:</p></div>
 
-
             <div class="row">
                 {{-- Left column of form data. --}}
-                <div class="col-md">
+                <div class="col-md text-nowrap mb-3">
                     <div class="form-group d-inline-flex">
-                        {!! $control::label(['field_name'=>'active', 'display_name'=>$example, 'errors'=>$errors]) !!}
-                        {!! $control::radio(['field_name'=>'active', 'model'=>$example, 'alert_if'=>'0', 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
-                    </div>
-                </div>
-                {{-- Right column of form data. --}}
-                <div class="col-md">
-                    <div class="form-group d-inline-flex">
-                        {!! $control::label(['field_name'=>'id', 'display_name'=>$example, 'errors'=>$errors]) !!}
-                        {{--
-                        {!! $control::input(['field_name'=>'id', 'model'=>$example, 'disabled'=>true, 'errors'=>$errors]) !!}
-                        --}}
-                        <p class="mt-1 ms-1 text-secondary">{{$example->id}}</p>
+                        <label>Role ID: <strong>{{ $example->id }}</strong></label>
                     </div>
                 </div>
             </div>
@@ -53,37 +42,53 @@
             <div class="row">
                 {{-- Left column of form data. --}}
                 <div class="col-md">
-                    <div class="form-group d-inline-flex">
+                    <div class="form-group d-inline-flex flex-wrap">
+                        {!! $control::label(['field_name'=>'active', 'display_name'=>$example, 'errors'=>$errors]) !!}
+                        {!! $control::radio(['field_name'=>'active', 'model'=>$example, 'alert_if'=>'0', 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
+                    </div>
+                </div>
+                {{-- Right column of form data. --}}
+                <div class="col-md">
+                    <div class="form-group d-inline-flex flex-wrap">
+                        {{-- Leave out the GOTO dropdowns when adding a new record. --}}
+                        @if(!$form['layout']['when_adding'])
+                            <div class="form-group d-inline-flex flex-wrap">
+
+                                @php
+                                    // If needed, you can supply different lists based on permissions.
+                                    if ($access::getUserRights()->feature_1) {
+                                    $list = 'example_list';
+                                    } else {
+                                    $list = 'example_list';
+                                    }
+                                @endphp
+
+                                {!! $control::label(['field_name'=>'goto', 'display_name'=>'Go To', 'errors'=>$errors]) !!}
+                                {!! $control::select([
+                                'field_name'=>'goto',
+                                'model'=>$example,
+                                'selections'=>$valid::getList($list),
+                                'preselect'=>$example->id,
+                                'auto_submit'=>true,
+                                'errors'=>$errors]) !!}
+
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {{-- Left column of form data. --}}
+                <div class="col-md">
+                    <div class="form-group d-inline-flex flex-wrap">
                         {!! $control::label(['field_name'=>'archived', 'display_name'=>$example, 'errors'=>$errors]) !!}
                         {!! $control::radio(['field_name'=>'archived', 'model'=>$example, 'alert_if'=>1, 'errors'=>$errors, 'radio'=>[1=>'Yes', 0=>'No']]) !!}
                     </div>
                 </div>
                 {{-- Right column of form data. --}}
                 <div class="col-md">
-                    {{-- Leave out the GOTO dropdowns when adding a new record. --}}
-                    @if(!$form['layout']['when_adding'])
-                        <div class="form-group d-inline-flex">
-
-                            @php
-                                // If needed, you can supply different lists based on permissions.
-                                if ($access::getUserRights()->feature_1) {
-                                $list = 'example_list';
-                                } else {
-                                $list = 'example_list';
-                                }
-                            @endphp
-
-                            {!! $control::label(['field_name'=>'goto', 'display_name'=>'Go To', 'errors'=>$errors]) !!}
-                            {!! $control::select([
-                            'field_name'=>'goto',
-                            'model'=>$example,
-                            'selections'=>$valid::getList($list),
-                            'preselect'=>$example->id,
-                            'auto_submit'=>true,
-                            'errors'=>$errors]) !!}
-
-                        </div>
-                    @endif
+                   <label></label>
                 </div>
             </div>
 
@@ -97,14 +102,14 @@
             <div class="row">
                 {{-- Left column of form data. --}}
                 <div class="col-md">
-                    <div class="form-group d-inline-flex">
+                    <div class="form-group d-inline-flex flex-wrap">
                         {!! $control::label(['field_name'=>'name', 'display_name'=>$example, 'errors'=>$errors]) !!}
                         {!! $control::input(['field_name'=>'name', 'model'=>$example, 'errors'=>$errors]) !!}
                     </div>
                 </div>
                 {{-- Right column of form data. --}}
                 <div class="col-md">
-                    <div class="form-group d-inline-flex">
+                    <div class="form-group d-inline-flex flex-wrap">
                         <label>&nbsp;</label>
                     </div>
                 </div>
@@ -113,7 +118,7 @@
             <div class="row">
                 {{-- Left column of form data. --}}
                 <div class="col-md">
-                    <div class="form-group d-inline-flex">
+                    <div class="form-group d-inline-flex flex-wrap">
 
                         {{-- Create the link some other page. --}}
                         @php $link = config('app.url').'/examples/'.$example->id; @endphp
@@ -131,61 +136,42 @@
                 </div>
                 {{-- Right column of form data. --}}
                 <div class="col-md">
-                    <div class="form-group d-inline-flex">
+                    <div class="form-group d-inline-flex flex-wrap">
                         {!! $control::label(['field_name'=>'birthdate', 'display_name'=>$example, 'errors'=>$errors]) !!}
                         {!! $control::input(['field_name'=>'birthdate', 'model'=>$example, 'additional_class'=>'datepicker', 'errors'=>$errors]) !!}
                     </div>
                 </div>
             </div>
 
-
-            <div class="spacer-line"></div>
-
-
-
-
-            <div class="spacer-line"></div>
-
-
             <div class="row">
-                <div class="col-md-9">
-                    {{-- Leaving off the -flex at the end of d-inline causes the label to be above
-                    the <textarea> but it seems to be the only way I can get the width to be 100%
-                and responsive.
-             --}}
-                    <div class="form-group d-inline">
+                <div class="col-sm">
+                    <div class="form-group d-inline flex-wrap">
                         {!! $control::label(['field_name'=>'bio', 'display_name'=>$example, 'errors'=>$errors]) !!}
                         {!! $control::textarea(['field_name'=>'bio', 'model'=>$example, 'rows'=>'3', 'errors'=>$errors]) !!}
                     </div>
                 </div>
             </div>
 
-            <div class="spacer-line"></div>
-
 
             {{--
-                Display the protected/ confidential information if you have Feature_1 access.
+                Display/Hide the protected/ confidential information if you do or don't have Feature_1 access.
             @if ($form['right']['SEC_FEATURE_1'])
                 --}}
 
-
                 {{-- Standard form information header; for endu-user form content headings. --}}
-                <p class="form-header-security">FEATURE_1 Security controlled access not viewable or published.</p>
-
-                <div class="spacer-line"></div>
-
+                <p class="form-header-security">FEATURE_1 Security controlled by each template.</p>
 
                 <div class="row">
                     {{-- Left column of form data. --}}
                     <div class="col-md">
-                        <div class="form-group d-inline-flex">
+                        <div class="form-group d-inline-flex flex-wrap">
                             {!! $control::label(['field_name'=>'address', 'display_name'=>$example, 'errors'=>$errors]) !!}
                             {!! $control::input(['field_name'=>'address', 'model'=>$example, 'errors'=>$errors]) !!}
                         </div>
                     </div>
                     {{-- Right column of form data. --}}
                     <div class="col-md">
-                        <div class="form-group d-inline-flex">
+                        <div class="form-group d-inline-flex flex-wrap">
                             {!! $control::label(['field_name'=>'city', 'display_name'=>$example, 'errors'=>$errors]) !!}
                             {!! $control::input(['field_name'=>'city', 'model'=>$example, 'errors'=>$errors]) !!}
                         </div>
@@ -195,14 +181,14 @@
                 <div class="row">
                     {{-- Left column of form data. --}}
                     <div class="col-md">
-                        <div class="form-group d-inline-flex">
+                        <div class="form-group d-inline-flex flex-wrap">
                             {!! $control::label(['field_name'=>'state', 'display_name'=>$example, 'errors'=>$errors]) !!}
                             {!! $control::input(['field_name'=>'state', 'model'=>$example, 'errors'=>$errors]) !!}
                         </div>
                     </div>
                     {{-- Right column of form data. --}}
                     <div class="col-md">
-                        <div class="form-group d-inline-flex">
+                        <div class="form-group d-inline-flex flex-wrap">
                             {!! $control::label(['field_name'=>'zip', 'display_name'=>$example, 'errors'=>$errors]) !!}
                             {!! $control::input(['field_name'=>'zip', 'model'=>$example, 'errors'=>$errors]) !!}
                         </div>
@@ -210,13 +196,9 @@
                 </div>
 
 
-                <div class="spacer-line"></div>
-
             {{--
             @endif
             --}}
-
-
 
 
 

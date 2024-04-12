@@ -255,10 +255,13 @@ return [
             'linkbar' => [
                 'state' => true,
                 'content' => [
-                    ['href' => '/users', 'name' => 'Users', 'title' => 'edit users', 'target' => '_self'],
-                    ['href' => '/roles', 'name' => 'Roles', 'title' => 'edit roles', 'target' => '_self'],
-                    ['href' => '/pages', 'name' => 'Menus/Pages', 'title' => 'edit the menus tree', 'target' => '_self'],
-                    ['href' => '/config', 'name' => 'System Settings', 'title' => 'system configuration and settings', 'target' => '_self'],
+                    // Default entries are loaded into ehLayout on init and only used if ehLayout@setLinkbar is not called.
+                    // Note: default entries will have no system security checks!
+                    // Don't use these for "real" routes. Add those through Menus/Pages for complete security control.
+                    ['href' => '#', 'name' => 'Sample1', 'title' => 'Sample 1', 'target' => '_self'],
+                    ['href' => '#', 'name' => 'Sample2', 'title' => 'Sample 2', 'target' => '_self'],
+                    ['href' => '#', 'name' => 'Sample3', 'title' => 'Sample 3', 'target' => '_self'],
+                    ['href' => '#', 'name' => 'Sample4', 'title' => 'Sample 4', 'target' => '_self'],
                 ],
                 'collapse' => false,
                 'collapse_chr' => ' ',

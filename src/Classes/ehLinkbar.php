@@ -30,7 +30,8 @@ class ehLinkbar {
      * @var array|array[]
      */
     protected array  $items_array = [
-        /* This is the format for the content, but including this in the definition leaves a blank first array item.
+        /* This is the format for the content return.
+           But, including it in the initial definition creates a blank first array item.
         [
         'href'=>'',
         'name'=>'',
@@ -73,9 +74,8 @@ class ehLinkbar {
 
 
     /**
-     * Build out and return an array of linkbar items based on the current route's parent module.
-     *
-     * Note: This does check user permissions to see if a particular route/page should be included.
+     * Build out an array of linkbar items based on the current route's parent module.
+     * Note: This DOES check user permissions to see if a particular route/page should be included.
      *
      * @return bool
      */
@@ -84,6 +84,7 @@ class ehLinkbar {
         // 1. Get the current page by route name.
         $m = ehPage::getPageInfo();
 
+        // If ehPage did not find and entry, it will return false.
         if(empty($m)) {
             return false;
         }
@@ -102,6 +103,9 @@ class ehLinkbar {
                 // Skip if item is not active or set to 0-no access.
                 // Note: we already filtered out non-active in the getMyChildren() call above,
                 //       but just leaving it here for clarity and to catch any possible future changes.
+
+                $okay = $this->itemSecurityCheck($item);
+                /* Moved this to a separate function toward the bottom (so we can re-use elsewhere as needed).
                 if ($item->active && $item->security > 0) {
                     // Check the user's access to this item based on the page's security setting.
                     // 0-no access, 1-public, 2-auth, 3-full permissions
@@ -113,12 +117,25 @@ class ehLinkbar {
                         $okay = ehAccess::chkUserResourceAccess(null, $item->route, ACCESS_VIEW);
                     }
                 }
+                */
 
+                ////////////////////////////////////////////////////////////////////////////////////////////
                 // If we passed all the tests above then include this in the output array.
+
+                // Check route "as is" and see if it doesn't exist - it might be a resource route.
+                // Note: similar logic has to take place inside the eh-child-menus.blade.
+                $href = '';
+                if (Route::has($item->route)) {
+                    $href = route($item->route);    // This is actually a defined route name so use as a "route"
+                } else {
+                    $href = url($item->route);      // Hopefully this is a resource route on not missing altogether.
+                }
+
+                // Build out the individual linkbar item.
                 if ($okay) {
                     $this->items_array[] =
                         [
-                            'href'=>url($item->route),
+                            'href'=>$href,          // Figure out if this has a valid route name above.
                             'name'=>$item->name,
                             'title'=>$item->alt_text,
                             'target'=>$this->target
@@ -167,7 +184,6 @@ class ehLinkbar {
                     $export_table = $this->export_table_name;
                 }
 
-
                 ////////////////////////////////////////////////////////////////////////////////////////////
                 // Looks like we're not explicitly hiding the Export ALL link
                 // and the user has appropriate permissions so go ahead and add this item.
@@ -189,6 +205,59 @@ class ehLinkbar {
     }
 
 
+    /**
+     * Manually add and item to the linkbar.
+     *
+     * @param $item_array
+     * @return void
+     */
+    public function addItem($item_array) {
+
+        //TODO: addItem IS NOT FULLY implemented!
+        // To perform an item security check we have to find the page entry first.
+
+        // Attempt to get the items page entry and check the permissions to it for this user.
+
+//        dd($item_array['href']);
+
+        $this->items_array[] = $item_array;
+    }
+
+
+
+    public function setExportTableName($export_table_name) {
+        $this->export_table_name = $export_table_name;
+    }
+    /**
+     * Export All already checks to see if you have rights; but additionally can be toggled off here.
+     * @param bool $hide_export_all
+     */
+    public function setHideExportAll($hide_export_all = true):void {
+        $this->hide_export_all = $hide_export_all;
+    }
+
+    /**
+     * Check the item to see if this user should see it or not based on their access rights to this page.
+     *
+     * @param $item
+     * @return void
+     */
+    protected function itemSecurityCheck($item) {
+
+        if ($item->active && $item->security > 0) {
+            // Check the user's access to this item based on the page's security setting.
+            // 0-no access, 1-public, 2-auth, 3-full permissions
+            if ($item->security == 1) {             // Public
+                $okay = true;
+            } elseif ($item->security == 2) {       // Authenticated
+                $okay = Auth()->check();
+            } elseif ($item->security == 3) {       // Full permissions
+                $okay = ehAccess::chkUserResourceAccess(null, $item->route, ACCESS_VIEW);
+            }
+        }
+        return $okay;
+    }
+
 
     /**
      * Return the completed linkbar array for display.
@@ -202,22 +271,11 @@ class ehLinkbar {
             // Pull the default link bar information from the parent module's items.
             $this->buildParentModuleLinkArray();
 
-            // Then add the Export All link when appropriate (it's not turned off and the user has permissions).
+            // Then add the Export All link when appropriate (if it's not turned off and the user has permissions).
             $this->addExportAllLink();
         }
 
         return $this->items_array;
-    }
-
-    public function setExportTableName($export_table_name) {
-        $this->export_table_name = $export_table_name;
-    }
-    /**
-     * Export All already checks to see if you have rights; but additionally can be toggled off here.
-     * @param bool $hide_export_all
-     */
-    public function setHideExportAll($hide_export_all = true):void {
-        $this->hide_export_all = $hide_export_all;
     }
 
 

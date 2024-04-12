@@ -68,6 +68,13 @@ trait ehUserFunctions
      */
     public static function isUserActive($user_id=null) {
         $user = self::normalizeUserID($user_id);
+
+        // Didn't find this user or there is no logged in user.
+        if (empty($user)) {
+            return false;
+        }
+
+        // Check if user is either archived or not-active.
         if ($user->archived || !$user->login_active) {
             // User is not active.
             return false;

@@ -31,11 +31,13 @@
 @else
     {{-- <li><a class="dropdown-item" href="{{config('app.url')}}/{{$menu_item->route}}">{{$menu_item->name}}</a></li> --}}
 
-    {{-- Check to see if the route exists before creating the link to it. If not, just use the name. --}}
+    {{-- Check to see if the route exists before creating the link to it. If not, just use the name.
+         Note: similar logic has to take place inside the ehLinkbar.
+        --}}
     @if (Route::has($menu_item->route))
         <li><a class="dropdown-item" href="{{route($menu_item->route)}}">{{$menu_item->name}}</a></li>
     @else
-        {{-- But id the route name "as is" doesn't exist, could it be a resource route? --}}
+        {{-- But if the route name "as is" doesn't exist, could it be a resource route? --}}
         @if (Route::has($menu_item->route.'.index'))
             {{-- So, the .index route does exist so we're going to assume this is a resource route. --}}
             <li><a class="dropdown-item" href="{{route($menu_item->route.'.index')}}">{{$menu_item->name}}</a></li>
