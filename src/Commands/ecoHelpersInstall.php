@@ -20,13 +20,13 @@ class ecoHelpersInstall extends Command
      * The name and signature of the console command.
      * @var string
      */
-    protected string $signature = 'eco-helpers:install';
+    protected $signature = 'eco-helpers:install';
 
     /**
      * The console command description.
      * @var string
      */
-    protected string $description = 'Complete the installation of the User model and authentication for the eco-helpers package.';
+    protected $description = 'Complete the installation of the User model and authentication for the eco-helpers package.';
 
     /**
      * Did the user select Rename on any of the questions?

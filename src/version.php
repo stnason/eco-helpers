@@ -1,12 +1,13 @@
 <?php
 return [
     'APP_VER' => 'v1.0.49',
-    'APP_LASTUPDATE' => '04/12/2024'
+    'APP_LASTUPDATE' => '04/13/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 04/13/2024:v01.00.49: 0.25 :Fix deployment issue (composer error) with $signature and $description not being able to be defined in ecoHelpersInstall command.
  * 04/12/2024:v01.00.49: 1.50 :Design change; ehLayout can now have blank values passed to wipe out previous. (blank was previously ignored)
  * 04/12/2024:v01.00.49: 0.50 :Fix issue with ehUserFunctions@isUserActive() for crashing when no one is logged in.
  * 04/12/2024:v01.00.49: 1.50 :Working on making ehLinkbar home page aware and return base modules.
