@@ -852,5 +852,35 @@ trait ehUserFunctions
     }
 
 
+    /**
+     * Return the account number for this user's parent account. (primary or assigned from)
+     * VERY SIMPLE FOR NOW !!
+     *
+     * @param $user_id
+     * @return int
+     */
+    public static function getUserAccount($user_id = null) {
+
+        // Use the logged in user's id if we don't pass one.
+        if (empty($user_id)) {
+            $user_id = Auth()->user()->id;
+        }
+
+        // 1. Is this user the account owner/admin? (then return my account number)
+        // 2. Is this user a user on this account? (then get the primary account number)
+        // 3. Is this a Group authorized user? (then get the primary account number)
+
+        // TODO: this will have to incorporate other layers of security when other account users and Groups are introduced.
+        $u = User::find($user_id);
+
+        // For now, just return the logged in user's account id.
+        if (empty($u->account_id)) {
+            $u->account_id = USER_ACCOUNT_BASE + $u->id;
+            $u->save();
+        }
+        return $u->account_id;
+    }
+
+
 
 }
