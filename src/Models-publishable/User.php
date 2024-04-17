@@ -33,7 +33,8 @@ class User extends ehBaseAuthenticatable implements MustVerifyEmail
      * @var string[]
      */
     //TODO: need to find out where (ehControl maybe) that this is still in use and change it to use $casts.
-    public $dates = ['created_at', 'updated_at', 'last_login', 'login_created'];
+    // It looks like ehControl has been converted to pull in any cast with date, datetime or timestamp into our $dates array.
+    //public $dates = ['created_at', 'updated_at', 'last_login', 'login_created'];
 
     /**
      * Controls will use this array to set readonly on these fields.

@@ -1,5 +1,8 @@
 <?php
 
+//TODO: When calling any .module route, we should be able to build a static menus page (like we did in eesfm)
+
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Web;
 use App\Models\User;

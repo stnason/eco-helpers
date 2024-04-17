@@ -303,6 +303,8 @@ return [
         /*
         |--------------------------------------------------------------------------
         | Basic page layout options.
+        | Note: When specifying display classes use either classes from your own
+        |       custom css or from a CSS Framework (like Bootstrap or whatever).
         |--------------------------------------------------------------------------
         */
 
@@ -322,9 +324,13 @@ return [
             'page_main_class_full' => 'container-fluid ps-0 pe-0',
             'page_main_class_normal' => 'container pt-2',
 
-            
-            // Used by Controls to colorize any "alert_if" message.
-            'alert_if_class' => 'bg-warning bg-opacity-25',
+
+            // for ehControls
+            'alert_if_class' => 'bg-warning bg-opacity-25', // Used to colorize any "alert_if" message.
+            'text_warning'=>'text-danger',                  // The css class for the error label text.
+            'box_warning'=>'border-danger',                 // The css class for the error input box.
+
+
 
             // Pre-pended to the left of the page's descriptive heading text (if desired).
             'description_bullet' => '&#x2014; '     // An html wide dash.
@@ -373,7 +379,13 @@ return [
     | Controls Section
     |--------------------------------------------------------------------------
     */
-    'controls' => [],
+    'controls' => [
+        'options' => [
+            'def_rows'=>3,                                  // Default rows for a text area input if nothing specified.
+            'def_add_blank'=>false,                         // Default value for add_blank when not included from the input.
+        ]
+
+    ],
 
 
     /*

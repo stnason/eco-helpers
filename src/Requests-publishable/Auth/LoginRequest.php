@@ -43,6 +43,7 @@ class LoginRequest extends FormRequest
      */
     public function authenticate(): void
     {
+
         $this->ensureIsNotRateLimited();
 
         /*
@@ -61,13 +62,16 @@ class LoginRequest extends FormRequest
             ->orWhere('name', $this->email)
             ->first();
 
+
         if (!$user || !Hash::check($this->password, $user->password)) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'login' => __('auth.failed'),
+                'email' => __('auth.failed'),     // We're servicing all error messages on the email field.
+                //'email' => 'Oops.',             // Custom message if you prefer.
             ]);
         }
+
         Auth::login($user, $this->boolean('remember'));
 
         RateLimiter::clear($this->throttleKey());

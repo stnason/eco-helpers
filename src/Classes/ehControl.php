@@ -39,14 +39,21 @@ use Illuminate\Support\Facades\DB;
  */
 Class ehControl
 {
-    //TODO: these would all be great candidates for moving into the eco-helpers donfig file.
-    protected static $text_warning = 'text-danger';      // Bootstrap or custom css class for the error label text.
-    protected static $box_warning = 'border-danger';     // Bootstrap or custom css class for the error input box.
-    protected static $def_rows = 3;                      // Default rows for a text area input if nothing specified.
-    protected static $def_add_blank = false;             // When add_blank is missing form the input, use this value.
-    public static    $def_alert_class = 'alert alert-dark'; // When requesting an alert -- use this class.
-                                                         // Moved this to app.php so just putting something in here to watch for places to fix it.
-    //protected static $cp = [];                         // Model Custom Properties (disabled, required, labels)
+    // Moved these to the layout.options section of eco-helpers
+    // These will all be checked and assigned at the top of processParameters().
+    protected static $text_warning = '';        // Bootstrap or custom css class for the error label text.
+    protected static $box_warning = '';         // Bootstrap or custom css class for the error input box.
+    public static    $alert_if_class = '';      // When requesting an alert -- use this class.
+
+    // Moved these to the controls.options section of eco-helpers.
+    protected static $def_rows = null;          // Default rows for a text area input if nothing specified.
+    protected static $def_add_blank = false;    // When add_blank is missing form the input, use this value.
+
+
+
+    //protected static $cp = [];                // Model Custom Properties (disabled, required, labels)
+                                                // These should be using public properties now.
+
 
     /**
      * Label creation helper
@@ -561,13 +568,45 @@ public static function button($parameters) {
         ////////////////////////////////////////////////////////////////////////////////////////////
         // PROCESS ALL THE PARAMETERS
 
+
+        // Retrieve the options as defined in the config file.
+        // Note: These are initiated as empty at the top so something should be in eco-helpers.
         ###########################################
-        // global alert_if color setting
+        // global alert_if css display class
         ###########################################
-        // If it's not defined in the config file then leave the default set at the top of this class.
         if (!empty(ehConfig::get('layout.options.alert_if_class'))) {
-            self::$def_alert_class = ehConfig::get('layout.options.alert_if_class');
+            self::$alert_if_class = ehConfig::get('layout.options.alert_if_class');
         }
+
+        ###########################################
+        // global text_warning css display class
+        ###########################################
+        if (!empty(ehConfig::get('layout.options.text_warning'))) {
+            self::$text_warning = ehConfig::get('layout.options.text_warning');
+        }
+
+        ###########################################
+        // global $box_warning css display class
+        ###########################################
+        if (!empty(ehConfig::get('layout.options.box_warning'))) {
+            self::$box_warning = ehConfig::get('layout.options.box_warning');
+        }
+
+        ###########################################
+        // global def_rows - default number of rows for textarea (when not specified).
+        ###########################################
+        if (!empty(ehConfig::get('controls.options.def_rows'))) {
+            self::$def_rows = ehConfig::get('controls.options.def_rows');
+        }
+
+        ###########################################
+        // global def_add_blank - default number of rows for textarea (when not specified).
+        ###########################################
+        if (!empty(ehConfig::get('controls.options.def_add_blank'))) {
+            self::$def_add_blank = ehConfig::get('controls.options.def_add_blank');
+        }
+
+
 
 
         ###########################################
@@ -969,11 +1008,11 @@ if ($parameters['field_name'] == 'wsSiteAssignedTo') {
         // Note: the "alert" parameter is not passed back -- it only modifies the "additional_class"
         ###########################################
         if (isset($parameters['alert_class'])) {                    // See if there's been an alert class passed in.
-            self::$def_alert_class = $parameters['alert_class'];    // And if so, replace the default with it.
+            self::$alert_if_class = $parameters['alert_class'];    // And if so, replace the default with it.
         }
         if (isset($parameters['alert_if'])) {                       // Then, if the alert_if flag is set,
             if ($parameters['alert_if'] == $value)                  // See if the current field value = that setting.
-            $additional_class .= ' '.self::$def_alert_class;        // Empty pad the front in case additional_class has something in it.
+            $additional_class .= ' '.self::$alert_if_class;        // Empty pad the front in case additional_class has something in it.
         }
 
 
@@ -1050,10 +1089,10 @@ if ($parameters['field_name'] == 'wsSiteAssignedTo') {
 
             ////////////////////////////////////////////////////////////////////////////////////////////
             // Get the custom date fields for this model.
-            // The model has a $casts array set then loop it and pick our the date and datetime entries.
+            // The model has a $casts array set then loop it and pick out the date and datetime entries.
             if (isset($model->casts)) {
                 foreach($model->casts as $key=>$value) {
-                    if ($value == 'date' || $value == 'datetime') {
+                    if ($value == 'date' || $value == 'datetime' || $value == 'timestamp') {
                         $dates[] = $key;
                     }
                 }

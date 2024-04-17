@@ -315,7 +315,7 @@ class ehCheckPermissions
              *  edit    -   GET/HEAD    ACCESS_EDIT<br/>
              * */
 
-            // Check the route name for each of the resourceful route methods.
+            // Check the route name for each of the resourceful route methods individual permissions.
             switch ($route_name) {
                 case str_contains($route_name,'index'):
                     $i_can_access = ehAccess::chkUserResourceAccess(Auth::user(), $route_name, ACCESS_VIEW);
@@ -339,11 +339,10 @@ class ehCheckPermissions
                     $i_can_access = ehAccess::chkUserResourceAccess(Auth::user(), $route_name, ACCESS_EDIT);
                     break;
                 default:
-                    // If this is truly a resource route it should match one of those.
-                    //TODO: does this mean the controller is responsible and we should allow the access here?
-                    // Or not allow access?? (does that create a situation where any other method on a resourceful controller is always blocked?
-                    // For now, just do nothing.
-                    //$i_can_access = ??;
+                    // If this is truly a resource route it should match one of those above.
+                    // Does that create a situation where any other method on a resourceful controller is always blocked?
+                    // Is should not since that case would've been check with its own unique route prior to getting here.
+                    // $i_can_access = ??;  We're just leaving it alone here so it remains false.
             }
 
         } else {
