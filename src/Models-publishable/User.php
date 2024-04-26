@@ -27,14 +27,9 @@ class User extends ehBaseAuthenticatable implements MustVerifyEmail
 
     protected $table = 'users';
 
-    /**
-     * Lets the Controls class know which input data should be treated as date formats.
-     *
-     * @var string[]
-     */
-    //TODO: need to find out where (ehControl maybe) that this is still in use and change it to use $casts.
-    // It looks like ehControl has been converted to pull in any cast with date, datetime or timestamp into our $dates array.
-    //public $dates = ['created_at', 'updated_at', 'last_login', 'login_created'];
+    // ehControl has been converted to pull in any $casts with date, datetime or timestamp into our $dates array.
+    // So, not using it anymore in favor of $casts.
+    // public $dates = ['created_at', 'updated_at', 'last_login', 'login_created'];
 
     /**
      * Controls will use this array to set readonly on these fields.
@@ -124,6 +119,9 @@ class User extends ehBaseAuthenticatable implements MustVerifyEmail
      *
      * @var array<string, string>
      */
+
+    // Umm... not sure of the exact mechanism yet but using 'timestamp' here does not seem to create a carbon instance.
+    // Using datetime looks like it works fine.
     public $casts = [
         'email_verified_at' => 'datetime',
         'created_at' => 'datetime',

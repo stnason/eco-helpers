@@ -1,13 +1,16 @@
 <?php
 return [
     'APP_VER' => 'v1.0.50',
-    'APP_LASTUPDATE' => '04/17/2024'
+    'APP_LASTUPDATE' => '04/25/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 04/17/2024:v01.00.50: 0.50 :Working on TODOs. Move css class vars from top of ehControls to eco-helpers.
+ * 04/26/2024:v01.00.50: 0.75 :Fix ehControl not using the target parameter for links.
+ * 04/23/2024:v01.00.50: 0.50 :Exploring the idea of using jQuery Draggable for the Menu system (requires jQuery UI)..
+ * 04/23/2024:v01.00.50: 0.75 :Remove $dates from User.php and ensure ehControl is using $casts instead.
+ * 04/17/2024:v01.00.50: 1.00 :Working on TODOs. Move css class vars from top of ehControls to eco-helpers.
  * 04/14/2024:v01.00.49: 0.50 :Fix issue with LoginRequest using 'login' for the return error instead of 'email.
  * 04/14/2024:v01.00.49: 0.25 :Add getUserAccount() to ehUserFunctions trait.
  * 04/13/2024:v01.00.49: 0.25 :Fix deployment issue (composer error) with $signature and $description not being able to be defined in ecoHelpersInstall command.

@@ -566,6 +566,24 @@ class ehPagesController extends ehBaseController
     }
 
 
+    /**
+     * Save the page entry data after a successful onscreen drag-n-drop operation.
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function saveDrag(Request $request)
+    {
+
+        $page = ehPage::find($request->input('id'));
+
+        $page->order = $request->input('order');
+        $page->parent_id = $request->input('parent_id');
+
+        return $page->save();
+
+    }
+
 
 
 }

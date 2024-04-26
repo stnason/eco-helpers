@@ -35,7 +35,11 @@
 
 @if(count($page_item->children) > 0)
 
-    <li {{$selected_page}} class="{{$page_item->display_class}}"><a href="{{config('app.url')}}/pages/{{$page_item->id}}">{{$display_name}}</a></li>
+    {{-- Note: data-* is making this data available to the draggable object in js. --}}
+    <li data-page-id = "{{$page_item->id}}"
+        data-parent-id = "{{$page_item->parent_id}}"
+        data-order = "{{$page_item->order}}"
+        {{$selected_page}} class="{{$page_item->display_class}}"><a href="{{config('app.url')}}/pages/{{$page_item->id}}">{{$display_name}}</a></li>
     <ul class="tree-view">
         @foreach($page_item->children as $page_item)
             @include('ecoHelpers::core.eh-child-pages')
@@ -44,6 +48,9 @@
 
 @else
 
-    <li {{$selected_page}} class="{{$page_item->display_class}}"><a href="{{config('app.url')}}/pages/{{$page_item->id}}">{{$display_name}}</a></li>
+    <li data-page-id = "{{$page_item->id}}"
+        data-parent-id = "{{$page_item->parent_id}}"
+        data-order = "{{$page_item->order}}"
+        {{$selected_page}} class="{{$page_item->display_class}}"><a href="{{config('app.url')}}/pages/{{$page_item->id}}">{{$display_name}}</a></li>
 
 @endif

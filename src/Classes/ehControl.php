@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
     * 'placeholder'       => the placeholder text for this input
     * 'auto_submit'       => add and auto submit handler
     * 'link'              => add a <a> link (for labels)
+    * 'target'            => the target attribute of the link <a> tag.
     * 'radio'             => radio button array ($btn_value=>$display)
     * 'disabled'          => html disabled attribute (true or false)
     * 'bold_before'       => beginning bold tag (label)
@@ -73,7 +74,12 @@ Class ehControl
         // Are we requesting a link for this label?
         $pre_link = '';
         $post_link = '';
-        $target = '_self';
+
+        // Grab the pre-processed target attribute value from the parameters object.
+        $target = $p['target'];
+
+
+        // If a link is passed then build that out for the label.
         if (!empty($p['link'])) {
             $pre_link = '<a href="'.$p['link'].'" target="'.$target.'">';
             $post_link = '</a>';
@@ -712,6 +718,7 @@ if ($parameters['field_name'] == 'created_at') {
             }
             */
 
+
             // Note: this is expecting a Carbon instance which is controlled
             //  by ensuring that the Model has a $casts array defined.
             if (!empty($value) && $value->year < 1) {
@@ -1002,6 +1009,15 @@ if ($parameters['field_name'] == 'wsSiteAssignedTo') {
             $link = '';
         }
 
+        ###########################################
+        // target
+        ###########################################
+        if (!empty($parameters['target'])) {
+            // If so just move it to the output without any processing.
+            $target = $parameters['target'];
+        } else {
+            $target = '_self';
+        }
 
         ###########################################
         // alert (if match value)
@@ -1045,7 +1061,7 @@ if ($parameters['field_name'] == 'wsSiteAssignedTo') {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Build out the whole "internal" object for all of the methods to use.
-        $processed_parameters = [
+        return [
             'field_name'=> $parameters['field_name'],
             'display_name'=> $display_name,
             'model'=> $model,
@@ -1059,6 +1075,7 @@ if ($parameters['field_name'] == 'wsSiteAssignedTo') {
             'rows'=>$rows,
             'auto_submit'=> $auto_submit,
             'link'=> $link,
+            'target'=> $target,
             'radio'=> $radio,
             'disabled'=> $disabled,
             'bold_before'=> $pre,
@@ -1071,7 +1088,6 @@ if ($parameters['field_name'] == 'wsSiteAssignedTo') {
             'is_date'=>$is_date
         ];
 
-        return $processed_parameters;
     }
 
 

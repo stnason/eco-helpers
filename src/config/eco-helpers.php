@@ -331,7 +331,6 @@ return [
             'box_warning'=>'border-danger',                 // The css class for the error input box.
 
 
-
             // Pre-pended to the left of the page's descriptive heading text (if desired).
             'description_bullet' => '&#x2014; '     // An html wide dash.
             //'description_bullet' => '&bull; '     // An html small bullet.

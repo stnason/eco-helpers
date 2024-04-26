@@ -25,6 +25,9 @@ use ScottNason\EcoHelpers\Controllers\ehImportExportController;
     Route::resource('users', ehUsersController::class);
     Route::resource('config', ehConfigController::class);
 
+    // Update the menu tree data after a successful onscreen drag-n-drop operation.
+    Route::post('/pages/save-drag', ehPagesController::class . '@saveDrag')->name('pages.save-drag');
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     // - Role maintenance.
     Route::delete('/delete-role-from-user/{role_lookup}', [User::class, 'deleteRoleFromUser']);
