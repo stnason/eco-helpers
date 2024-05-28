@@ -1,14 +1,15 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.52',
-    'APP_LASTUPDATE' => '05/23/2024'
+    'APP_VER' => 'v1.0.53',
+    'APP_LASTUPDATE' => '05/28/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 05/23/2024:v01.00.51: 0.52 :Implement $auto_submit on checkbox() (was missing)
- * 05/23/2024:v01.00.51: 0.51 :Problem w/checkboxes not accepting their own value. checkbox() was setting $value to 1 (?)
+ * 05/23/2024:v01.00.53: 0.25 :Forcing new version.
+ * 05/23/2024:v01.00.52: 0.25 :Implement $auto_submit on checkbox() (was missing)
+ * 05/23/2024:v01.00.51: 0.25 :Problem w/checkboxes not accepting their own value. checkbox() was setting $value to 1 (?)
  * 05/23/2024:v01.00.51: 0.75 :Correct issue with ehControl wiping out radio buttons with "0" as the value (caused by using empty() in radio parameter processing)
  * 05/20/2024:v01.00.51: 0.75 :Change ValidList@pullUnique() to use pullQuery with a 'unique' flag.
  * 05/20/2024:v01.00.51: 0.25 :Fix missing delete-role on [x] Remove button on user-detail.
