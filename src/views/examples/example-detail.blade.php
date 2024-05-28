@@ -215,7 +215,8 @@
     </div>
 
     <script type="text/javascript">
-        // Calling page can set these var ahead of time to specify the toolbars and plugins for TinyMCE to use
+        // When using TinyMCE, the calling page can set these vars ahead of time to specify
+        // any of the toolbars and plugins for TinyMCE to use:
         toolbarsetup = "undo redo | bold italic | styleselect | bullist link image | code removeformat fullscreen anchor";
         menubarsetup = "tools table view insert edit";
         pluginssetup = 'lists advlist link paste image code fullscreen anchor';

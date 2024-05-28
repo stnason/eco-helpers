@@ -321,19 +321,30 @@ class ehValidList {
         $t = New $args['model_path'];   // Model instance from the passed model name.
         $table_name = $t->getTable();   // Raw table name.
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // UNIQUE? Are we calling for a unique data query?
+        // !!!NOTES ON UNIQUE !!!:
+        //      The 'foreach($r as $row)' loop below with automatically collapse into unique values
+        //      if the $key value has duplicates (since you're just overwriting the same key over and over).
+        //      When including key=>value pairs YOU WILL ONLY GET A UNIQUE KEY=>VALUE combination.
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        $select = 'SELECT ';
+        if (!empty($args['unique']) && $args['unique']) {
+            $select = 'SELECT DISTINCT ';
+        }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Build to SELECT portion of the query.
         //  (Note: None of these fields are from "user" input. They are supplied by the class code above.)
-        $query =  'SELECT '.$args['key'].','.$args['value'].' FROM '.$table_name.' ';
+        $query =  $select.$args['key'].','.$args['value'].' FROM '.$table_name.' ';
         if (!empty($args['inactive_true'])) {
-            $query =  'SELECT '.$args['key'].','.$args['value'].','.$args['inactive_true'].' FROM '.$table_name.' ';
+            $query =  $select.$args['key'].','.$args['value'].','.$args['inactive_true'].' FROM '.$table_name.' ';
         }
         if (!empty($args['inactive_false'])) {
-            $query =  'SELECT '.$args['key'].','.$args['value'].','.$args['inactive_false'].' FROM '.$table_name.' ';
+            $query =  $select.$args['key'].','.$args['value'].','.$args['inactive_false'].' FROM '.$table_name.' ';
         }
         if (!empty($args['inactive_false']) && !empty($args['inactive_true'])) {
-            $query =  'SELECT '.$args['key'].','.$args['value'].','.$args['inactive_false'].','.$args['inactive_true'].' FROM '.$table_name.' ';
+            $query =  $select.$args['key'].','.$args['value'].','.$args['inactive_false'].','.$args['inactive_true'].' FROM '.$table_name.' ';
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -395,6 +406,7 @@ class ehValidList {
         // Return the properly formatted list array.
         return $thisArray;
     }
+
 
 
 

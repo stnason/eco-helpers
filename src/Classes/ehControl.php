@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\DB;
     * 'link'              => add a <a> link (for labels)
     * 'target'            => the target attribute of the link <a> tag.
     * 'radio'             => radio button array ($btn_value=>$display)
-    * 'disabled'          => html disabled attribute (true or false)
+    * 'disabled'          => true or false; set various ways to disable (readonly) based on the html element type
     * 'bold_before'       => beginning bold tag (label)
     * 'bold_after'        => ending bold tag (label)
     * 'value'             => the input value attribute
@@ -188,6 +188,7 @@ Class ehControl
         }
 
         // Note: this is getting kind of messy; see the $auto_submit processing near the bottom; it builds out a couple different calls already.
+        // TODO: make this like a checkbox auto_submit.
         $auto_submit = '';
         if ($p['auto_submit'] != '') {                     // For now just checking to see if something at all is set.
             $auto_submit = ' onclick="this.form.submit()" ';
@@ -201,7 +202,7 @@ Class ehControl
             // Check to see which value is already checked.
             // Making sure to account for teh case where the stored value may be undetermined (null)
             //  rather than No or "0" -- that should show nothing checked.
-            if ($p['value'] === $btn_value && $p['value'] !== null) {
+            if ($p['value'] == $btn_value && $p['value'] !== null) {    // Note: this has to be "==" not "===". Presumably to allow matching a text '0' with a number 0 (maybe?)
                 $checked = 'checked';
                 $strongF = '<strong>';      // make the current selection label bold
                 $strongB = '</strong>';
@@ -377,41 +378,52 @@ public static function checkbox($parameters) {
         return false;
     }
 
-    /*
+    /* NOT SURE WHY - shouldn't it just equal itself??
      * NOTE: For now, assuming that we just use "1" for the value in any checkbox.
      *       Since the only time they even post -- is if checked; that's really all we're looking for.
      *       If we really need a different value for some reason then that should be the
      *        responsibility of dataConsistencyChecks for that controller.
-     */
-    $p['value'] = 1;
 
+    $p['value'] = 1;
+    */
 
     // Check to see if checked.
     $field_name = $p['field_name'];
     // Did we provide a valid model or is this an add hoc control?
     if ($p['model'] == null) {
-        if (request()->input($field_name) != null && request()->input($field_name) == $p['value']) {     // if no model specified then check the input request'
+        if (isset(request()->$field_name)) {
+        //if (request()->input($field_name) != null && request()->input($field_name) == $p['value']) {     // if no model specified then check the input request'
             $checked = 'checked';
         } else {
             $checked = '';
         }
     } else {
-
-        if ($p['model']->$field_name != null && $p['model']->$field_name == $p['value']) {
+        if (isset(request()->$field_name)) {
+        //if ($p['model']->$field_name != null && $p['model']->$field_name == $p['value']) {
             $checked = 'checked';
         } else {
             $checked = '';
         }
     }
 
+    // You must have some value to post regardless of what it is.
+    if ($p['value'] === null) {
+        $p['value'] = '1';
+    }
 
+    // Add a javascript on submit event handler if it was called for
+    // NOTE: the auto_submit variable was processed along with all the parameters in processParameters()
 
     $input = '<input
         class="form-check-input '.$p['error_class_box'].' '.$p['additional_class'].'"
         type="checkbox"
         id="'.$p['field_name'].'"
-        name="'.$p['field_name'].'"
-        value="'.$p['value'].'" '.$p['disabled'].' '.$p['required'].' '.$checked.'>'.config('app.nl');
+        name="'.$p['field_name'].'"      
+        value="'.$p['value'].'" '.
+        $p['disabled'].' '.
+        $p['required'].' '.
+        $p['auto_submit'].' '.
+        $checked.'>'.config('app.nl');
 
     return $input;
 
@@ -639,7 +651,8 @@ public static function button($parameters) {
             // $value = request()->old($field);
 
             // Check for a current value then use old if it's not there.
-            if (!empty(request()->$field)) {
+            //if (!empty(request()->$field)) {        // !!! WARNING !!!: Using empty() will leave out valid "0" options !!!
+            if (request()->$field !== null) {
                 $value = request()->$field;
             } else {
                 $value = request()->old($field);
@@ -647,18 +660,19 @@ public static function button($parameters) {
 
         }
 
-
+        /* WTF -- where is this 'type' supposed to come from??? -- moved this into the checkbox() processing.
         // But if this is a checkbox -- check boxes require a hard coded value to work.
         if (isset($parameters['type']) && $parameters['type']=='checkbox') {
             if (isset($parameters['value'])) {
                 $value = $parameters['value'];
             }
         }
+         */
 
 /*
-        if($parameters['field_name'] == 'sID') {
-            dd($model, $value);
-        }
+       if($parameters['field_name'] == 'sID') {
+           dd($model, $value);
+       }
 */
 
         ###########################################

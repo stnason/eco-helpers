@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
+
+//TODO: there is no visual indication of page not being active when in the page detail. (add something)
+
 /**
  * The Controller responsible for managing the crud interaction with the Menus/Pages entries in the eh_pages table.
  */
@@ -361,7 +364,7 @@ class ehPagesController extends ehBaseController
         // Build a query to find out
         // BUT -- IS DEFAULT HOME PAGE AN ID NUMBER OR A ROUTE !??
 
-        $result = DB::select('SELECT * FROM roles WHERE default_home_page = '.$page->id.';');
+        $result = DB::select('SELECT * FROM eh_roles WHERE default_home_page = '.$page->id.';');
         if (count($result)>0) {
             throw ValidationException::withMessages(['type' =>
                 // Might be helpful to include a link--at least to the first--offending role.

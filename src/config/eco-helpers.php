@@ -427,8 +427,8 @@ return [
         |   Login default uses whatever is defined in the RouteServiceProvider::HOME
         |   Logout default uses the root of the website: '/'
         */
-        'login_home_page' => '/',
-        'logout_home_page' => '/',
+        'login_home_page' => 'dashboard',
+        'logout_home_page' => 'dashboard',
 
     ],
 

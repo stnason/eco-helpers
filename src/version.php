@@ -1,12 +1,21 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.50',
-    'APP_LASTUPDATE' => '04/25/2024'
+    'APP_VER' => 'v1.0.52',
+    'APP_LASTUPDATE' => '05/23/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 05/23/2024:v01.00.51: 0.52 :Implement $auto_submit on checkbox() (was missing)
+ * 05/23/2024:v01.00.51: 0.51 :Problem w/checkboxes not accepting their own value. checkbox() was setting $value to 1 (?)
+ * 05/23/2024:v01.00.51: 0.75 :Correct issue with ehControl wiping out radio buttons with "0" as the value (caused by using empty() in radio parameter processing)
+ * 05/20/2024:v01.00.51: 0.75 :Change ValidList@pullUnique() to use pullQuery with a 'unique' flag.
+ * 05/20/2024:v01.00.51: 0.25 :Fix missing delete-role on [x] Remove button on user-detail.
+ * 05/20/2024:v01.00.51: 0.25 :Fix issue in role-detail with role_is_locked being empty from controller.
+ * 05/18/2024:v01.00.51: 0.25 :Fix issue with user-detail when login_created is empty.
+ * 05/18/2024:v01.00.51: 0.75 :Implement ValidList@pullUnique().
+ * 05/18/2024:v01.00.51: 0.25 :Issue when deleting pages; trying to query "roles" table (change to eh_roles).)
  * 04/26/2024:v01.00.50: 0.75 :Fix ehControl not using the target parameter for links.
  * 04/23/2024:v01.00.50: 0.50 :Exploring the idea of using jQuery Draggable for the Menu system (requires jQuery UI)..
  * 04/23/2024:v01.00.50: 0.75 :Remove $dates from User.php and ensure ehControl is using $casts instead.

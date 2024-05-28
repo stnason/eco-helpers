@@ -45,6 +45,7 @@ return new class extends Migration
             $table->string('middle_name')->after('last_name')->nullable()->default(null);
             $table->string('nickname')->after('middle_name')->nullable()->default(null);
 
+
             /* OPTIONAL: Extended business fields
             $table->string('title')->after('middle_name')->nullable()->default(null);
             $table->string('description')->after('title')->nullable()->default(null);
@@ -63,7 +64,7 @@ return new class extends Migration
             $table->text('comments')->after('email_personal')->nullable()->default(null);
 
             // Specific to the user login profile
-            $table->string('timezone')->after('comments')->nullable()->default(null);
+            $table->string('time_zone')->after('comments')->nullable()->default(null);
             $table->tinyInteger('login_active')->after('time_zone')->nullable()->default(null);
             $table->Integer('default_role')->after('login_active')->nullable()->default(null);
             $table->Integer('acting_role')->after('default_role')->nullable()->default(null);

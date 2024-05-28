@@ -206,7 +206,7 @@
                                 <div class="col-sm">
                                 <button
                                         type="button"
-                                        class="form-control btn btn-sm btn btn-outline-danger text-nowrap"
+                                        class="delete-role form-control btn btn-sm btn btn-outline-danger text-nowrap"
                                         data-group-name = "{{$role::find($role_lookup->role_id)->name}}"
                                         data-role-lookup-id="{{$role_lookup->id}}"
                                 >[x] Remove
@@ -531,8 +531,16 @@
             <div class="col-sm">
                 <div class="form-group d-inline-flex flex-wrap">
                     <label>User Logins</label>
+
                     <div class="form-control text-secondary"><strong>{{ number_format($user->login_count) }}</strong>
-                        times since {{ $user->login_created->tz($user->getBestTimezone())->format($config::get('date_format_php_long')) }}</div>
+                        times since
+                        @if(!empty($user->login_created))
+                            {{ $user->login_created->tz($user->getBestTimezone())->format($config::get('date_format_php_long')) }}
+                        @else
+                            [ login created is blank ]
+                        @endif
+                    </div>
+
                 </div>
             </div>
         </div>

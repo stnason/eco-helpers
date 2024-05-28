@@ -6,7 +6,7 @@
 @php
 // Use this to disable all the form fields when the 'locked' field is set for this role.
 // Note: that the dataConsistency rules still check for this on the backside so this is just a convenience.
-if ($form['role_is_locked']) {
+if (!empty($form['role_is_locked']) && $form['role_is_locked']) {
     $edit_lock = true;
 } else {
     $edit_lock = false;
