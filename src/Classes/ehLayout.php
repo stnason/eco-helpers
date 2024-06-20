@@ -499,9 +499,11 @@ class ehLayout
             self::$layout['flash']['class'] = $class;
         }
 
-        // Save the flash message.
+        // Save the flash message (if we're passing text only).
         // session(['message' => $value]); // This does not clear after being viewed when set form ehLayout::setFlash()
-        session()->flash('message', $value);
+        if (gettype($value) == 'string') {
+            session()->flash('message', $value);
+        }
 
         // Call the catch-all generic setter to complete the setter logic for the flash message.
         return self::__callStatic('setFlash', $value);
@@ -600,6 +602,9 @@ class ehLayout
      */
     public static function setStandardButtons($parameter=null) {
 
+        //TODO: Would it be possible (or workable) to check the calling route and only provide a save button if this is a .create route?
+        // Currently this is accomplished by just passing a single parameter -> "save".
+
         // Pull the default_buttons array out of the config file.
         $buttons = ehConfig::get('layout.default_buttons');
 
@@ -638,8 +643,6 @@ class ehLayout
                 }
             }
         }
-
-
 
 
         // SECURITY: Button control.

@@ -26,6 +26,7 @@ class VerifyEmailController extends Controller
             event(new Verified($request->user()));
         }
 
-        return redirect()->intended(route('home', absolute: false).'?verified=1');
+        //return redirect()->intended(route('home', absolute: false).'?verified=1');
+        return redirect()->intended(config('eco-helpers.login_home_page').'?verified=1');
     }
 }

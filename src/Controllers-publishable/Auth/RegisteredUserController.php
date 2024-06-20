@@ -80,7 +80,8 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('home');
+        return redirect(config('eco-helpers.login_home_page'));     // Use the login page defined in the config file
+                                                                    // Note: this is not a route!
     }
 
 

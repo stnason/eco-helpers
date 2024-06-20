@@ -311,7 +311,7 @@ class ehAuthenticatedSessionController extends Controller
                 return redirect()->intended(RouteServiceProvider::HOME);
             } else {
                 // If the key has something in it, then use it.
-                return redirect(route(ehConfig::get('access.login_home_page')));
+                return redirect(ehConfig::get('access.login_home_page'));
             }
 
             // TESTING TRYING TO CONTINUE ON TO AN INTENDED ROUTE.
@@ -349,7 +349,7 @@ class ehAuthenticatedSessionController extends Controller
             return redirect('/');
         } else {
             // If the key has something in it, then use it.
-            return redirect(route(ehConfig::get('access.logout_home_page')));
+            return redirect(ehConfig::get('access.logout_home_page'));
         }
 
     }

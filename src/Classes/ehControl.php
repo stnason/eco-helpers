@@ -536,11 +536,12 @@ public static function button($parameters) {
                         <div class="form-group d-inline">
                             <!--<div class="button-group">-->
                             <!-- Using the <row> and col to space the buttons scales down to mobile size better than using a fixed label width. -->
-                            <div class="row">
+                            <div class="row justify-content-center">
                                 <!-- Spacer to get buttons to line up with the first column of data entry fields.
                                 <label>&nbsp;</label>
                                 -->
-                                <div class="col-sm-2"></div>
+                                <!-- Not sure about leaving this in here anymore - Legacy based on how you display the form labels.
+                                <div class="col-sm-2"></div> -->
                                 <!-- Display all of the buttons for this user. -->
                                 <div class="col-sm-10 button-group">';
 

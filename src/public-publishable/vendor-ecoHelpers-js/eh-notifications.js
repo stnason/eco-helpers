@@ -53,7 +53,8 @@ function getNext() {
             notification = data;
         }
     }).fail(function (data) {
-        alert('getNext fail: '+JSON.stringify(data));
+        //TODO: This message shows up sometimes when you're sitting on a page when it logs out. (? maybe ?)
+        //alert('getNext fail: '+JSON.stringify(data));
     });
 
     return notification;
@@ -95,7 +96,8 @@ function deleteNext() {
             }
         }
     }).fail(function (data) {
-        alert('deleteNext fail: '+JSON.stringify(data));
+        // TODO: Just for testing. Consider converting it to some kind of flash message?
+        //alert('deleteNext fail: '+JSON.stringify(data));
     });
 
 

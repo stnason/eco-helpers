@@ -1,12 +1,16 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.53',
-    'APP_LASTUPDATE' => '05/28/2024'
+    'APP_VER' => 'v1.0.54',
+    'APP_LASTUPDATE' => '06/12/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 06/12/2024:v01.00.54: 0.50 :Mover <footer> out of <main> and add the eh-goto-submit.js to the main app-template.
+ * 06/02/2024:v01.00.54: 0.50 :Clean up some auth redirect issues not using the eco-config file entry.
+ * 06/02/2024:v01.00.54: 0.50 :Fix issue with ehLayout@setFlash wiping out the session flash message when turning area off/on.
+ * 06/01/2024:v01.00.54: 0.50 :Attempting to redesign RolesController@show(); adding a top_level_list to ehValid list to use instead of module_list_all. THIS IS NOT GOING TO WORK -- permissions are based on pages UNDER modules!
  * 05/23/2024:v01.00.53: 0.25 :Forcing new version.
  * 05/23/2024:v01.00.52: 0.25 :Implement $auto_submit on checkbox() (was missing)
  * 05/23/2024:v01.00.51: 0.25 :Problem w/checkboxes not accepting their own value. checkbox() was setting $value to 1 (?)

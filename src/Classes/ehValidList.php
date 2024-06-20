@@ -129,6 +129,20 @@ class ehValidList {
             'inactive_false' => null,               // When this field is false, we'll add the inactive symbol (like 'active')
         ];
 
+    protected static $_top_level_list =
+        [
+            'method'=>'pullQuery',                  // The ValidList method used for this query.
+            'key' => 'id',                          // The table column name used for the "key"
+            'value' => 'name',                      // The table column name used for the "value"
+            'model_path' => 'ScottNason\EcoHelpers\Models\ehPage',
+            // The Laravel pathname to the Model
+            'orderBy' => 'order',                   // ORDER BY clause field(s)
+            'criteria' => "WHERE parent_id = 0",    // Add a complete WHERE or LIKE clause if needed
+            'include_key_in_name' => false,         // 1=>'Value Name' would be -> "01-Value Name"
+            'inactive_true' => null,                // When this field is true, we'll add the inactive symbol (like 'archived')
+            'inactive_false' => null,               // When this field is false, we'll add the inactive symbol (like 'active')
+        ];
+
     protected static $_role_list =
         [
             'method'=>'pullQuery',                  // The ValidList method used for this query.
@@ -273,6 +287,7 @@ class ehValidList {
         self::addList('page_type', self::$_page_type);
         self::addList('menus_list', self::$_menus_list);
         self::addList('module_list_all', self::$_module_list_all);
+        self::addList('top_level_list', self::$_top_level_list);
         self::addList('role_list', self::$_role_list);
         self::addList('modules_submenus_list', self::$_modules_submenus_list);
         self::addList('user_list', self::$_user_list);

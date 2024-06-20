@@ -263,7 +263,14 @@ class ehRolesController extends ehBaseController
 
             // Otherwise this must be the first time through the form.
             // Pull a list of modules and pick the first one (in 'order').
+
+
+            //TODO: Design consideration: if you pull just a modules list this leaves out any top level/ page only items. (?)
+            // ehRolesController@show() is using the mbit to decide if you have permissions on this "module" -- not sure if this can be changed.
             $module_list = ValidList::getList('module_list_all');
+            //$module_list = ValidList::getList('top_level_list');      // this messes with the actual permissions per page then (there is none!)
+
+
             reset($module_list);         // Leaves only the first element in the array.
             $module_id = key($module_list);     // Then pulls the key for that first element.
 

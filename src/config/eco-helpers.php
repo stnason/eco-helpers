@@ -255,9 +255,13 @@ return [
             'linkbar' => [
                 'state' => true,
                 'content' => [
-                    // Default entries are loaded into ehLayout on init and only used if ehLayout@setLinkbar is not called.
-                    // Note: default entries will have no system security checks!
-                    // Don't use these for "real" routes. Add those through Menus/Pages for complete security control.
+                    // Default entries are loaded into ehLayout on init and only used if
+                    // ehLayout@setLinkbar() is called w/ no parameters.
+                    //  - normally you'd see: ehLayout::setLinkbar($linkbar->getLinkBar());
+                    // Note That these default entries will not be security checked before displaying them.
+                    //      Everyone will see them.
+                    //      When using these defaults, the Menus/Pages entries will still determine
+                    //      the level of security control (so user may get an error message or thrown back to home).
                     ['href' => '#', 'name' => 'Sample1', 'title' => 'Sample 1', 'target' => '_self'],
                     ['href' => '#', 'name' => 'Sample2', 'title' => 'Sample 2', 'target' => '_self'],
                     ['href' => '#', 'name' => 'Sample3', 'title' => 'Sample 3', 'target' => '_self'],
@@ -421,7 +425,7 @@ return [
         |--------------------------------------------------------------------------
         | Home page after login/ logout
         |--------------------------------------------------------------------------
-        | The named route to go to after successfully logging in or logging out.
+        | The URL (not a route!) to go to after successfully logging in or logging out.
         |
         |  Note: Set either of these to blank ( 'login_home_page' => '' ) to use the hard-coded defaults:
         |   Login default uses whatever is defined in the RouteServiceProvider::HOME
