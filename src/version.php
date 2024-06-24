@@ -1,12 +1,13 @@
 <?php
 return [
     'APP_VER' => 'v1.0.54',
-    'APP_LASTUPDATE' => '06/12/2024'
+    'APP_LASTUPDATE' => '06/24/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 06/12/2024:v01.00.55: 0.25 :Force update.
  * 06/12/2024:v01.00.54: 0.50 :Mover <footer> out of <main> and add the eh-goto-submit.js to the main app-template.
  * 06/02/2024:v01.00.54: 0.50 :Clean up some auth redirect issues not using the eco-config file entry.
  * 06/02/2024:v01.00.54: 0.50 :Fix issue with ehLayout@setFlash wiping out the session flash message when turning area off/on.
