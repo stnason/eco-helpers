@@ -31,6 +31,10 @@ main {
 /* eco-helper page areas */
 /******************************************************************************************/
 
+#eco-helpers-body a,  #eco-helpers-body p {
+    font-size: 1rem;
+}
+
 #eh-layout-page-banner {
     z-index: 99;            /* Used with position: to bring to the font - on top of the jumbotron */
     position: relative;

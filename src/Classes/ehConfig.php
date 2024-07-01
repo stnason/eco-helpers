@@ -15,15 +15,16 @@ class ehConfig
 
     public static $combined_config = [];       // The combined settings table and eco-helpers file.
 
+
     /**
      * Pull the single settings record from the settings table and then add the eco-config.php file to it.
      * Without a $parameter it returns the combined table + eco-helpers config file.
      * With a $parameter it will return just that key value.
-     *
-     * @return mixed
+     * @param $parameters
+     * @return array|mixed|null
+     * @throws \Exception
      */
     public static function get($parameters = null) {
-
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Create the internal $combined_config array from the combined settings table and eco-helpers config file.
