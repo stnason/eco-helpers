@@ -32,24 +32,25 @@
     <div class="row">
 
         <div class="col-md">
-            <p class="text-left">{{ config('app.name') }} {{ $settings::get('APP_VER') }} ({{ config('app.env') }})</p>
-            <p class="text-left">{{$settings::get('message_copyright')}}</p>
+            <p class="text-left">{{ config('app.name') }} ({{ config('app.env') }})</p>
+            <p class="text-left">last update: {{config('version.APP_LASTUPDATE')}}</p>
         </div>
 
         <div class="col-md">
             <p class="text-center">
-                <a href="#">home</a> |
-                <a href="#">music</a> |
-                <a href="#">video</a> |
-                <a href="#">about np</a> |
-                <a href="#">contact us</a> |
-                <a href="#">news</a> |
-                <a href="#">links</a>
+                <a href="#">link</a> |
+                <a href="#">link</a> |
+                <a href="#">link</a> |
+                <a href="#">link</a>
             </p>
         </div>
 
         <div class="col-md">
-            <p class="text-end">Last Update: {{ $settings::get('APP_LASTUPDATE') }}</p>
+            <p class="text-end">eco framework:
+                {{ $settings::get('APP_VER') }} -
+                {{ $settings::get('APP_LASTUPDATE') }}
+            </p>
+            <p class="text-end">{{$settings::get('message_copyright')}}</p>
         </div>
 
     </div>

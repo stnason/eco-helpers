@@ -123,6 +123,7 @@ class EcoHelpersServiceProvider extends ServiceProvider
         //       (it's been registered above already)
         $this->publishes([
             __DIR__.'/config/eco-helpers.php' => config_path('eco-helpers.php'),
+            __DIR__.'/config/version.php' => config_path('version.php'),
         ], 'config');
 
 

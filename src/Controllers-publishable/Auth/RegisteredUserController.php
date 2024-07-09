@@ -41,16 +41,16 @@ class RegisteredUserController extends Controller
     {
 
         $request->validate([
-                //TODO: I don't think this is a complete implementation of this. (where is the site_key checked?)
-                // But it looks to be enough to thwart the auto register bots.
-                'g-recaptcha-response' => 'required',   // Google ReCaptcha Validation
-                //'name' => ['required', 'string', 'max:255'],
-                'first_name' => ['required', 'string', 'max:255'],
-                'last_name' => ['required', 'string', 'max:255'],
-                //'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],    // Lowercase? Really?
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-                'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            ],
+            //TODO: I don't think this is a complete implementation of this. (where is the site_key checked?)
+            // But it looks to be enough to thwart the auto register bots.
+            'g-recaptcha-response' => 'required',   // Google ReCaptcha Validation
+            //'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            //'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],    // Lowercase? Really?
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ],
             [
                 'g-recaptcha-response.required' => 'You must complete the reCAPTCHA form.',
             ]
@@ -80,8 +80,22 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(config('eco-helpers.login_home_page'));     // Use the login page defined in the config file
-                                                                    // Note: this is not a route!
+
+        if (!empty(config('eco-helpers.login_home_page'))) {
+
+            // Use the login page defined in the config file
+            // Note: this is not a route, but a url!
+            // prepend a forward slash if it's missing
+            $redirect = config('eco-helpers.login_home_page');
+            if (substr($redirect, 0, 1) != '/') {
+                $redirect = '/'.config('eco-helpers.login_home_page');
+            }
+            return redirect($redirect);
+
+        } else {
+            return redirect('/');       // If the eco-helpers key is blank then use '/'
+        }
+
     }
 
 
