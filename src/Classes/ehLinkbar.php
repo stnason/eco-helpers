@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
  */
 class ehLinkbar {
 
-
     /**
      * This is needed in order to use $linkbar->getLinkbar() to instantiate an empty linkbar.
      * Without that, or if you just call ehLayout::setLinkbar(), the defaults will be displayed from the eco-helpers
@@ -60,15 +59,15 @@ class ehLinkbar {
     {
         $this->auto_generate = $auto_generate;
 
-        /*
+
         if ($auto_generate) {
             // Pull the default link bar information from the parent module's items.
             $this->buildParentModuleLinkArray();
 
             // Then add the Export All link when appropriate (it's not turned off and the user has permissions).
-            $this->addExportAllLink();
+            // $this->addExportAllLink();   // do this at the end with calling getLinkbar().
         }
-        */
+
 
     }
 
@@ -266,7 +265,18 @@ class ehLinkbar {
      */
     public function getLinkbar() {
 
-        // Construct the array (note: doing it here instead of __construct since the controller and change things that affect it).
+        // Construct the array (note: doing it here instead of __construct
+        // since the controller can change things that affect it).
+
+        //TODO: umm...seems kind of stupid. Why don't we let the construct build out either the auto generated
+        // or the default linkbar ($items_array) and then the controller can add or remove items ??
+        // But there is some logic to letting getLinkbar() be the last thing you do and pulling
+        // all the changes together at the end. But that should be everything up to that point
+        // from initial construct through any controller change requests
+        // like: m(added or removed items, export table name, hide export all)
+
+
+        /*
         if ($this->auto_generate) {
             // Pull the default link bar information from the parent module's items.
             $this->buildParentModuleLinkArray();
@@ -274,6 +284,10 @@ class ehLinkbar {
             // Then add the Export All link when appropriate (if it's not turned off and the user has permissions).
             $this->addExportAllLink();
         }
+        */
+
+        // Then add the Export All link when appropriate (if it's not turned off and the user has permissions).
+        $this->addExportAllLink();
 
         return $this->items_array;
     }

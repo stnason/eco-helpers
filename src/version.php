@@ -1,12 +1,13 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.57',
-    'APP_LASTUPDATE' => '07/09/2024'
+    'APP_VER' => 'v1.0.58',
+    'APP_LASTUPDATE' => '07/12/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 07/12/2024:v01.00.58: 0.50 :Working on structural issue with ehLinkbar defaults (and its interaction with ehLayout)
  * 07/09/2024:v01.00.57: 0.50 :Fix issue with RegisteredUserController not crashing on redirect if no leading forward slash in eco-helpers config.
  * 07/09/2024:v01.00.57: 0.50 :Add a clean version.php to \config and to the publishable portion of the ServiceProvider. Clean up published eh-footer file.
  * 07/01/2024:v01.00.56: 0.50 :Change id="eco-helpers-body" to class="eco-helpers-body" (it created issues with too much specificity))
