@@ -249,7 +249,7 @@ trait ehUserFunctions
         //
         /* Trying this without for a while but leaving the code here as a reminder.
             If it turns out that we need it, we need to figure out how to call
-             ehNotifer reather than hard-coding it here.
+             ehNotifier rather than hard-coding it here.
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Just a safety net for the notification system (if it got stuck or hung up for any reason).
         // Anytime we request the acting role - go ahead and reset the message_modal notification flag.
@@ -261,7 +261,6 @@ trait ehUserFunctions
         ];
         session(['message_modal' => $message_modal]);
         */
-
 
 
 

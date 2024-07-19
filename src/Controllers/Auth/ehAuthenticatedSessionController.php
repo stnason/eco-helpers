@@ -15,6 +15,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use ScottNason\EcoHelpers\Models\ehRoleLookup;
 
 
 /**
@@ -95,18 +96,24 @@ class ehAuthenticatedSessionController extends Controller
 
         ////////////////////////////////////////////////////////////////////////////////////////////
 
-        // 1. Since we have to do this before the login attempt, let's see if we can even find the user name.
+        // 1. Since we have to do this before the login attempt, let's see if we can even find the by email or username.
         //    If not, then just continue on and let the normal validation handle that.
-        $user = User::where('email',$request->email)->first();
-
+        if(filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
+            // user is attempting login with email address
+            $user = User::where('email',$request->email)->first();
+        }
+        else {
+            // user is not using email address to login (check the username)
+            $user = User::where('name',$request->email)->first();
+        }
 
         // Was the user found? If not then we don't need to check any of this.
         // Just skip it and let the default login mechanism handle it.
+
         if (!empty($user->email)) {
 
             // Perform all the additional ecoHelpers login checks:
             $display_error_message = '';
-
 
             // Note: if the original user model is not extended from ehUser;
             //       you will get a message about isUserActive() missing.
@@ -121,6 +128,14 @@ class ehAuthenticatedSessionController extends Controller
                 //if (!$user->login_active) {
                 $display_error_message = $this->login_messages_array[1][$this->login_error_key];
                 $this->throwEcoHelperValidation($display_error_message);
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            // 1.a - Before we do anything else, check the eh_role_lu table and see if we have any roles assigned (at all).
+            $assigned_roles = ehRoleLookup::where('user_id',$user->id)->get();
+            if (count($assigned_roles) < 1) {
+                // Use the "No default group" error message.
+                $display_error_message = $this->login_messages_array[4][$this->login_error_key];
             }
 
             // 2. User has no acting_role assigned.
@@ -164,6 +179,11 @@ class ehAuthenticatedSessionController extends Controller
             // Note: This is the end of the "preliminary" login checks.
             //       The user is not completely logged in yet so anything that should happen right after login
             //       must be handled below toward the end of the store() method.
+
+        } else {
+
+            // umm...we were unable to find this user.
+            // For now we're doing nothing here -- we're assuming that the base Breeze quthentication catches that.
 
         }
 
@@ -316,8 +336,8 @@ class ehAuthenticatedSessionController extends Controller
 
             // TESTING TRYING TO CONTINUE ON TO AN INTENDED ROUTE.
             //return redirect()->intended(RouteServiceProvider::HOME);    // This works if you hit a protected route and it forces you to login.
-                                                                        // But if you're on a page and just want to get edit rights by logging in --
-                                                                        // then it redirects to HOME.
+            // But if you're on a page and just want to get edit rights by logging in --
+            // then it redirects to HOME.
             // Or does it make more sense to return to the page you're already on?
             // dd(request()->route()->getName());    // This is null (?)
             // return redirect()->back();            // This goes back to the /eco home page (when on examples@show())

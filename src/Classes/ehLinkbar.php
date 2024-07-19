@@ -59,13 +59,13 @@ class ehLinkbar {
     {
         $this->auto_generate = $auto_generate;
 
-
         if ($auto_generate) {
             // Pull the default link bar information from the parent module's items.
             $this->buildParentModuleLinkArray();
 
+            // Do this at the end with calling getLinkbar().
             // Then add the Export All link when appropriate (it's not turned off and the user has permissions).
-            // $this->addExportAllLink();   // do this at the end with calling getLinkbar().
+            // $this->addExportAllLink();
         }
 
 
@@ -274,6 +274,8 @@ class ehLinkbar {
         // all the changes together at the end. But that should be everything up to that point
         // from initial construct through any controller change requests
         // like: m(added or removed items, export table name, hide export all)
+        // SIGH..so ehLayout is responsible for pulling in all of the default settings -- one of which
+        // just happens to be the linkbar defaults.
 
 
         /*
