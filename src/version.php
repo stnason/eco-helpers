@@ -1,12 +1,13 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.59',
-    'APP_LASTUPDATE' => '07/19/2024'
+    'APP_VER' => 'v1.0.60',
+    'APP_LASTUPDATE' => '07/23/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 07/23/2024:v01.00.60: 0.25 :Remove errant dd() from ehLayout and up revision.
  * 07/19/2024:v01.00.59: 0.50 :Correct 2 major issues with ehAuthenticatedSessionController; was not username aware and did not check for an assigned group first.
  * 07/12/2024:v01.00.58: 0.50 :Working on structural issue with ehLinkbar defaults (and its interaction with ehLayout)
  * 07/09/2024:v01.00.57: 0.50 :Fix issue with RegisteredUserController not crashing on redirect if no leading forward slash in eco-helpers config.

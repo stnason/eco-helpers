@@ -147,7 +147,7 @@ class ehLayout
             }
 
         }
-dd( self::$layout);
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Pull and set the defaults for any $custom_keys:
         self::$layout['full-width']['state'] = ehConfig::get('layout.options.full_width');
