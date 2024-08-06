@@ -763,7 +763,10 @@ if ($parameters['field_name'] == 'created_at') {
                 // Note: This was inside of the date_long processing below but moved it out here because it can
                 //       effect the short date too if it's close enough to midnight.
                 if (!empty($tz)) {
-                    $value = $value->tz($tz);
+// TODO: this is fighting with the default UTC paradigm that Laravel/Carbon use and causing form dates
+//       to appear as 1 day early in some situation -- this whole time zone thought process needs to be re-thought.
+//      It may be completely unnecessary now.
+//                   $value = $value->tz($tz);
                 }
 
                 ///////////////////////////////////////////////////////////////////////////////////////////
