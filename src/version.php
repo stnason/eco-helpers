@@ -1,12 +1,13 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.61',
+    'APP_VER' => 'v1.0.62',
     'APP_LASTUPDATE' => '08/06/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 08/06/2024:v01.00.62: 0.25 :Forcing new version to get it to update github.
  * 08/06/2024:v01.00.61: 0.25 :Identify issue with time zone changing date to 1 day earlier in some situations. Comment out ~760 in ehControl for now. Add UTC to timezone in ehValidList.
  * 07/23/2024:v01.00.60: 0.25 :Remove errant dd() from ehLayout and up revision.
  * 07/19/2024:v01.00.59: 0.50 :Correct 2 major issues with ehAuthenticatedSessionController; was not username aware and did not check for an assigned group first.

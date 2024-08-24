@@ -2,5 +2,14 @@
 <project version="4">
   <component name="PublishConfigData" serverName="Debian-5000" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;error_log;.ftpquota*;.htaccess*;404*" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
+    <serverData>
+      <paths name="Debian-5000">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/vendor/scott-nason/eco-helpers" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
   </component>
 </project>
