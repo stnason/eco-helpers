@@ -7,7 +7,7 @@ return [
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 08/06/2024:v01.00.61: 0.25 :Identify issue with time zone changing date to 1 early in some situations. Comment out ~760 in ehControl for now.
+ * 08/06/2024:v01.00.61: 0.25 :Identify issue with time zone changing date to 1 day earlier in some situations. Comment out ~760 in ehControl for now. Add UTC to timezone in ehValidList.
  * 07/23/2024:v01.00.60: 0.25 :Remove errant dd() from ehLayout and up revision.
  * 07/19/2024:v01.00.59: 0.50 :Correct 2 major issues with ehAuthenticatedSessionController; was not username aware and did not check for an assigned group first.
  * 07/12/2024:v01.00.58: 0.50 :Working on structural issue with ehLinkbar defaults (and its interaction with ehLayout)

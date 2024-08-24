@@ -84,7 +84,8 @@ class ehValidList {
             "America/Los_Angeles"=>"Pacific",
             "America/Anchorage"=>"Alaska",
             "America/Adak"=>"Hawaii",
-            "Pacific/Honolulu"=>"Hawaii no DST"
+            "Pacific/Honolulu"=>"Hawaii no DST",
+            "UTC"=>"UTC"
         ];
     protected static $_page_security =
         [
