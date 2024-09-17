@@ -55,7 +55,6 @@ class ehSampleData {
         }
 
 
-
         // xx. Load the ehAccessTokens sample data.
         // TODO: Aren't we going to need this once we start testing roles against specific page access?
 

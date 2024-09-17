@@ -602,9 +602,6 @@ class ehLayout
      */
     public static function setStandardButtons($parameter=null) {
 
-        //TODO: Would it be possible (or workable) to check the calling route and only provide a save button if this is a .create route?
-        // Currently this is accomplished by just passing a single parameter -> "save".
-
         // Pull the default_buttons array out of the config file.
         $buttons = ehConfig::get('layout.default_buttons');
 

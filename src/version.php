@@ -1,12 +1,15 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.62',
-    'APP_LASTUPDATE' => '08/06/2024'
+    'APP_VER' => 'v1.0.63',
+    'APP_LASTUPDATE' => '09/14/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 09/14/2024:v01.00.63: 0.50 :
+ * 09/12/2024:v01.00.63: 0.50 :Replace $auto_submit (local method variable) with the globally processed $p['auto_submit'] in the checkbox() method.
+ * 09/12/2024:v01.00.62: 0.50 :Fix an issue with redirect()->intended() not working on line 334 (#6-where login person should go) of ehAuthenticatedSessionController
  * 08/06/2024:v01.00.62: 0.25 :Forcing new version to get it to update github.
  * 08/06/2024:v01.00.61: 0.25 :Identify issue with time zone changing date to 1 day earlier in some situations. Comment out ~760 in ehControl for now. Add UTC to timezone in ehValidList.
  * 07/23/2024:v01.00.60: 0.25 :Remove errant dd() from ehLayout and up revision.

@@ -188,12 +188,12 @@ Class ehControl
         }
 
         // Note: this is getting kind of messy; see the $auto_submit processing near the bottom; it builds out a couple different calls already.
-        // TODO: make this like a checkbox auto_submit.
+        /*
         $auto_submit = '';
         if ($p['auto_submit'] != '') {                     // For now just checking to see if something at all is set.
             $auto_submit = ' onclick="this.form.submit()" ';
         }
-
+        */
 
         $radio = '
         <div class="form-control form-radio '.$p['error_class_box'].' '.$p['additional_class'].'">';
@@ -216,16 +216,20 @@ Class ehControl
             // But disabled elements are not submitted so, not completely sure of the consequences here.
             if ($p['disabled']=='readonly') {$p['disabled']='disabled';}
 
-
             // Create each radio button selection.
             // Note: There's a fair bit of css manipulation going on her to make the text selections clickable (see the override css).
             $radio .= '
             <div class="form-check form-check-inline">
                 <label class="radio-empty"><input class="form-check-input"
-                type="radio" value="'.$btn_value.'"
-                name="'.$p['field_name'].'" '.$checked.' '.$p['disabled'].' '.$p['required'].$auto_submit.'>
+                type="radio" value="'.$btn_value.'"               
+                name="'.$p['field_name'].'" '.
+                $checked.' '.
+                $p['disabled'].' '.
+                $p['required'].
+                $p['auto_submit'].'>                                            
                 <span class="radio-text">'.$strongF.$display.$strongB.'</span>
             </label></div>';
+
         }
         $radio .='
         </div>';
@@ -717,8 +721,6 @@ if ($parameters['field_name'] == 'created_at') {
 ###########################################
 */
 
-
-
         // We still want a date picker on an empty field.
         //if ($model && in_array($parameters['field_name'],$cp['dates']) ) {    // This was how to check when using our own $dates array on the model
         if ($model && in_array($parameters['field_name'],$cp['dates']) ) {      // Had to switch when
@@ -762,12 +764,14 @@ if ($parameters['field_name'] == 'created_at') {
                 // Set the timezone from above.
                 // Note: This was inside of the date_long processing below but moved it out here because it can
                 //       effect the short date too if it's close enough to midnight.
-                if (!empty($tz)) {
-// TODO: this is fighting with the default UTC paradigm that Laravel/Carbon use and causing form dates
-//       to appear as 1 day early in some situation -- this whole time zone thought process needs to be re-thought.
-//      It may be completely unnecessary now.
-//                   $value = $value->tz($tz);
-                }
+                // 08/06/2024 - not doing this anymore.
+                // It causes issues with using UTC and just letting Laravel, Carbon and the browser sort it out.
+                // if (!empty($tz)) {
+                    // This is fighting with the default UTC paradigm that Laravel/Carbon use and causing form dates
+                    // to appear as 1 day early in some situation -- this whole time zone thought process needs to be re-thought.
+                    // It may be completely unnecessary now.
+                    // $value = $value->tz($tz);
+                // }
 
                 ///////////////////////////////////////////////////////////////////////////////////////////
                 // date_long is a parameter passed with the input data to select a date with time or just a date by itself.
