@@ -326,13 +326,26 @@ class ehAuthenticatedSessionController extends Controller
 
             ////////////////////////////////////////////////////////////////////////////////////////////
             // Go to the intended route or the global HOME page.
+            /*
             if (empty(ehConfig::get('access.login_home_page'))) {
                 // If the key in eco-helpers in cleared out then use whatever is defined in this constant.
+                return redirect()->intended(RouteServiceProvider::HOME);
+            } elseif (!empty(RouteServiceProvider::HOME)) {
                 return redirect()->intended(RouteServiceProvider::HOME);
             } else {
                 // If the key has something in it, then use it.
                 return redirect()->intended(ehConfig::get('access.login_home_page'));
             }
+            */
+
+            if (!empty(ehConfig::get('access.login_home_page'))) {
+                return redirect()->intended(ehConfig::get('access.login_home_page'));
+            } elseif (!empty(RouteServiceProvider::HOME)) {
+                return redirect()->intended(RouteServiceProvider::HOME);
+            } else {
+                return redirect()->intended();
+            }
+
 
             // TESTING TRYING TO CONTINUE ON TO AN INTENDED ROUTE.
             //return redirect()->intended(RouteServiceProvider::HOME);    // This works if you hit a protected route and it forces you to login.

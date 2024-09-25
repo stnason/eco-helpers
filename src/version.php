@@ -1,13 +1,13 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.63',
+    'APP_VER' => 'v1.0.64',
     'APP_LASTUPDATE' => '09/14/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 09/14/2024:v01.00.63: 0.50 :
+ * 09/25/2024:v01.00.64: 0.50 :re-work the AuthenticatedSessionController's redirect on success checks; update to v1.0.64 (having trouble getting np.com to get passed v1.0.62)
  * 09/12/2024:v01.00.63: 0.50 :Replace $auto_submit (local method variable) with the globally processed $p['auto_submit'] in the checkbox() method.
  * 09/12/2024:v01.00.62: 0.50 :Fix an issue with redirect()->intended() not working on line 334 (#6-where login person should go) of ehAuthenticatedSessionController
  * 08/06/2024:v01.00.62: 0.25 :Forcing new version to get it to update github.
