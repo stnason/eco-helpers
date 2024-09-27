@@ -336,7 +336,7 @@ The standard button area must be contained within each CRUD <form>
             src="{{ asset('vendor/ecoHelpers/js/eh-notifications.js') }}"></script>
     {{-- Unsaved warning message. --}}
     <script type="text/javascript">
-        $("form.eh-form-crud").change(function (e) {
+        $("form[class^='eh-form-crud']").change(function (e) {
             // Update the system flash message on any form input change.
             // EXCEPT: do not do it on any "goto" button change since we're just changing pages.
             if (e.target.id != "goto") {

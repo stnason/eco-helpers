@@ -14,7 +14,11 @@ if (save_button.length) {
         // If more than one form on a page then Firefox will log out on $("form").submit()
         // Both of these just "hang" on Firefox.
         //$(".eh-form-crud").submit();          // Internal eco-forms are now namespaced with the "eh-".
-        $("[class$='form-crud']").submit();     // Allowing user forms to just use form-crud
+        //$("[class$='form-crud']").submit();     // Allowing user forms to just use form-crud
+
+        // 09/27/2024
+        $("[class$='form-crud'], form[class^='eh-form-crud']").submit();     // Allowing user forms to just use form-crud
+
         // document.forms[".eh-form-crud"].submit();
 
     });
