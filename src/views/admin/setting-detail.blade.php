@@ -176,7 +176,7 @@
 
 
     {{-- ######################################################################## --}}
-    {{-- Standard form information header; for endu-user form content headings. --}}
+    {{-- Standard form information header; for end-user form content headings. --}}
     {{-- ######################################################################## --}}
     <p class="form-header-information">authentication settings:</p>
 
@@ -220,6 +220,8 @@
             <a>software and system versions:</a></p></div>
 
     <div class="row collapse multi-collapse1">
+
+        <p><a href="{{route('dev-log')}}">Application and eco-helpers development log history</a></p>
 
         <div class="form-group d-inline-flex flex-wrap">
             <label>Eco Helpers version</label>

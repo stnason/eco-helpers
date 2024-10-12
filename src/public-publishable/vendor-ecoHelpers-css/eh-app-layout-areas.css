@@ -108,7 +108,7 @@ main {
     Can be turned of with System::setPage_name_show().
  */
 #eh-layout-page-name {
-    flex-basis: auto;           /* Take up the whole row or share it with the Option Block. */
+    flex-basis: auto;               /* Take up the whole row or share it with the Option Block. */
     font-size: 2rem;
     font-weight: bolder;
 }
@@ -118,24 +118,24 @@ main {
  */
 #eh-layout-page-description {
 
-    flex-basis: 100%;           /* Force this to use one complete row of the heading layout. */
+    flex-basis: 100%;               /* Force this to use one complete row of the heading layout. */
     color: darkgray;
     font-style: italic;
     font-weight: lighter;
-    /*margin-block-start: -4px;   /* Move this up under the page name/title a little tighter. */
-    /*margin-block-end: 8px;      /* Space below this line. */
-    /*margin-inline-start: 12px;  /* Indent from the left. */
+    /*margin-block-start: -4px;     /* Move this up under the page name/title a little tighter. */
+    /*margin-block-end: 8px;        /* Space below this line. */
+    /*margin-inline-start: 12px;    /* Indent from the left. */
 }
 
 /* Optional CRUD heading provided bv the specific page controller.
     Displays directly under the LinkBar area and must be set by the controller.
  */
 #eh-layout-page-dynamic {
-    flex-basis: 100%;       /* Force this to use one complete row of the heading layout. */
+    flex-basis: 100%;               /* Force this to use one complete row of the heading layout. */
     color: gray;
     font-size: larger;
     font-weight: bold;
-    margin-block-start: 10px;     /* Top margin. */
+    margin-block-start: 10px;       /* Top margin. */
 }
 
 /* When applying links to page headers, remove the indication of a link. */
@@ -205,8 +205,9 @@ main {
   Turn on/off with    System::setPage_linkbar_show()
 */
 #eh-layout-page-linkbar {
+    flex-basis: 100%;           /* Force this to use one complete row of the heading layout. */
     list-style-type: none;
-    color: lightgrey;       /* Non link text only. */
+    color: lightgrey;           /* Non link text only. */
     margin-block: 0;
     padding-block: 0;
     margin-inline: 0;

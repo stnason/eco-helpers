@@ -12,6 +12,8 @@ use ScottNason\EcoHelpers\Controllers\ehRolesController;
 use ScottNason\EcoHelpers\Controllers\ehUsersController;
 use ScottNason\EcoHelpers\Controllers\ehConfigController;
 use ScottNason\EcoHelpers\Controllers\ehImportExportController;
+use ScottNason\EcoHelpers\Controllers\ehLogViewerController;
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // THESE SHOULDN'T NEED TO BE IN A GROUP. THEY ARE ALREADY CONTROLLED IN ehBaseController
@@ -27,6 +29,10 @@ use ScottNason\EcoHelpers\Controllers\ehImportExportController;
 
     // Update the menu tree data after a successful onscreen drag-n-drop operation.
     Route::post('/pages/save-drag', ehPagesController::class . '@saveDrag')->name('pages.save-drag');
+
+    // Dev log viewer
+    Route::get('/dev-log', [ehLogViewerController::class, 'devLog'])->name('dev-log');
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // - Role maintenance.

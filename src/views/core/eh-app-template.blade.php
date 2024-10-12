@@ -236,7 +236,6 @@ The standard button area must be contained within each CRUD <form>
                     --}}
                 @if ($form['layout']['linkbar']['state'])
                     <ul id="eh-layout-page-linkbar" class="{{$form['layout']['linkbar']['class']}}">
-
                         @if (!empty($form['layout']['linkbar']['content']))
                             @foreach ($form['layout']['linkbar']['content'] as $link)
                                 <li><a href="{{$link['href'] ?? '#'}}"
@@ -250,7 +249,6 @@ The standard button area must be contained within each CRUD <form>
                                 @endif
                             @endforeach
                         @endif
-
                     </ul>
                 @endif
                 {{--
