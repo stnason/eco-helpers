@@ -1,12 +1,14 @@
 <?php
 return [
-    'APP_VER' => 'v1.1.0',
-    'APP_LASTUPDATE' => '10/14/2024'
+    'APP_VER' => 'v1.1.1',
+    'APP_LASTUPDATE' => '10/16/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 10/16/2024:v01.01.01: 0.25 :New tag to force the 1.0.0 update.
+ * 10/16/2024:v01.01.00: 0.75 :Wow; just learned that phpStorm was not pushing tags during the commit/push. You have to check the checkbox for "Tags" when pushing!
  * 10/14/2024:v01.01.00: 3.00 :Still cleaning up RULES for adding/deleting roles in ehUserController@dataConsistencyCheck() and ehUserFunctions@deletRoleFromUser().
  * 10/13/2024:v01.01.00: 3.00 :Working on consistency rules when adding/deleting roles from users (ehUserFunctions@deleteRoleFromUser())
  * 10/12/2024:v01.01.00: 3.50 :Finish addItem() in ehLinkbar and add a final security check at end in getLinkbar(). Rework addExportAllLink() to add its output item to the $items_to_return array after the security check.
