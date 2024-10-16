@@ -156,6 +156,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_box_warning"
         },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehControl\u003A\u003A\u0024alert_if_class",
+            "name": "alert_if_class",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_alert_if_class"
+        },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehControl\u003A\u003A\u0024def_rows",
             "name": "def_rows",
             "summary": "",
@@ -166,10 +171,55 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_add_blank"
         },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehControl\u003A\u003A\u0024def_alert_class",
-            "name": "def_alert_class",
-            "summary": "",
-            "url": "classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_alert_class"
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehCSV",
+            "name": "ehCSV",
+            "summary": "A\u0020set\u0020of\u0020utility\u0020functions\u0020for\u0020working\u0020with\u0020CSV\u0020files.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehCSV.html"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehCSV\u003A\u003Amulti_explode\u0028\u0029",
+            "name": "multi_explode",
+            "summary": "Replaces\u0020the\u0020PHP\u0020explode\u0020function\u0020with\u0020one\u0020that\u0020looks\u0020for\u0020a\u0020defined\u0020list\u0020of\u0020delimiters\nUses\u0020a\u0020defined\u0020a\u0020list\u0020of\u0020valid\u0020delimiters\u0020for\u0020any\u0020csv\u0020style\u0020data\u0020list",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehCSV.html#method_multi_explode"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehCSV\u003A\u003AoutputCSV\u0028\u0029",
+            "name": "outputCSV",
+            "summary": "Convert\u0020a\u0020\u0024resultset\u0020array\u0020to\u0020csv\u0020format\u0020for\u0020download.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehCSV.html#method_outputCSV"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehCSV\u003A\u003AcreateCSV_fromTable\u0028\u0029",
+            "name": "createCSV_fromTable",
+            "summary": "Create\u0020a\u0020temporary\u0020table\u0020in\u0020the\u0020tmp\u0020disk\u0020Storage.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehCSV.html#method_createCSV_fromTable"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehCSV\u003A\u003Aprepare_csv_list\u0028\u0029",
+            "name": "prepare_csv_list",
+            "summary": "Used\u0020by\u0020bulkdelete\u0028\u0029\u003B\u0020bulkkxfer\u0028\u0029",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehCSV.html#method_prepare_csv_list"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehCSV\u003A\u003Aparse_csv\u0028\u0029",
+            "name": "parse_csv",
+            "summary": "Used\u0020by\u0020bulkdelete\u0028\u0029\u003B\u0020bulkkxfer\u0028\u0029\nReturns\u0020a\u0020two\u002Ddimensional\u0020array\u0020or\u0020rows\u0020and\u0020fields\nNote\u003B\u0020str_getcsv\u0020does\u0020not\u0020deal\u0020with\u0020Rows\u0020of\u0020data\u0020properly\u0020\u002D\u0020a\u0020single\u0020row\u0020csv\u0020list",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehCSV.html#method_parse_csv"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehCSV\u003A\u003AgetFilename\u0028\u0029",
+            "name": "getFilename",
+            "summary": "Create\u0020a\u0020standard\u0020file\u0020naming\u0020format\u0020for\u0020the\u0020export\n\u0020date\u0020\u002B\u0020site\u0020type\u0020\u002B\u0020table_name\u0020\u0028or\u0020can\u0020override\u0020and\u0020pass\u0020another\u0020name\u0020than\u0020the\u0020table_name\u0029",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehCSV.html#method_getFilename"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehCSV\u003A\u003AremoveBlankLines\u0028\u0029",
+            "name": "removeBlankLines",
+            "summary": "Just\u0020remove\u0020empty\u0020lines\u0020from\u0020the\u0020input.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehCSV.html#method_removeBlankLines"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehIPBlocker",
+            "name": "ehIPBlocker",
+            "summary": "Block\u0020known\u0020bad\u002Dactor\u0020IP\u0020addresses.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehIPBlocker.html"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehIPBlocker\u003A\u003AcheckIP\u0028\u0029",
+            "name": "checkIP",
+            "summary": "Execute\u0020the\u0020ip\u0020blocking\u0020check\u0020and\u0020redirect\u0020if\u0020address\u0020is\u0020found\u0020to\u0020be\u0020in\u0020the\u0020black\u002Dlist.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehIPBlocker.html#method_checkIP"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLayout",
             "name": "ehLayout",
@@ -293,12 +343,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003AbuildParentModuleLinkArray\u0028\u0029",
             "name": "buildParentModuleLinkArray",
-            "summary": "Build\u0020out\u0020and\u0020return\u0020an\u0020array\u0020of\u0020linkbar\u0020items\u0020based\u0020on\u0020the\u0020current\u0020route\u0027s\u0020parent\u0020module.",
+            "summary": "Build\u0020out\u0020an\u0020array\u0020of\u0020linkbar\u0020items\u0020based\u0020on\u0020the\u0020current\u0020route\u0027s\u0020parent\u0020module.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_buildParentModuleLinkArray"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003AaddExportAllLink\u0028\u0029",
+            "name": "addExportAllLink",
+            "summary": "Check\u0020this\u0020user\u0027s\u0020permissions\u0020on\u0020the\u0020current\u0020route\u0020and\u0020add\u0020the\u0020Export\u0020All\u0020link\u0020if\u0020called\u0020for.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_addExportAllLink"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003AaddItem\u0028\u0029",
+            "name": "addItem",
+            "summary": "Manually\u0020add\u0020and\u0020item\u0020to\u0020the\u0020linkbar.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_addItem"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003AsetExportTableName\u0028\u0029",
+            "name": "setExportTableName",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_setExportTableName"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003AsetHideExportAll\u0028\u0029",
+            "name": "setHideExportAll",
+            "summary": "Export\u0020All\u0020already\u0020checks\u0020to\u0020see\u0020if\u0020you\u0020have\u0020rights\u003B\u0020but\u0020additionally\u0020can\u0020be\u0020toggled\u0020off\u0020here.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_setHideExportAll"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003AitemSecurityCheck\u0028\u0029",
+            "name": "itemSecurityCheck",
+            "summary": "Check\u0020the\u0020item\u0020to\u0020see\u0020if\u0020this\u0020user\u0020should\u0020see\u0020it\u0020or\u0020not\u0020based\u0020on\u0020their\u0020access\u0020rights\u0020to\u0020this\u0020page.",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_itemSecurityCheck"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003AgetLinkbar\u0028\u0029",
             "name": "getLinkbar",
-            "summary": "",
+            "summary": "Return\u0020the\u0020completed\u0020linkbar\u0020array\u0020for\u0020display.",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_getLinkbar"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003A\u0024items_array",
@@ -325,6 +400,11 @@ Search.appendIndex(
             "name": "target",
             "summary": "",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_target"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehLinkbar\u003A\u003A\u0024auto_generate",
+            "name": "auto_generate",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_auto_generate"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehMenus",
             "name": "ehMenus",
@@ -596,6 +676,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__module_list_all"
         },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehValidList\u003A\u003A\u0024_top_level_list",
+            "name": "_top_level_list",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Classes-ehValidList.html#property__top_level_list"
+        },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Classes\\ehValidList\u003A\u003A\u0024_role_list",
             "name": "_role_list",
             "summary": "",
@@ -636,9 +721,49 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Classes-ValidList.html#property__surface_type"
         },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersInstall",
+            "name": "ecoHelpersInstall",
+            "summary": "Published\u0020as\u0020the\u0020artisan\u0020command\u0020\u0027eco\u002Dhelpers\u003Ainstall\u0027\u0020this\u0020command\nis\u0020responsible\u0020for\u0020copying\u0020over\u0020files\u0020and\u0020folders\u0020that\u0020need\u0020to\u0020be\u0020overwritten\u0020from\u0020the\u0020originals.",
+            "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersInstall.html"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersInstall\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "Execute\u0020the\u0020console\u0020command.",
+            "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersInstall.html#method_handle"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersInstall\u003A\u003AshowOnScreenWarning\u0028\u0029",
+            "name": "showOnScreenWarning",
+            "summary": "Build\u0020out\u0020and\u0020display\u0020the\u0020script\u0027s\u0020startup,\u0020on\u002Dscreen\nwarning\u0020message\u0020explaining\u0020what\u0027s\u0020about\u0020to\u0020happen.",
+            "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersInstall.html#method_showOnScreenWarning"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersInstall\u003A\u003AreplaceOrOverwrite\u0028\u0029",
+            "name": "replaceOrOverwrite",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersInstall.html#method_replaceOrOverwrite"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersInstall\u003A\u003A\u0024signature",
+            "name": "signature",
+            "summary": "The\u0020name\u0020and\u0020signature\u0020of\u0020the\u0020console\u0020command.",
+            "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersInstall.html#property_signature"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersInstall\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "The\u0020console\u0020command\u0020description.",
+            "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersInstall.html#property_description"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersInstall\u003A\u003A\u0024did_rename",
+            "name": "did_rename",
+            "summary": "Did\u0020the\u0020user\u0020select\u0020Rename\u0020on\u0020any\u0020of\u0020the\u0020questions\u003F",
+            "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersInstall.html#property_did_rename"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersInstall\u003A\u003A\u0024rename_message",
+            "name": "rename_message",
+            "summary": "If\u0020the\u0020user\u0020selected\u0020Rename\u0020on\u0020any\u0020of\u0020the\u0020choices\u0020then\u0020show\u0020this\u0020message\u0020at\u0020the\u0020end\u0020of\u0020the\u0020install\u0020script.",
+            "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersInstall.html#property_rename_message"
+        },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersSampleData",
             "name": "ecoHelpersSampleData",
-            "summary": "Published\u0020as\u0020the\u0020artisan\u0020command\u0020\u0027eco\u002Dhelpers\u003Asample\u002Ddata\u0027\u0020to\u0020call\u0020the\u0020ehSampleData\u0020class\u0020responsible\nfor\u0020building\u0020out\u0020the\u0020initial\u0020\u0028required\u0029\u0020system\u0020data\u0020and\u0020examples.",
+            "summary": "Published\u0020as\u0020the\u0020artisan\u0020command\u0020\u0027eco\u002Dhelpers\u003Asample\u002Ddata\u0027\u0020to\u0020call\u0020the\u0020ehSampleData\u0020class\nthat\u0027s\u0020responsible\u0020for\u0020building\u0020out\u0020the\u0020initial\u0020\u0028required\u0029\u0020system\u0020data\u0020and\u0020examples.",
             "url": "classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Commands\\ecoHelpersSampleData\u003A\u003Ahandle\u0028\u0029",
@@ -736,15 +861,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_ehAdditionalLoginChecks"
         },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\Auth\\ehAuthenticatedSessionController\u003A\u003AfindUsername\u0028\u0029",
-            "name": "findUsername",
-            "summary": "Get\u0020the\u0020login\u0020username\u0020to\u0020be\u0020used\u0020by\u0020the\u0020controller.",
-            "url": "classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_findUsername"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\Auth\\ehAuthenticatedSessionController\u003A\u003A\u0024username",
+            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\Auth\\ehAuthenticatedSessionController\u003A\u003Ausername\u0028\u0029",
             "name": "username",
-            "summary": "Login\u0020username\u0020to\u0020be\u0020used\u0020by\u0020the\u0020controller.\u0020\u0028email\u0020or\u0020name\u0029",
-            "url": "classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_username"
+            "summary": "Get\u0020username\u0020property.\u0020\u0028override\u0020method\u0029\nReturns\u0020the\u0020field\u0020in\u0020the\u0020Users\u0020table\u0020that\u0020we\u0020want\u0020to\u0020search\u0020by.",
+            "url": "classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_username"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\Auth\\ehAuthenticatedSessionController\u003A\u003AthrowEcoHelperValidation\u0028\u0029",
             "name": "throwEcoHelperValidation",
@@ -891,6 +1011,31 @@ Search.appendIndex(
             "summary": "Extended\u0020validation,\u0020custom\u0020error\u0020messages\u0020and\u0020business\u0020rules.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-ehExamplesController.html#method_dataConsistencyCheck"
         },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehImportExportController",
+            "name": "ehImportExportController",
+            "summary": "Import\u0020Export\u0020functions",
+            "url": "classes/ScottNason-EcoHelpers-Controllers-ehImportExportController.html"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehImportExportController\u003A\u003Aexport\u0028\u0029",
+            "name": "export",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Controllers-ehImportExportController.html#method_export"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehImportExportController\u003A\u003A\u0024route_to_tables",
+            "name": "route_to_tables",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Controllers-ehImportExportController.html#property_route_to_tables"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehLogViewerController",
+            "name": "ehLogViewerController",
+            "summary": "ehBaseController\u0020provides\u0020the\u0020core\u0020package\u0020hooks\u0020into\u0020the\u0020permissions\u0020checking\u0020middleware\nand\u0020all\u0020other\u0020Controllers\u0020must\u0020extend\u0020it.",
+            "url": "classes/ScottNason-EcoHelpers-Controllers-ehLogViewerController.html"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehLogViewerController\u003A\u003AdevLog\u0028\u0029",
+            "name": "devLog",
+            "summary": "Pull\u0020the\u0020version.php\u0020file\u0020for\u0020display\u0020and\u0020show\u0020a\u0020total\u0020time\u0020spent.",
+            "url": "classes/ScottNason-EcoHelpers-Controllers-ehLogViewerController.html#method_devLog"
+        },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehPagesController",
             "name": "ehPagesController",
             "summary": "The\u0020Controller\u0020responsible\u0020for\u0020managing\u0020the\u0020crud\u0020interaction\u0020with\u0020the\u0020Menus\/Pages\u0020entries\u0020in\u0020the\u0020eh_pages\u0020table.",
@@ -935,6 +1080,11 @@ Search.appendIndex(
             "name": "dataConsistencyCheck",
             "summary": "Check\u0020for\u0020various\u0020data\u0020consistency\u0020before\u0020storing\u0020or\u0020updating.",
             "url": "classes/ScottNason-EcoHelpers-Controllers-ehPagesController.html#method_dataConsistencyCheck"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehPagesController\u003A\u003AsaveDrag\u0028\u0029",
+            "name": "saveDrag",
+            "summary": "Save\u0020the\u0020page\u0020entry\u0020data\u0020after\u0020a\u0020successful\u0020onscreen\u0020drag\u002Dn\u002Ddrop\u0020operation.",
+            "url": "classes/ScottNason-EcoHelpers-Controllers-ehPagesController.html#method_saveDrag"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Controllers\\ehPagesController\u003A\u003A\u0024tree_layout_explanation",
             "name": "tree_layout_explanation",
@@ -1193,7 +1343,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\EcoHelpersServiceProvider",
             "name": "EcoHelpersServiceProvider",
-            "summary": "Package\u0020Class\u0020EcoHelperServiceProvider\u0020for\nScottNason\\EcoHelpers\\EcoHelpersServiceProvider\u003A\u003Aclass",
+            "summary": "Package\u0020Class\u0020EcoHelperServiceProvider\u0020for\nScottNason\\EcoHelpers\\EcoHelpersServiceProvider\u003A\u003Aclass.",
             "url": "classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\EcoHelpersServiceProvider\u003A\u003Aregister\u0028\u0029",
@@ -1466,60 +1616,70 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ScottNason-EcoHelpers-Models-ehSetting.html#property_guarded"
         },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser",
-            "name": "ehUser",
-            "summary": "The\u0020base\u0020model\u0020designed\u0020to\u0020be\u0020extended\u0020to\u0020the\u0020User\u0020model\u003B\u0020this\u0020model\u0020provides\u0020additional\u0020package\nuser\u0020functions\u0020through\u0020the\u0020ehUserFunctions\u0020trait.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003AuniqueUserName\u0028\u0029",
-            "name": "uniqueUserName",
-            "summary": "Create\u0020a\u0020unique\u0020username\u0020based\u0020on\u0020this\u0020specific\u0020algorithm.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#method_uniqueUserName"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003AuniqueAccountNumber\u0028\u0029",
-            "name": "uniqueAccountNumber",
-            "summary": "Create\u0020a\u0020unique\u0020account\u0020number\u0020based\u0020on\u0020this\u0020specific\u0020algorithm.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#method_uniqueAccountNumber"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003A\u0024table",
-            "name": "table",
-            "summary": "",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#property_table"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003A\u0024dates",
-            "name": "dates",
-            "summary": "Lets\u0020the\u0020Controls\u0020class\u0020know\u0020which\u0020input\u0020data\u0020should\u0020be\u0020treated\u0020as\u0020date\u0020formats.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#property_dates"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003A\u0024disabled",
-            "name": "disabled",
-            "summary": "Controls\u0020will\u0020use\u0020this\u0020array\u0020to\u0020set\u0020readonly\u0020on\u0020these\u0020fields.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#property_disabled"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003A\u0024labels",
-            "name": "labels",
-            "summary": "The\u0020Controls\u0020class\u0020will\u0020automatically\u0020fill\u0020in\u0020the\u0020label\u0020names\u0020if\u0020they\u0020are\u0020defined\u0020in\u0020the\u0020model.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#property_labels"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003A\u0024guarded",
-            "name": "guarded",
-            "summary": "The\u0020attributes\u0020that\u0020are\u0020mass\u0020assignable.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#property_guarded"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003A\u0024casts",
-            "name": "casts",
-            "summary": "The\u0020attributes\u0020that\u0020should\u0020be\u0020cast.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#property_casts"
-        },                {
-            "fqsen": "\\ScottNason\\EcoHelpers\\Models\\ehUser\u003A\u003A\u0024hidden",
-            "name": "hidden",
-            "summary": "The\u0020attributes\u0020that\u0020should\u0020be\u0020hidden\u0020for\u0020serialization.",
-            "url": "classes/ScottNason-EcoHelpers-Models-ehUser.html#property_hidden"
-        },                {
             "fqsen": "\\App\\Models\\User",
             "name": "User",
-            "summary": "The\u0020publishable\u0020User\u0020model\u0020that\u0020extends\u0020the\u0020ehUser\u0020model\u0020providing\u0020additional\u0020functionality\u003B\nbut,\u0020as\u0020of\u00203\/3\/2024,\u0020this\u0020is\u0020not\u0020actually\u0020published,\u0020but\u0020part\u0020of\u0020the\u0020installation\u0020instructions\nto\u0020modify\u0020User\u0020to\u0020\u0022extend\u0022\u0020the\u0020ehUser\u0020model.",
+            "summary": "The\u0020eco\u002Dhelpers\u0020modified\u0020User\u0020model.",
             "url": "classes/App-Models-User.html"
+        },                {
+            "fqsen": "\\App\\Models\\User\u003A\u003A\u0024table",
+            "name": "table",
+            "summary": "",
+            "url": "classes/App-Models-User.html#property_table"
+        },                {
+            "fqsen": "\\App\\Models\\User\u003A\u003A\u0024disabled",
+            "name": "disabled",
+            "summary": "Controls\u0020will\u0020use\u0020this\u0020array\u0020to\u0020set\u0020readonly\u0020on\u0020these\u0020fields.",
+            "url": "classes/App-Models-User.html#property_disabled"
+        },                {
+            "fqsen": "\\App\\Models\\User\u003A\u003A\u0024labels",
+            "name": "labels",
+            "summary": "The\u0020Controls\u0020class\u0020will\u0020automatically\u0020fill\u0020in\u0020the\u0020label\u0020names\u0020if\u0020they\u0020are\u0020defined\u0020in\u0020the\u0020model.",
+            "url": "classes/App-Models-User.html#property_labels"
+        },                {
+            "fqsen": "\\App\\Models\\User\u003A\u003A\u0024guarded",
+            "name": "guarded",
+            "summary": "The\u0020attributes\u0020that\u0020are\u0020mass\u0020assignable.",
+            "url": "classes/App-Models-User.html#property_guarded"
+        },                {
+            "fqsen": "\\App\\Models\\User\u003A\u003A\u0024casts",
+            "name": "casts",
+            "summary": "The\u0020attributes\u0020that\u0020should\u0020be\u0020cast.",
+            "url": "classes/App-Models-User.html#property_casts"
+        },                {
+            "fqsen": "\\App\\Models\\User\u003A\u003A\u0024hidden",
+            "name": "hidden",
+            "summary": "The\u0020attributes\u0020that\u0020should\u0020be\u0020hidden\u0020for\u0020serialization.",
+            "url": "classes/App-Models-User.html#property_hidden"
+        },                {
+            "fqsen": "\\App\\Http\\Requests\\Auth\\LoginRequest",
+            "name": "LoginRequest",
+            "summary": "",
+            "url": "classes/App-Http-Requests-Auth-LoginRequest.html"
+        },                {
+            "fqsen": "\\App\\Http\\Requests\\Auth\\LoginRequest\u003A\u003Aauthorize\u0028\u0029",
+            "name": "authorize",
+            "summary": "Determine\u0020if\u0020the\u0020user\u0020is\u0020authorized\u0020to\u0020make\u0020this\u0020request.",
+            "url": "classes/App-Http-Requests-Auth-LoginRequest.html#method_authorize"
+        },                {
+            "fqsen": "\\App\\Http\\Requests\\Auth\\LoginRequest\u003A\u003Arules\u0028\u0029",
+            "name": "rules",
+            "summary": "Get\u0020the\u0020validation\u0020rules\u0020that\u0020apply\u0020to\u0020the\u0020request.",
+            "url": "classes/App-Http-Requests-Auth-LoginRequest.html#method_rules"
+        },                {
+            "fqsen": "\\App\\Http\\Requests\\Auth\\LoginRequest\u003A\u003Aauthenticate\u0028\u0029",
+            "name": "authenticate",
+            "summary": "Attempt\u0020to\u0020authenticate\u0020the\u0020request\u0027s\u0020credentials.",
+            "url": "classes/App-Http-Requests-Auth-LoginRequest.html#method_authenticate"
+        },                {
+            "fqsen": "\\App\\Http\\Requests\\Auth\\LoginRequest\u003A\u003AensureIsNotRateLimited\u0028\u0029",
+            "name": "ensureIsNotRateLimited",
+            "summary": "Ensure\u0020the\u0020login\u0020request\u0020is\u0020not\u0020rate\u0020limited.",
+            "url": "classes/App-Http-Requests-Auth-LoginRequest.html#method_ensureIsNotRateLimited"
+        },                {
+            "fqsen": "\\App\\Http\\Requests\\Auth\\LoginRequest\u003A\u003AthrottleKey\u0028\u0029",
+            "name": "throttleKey",
+            "summary": "Get\u0020the\u0020rate\u0020limiting\u0020throttle\u0020key\u0020for\u0020the\u0020request.",
+            "url": "classes/App-Http-Requests-Auth-LoginRequest.html#method_throttleKey"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Rules\\CheckEmails",
             "name": "CheckEmails",
@@ -1856,6 +2016,126 @@ Search.appendIndex(
             "summary": "Mechanism\u0020for\u0020disabling\u0020the\u0020auto\u0020table\u0020timestamp\u0020updates.",
             "url": "classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps"
         },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions",
+            "name": "ehUserFunctions",
+            "summary": "ecoHelpers\u0020functions\u0020for\u0020the\u0020Users\u0020Model.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AisAdmin\u0028\u0029",
+            "name": "isAdmin",
+            "summary": "Simple\u0020check\u0020to\u0020see\u0020if\u0020this\u0020user\u0027s\u0020current\u0020role\u0020gives\u0020them\u0020site\u0020admin\u0020privileges.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isAdmin"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AisUserActive\u0028\u0029",
+            "name": "isUserActive",
+            "summary": "Is\u0020this\u0020user\u0027s\u0020login\u0020profile\u0020active\u003F\n\u0020\u002D\u0020checks\u0020both\u0020archived\u0020and\u0020login_active.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isUserActive"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AisActingRoleActive\u0028\u0029",
+            "name": "isActingRoleActive",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isActingRoleActive"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AhowManyRoles\u0028\u0029",
+            "name": "howManyRoles",
+            "summary": "Find\u0020out\u0020how\u0020many\u0020roles\u0020are\u0020assigned\u0020to\u0020this\u0020user.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_howManyRoles"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AgetUserRoles\u0028\u0029",
+            "name": "getUserRoles",
+            "summary": "",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserRoles"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AgetUsersInRole\u0028\u0029",
+            "name": "getUsersInRole",
+            "summary": "Get\u0020the\u0020users\u0020associated\u0020with\u0020the\u0020Role.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUsersInRole"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AgetDefaultHomePage\u0028\u0029",
+            "name": "getDefaultHomePage",
+            "summary": "Return\u0020the\u0020user\u0027s\u0020acting\u0020role\u0027s\u0020default_home_page\u0020\u0028the\u0020whole\u0020eh_pages\u0020record\u0029.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getDefaultHomePage"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AgetActingRole\u0028\u0029",
+            "name": "getActingRole",
+            "summary": "Return\u0020the\u0020currently\u0020set\u0020active\u0020role\u0020\u005Bobject\u005D\u0020\u0028in\u0020the\u0020users\u0020table\u0029\u0020for\u0020this\u0020user.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getActingRole"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AsetActingRole\u0028\u0029",
+            "name": "setActingRole",
+            "summary": "Change\u0020the\u0020current\u0020user\u0027s\u0020\u0022acting\u0020role\u0022\u0020to\u0020the\u0020role\u0020id\u0020passed.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_setActingRole"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AgetDefaultRole\u0028\u0029",
+            "name": "getDefaultRole",
+            "summary": "Helper\u0020to\u0020return\u0020the\u0020user\u0027s\u0020default\u0020role.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getDefaultRole"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AaddUserRole\u0028\u0029",
+            "name": "addUserRole",
+            "summary": "Quick\u0020utility\u0020for\u0020adding\u0020an\u0020entry\u0020to\u0020the\u0020roles\u0020lookup\u0020table.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_addUserRole"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AdeleteRoleFromUser\u0028\u0029",
+            "name": "deleteRoleFromUser",
+            "summary": "Remove\u0020the\u0020specified\u0020role\u0020by\u0020id\u0020from\u0020the\u0020eh_roles_lookup\u0020table\u0020\u002D\u002D\u0020while\u0020editing\u0020the\u0020User\u0020Detail.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_deleteRoleFromUser"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AremoveUsersFromRole\u0028\u0029",
+            "name": "removeUsersFromRole",
+            "summary": "Used\u0020by\u0020Roles\u0020Detail\u0020to\u0020remove\u0020users\u0020from\u0020the\u0020Users\u0020dialog\u0020box.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_removeUsersFromRole"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AroleAtLogin\u0028\u0029",
+            "name": "roleAtLogin",
+            "summary": "Used\u0020by\u0020the\u0020ehAuthenticatedSessionController\u0020to\u0020determine\u0020this\u0020user\u0027s\u0020proper\u0020role\u0020right\u0020after\u0020login.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_roleAtLogin"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AnormalizeUserID\u0028\u0029",
+            "name": "normalizeUserID",
+            "summary": "All\u0020ths\u0020methods\u0020in\u0020this\u0020trait\u0020can\u0020except\u0020either\u0020a\u0020numeric\u0020user\u0020id,\u0020or\u0020the\u0020whole\u0020user\u0020object.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_normalizeUserID"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AnormalizeRoleID\u0028\u0029",
+            "name": "normalizeRoleID",
+            "summary": "Normalize\u0020a\u0020\u0024role_id\u0020to\u0020a\u0020\u0024role\u0020object\u0020\u002D\u002D\u0020either\u0020from\u0020the\u0020passed\u0020id\u0020or\u0020from\u0020the\u0020logged\u0020in\u0020user",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_normalizeRoleID"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AfullName\u0028\u0029",
+            "name": "fullName",
+            "summary": "Logic\u0020for\u0020how\u0020you\u0020want\u0020to\u0020build\u002Dout\u0020a\u0020full\u0020name\n\u0028with\u0020or\u0020w\/o\u0020the\u0020middle\u0020name\u0020or\u0020middle\u0020initial\u003F\u0029",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_fullName"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AgetUserPhoto\u0028\u0029",
+            "name": "getUserPhoto",
+            "summary": "Check\u0020to\u0020see\u0020if\u0020there\u0027s\u0020a\u0020contact\u0020photo\u0020for\u0020this\u0020user\u0020then\u0020return\u0020a\u0020base_64\u0020encoded\u0020version\n\u0020to\u0020include\u0020in\u0020an\u0020\u003Cimg\u0020src\u003D\u0022\u0022\u003E\u0020tag.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserPhoto"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AuniqueUserName\u0028\u0029",
+            "name": "uniqueUserName",
+            "summary": "Create\u0020a\u0020unique\u0020username\u0020based\u0020on\u0020this\u0020specific\u0020algorithm.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_uniqueUserName"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AuniqueAccountNumber\u0028\u0029",
+            "name": "uniqueAccountNumber",
+            "summary": "Create\u0020a\u0020unique\u0020account\u0020number\u0020based\u0020on\u0020this\u0020specific\u0020algorithm.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_uniqueAccountNumber"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AgetBestTimezone\u0028\u0029",
+            "name": "getBestTimezone",
+            "summary": "Check\u0020to\u0020see\u0020if\u0020the\u0020user\u0020has\u0020a\u0020time\u0020zone\u0020assigned\u0020and\u0020return\u0020it.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getBestTimezone"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003AgetUserAccount\u0028\u0029",
+            "name": "getUserAccount",
+            "summary": "Return\u0020the\u0020account\u0020number\u0020for\u0020this\u0020user\u0027s\u0020parent\u0020account.\u0020\u0028primary\u0020or\u0020assigned\u0020from\u0029\nVERY\u0020SIMPLE\u0020FOR\u0020NOW\u0020\u0021\u0021",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserAccount"
+        },                {
+            "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserFunctions\u003A\u003A\u0024na_image_data",
+            "name": "na_image_data",
+            "summary": "Base64\u0020image\u0020date\u0020for\u0020the\u0020\u0022no\u0020user\u0020photo\u0022\u0020image.",
+            "url": "classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#property_na_image_data"
+        },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Traits\\ehUserSecurity",
             "name": "ehUserSecurity",
             "summary": "3\/3\/2024\u0020\u002D\u0020NOT\u0020IMPLEMENTED\u0020\u002D\u002D\u0020This\u0020trait\u0020is\u0020responsible\u0020for\u0020checking\u0020the\u0020user\u0020basic\u0020login\u0020permissions\non\u0020initial\u0020login\u0020and\u0020when\u0020changing\u0020roles.",
@@ -1955,6 +2235,16 @@ Search.appendIndex(
             "name": "Models",
             "summary": "",
             "url": "namespaces/app-models.html"
+        },                {
+            "fqsen": "\\App\\Http\\Requests\\Auth",
+            "name": "Auth",
+            "summary": "",
+            "url": "namespaces/app-http-requests-auth.html"
+        },                {
+            "fqsen": "\\App\\Http\\Requests",
+            "name": "Requests",
+            "summary": "",
+            "url": "namespaces/app-http-requests.html"
         },                {
             "fqsen": "\\ScottNason\\EcoHelpers\\Rules",
             "name": "Rules",

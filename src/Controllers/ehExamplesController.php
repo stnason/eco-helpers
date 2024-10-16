@@ -5,6 +5,7 @@ namespace ScottNason\EcoHelpers\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use ScottNason\EcoHelpers\Classes\ehDTServerSide;
 use ScottNason\EcoHelpers\Models\ehExample;
 use ScottNason\EcoHelpers\Classes\ehLayout;
 use ScottNason\EcoHelpers\Classes\ehLinkbar;
@@ -20,8 +21,9 @@ class ehExamplesController extends ehBaseController
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+
         ehLayout::initLayout();                         // Initialize the Layout array for this page.
                                                         // And pull any page/route information found in the pages table.
         ehLayout::setAttention(false);            // Turn off the Attention message area.
@@ -30,6 +32,15 @@ class ehExamplesController extends ehBaseController
                                                         // Note: you can turn any of these back on to see where they appear on the page.
 
         $linkbar = new ehLinkbar();
+        $linkbar->setExportTableName('eh_examples');
+        $linkbar->addItem([
+               'href'=>route('examples.index'),
+               'name'=>'Examples',
+               'title'=>'Examples',
+               'target'=>'_self',
+        ]
+
+        );
         ehLayout::setLinkbar($linkbar->getLinkBar());   // Turns it on with whatever is returned from ehLinkbar;
                                                         // If it returns empty (if you don't have permissions to any of these),
                                                         // then it properly blanks it out w/o a line collapse.
@@ -38,7 +49,7 @@ class ehExamplesController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        ehLayout::setAutoload('datatables');      // Include the datatables js and css for this page.
+        ehLayout::setAutoload('datatables','eh-dt-ajax-init');      // Include the datatables js and css for this page.
         ehLayout::setAutoload('datepicker');      // Include the datepicker js and css for this page.
 
 
@@ -51,13 +62,24 @@ class ehExamplesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Define the fields to be used in the Datatables/list view.
-        $form['use_fields'] = [
+        $form['layout']['use_fields'] = [
             'name' => 'Name',
             'address' => 'Address',
             'city' => 'City',
             'state' => 'State',
             'zip' => 'Zip Code'
         ];
+
+
+        // Manage the datatables ajax (paging)
+        // Note: we have to see the initial query builder with something that can be added to for the user search
+        // so we're just using a 'where 1' and the builder will add the 'and' after that for subsequent where clauses.
+        if ($request->ajax()) {
+            $r = new ehDTServerSide($request, $form['layout']['use_fields'], ehExample::whereRaw('1'));
+            return $r->response();
+        }
+
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Call the view.

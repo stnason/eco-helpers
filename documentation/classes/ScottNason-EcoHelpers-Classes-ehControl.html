@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -158,11 +158,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
             <p class="phpdocumentor-summary">An html forms helper for building out various input fields and managing persistent data and error highlighting.</p>
+
 
     <section class="phpdocumentor-description"><p>Form/ input helpers</p>
 <p>passed parameters:
@@ -177,8 +178,9 @@
 'placeholder'       =&gt; the placeholder text for this input
 'auto_submit'       =&gt; add and auto submit handler
 'link'              =&gt; add a <a> link (for labels)
+'target'            =&gt; the target attribute of the link <a> tag.
 'radio'             =&gt; radio button array ($btn_value=&gt;$display)
-'disabled'          =&gt; html disabled attribute (true or false)
+'disabled'          =&gt; true or false; set various ways to disable (readonly) based on the html element type
 'bold_before'       =&gt; beginning bold tag (label)
 'bold_after'        =&gt; ending bold tag (label)
 'value'             =&gt; the input value attribute
@@ -189,6 +191,8 @@
 'add_blank'         =&gt; when building a <select> drop-down should there be a blank entry on top?
 'date_long'         =&gt; set true to force the system defined date_format_long (date + time).</p>
 </section>
+
+
 
 
 
@@ -215,31 +219,31 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_alert_class">$def_alert_class</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_alert_if_class">$alert_if_class</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_box_warning">$box_warning</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_box_warning">$box_warning</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_add_blank">$def_add_blank</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_add_blank">$def_add_blank</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_rows">$def_rows</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_rows">$def_rows</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_text_warning">$text_warning</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_text_warning">$text_warning</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -253,27 +257,27 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_buttonAreaHTML">buttonAreaHTML()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_buttonAreaHTML">buttonAreaHTML()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Use the $form[&#039;layout&#039;][&#039;buttons&#039;] array to build out the complete html button area.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_checkbox">checkbox()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_checkbox">checkbox()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_input">input()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_input">input()</a>
     <span>
                                 &nbsp;: bool|string    </span>
 </dt>
 <dd>Text input creation helper.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_label">label()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_label">label()</a>
     <span>
                                 &nbsp;: bool|string    </span>
 </dt>
@@ -281,49 +285,48 @@
  - Will automatically bold the label on a validation error.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_radio">radio()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_radio">radio()</a>
     <span>
                                 &nbsp;: bool|string    </span>
 </dt>
 <dd>Radio button creation helper.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_select">select()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_select">select()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Select input creation helper.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_selectmultiplesite">selectmultiplesite()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_selectmultiplesite">selectmultiplesite()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>selectmultiplesite - make a form drop-down (select) menu from a Site multi-select</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_textarea">textarea()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_textarea">textarea()</a>
     <span>
                                 &nbsp;: bool|string    </span>
 </dt>
 <dd>Textarea input creation helper.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_getModelProperties">getModelProperties()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_getModelProperties">getModelProperties()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;|bool    </span>
 </dt>
 <dd>Internal function to grab the model&#039;s custom eco-helpers attributes if they are present.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_processParameters">processParameters()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_processParameters">processParameters()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Check for deal-breaker fields and store the rest into the internal array for all other methods to use.</dd>
 
     </dl>
-
 
 
 
@@ -343,9 +346,9 @@
             -public
             -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property_def_alert_class">
-        $def_alert_class
-        <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_alert_class" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_alert_if_class">
+        $alert_if_class
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_alert_if_class" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
@@ -358,14 +361,17 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$def_alert_class</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;alert alert-dark&#039;</span></code>
+    <span class="phpdocumentor-signature__name">$alert_if_class</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -386,19 +392,22 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$box_warning</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;border-danger&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -419,10 +428,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -432,6 +442,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -452,19 +464,22 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$def_rows</span>
-     = <span class="phpdocumentor-signature__default-value">3</span></code>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -485,19 +500,22 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$text_warning</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;text-danger&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -523,7 +541,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">495</span>
+    <span class="phpdocumentor-element-found-in__line">525</span>
 
     </aside>
 
@@ -531,10 +549,11 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buttonAreaHTML</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$buttonArray</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buttonAreaHTML</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$buttonArray</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: this is used in all forms with buttons like this:</p>
 <div class="container">
 <form class="form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
@@ -544,7 +563,7 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$buttonArray</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -565,7 +584,18 @@
                                                                                 
                                              
                                     </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">@method</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>('PATCH')</p>
+</section>
+
+                                    </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -587,7 +617,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">358</span>
+    <span class="phpdocumentor-element-found-in__line">377</span>
 
     </aside>
 
@@ -599,6 +629,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -609,6 +640,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -628,7 +661,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -640,6 +673,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -655,6 +689,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -684,7 +720,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -697,6 +733,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -712,6 +749,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -741,7 +780,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">164</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 
     </aside>
 
@@ -749,21 +788,24 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">radio</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">radio</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$parameters</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -787,7 +829,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">228</span>
+    <span class="phpdocumentor-element-found-in__line">247</span>
 
     </aside>
 
@@ -795,21 +837,24 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">select</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">select</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$parameters</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -833,7 +878,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">308</span>
+    <span class="phpdocumentor-element-found-in__line">327</span>
 
     </aside>
 
@@ -841,10 +886,11 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">selectmultiplesite</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$field_name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$lookup_table_name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cUID</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selection_list</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$write</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$luField</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&quot;sID&quot;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">selectmultiplesite</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$field_name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$lookup_table_name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cUID</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selection_list</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$write</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$luField</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&quot;sID&quot;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>NOTE: unlike other Form functions here; this one can be called to actually save to the LU table ($write=true)</p>
 </section>
 
@@ -852,7 +898,7 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$field_name</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><ul>
@@ -866,11 +912,15 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><ul>
+<li>lookup table model</li>
+</ul>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$cUID</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><ul>
@@ -881,7 +931,7 @@
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$selection_list</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><ul>
@@ -916,6 +966,8 @@
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -942,7 +994,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
@@ -950,21 +1002,24 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">textarea</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">textarea</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$parameters</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -988,7 +1043,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1040</span>
+    <span class="phpdocumentor-element-found-in__line">1122</span>
 
     </aside>
 
@@ -996,21 +1051,24 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getModelProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getModelProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$model</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1034,7 +1092,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehControl.php"><a href="files/eco-helpers-src-classes-ehcontrol.html"><abbr title="eco-helpers/src/Classes/ehControl.php">ehControl.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">552</span>
+    <span class="phpdocumentor-element-found-in__line">583</span>
 
     </aside>
 
@@ -1042,21 +1100,24 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">processParameters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">processParameters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$parameters</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1175,27 +1236,27 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_alert_class">$def_alert_class<a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_box_warning">$box_warning<a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_add_blank">$def_add_blank<a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_rows">$def_rows<a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_text_warning">$text_warning<a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_alert_if_class">$alert_if_class</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_box_warning">$box_warning</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_add_blank">$def_add_blank</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_def_rows">$def_rows</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#property_text_warning">$text_warning</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_buttonAreaHTML">buttonAreaHTML()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_checkbox">checkbox()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_input">input()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_label">label()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_radio">radio()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_select">select()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_selectmultiplesite">selectmultiplesite()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_textarea">textarea()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_getModelProperties">getModelProperties()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_processParameters">processParameters()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_buttonAreaHTML">buttonAreaHTML()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_checkbox">checkbox()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_input">input()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_label">label()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_radio">radio()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_select">select()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_selectmultiplesite">selectmultiplesite()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_textarea">textarea()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_getModelProperties">getModelProperties()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehControl.html#method_processParameters">processParameters()</a></li>
                                     </ul>
             </li>
                     </ul>

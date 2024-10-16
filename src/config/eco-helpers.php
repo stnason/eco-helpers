@@ -90,15 +90,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Datatables class
+    | Datatables defaults class
     |--------------------------------------------------------------------------
     | The html class(es) to use when creating datatables on a page.
     |  Note: "small" is the Bootstrap 5 text helper.
-    |  - But along with the override css that's too small now.
+    |  - But may be to small if using an override css that's sets small too.
     |
+    | When not specified as an optional $parameter in setAutoload($name, $parameter)
+    |  then use the default init file.
     */
-    'datatables_class' => 'display compact cell-border nowrap order-column stripe hover',
-
+    'datatables_class' => 'display small compact cell-border nowrap order-column stripe hover',
+    'datatables_default_init' => 'eh-dt-standard-init',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +169,6 @@ return [
         */
         'footer_file' => 'eh-footer',
 
-
         /*
         |--------------------------------------------------------------------------
         | CSS & JS Auto-Loaders Commands:
@@ -180,7 +181,7 @@ return [
         |          here for completeness.
         */
         'auto_loaders' => [
-            0 => 'static',            // The initial--global--js and css for all pages.
+            0 => 'global',            // The initial--global--js and css for all pages.
             1 => 'unsaved',           // CRUD 'unsaved changes'; Included by default in the base-template.
             2 => 'datepicker',        // From jQuery UI
             3 => 'datetimepicker',    // From jQuery UI

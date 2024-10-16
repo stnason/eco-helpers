@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -164,6 +164,7 @@
             <p class="phpdocumentor-summary">This is the main ecoFramework base route permissions check for all controllers that extend Controller
   (added in the base Controller __construct right after the &#039;auth&#039; middleware check.)</p>
 
+
     <section class="phpdocumentor-description"><p>The basic middleware('auth') only checks to see if you're logged in, so
 this checks the logged in user's ASSIGNED permissions by acting role, against the requested route.</p>
 <p>This middleware's job is to determine, &quot;If the user can access this page/route.&quot;</p>
@@ -183,6 +184,8 @@ applied permissions in a role the user has assigned.
 Without an entry in pages--or permissions applied to a role, the system defaults to NO ACCESS.
 In this way, forgetting to do something results in NO ACCESS rather than the other way around.</p>
 </section>
+
+
 
 
 
@@ -209,7 +212,7 @@ In this way, forgetting to do something results in NO ACCESS rather than the oth
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#property_error_prefix">$error_prefix</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#property_error_prefix">$error_prefix</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -224,14 +227,14 @@ In this way, forgetting to do something results in NO ACCESS rather than the oth
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#method_handle">handle()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#method_handle">handle()</a>
     <span>
                                 &nbsp;: mixed|null    </span>
 </dt>
 <dd>Handle an incoming request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#method_throwPermissionError">throwPermissionError()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#method_throwPermissionError">throwPermissionError()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -239,7 +242,6 @@ In this way, forgetting to do something results in NO ACCESS rather than the oth
 or to take a more secure approach of just redirecting to the home page.</dd>
 
     </dl>
-
 
 
 
@@ -275,6 +277,7 @@ or to take a more secure approach of just redirecting to the home page.</dd>
 
         <p class="phpdocumentor-summary">Prepended to the front of any message generated as a result of a permissions failure.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -285,6 +288,8 @@ or to take a more secure approach of just redirecting to the home page.</dd>
 </section>
 
     
+    
+
     
 
 </article>
@@ -323,6 +328,7 @@ or to take a more secure approach of just redirecting to the home page.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -340,6 +346,8 @@ or to take a more secure approach of just redirecting to the home page.</dd>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -363,7 +371,7 @@ or to take a more secure approach of just redirecting to the home page.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Middleware/ehCheckPermissions.php"><a href="files/eco-helpers-src-middleware-ehcheckpermissions.html"><abbr title="eco-helpers/src/Middleware/ehCheckPermissions.php">ehCheckPermissions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">381</span>
+    <span class="phpdocumentor-element-found-in__line">380</span>
 
     </aside>
 
@@ -372,10 +380,11 @@ or to take a more secure approach of just redirecting to the home page.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">throwPermissionError</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$error_content</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">throwPermissionError</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$error_content</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This check uses the config('app.debug') flag to decide.</p>
 </section>
 
@@ -383,12 +392,14 @@ or to take a more secure approach of just redirecting to the home page.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$error_content</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -507,15 +518,15 @@ or to take a more secure approach of just redirecting to the home page.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#property_error_prefix">$error_prefix<a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#property_error_prefix">$error_prefix</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#method_handle">handle()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#method_throwPermissionError">throwPermissionError()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#method_handle">handle()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Middleware-ehCheckPermissions.html#method_throwPermissionError">throwPermissionError()</a></li>
                                     </ul>
             </li>
                     </ul>

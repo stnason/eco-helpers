@@ -69,11 +69,19 @@
             {{-- var usefields = {{ form.usefields | json_encode | raw }}; --}}
 
             {{-- This uses the JQuery "starts with" selector to target multiple on each page as needed. --}}
-            {{-- var table = $("table[id^='datatable']").DataTable({ --}}
-            @include('ecoHelpers.eh-dt-standard-init')
+            {{-- var table = $("table[id^='datatable']").DataTable({
+            @include('ecoHelpers.eh-dt-standard-init') --}}
 
         });
 
     </script>
 
 
+{{-- If an auto-load $parameter is specified then see if we can include that template name. --}}
+@inject('ehConfig', 'ScottNason\EcoHelpers\Classes\ehConfig')
+@if(View::exists('ecoHelpers.'.$auto_load))
+    @include('ecoHelpers.'.$auto_load)
+@else
+    {{-- Otherwise attempt to include the default dt-inti specified in the config file. --}}
+    @includeIf('ecoHelpers.'.$ehConfig::get('datatables_default_init'))
+@endif

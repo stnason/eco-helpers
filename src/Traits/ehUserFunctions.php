@@ -450,7 +450,7 @@ trait ehUserFunctions
     {
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Just for Ajax trouble shooting. (so you can see what the heck is happening.)
-        //throw new \Exception("stop here: ".$role_lookup->user_id);
+        //throw new \Exception($role_lookup_id);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Convert the role_lookup_id into a role_lookup instance
@@ -465,8 +465,103 @@ trait ehUserFunctions
         $user = User::find($role_lookup->user_id);
 
 
+        $response['message'] = '';
+
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // RULE: Are we deleting the role you're currently set to - acting_role?
+        // ROLE DELETION RULES
+        // Note: These are a little different (more to consider when deleting)
+        //       than the ones in ehUsersController@dataConsistencyCheck() -- but there are some there too.
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // RULE #1: Is this the only role you have? (role count = 1).
+        //          If so, then set both default and acting to null and punch out.
+        if (count($user->getUserRoles($user->id)) == 1) {
+            // Wipe out the acting and default.
+            $user->default_role = null;
+            $user->acting_role = null;
+            $user->save();
+
+            // Then Delete this role's lookup entry.
+            $result = $role_lookup->delete();
+
+            // Set the message for this action and then go to the return.
+            $response['message'] = 'Role '.$role_name.' (id:'.$role_lookup->role_id.') has been deleted. Acting and Default roles have been reset.';
+            goto stop_checking_and_return;
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // RULE #2: So if we have more than 1 role assigned -- and the role is not default or active
+        //          then we should be okay to just remove it without checking anything else.
+        if ($user->default_role <> $role_lookup->role_id && $user->acting_role <> $role_lookup->role_id) {
+            // Just Delete this role's lookup entry -- and that's all.
+            $result = $role_lookup->delete();
+
+            // Set the message for this action and then go to the return.
+            $response['message'] = 'Role '.$role_name.' (id:'.$role_lookup->role_id.') has been deleted. Acting and Default roles have not been affected.';
+            goto stop_checking_and_return;
+        }
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // RULE #3: If there are exactly 2 roles currently assigned, then no matter what happens,
+        //          the one that's left will have to be both the default and active role.
+        if (count($user->getUserRoles($user->id)) == 2) {
+            // Just Delete this role's lookup entry.
+            $result = $role_lookup->delete();
+
+            // Then get the one that's left and set both the default and acting roles to that.
+            $roles = $user->getUserRoles($user->id);
+            $user->default_role = $roles[0]->role_id;
+            $user->acting_role = $roles[0]->role_id;
+            $user->save();
+
+            // Set the message for this action and then go to the return.
+            $response['message'] = 'Role '.$role_name.' (id:'.$role_lookup->role_id.') has been deleted. Acting and/or Default roles may have been changed.';
+            goto stop_checking_and_return;
+        }
+
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // RULE #4:
+
+        // Okay -- what's left
+        // we have more than 2 roles so ... ?
+
+        // else if the role count is more than 2 -- more questions to ask
+        // Is the acting_role and the default_role the same?
+        // If we're deleting a role that is not active and not the default then we don't really hae to check anything. just do it.
+
+        // Are we deleting the default_role? -- then we need to reset it to the first role (I guess?)
+        // Are we deleting the acting_role? -- if so, then we need to reset it to default
+
+
+
+
+
+
+        // Flash is not working here for whatever reason
+        // session()->flash('message','Role '.$role_name.' ('.$role_lookup->role_id.') has been deleted.');
+        // So returning our own message to the ajax call
+
+        stop_checking_and_return:
+        return $response;
+
+
+
+// Just for Ajax trouble shooting. (so you can see what the heck is happening.)
+// Stop here for now.
+        throw new \Exception(
+            'role to delete:'.$role_name.'('.$role_lookup->role_id.") - ".
+            'user name: '.$user->name.'('.$user->id.") - ".
+            'acting role: '.$user->acting_role." - ".
+            'default role: '.$user->default_role." - ".
+            '# of roles: '.count($user->getUserRoles($user->id))
+        );
+
+//TODO: but what about if there's only 1 role left -- and you're deleting that one?
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // RULE: Are we deleting the role the user is currently set to - acting_role?
         // If current acting_role is set to this role then change to default
         if ($user->acting_role == $role_lookup->role_id) {
             $user->acting_role = $user->default_role;
@@ -484,7 +579,27 @@ trait ehUserFunctions
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Delete this role's lookup entry.
-        $result = $role_lookup->delete();
+        //$result = $role_lookup->delete();
+
+
+        //TODO: ?????? calling this from ajax looks like it returns the flash message from ehUsersController@update() ?????
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // This rule is run in the ehUsersController dataConsistencyCheck() during an update() or store().
+        // RULE 2. If user only has one role assigned then set that to the default_role automatically.
+        //         Note: this has to be checked in the ehUserFunctions@deleteRoleFromUser() too.
+session()->flash('message',count($user->getUserRoles($user->id)));
+return;
+        if (count($user->getUserRoles($user->id)) == 1) {
+            // Pull out the role_id from the role_lookup returned array.
+            // $request->merge(['default_role' => $user->getUserRoles($user->id)[0]->role_id]);
+            $user->default_role == $user->getUserRoles($user->id)[0]->role_id;
+            $user->save();
+        }
+
+
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // If all went okay then say so to the flash message.

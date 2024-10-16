@@ -94,6 +94,7 @@ class ehConfigController extends ehBaseController
         $linkbar = new ehLinkbar;
         // This is a case where the table name is different than the route used.
         $linkbar->setExportTableName('eh_settings');
+        //$linkbar->setHideExportAll(false);
         ehLayout::setLinkbar($linkbar->getLinkBar());     // Turns it on with whatever is returned from ehLinkbar;
                                                           // If empty (if you don't have permissions to any of these),
                                                           // it properly blanks it out w/o a line collapse.

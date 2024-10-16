@@ -15,7 +15,7 @@
         <table id="datatable" class="{{ config('eco-helpers.datatables_class') ?? '' }}">
             <thead>
             <tr>
-                @foreach ($form['use_fields'] as $field=>$label)
+                @foreach ($form['layout']['use_fields'] as $field=>$label)
                     <th>{{ $label }}</th>
                 @endforeach
             </tr>
@@ -37,12 +37,11 @@
                     @php $class .= ' bg-danger'; @endphp
                 @endif
 
-
                 {{-- Loop (horizontal) the data rows from the $usefield array --}}
                 {{-- Field processing loop --}}
                 <tr $class="{{$class}}">
 
-                    @foreach ($form['use_fields'] as $key=>$value)
+                    @foreach ($form['layout']['use_fields'] as $key=>$value)
                         @php $continue = false; @endphp
 
                         <td class="{{ $class }}">
@@ -83,6 +82,7 @@
         perpagejs below is too late (it's applied after the datatables initi script runs).
         --}}
     <script type="application/javascript">
+        var dt_server_side_process = "{{route('examples.index')}}";
         dtsortcolumn = 3;           // 0-based column name to sort by
         dtsortdirection = "asc";    // Either asc or dec.
     </script>

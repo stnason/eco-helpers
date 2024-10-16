@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -138,7 +138,7 @@
     User
 
         <span class="phpdocumentor-element__extends">
-        extends <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html"><abbr title="\ScottNason\EcoHelpers\Models\ehUser">ehUser</abbr></a>
+        extends <a href="classes/ScottNason-EcoHelpers-Models-ehBaseAuthenticatable.html"><abbr title="\ScottNason\EcoHelpers\Models\ehBaseAuthenticatable">ehBaseAuthenticatable</abbr></a>
     </span>
     
             <div class="phpdocumentor-element__package">
@@ -148,7 +148,13 @@
                             </ul>
         </div>
     
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <abbr title="\Illuminate\Contracts\Auth\MustVerifyEmail">MustVerifyEmail</abbr>                    </span>
     
+            <span class="phpdocumentor-element__extends">
+            uses
+                            <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html"><abbr title="\ScottNason\EcoHelpers\Traits\ehUserFunctions">ehUserFunctions</abbr></a>                    </span>
     </h2>
 
 <div class="phpdocumentor-label-line">
@@ -159,13 +165,16 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models-publishable/User.php"><a href="files/eco-helpers-src-models-publishable-user.html"><abbr title="eco-helpers/src/Models-publishable/User.php">User.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">The publishable User model that extends the ehUser model providing additional functionality;
-but, as of 3/3/2024, this is not actually published, but part of the installation instructions
-to modify User to &quot;extend&quot; the ehUser model.</p>
+            <p class="phpdocumentor-summary">The eco-helpers modified User model.</p>
+
+
+    <section class="phpdocumentor-description"><p>Additional package functions are added through the ehUserFunctions trait.</p>
+</section>
+
 
 
 
@@ -180,6 +189,13 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 
 
 
+    <h4 id="toc-interfaces">
+        Interfaces
+        <a href="classes/App-Models-User.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\Illuminate\Contracts\Auth\MustVerifyEmail">MustVerifyEmail</abbr></dt>    </dl>
 
 
 
@@ -193,68 +209,68 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_casts">$casts</a>
+    <a class="" href="classes/App-Models-User.html#property_casts">$casts</a>
     <span>
                         &nbsp;: array&lt;string, string&gt;            </span>
 </dt>
 <dd>The attributes that should be cast.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_dates">$dates</a>
-    <span>
-                        &nbsp;: array&lt;string|int, string&gt;            </span>
-</dt>
-<dd>Lets the Controls class know which input data should be treated as date formats.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_disabled">$disabled</a>
+    <a class="" href="classes/App-Models-User.html#property_disabled">$disabled</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Controls will use this array to set readonly on these fields.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_guarded">$guarded</a>
+    <a class="" href="classes/App-Models-User.html#property_guarded">$guarded</a>
     <span>
                         &nbsp;: array&lt;int, string&gt;            </span>
 </dt>
 <dd>The attributes that are mass assignable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_labels">$labels</a>
+    <a class="" href="classes/App-Models-User.html#property_labels">$labels</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>The Controls class will automatically fill in the label names if they are defined in the model.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps">$save_with_stamps</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#property_na_image_data">$na_image_data</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>Base64 image date for the &quot;no user photo&quot; image.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps">$save_with_stamps</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
 <dd>Mechanism for disabling the auto table timestamp updates.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehBaseAuthenticatable.html#property_timestamps">$timestamps</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Models-ehBaseAuthenticatable.html#property_timestamps">$timestamps</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_hidden">$hidden</a>
+    <a class="" href="classes/App-Models-User.html#property_hidden">$hidden</a>
     <span>
                         &nbsp;: array&lt;int, string&gt;            </span>
 </dt>
 <dd>The attributes that should be hidden for serialization.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#property_number_types">$number_types</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#property_number_types">$number_types</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_table">$table</a>
+    <a class="" href="classes/App-Models-User.html#property_table">$table</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -268,14 +284,21 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehAllModelsBoot.html#method_boot">boot()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_addUserRole">addUserRole()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Quick utility for adding an entry to the roles lookup table.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehAllModelsBoot.html#method_boot">boot()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Add a boot event handler to watch for updating, saving and creating events.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_convertNumbersToSavable">convertNumbersToSavable()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_convertNumbersToSavable">convertNumbersToSavable()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
@@ -283,76 +306,210 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
  - basically just removing any commas for now.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_creatingTimestamps">creatingTimestamps()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_creatingTimestamps">creatingTimestamps()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>The &quot;Creating&quot; event handler.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehGetLabels.html#method_getLabel">getLabel()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_deleteRoleFromUser">deleteRoleFromUser()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Remove the specified role by id from the eh_roles_lookup table -- while editing the User Detail.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_fullName">fullName()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Logic for how you want to build-out a full name
+(with or w/o the middle name or middle initial?)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getActingRole">getActingRole()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Return the currently set active role [object] (in the users table) for this user.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getBestTimezone">getBestTimezone()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Check to see if the user has a time zone assigned and return it.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getDefaultHomePage">getDefaultHomePage()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return the user&#039;s acting role&#039;s default_home_page (the whole eh_pages record).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getDefaultRole">getDefaultRole()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Helper to return the user&#039;s default role.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehGetLabels.html#method_getLabel">getLabel()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Return the associated label name for this field.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_savingTimestamps">savingTimestamps()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserAccount">getUserAccount()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Return the account number for this user&#039;s parent account. (primary or assigned from)
+VERY SIMPLE FOR NOW !!</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserPhoto">getUserPhoto()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Check to see if there&#039;s a contact photo for this user then return a base_64 encoded version
+ to include in an &lt;img src=&quot;&quot;&gt; tag.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserRoles">getUserRoles()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#method_uniqueAccountNumber">uniqueAccountNumber()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_howManyRoles">howManyRoles()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Find out how many roles are assigned to this user.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isActingRoleActive">isActingRoleActive()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isAdmin">isAdmin()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Simple check to see if this user&#039;s current role gives them site admin privileges.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isUserActive">isUserActive()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Is this user&#039;s login profile active?
+ - checks both archived and login_active.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_normalizeRoleID">normalizeRoleID()</a>
+    <span>
+                                &nbsp;: false|mixed    </span>
+</dt>
+<dd>Normalize a $role_id to a $role object -- either from the passed id or from the logged in user</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_normalizeUserID">normalizeUserID()</a>
+    <span>
+                                &nbsp;: false|mixed    </span>
+</dt>
+<dd>All ths methods in this trait can except either a numeric user id, or the whole user object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_removeUsersFromRole">removeUsersFromRole()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Used by Roles Detail to remove users from the Users dialog box.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_roleAtLogin">roleAtLogin()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Used by the ehAuthenticatedSessionController to determine this user&#039;s proper role right after login.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_savingTimestamps">savingTimestamps()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_setActingRole">setActingRole()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Change the current user&#039;s &quot;acting role&quot; to the role id passed.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_uniqueAccountNumber">uniqueAccountNumber()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Create a unique account number based on this specific algorithm.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#method_uniqueUserName">uniqueUserName()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_uniqueUserName">uniqueUserName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Create a unique username based on this specific algorithm.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_updatingTimestamps">updatingTimestamps()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_updatingTimestamps">updatingTimestamps()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>The &quot;Updating&quot; and &quot;Saving&quot; events handlers.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatDateStamp">formatDateStamp()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatDateStamp">formatDateStamp()</a>
     <span>
                                 &nbsp;: false|string    </span>
 </dt>
 <dd>User date stamp formatter.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatUserStamp">formatUserStamp()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatUserStamp">formatUserStamp()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>User name stamp formatter.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_getFieldTypeList">getFieldTypeList()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_getFieldTypeList">getFieldTypeList()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Returns a field name list along with the shortened (base) of its data type; (Field =&gt; Type)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_isANumericType">isANumericType()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUsersInRole">getUsersInRole()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get the users associated with the Role.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_isANumericType">isANumericType()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Check the schema Type definition to see if it&#039;s a numeric field.</dd>
 
     </dl>
-
 
 
 
@@ -374,62 +531,31 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_casts">
         $casts
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_casts" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Models-User.html#property_casts" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models-publishable/User.php"><a href="files/eco-helpers-src-models-publishable-user.html"><abbr title="eco-helpers/src/Models-publishable/User.php">User.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">The attributes that should be cast.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">array&lt;string, string&gt;</span>
     <span class="phpdocumentor-signature__name">$casts</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;email_verified_at&#039; =&gt; &#039;datetime&#039;, &#039;created_at&#039; =&gt; &#039;datetime&#039;, &#039;updated_at&#039; =&gt; &#039;datetime&#039;, &#039;password&#039; =&gt; &#039;hashed&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;email_verified_at&#039; =&gt; &#039;datetime&#039;, &#039;created_at&#039; =&gt; &#039;datetime&#039;, &#039;updated_at&#039; =&gt; &#039;datetime&#039;, &#039;last_login&#039; =&gt; &#039;datetime&#039;, &#039;login_created&#039; =&gt; &#039;datetime&#039;, &#039;password&#039; =&gt; &#039;hashed&#039;]</span></code>
 
     
     
     
 
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_dates">
-        $dates
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_dates" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Lets the Controls class know which input data should be treated as date formats.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
-    <span class="phpdocumentor-signature__name">$dates</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;created_at&#039;, &#039;updated_at&#039;]</span></code>
-
-    
-    
     
 
 </article>
@@ -442,20 +568,21 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_disabled">
         $disabled
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_disabled" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Models-User.html#property_disabled" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models-publishable/User.php"><a href="files/eco-helpers-src-models-publishable-user.html"><abbr title="eco-helpers/src/Models-publishable/User.php">User.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Controls will use this array to set readonly on these fields.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
@@ -464,6 +591,8 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 
     
     
+    
+
     
 
 </article>
@@ -476,20 +605,21 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_guarded">
         $guarded
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_guarded" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Models-User.html#property_guarded" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models-publishable/User.php"><a href="files/eco-helpers-src-models-publishable-user.html"><abbr title="eco-helpers/src/Models-publishable/User.php">User.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">The attributes that are mass assignable.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">array&lt;int, string&gt;</span>
@@ -498,6 +628,8 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 
     
     
+    
+
     
 
 </article>
@@ -510,20 +642,21 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_labels">
         $labels
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_labels" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Models-User.html#property_labels" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models-publishable/User.php"><a href="files/eco-helpers-src-models-publishable-user.html"><abbr title="eco-helpers/src/Models-publishable/User.php">User.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">The Controls class will automatically fill in the label names if they are defined in the model.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
@@ -549,6 +682,7 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
     &#039;email_personal&#039; =&gt; &#039;Personal Email&#039;,
     &#039;email_alternate&#039; =&gt; &#039;Alternate Email&#039;,
     &#039;comments&#039; =&gt; &#039;Comments&#039;,
+    &#039;timezone&#039; =&gt; &#039;Timezone&#039;,
     &#039;login_active&#039; =&gt; &#039;Login Active&#039;,
     &#039;default_role&#039; =&gt; &#039;Default Group&#039;,
     &#039;acting_role&#039; =&gt; &#039;Acting Role&#039;,
@@ -571,6 +705,47 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 </section>
 
     
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_na_image_data">
+        $na_image_data
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#property_na_image_data" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Base64 image date for the &quot;no user photo&quot; image.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$na_image_data</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;
+        /9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABGAAD/4QNhaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzEyMyA3OS4xNTg5NzgsIDIwMTYvMDIvMTMtMDE6MTE6MTkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9IjlFODc1NjBGNkQxQjVERTIyRDNCRkY3MkE0MDlBNTE4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlBMkE2NENBM0MzQTExRTlCNDY0RDRGMzE1N0IzNzkwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlBMkE2NEM5M0MzQTExRTlCNDY0RDRGMzE1N0IzNzkwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUuMSBNYWNpbnRvc2giPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMjgwMTE3NDA3MjA2ODExQjMyRUU2QkEzRjBBMTU1RiIgc3RSZWY6ZG9jdW1lbnRJRD0iOUU4NzU2MEY2RDFCNURFMjJEM0JGRjcyQTQwOUE1MTgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBh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
+        &#039;</span></code>
+
+    
+    
+    
+
     
 
 </article>
@@ -597,6 +772,7 @@ to modify User to &quot;extend&quot; the ehUser model.</p>
 
         <p class="phpdocumentor-summary">Mechanism for disabling the auto table timestamp updates.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">bool</span>
@@ -609,6 +785,8 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 </section>
 
     
+    
+
     
 
 </article>
@@ -634,6 +812,7 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -642,6 +821,8 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 
     
     
+    
+
     
 
 </article>
@@ -654,20 +835,21 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 >
     <h4 class="phpdocumentor-element__name" id="property_hidden">
         $hidden
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_hidden" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Models-User.html#property_hidden" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models-publishable/User.php"><a href="files/eco-helpers-src-models-publishable-user.html"><abbr title="eco-helpers/src/Models-publishable/User.php">User.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">136</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">The attributes that should be hidden for serialization.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">array&lt;int, string&gt;</span>
@@ -676,6 +858,8 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 
     
     
+    
+
     
 
 </article>
@@ -701,6 +885,7 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
@@ -709,6 +894,8 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 
     
     
+    
+
     
 
 </article>
@@ -721,18 +908,19 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 >
     <h4 class="phpdocumentor-element__name" id="property_table">
         $table
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_table" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Models-User.html#property_table" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models-publishable/User.php"><a href="files/eco-helpers-src-models-publishable-user.html"><abbr title="eco-helpers/src/Models-publishable/User.php">User.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -744,6 +932,8 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
     
     
 
+    
+
 </article>
             </section>
 
@@ -753,6 +943,58 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
             <a href="classes/App-Models-User.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addUserRole">
+        addUserRole()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_addUserRole" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">422</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Quick utility for adding an entry to the roles lookup table.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addUserRole</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
                     <article
         class="phpdocumentor-element
             -method
@@ -779,11 +1021,14 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Used for maintaining the ecoFramework updated and created by fields along with number format cleaning.
 Note: date format cleaning was moved to the override function fromDateTime() in ehConvertDatesToSavable.</p>
 </section>
 
     
+    
+
     
 
     
@@ -815,6 +1060,7 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(may add an appropriate cast and decimal checking later if needed)</p>
 </section>
 
@@ -828,6 +1074,8 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -855,10 +1103,11 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">creatingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">creatingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This should (?) only be invoked when creating a new record.</p>
 <p>(note: username and date formats are set in the 2 helper methods below)</p>
 <p>Steps to use:</p>
@@ -874,12 +1123,299 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$model</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deleteRoleFromUser">
+        deleteRoleFromUser()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_deleteRoleFromUser" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">449</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Remove the specified role by id from the eh_roles_lookup table -- while editing the User Detail.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">deleteRoleFromUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_lookup_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Note: should only be used through ajax calls when updating the user profile.
+WARNING: This MUST have a roles lookup table id ($role_lookup_id) in order to work properly
+-- that refers to a specific entry in the eh_roles lookup table -- by user!
+-- When edit the User's dialog box in Roles Detail, use the method below: deleteUsersFromRole()</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role_lookup_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_fullName">
+        fullName()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_fullName" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">677</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Logic for how you want to build-out a full name
+(with or w/o the middle name or middle initial?)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">fullName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getActingRole">
+        getActingRole()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getActingRole" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">243</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the currently set active role [object] (in the users table) for this user.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getActingRole</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Or if for any reason it's not set, then use the default role assigned.</p>
+<p>Can pass a specific $user_id, $user object, or if left null -- will use the logged in user.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getBestTimezone">
+        getBestTimezone()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getBestTimezone" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">833</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check to see if the user has a time zone assigned and return it.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getBestTimezone</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Otherwise check to see if an eco-helpers default is set and return it.
+Otherwise check the Laravel app timezone and return it.</p>
+<p>Note: this same logic is hard-coded into ehControl date processing.
+(didn't use this function since ehControl is available to all models; didn't want to just make it static.)</p>
+</section>
+
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getDefaultHomePage">
+        getDefaultHomePage()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getDefaultHomePage" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">214</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the user&#039;s acting role&#039;s default_home_page (the whole eh_pages record).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getDefaultHomePage</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getDefaultRole">
+        getDefaultRole()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getDefaultRole" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">391</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Helper to return the user&#039;s default role.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getDefaultRole</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Has a safety check to force a logout if it is blank. (every user must have one).</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
 
     
 
@@ -912,6 +1448,7 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -922,6 +1459,571 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
                 
             </dd>
             </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getUserAccount">
+        getUserAccount()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserAccount" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">861</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the account number for this user&#039;s parent account. (primary or assigned from)
+VERY SIMPLE FOR NOW !!</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getUserAccount</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getUserPhoto">
+        getUserPhoto()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserPhoto" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">696</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check to see if there&#039;s a contact photo for this user then return a base_64 encoded version
+ to include in an &lt;img src=&quot;&quot;&gt; tag.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getUserPhoto</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$add_mime_data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$add_mime_data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>// The string to be used inside of the <img src=""> tag.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getUserRoles">
+        getUserRoles()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserRoles" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">141</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getUserRoles</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$active</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>// Pass a user id or leave it null to use the currently logged in user.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$active</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>// Include only active roles (ture) - or all roles (false).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserRoles#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">@return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>[]       // No roles found for this user.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_howManyRoles">
+        howManyRoles()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_howManyRoles" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">111</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Find out how many roles are assigned to this user.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">howManyRoles</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isActingRoleActive">
+        isActingRoleActive()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isActingRoleActive" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">87</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isActingRoleActive</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isAdmin">
+        isAdmin()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isAdmin" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Simple check to see if this user&#039;s current role gives them site admin privileges.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isAdmin</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isUserActive">
+        isUserActive()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isUserActive" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">69</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Is this user&#039;s login profile active?
+ - checks both archived and login_active.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isUserActive</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_normalizeRoleID">
+        normalizeRoleID()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_normalizeRoleID" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">644</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Normalize a $role_id to a $role object -- either from the passed id or from the logged in user</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">normalizeRoleID</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">false|mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">false|mixed</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_normalizeUserID">
+        normalizeUserID()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_normalizeUserID" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">614</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">All ths methods in this trait can except either a numeric user id, or the whole user object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">normalizeUserID</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">false|mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Additional, if the $user_id is not passed or blank, then it will default to using the logged in user.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">false|mixed</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_removeUsersFromRole">
+        removeUsersFromRole()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_removeUsersFromRole" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">517</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Used by Roles Detail to remove users from the Users dialog box.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">removeUsersFromRole</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Note: this is different than the deleteRolesFromUser() method above. That's for the Users Detail screen.</p>
+<p>Pass in an array of user_id and role_id
+[
+['user_id'=&gt;$user_id, 'role_id'=&gt;$role_id],
+['user_id'=&gt;$user_id, 'role_id'=&gt;$role_id],
+]</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Illuminate\Http\Request">Request</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_roleAtLogin">
+        roleAtLogin()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_roleAtLogin" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">569</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Used by the ehAuthenticatedSessionController to determine this user&#039;s proper role right after login.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">roleAtLogin</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Uses the system configuration to determine if it should be the default_role of the last acting_role.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$user_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
 
     
 
@@ -948,21 +2050,76 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">savingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">savingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$model</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setActingRole">
+        setActingRole()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_setActingRole" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">309</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Change the current user&#039;s &quot;acting role&quot; to the role id passed.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setActingRole</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$acting_role_id</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$popup</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$acting_role_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$popup</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
 
     
 
@@ -976,13 +2133,13 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
 >
     <h4 class="phpdocumentor-element__name" id="method_uniqueAccountNumber">
         uniqueAccountNumber()
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#method_uniqueAccountNumber" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_uniqueAccountNumber" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">181</span>
+    <span class="phpdocumentor-element-found-in__line">789</span>
 
     </aside>
 
@@ -994,6 +2151,7 @@ Note: date format cleaning was moved to the override function fromDateTime() in 
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: passing the entire $request here so this method can be changed to use a different algorithm as needed.
 This is used by both the RegisteredUserController and the ehUsersController@dataConsistencyCheck().</p>
 </section>
@@ -1008,6 +2166,8 @@ This is used by both the RegisteredUserController and the ehUsersController@data
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1025,13 +2185,13 @@ This is used by both the RegisteredUserController and the ehUsersController@data
 >
     <h4 class="phpdocumentor-element__name" id="method_uniqueUserName">
         uniqueUserName()
-        <a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#method_uniqueUserName" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_uniqueUserName" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Models/ehUser.php"><a href="files/eco-helpers-src-models-ehuser.html"><abbr title="eco-helpers/src/Models/ehUser.php">ehUser.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">758</span>
 
     </aside>
 
@@ -1043,6 +2203,7 @@ This is used by both the RegisteredUserController and the ehUsersController@data
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: passing the entire $request here so this method can be changed to use a different algorithm as needed.
 This is used by both the RegisteredUserController and the ehUsersController@dataConsistencyCheck().</p>
 </section>
@@ -1057,6 +2218,8 @@ This is used by both the RegisteredUserController and the ehUsersController@data
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1088,10 +2251,11 @@ This is used by both the RegisteredUserController and the ehUsersController@data
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">updatingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">updatingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: still not completely clear on saving vs updating yet but they do both happen under various circumstances.</p>
 <p>(note: user name and date formats are set in the 2 helper methods below.</p>
 </section>
@@ -1100,12 +2264,14 @@ This is used by both the RegisteredUserController and the ehUsersController@data
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$model</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1137,11 +2303,14 @@ This is used by both the RegisteredUserController and the ehUsersController@data
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This should just be saving a plain UTC format and then the display and timezone get applied in ehControl.</p>
 <p>(if it should be different, then change it here)</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1176,12 +2345,15 @@ This is used by both the RegisteredUserController and the ehUsersController@data
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return the format as configured in the eco-helpers config file
 under 'user_update_stamp'</p>
 <p>If there is no user logged in, then return 'system' as the username.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1221,6 +2393,7 @@ under 'user_update_stamp'</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>i.e  - changes int(11) to INT</p>
 <ul>
 <li>changes decimal(10,2) to DECIMAL</li>
@@ -1240,9 +2413,62 @@ under 'user_update_stamp'</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getUsersInRole">
+        getUsersInRole()
+        <a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUsersInRole" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Traits/ehUserFunctions.php"><a href="files/eco-helpers-src-traits-ehuserfunctions.html"><abbr title="eco-helpers/src/Traits/ehUserFunctions.php">ehUserFunctions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">191</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the users associated with the Role.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getUsersInRole</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Not really sure this belongs in this trait by definition, but leaving here for convenience (for now).</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role_id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
             </section>
 
 </article>
@@ -1268,10 +2494,11 @@ under 'user_update_stamp'</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isANumericType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isANumericType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><ul>
 <li>Note: We're checking it against the $number_format list defined at the top.</li>
 </ul>
@@ -1281,12 +2508,14 @@ under 'user_update_stamp'</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$type</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1409,34 +2638,54 @@ under 'user_update_stamp'</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_casts">$casts<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_dates">$dates<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_disabled">$disabled<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_guarded">$guarded<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_labels">$labels<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps">$save_with_stamps<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Models-ehBaseAuthenticatable.html#property_timestamps">$timestamps<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_hidden">$hidden<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#property_number_types">$number_types<a href="classes/App-Models-User.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#property_table">$table<a href="classes/App-Models-User.html"></li>
+                                                    <li class=""><a href="classes/App-Models-User.html#property_casts">$casts</a></li>
+                                                    <li class=""><a href="classes/App-Models-User.html#property_disabled">$disabled</a></li>
+                                                    <li class=""><a href="classes/App-Models-User.html#property_guarded">$guarded</a></li>
+                                                    <li class=""><a href="classes/App-Models-User.html#property_labels">$labels</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#property_na_image_data">$na_image_data</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps">$save_with_stamps</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Models-ehBaseAuthenticatable.html#property_timestamps">$timestamps</a></li>
+                                                    <li class=""><a href="classes/App-Models-User.html#property_hidden">$hidden</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#property_number_types">$number_types</a></li>
+                                                    <li class=""><a href="classes/App-Models-User.html#property_table">$table</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehAllModelsBoot.html#method_boot">boot()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_convertNumbersToSavable">convertNumbersToSavable()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_creatingTimestamps">creatingTimestamps()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehGetLabels.html#method_getLabel">getLabel()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_savingTimestamps">savingTimestamps()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#method_uniqueAccountNumber">uniqueAccountNumber()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Models-ehUser.html#method_uniqueUserName">uniqueUserName()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_updatingTimestamps">updatingTimestamps()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatDateStamp">formatDateStamp()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatUserStamp">formatUserStamp()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_getFieldTypeList">getFieldTypeList()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_isANumericType">isANumericType()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_addUserRole">addUserRole()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehAllModelsBoot.html#method_boot">boot()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_convertNumbersToSavable">convertNumbersToSavable()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_creatingTimestamps">creatingTimestamps()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_deleteRoleFromUser">deleteRoleFromUser()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_fullName">fullName()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getActingRole">getActingRole()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getBestTimezone">getBestTimezone()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getDefaultHomePage">getDefaultHomePage()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getDefaultRole">getDefaultRole()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehGetLabels.html#method_getLabel">getLabel()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserAccount">getUserAccount()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserPhoto">getUserPhoto()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUserRoles">getUserRoles()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_howManyRoles">howManyRoles()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isActingRoleActive">isActingRoleActive()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isAdmin">isAdmin()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_isUserActive">isUserActive()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_normalizeRoleID">normalizeRoleID()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_normalizeUserID">normalizeUserID()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_removeUsersFromRole">removeUsersFromRole()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_roleAtLogin">roleAtLogin()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_savingTimestamps">savingTimestamps()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_setActingRole">setActingRole()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_uniqueAccountNumber">uniqueAccountNumber()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_uniqueUserName">uniqueUserName()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_updatingTimestamps">updatingTimestamps()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatDateStamp">formatDateStamp()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatUserStamp">formatUserStamp()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_getFieldTypeList">getFieldTypeList()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehUserFunctions.html#method_getUsersInRole">getUsersInRole()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehConvertNumbersToSavable.html#method_isANumericType">isANumericType()</a></li>
                                     </ul>
             </li>
                     </ul>

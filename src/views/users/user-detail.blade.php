@@ -597,8 +597,12 @@
                         type: "delete",
                         url: url,
                         //data: {"group_name": $(this).attr("data-group-name")} // moved this logic into the Controller@destroy
-                    }).done(function () {
+                    }).done(function (e) {
+                        //alert($("#eh-layout-page-flash").text());
+                        //$("#eh-layout-page-flash").text(e.message);
+                        alert(e.message);       // Use this to stop before the page refresh and show the message returned from the ajax call.
                         location.reload();      // refresh the page to remove the deleted item and refresh the flash message.
+                                                // NOTE: THAT THIS LOOSES THE FLASH MESSAGE BACK FROM ehUserFUnctions@deleteRoleFromUser()
                     });
 
                 }

@@ -156,7 +156,7 @@ class ehLayout
         ///////////////////////////////////////////////////////////////////////////////////////////
         // AUTOLOADER: defaults -- Hard code '0' (the all-pages global css and js) as always on.
         // 0-css-autoload.blade.php and 0-js-autoload.blade.php should load for every page refresh.
-        self::$layout['auto_load'][0] = 'static';
+        self::$layout['auto_load'][0] = 'global';   // 'global' is used for clarity, but it evaluates to true in ej-js/css-loader.
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -703,8 +703,6 @@ class ehLayout
 
     }
 
-
-
     /**
      * Turns on the user configurable loading of per page js and css needed for specialty functions.
      * Can call either by name or number (as defined in eco-helpers.layout.auto_loaders)
@@ -712,17 +710,19 @@ class ehLayout
      * The actual code for each of these is contained in the views/ecoHelpers/auto-load/nn-autoload.php
      * file associated with each.
      *
-     *  EXAMPLES OF THINGS INCLUDED IN THE AUTO-LOAD FILES:
-     *  - textedit
-     *  - datepicker
-     *  - datetimepicker
-     *  - helpsystem
-     *  - chosen
-     *  - datatables
+     *   EXAMPLES OF THINGS INCLUDED IN THE AUTO-LOAD FILES:
+     *   - textedit         (TinyMCE)
+     *   - datepicker       (jQuery UI widget)
+     *   - datetimepicker   (jQuery UI widget)
+     *   - helpsystem       (mouse-over-field context help)
+     *   - chosen           (Chosen Multi-Select)
+     *   - datatables       (Datatables - use $parameter to specify init file other than dt-standard-init)
      *
-     * @param null $value
+     * @param $input
+     * @param $parameter
+     * @return void
      */
-    public static function setAutoload($input=null) {
+    public static function setAutoload($input=null, $parameter=null) {
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // $value can be a number or a name as defined in eco-helpers.layout.auto_loaders
@@ -774,10 +774,17 @@ class ehLayout
 
 
             // Hard code '0' (the all page globals) as always on.
-            // self::$layout['auto_load'][0] = 'static';    // Moved this to the init method
+            // self::$layout['auto_load'][0] = 'global';    // Moved this to the init method
+
 
             // It's just a $key=>value pair for this auto_loader for the template to check.
-            self::$layout['auto_load'][$auto_loader_number] = $auto_loader_name;
+            // But remember, the eh-js/css-loader template is just checking to see if it's set.
+            if (!empty($parameter)) {
+                self::$layout['auto_load'][$auto_loader_number] = $parameter;
+            } else {
+                self::$layout['auto_load'][$auto_loader_number] = $auto_loader_name;
+            }
+
 
         }
 

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -157,11 +157,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
             <p class="phpdocumentor-summary">ehAccess is responsible for handling all resource and feature permission checks.</p>
+
 
     <section class="phpdocumentor-description"><p>(Remember that the Menu/Page System IS NOT a security system.
 Making an item inactive there ONLY removes it from the Menu tree.)
@@ -181,6 +182,8 @@ update  -   PUT/PATCH   ACCESS_EDIT<br/>
 destroy -   DELETE      ACCESS_DELETE<br/>
 edit    -   GET/HEAD    ACCESS_EDIT<br/></p>
 </section>
+
+
 
 
 
@@ -207,7 +210,7 @@ edit    -   GET/HEAD    ACCESS_EDIT<br/></p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#property_access_token_array">$access_token_array</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#property_access_token_array">$access_token_array</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -215,7 +218,7 @@ edit    -   GET/HEAD    ACCESS_EDIT<br/></p>
 Used for any loop where we need to rifle through all of the permissions levels and check for something.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#property_force_no_find">$force_no_find</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#property_force_no_find">$force_no_find</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -229,21 +232,21 @@ Used for any loop where we need to rifle through all of the permissions levels a
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkRoleSecurityAccess">chkRoleSecurityAccess()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkRoleSecurityAccess">chkRoleSecurityAccess()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Check if a $role_id has a certain access $security_level permission to a certain numeric $page_id.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkUserFeatureAccess">chkUserFeatureAccess()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkUserFeatureAccess">chkUserFeatureAccess()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Mainly for checking user feature access in a template (xd, xr, f1-f4), but can be used for any permissions check.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkUserResourceAccess">chkUserResourceAccess()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkUserResourceAccess">chkUserResourceAccess()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -251,7 +254,7 @@ Used for any loop where we need to rifle through all of the permissions levels a
 feature_1-4).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_decodeToken">decodeToken()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_decodeToken">decodeToken()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
@@ -260,28 +263,28 @@ feature_1-4).</dd>
  or ($return_values = true) with the actual numeric value of the constants.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_deleteAccessToken">deleteAccessToken()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_deleteAccessToken">deleteAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Delete the access token for this $page_id, $user_id or $role_id.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_getAccessToken">getAccessToken()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_getAccessToken">getAccessToken()</a>
     <span>
                                 &nbsp;: float|mixed    </span>
 </dt>
 <dd>Pull an access token based on a $route_name and $role_id.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_getUserRights">getUserRights()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_getUserRights">getUserRights()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;|array&lt;string|int, false&gt;    </span>
 </dt>
 <dd>Pull a list of access right for this user for this route name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_saveAccessToken">saveAccessToken()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_saveAccessToken">saveAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -290,7 +293,7 @@ Note: ONLY PASS one; $role_id or $user_id (if there are multiples passed in, the
 and use the first one it finds)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_updateAccessToken">updateAccessToken()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_updateAccessToken">updateAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -298,14 +301,13 @@ and use the first one it finds)</dd>
  - Across all users and groups.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_combineTokens">combineTokens()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_combineTokens">combineTokens()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Loop any result set and combine all the access tokens into one (highest) number.</dd>
 
     </dl>
-
 
 
 
@@ -335,13 +337,14 @@ and use the first one it finds)</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">This needs to line up with the constants defined in eco-constants.php (loaded during the register() process)
 Used for any loop where we need to rifle through all of the permissions levels and check for something.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
@@ -350,6 +353,8 @@ Used for any loop where we need to rifle through all of the permissions levels a
 
     
     
+    
+
     
 
 </article>
@@ -370,10 +375,11 @@ Used for any loop where we need to rifle through all of the permissions levels a
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -383,6 +389,8 @@ Used for any loop where we need to rifle through all of the permissions levels a
 
     
     
+    
+
     
 
 </article>
@@ -408,7 +416,7 @@ Used for any loop where we need to rifle through all of the permissions levels a
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">636</span>
+    <span class="phpdocumentor-element-found-in__line">631</span>
 
     </aside>
 
@@ -420,6 +428,7 @@ Used for any loop where we need to rifle through all of the permissions levels a
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -448,6 +457,8 @@ Used for any loop where we need to rifle through all of the permissions levels a
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
@@ -468,7 +479,7 @@ Used for any loop where we need to rifle through all of the permissions levels a
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 
     </aside>
 
@@ -476,10 +487,11 @@ Used for any loop where we need to rifle through all of the permissions levels a
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">chkUserFeatureAccess</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$route</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$access_level</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">chkUserFeatureAccess</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$route</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$access_level</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Used for controlling access to per page features (as defined in the Menu/ Page system).
 Check to see that this user has this $security_right assigned (individually or through the current role).</p>
 </section>
@@ -488,26 +500,28 @@ Check to see that this user has this $security_right assigned (individually or t
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$user_id</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$route</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$access_level</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -531,7 +545,7 @@ Check to see that this user has this $security_right assigned (individually or t
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">100</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -540,10 +554,11 @@ feature_1-4).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">chkUserResourceAccess</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$route_name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$access_level</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">chkUserResourceAccess</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$route_name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$access_level</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(see config/eco-constants.php)
 This is used by the check_permissions middleware to determine access by resourceful level.
 and
@@ -552,7 +567,7 @@ Check to see if this user has this appropriate level of access to show or use th
 Only returns true or false -- WILL NOT DO ANY REDIRECTS; calling routine is responsible for handling that.</p>
 <p>Note: When building a form, this is a convenience, &quot;front-side check&quot; only and not considered &quot;secure&quot;
 (that is handled by the Middleware check).</p>
-<p>Note: If $user_id is blank or null, ehUser::normalizeUserID() will attempt to use the currently logged in user.
+<p>Note: If $user_id is blank or null, User::normalizeUserID() will attempt to use the currently logged in user.
 If $route_name is null, the current route name will be used.</p>
 </section>
 
@@ -560,7 +575,7 @@ If $route_name is null, the current route name will be used.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$user_id</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// The person to check the permissions for (default to currently logged in user).</p>
@@ -569,7 +584,7 @@ If $route_name is null, the current route name will be used.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$route_name</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// The route name or page id to check against (defaults to current route).</p>
@@ -578,7 +593,7 @@ If $route_name is null, the current route name will be used.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$access_level</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// The access constant to check against (see config/eco-helpers.php)</p>
@@ -586,6 +601,8 @@ If $route_name is null, the current route name will be used.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -609,7 +626,7 @@ If $route_name is null, the current route name will be used.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">531</span>
+    <span class="phpdocumentor-element-found-in__line">526</span>
 
     </aside>
 
@@ -619,23 +636,24 @@ If $route_name is null, the current route name will be used.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">decodeToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$combined_token</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$return_values</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">decodeToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$combined_token</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$return_values</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$combined_token</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$return_values</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// This is used when building out the permission checkboxes so the checkbox value = the
@@ -644,6 +662,8 @@ actual security value.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -667,7 +687,7 @@ actual security value.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">455</span>
+    <span class="phpdocumentor-element-found-in__line">450</span>
 
     </aside>
 
@@ -679,6 +699,7 @@ actual security value.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -709,6 +730,8 @@ actual security value.</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
@@ -729,7 +752,7 @@ actual security value.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">236</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 
     </aside>
 
@@ -737,10 +760,11 @@ actual security value.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page_id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_id</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$as_array</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">float|mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page_id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_id</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$as_array</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">float|mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: Access Tokens belong to page ids -- they DO NOT belong to routes. The page record will save the route.
 Note: This defaults to returning a combined (summed) access number - you can specify an array if desired.
 Note: role_id should always be passing in the acting_role!</p>
@@ -750,7 +774,7 @@ Note: role_id should always be passing in the acting_role!</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$page_id</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// The page id associated with the permissions token.</p>
@@ -759,7 +783,7 @@ Note: role_id should always be passing in the acting_role!</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$role_id</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// Required. Should always be the acting_role.</p>
@@ -768,12 +792,14 @@ Note: role_id should always be passing in the acting_role!</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$as_array</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -797,7 +823,7 @@ Note: role_id should always be passing in the acting_role!</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">719</span>
+    <span class="phpdocumentor-element-found-in__line">714</span>
 
     </aside>
 
@@ -805,10 +831,11 @@ Note: role_id should always be passing in the acting_role!</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getUserRights</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$route_name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|array&lt;string|int, false&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getUserRights</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$route_name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|array&lt;string|int, false&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(replaces the old Layout function to initUserRights -- that was the wrong place for that.)
 Note: If no $route_name is passed, the current route name will be used.</p>
 <p>USAGE (in Blade template):</p>
@@ -818,14 +845,14 @@ Note: If no $route_name is passed, the current route name will be used.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$user_id</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$route_name</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// route_name or page-id;
@@ -867,6 +894,8 @@ $access-&gt;getUserRights()-&gt;feature_1</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|array&lt;string|int, false&gt;</span>
@@ -887,7 +916,7 @@ $access-&gt;getUserRights()-&gt;feature_1</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">365</span>
+    <span class="phpdocumentor-element-found-in__line">360</span>
 
     </aside>
 
@@ -897,10 +926,11 @@ and use the first one it finds)</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">saveAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page_id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$new_access_token</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">saveAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page_id</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$new_access_token</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user_id</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -913,7 +943,7 @@ and use the first one it finds)</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$new_access_token</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><ul>
@@ -963,6 +993,8 @@ and use the first one it finds)</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
@@ -989,7 +1021,7 @@ and use the first one it finds)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">619</span>
+    <span class="phpdocumentor-element-found-in__line">614</span>
 
     </aside>
 
@@ -998,10 +1030,11 @@ and use the first one it finds)</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">updateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$old_route_name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$new_route_name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">updateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$old_route_name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$new_route_name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><ul>
 <li>e're going to expect a fully qualified (as stored) route_name.</li>
 </ul>
@@ -1011,19 +1044,21 @@ and use the first one it finds)</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$old_route_name</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$new_route_name</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1047,7 +1082,7 @@ and use the first one it finds)</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehAccess.php"><a href="files/eco-helpers-src-classes-ehaccess.html"><abbr title="eco-helpers/src/Classes/ehAccess.php">ehAccess.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">594</span>
+    <span class="phpdocumentor-element-found-in__line">589</span>
 
     </aside>
 
@@ -1055,10 +1090,11 @@ and use the first one it finds)</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">combineTokens</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$result_tokens</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">combineTokens</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$result_tokens</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: Using the bitwise OR function to combine binary digits.</p>
 </section>
 
@@ -1066,12 +1102,14 @@ and use the first one it finds)</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$result_tokens</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1194,24 +1232,24 @@ and use the first one it finds)</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#property_access_token_array">$access_token_array<a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#property_force_no_find">$force_no_find<a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#property_access_token_array">$access_token_array</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#property_force_no_find">$force_no_find</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkRoleSecurityAccess">chkRoleSecurityAccess()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkUserFeatureAccess">chkUserFeatureAccess()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkUserResourceAccess">chkUserResourceAccess()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_decodeToken">decodeToken()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_deleteAccessToken">deleteAccessToken()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_getAccessToken">getAccessToken()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_getUserRights">getUserRights()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_saveAccessToken">saveAccessToken()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_updateAccessToken">updateAccessToken()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_combineTokens">combineTokens()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkRoleSecurityAccess">chkRoleSecurityAccess()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkUserFeatureAccess">chkUserFeatureAccess()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_chkUserResourceAccess">chkUserResourceAccess()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_decodeToken">decodeToken()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_deleteAccessToken">deleteAccessToken()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_getAccessToken">getAccessToken()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_getUserRights">getUserRights()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_saveAccessToken">saveAccessToken()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_updateAccessToken">updateAccessToken()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehAccess.html#method_combineTokens">combineTokens()</a></li>
                                     </ul>
             </li>
                     </ul>

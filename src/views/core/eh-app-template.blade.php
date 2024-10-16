@@ -264,7 +264,6 @@ The standard button area must be contained within each CRUD <form>
             </div>
         </section>
     @endif
-
     <section id="eh-layout-page-flash-attention-wrapper">
         {{--
             ### FLASH AREA ###
@@ -307,7 +306,6 @@ The standard button area must be contained within each CRUD <form>
                 </p>
             --}}
         @endif
-
     </section>
     {{--
         ### BASE CONTENT BODY ###
@@ -330,8 +328,7 @@ The standard button area must be contained within each CRUD <form>
     {{-- Replace the save button with a spinner after submitting. --}}
     <script type="text/javascript" src="{{asset('vendor/ecoHelpers/js/eh-save-me.js')}}"></script>
     {{-- User Notifications. --}}
-    <script type="text/javascript"
-            src="{{ asset('vendor/ecoHelpers/js/eh-notifications.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/ecoHelpers/js/eh-notifications.js') }}"></script>
     {{-- Unsaved warning message. --}}
     <script type="text/javascript">
         $("form[class^='eh-form-crud']").change(function (e) {
@@ -347,7 +344,6 @@ The standard button area must be contained within each CRUD <form>
         --}}
     @yield('base_js')
 </main>
-
 {{--
         ### FOOTER AREA ###
         Include the file specified in the eco-helpers config file.
@@ -359,8 +355,6 @@ The standard button area must be contained within each CRUD <form>
     <p><em>Configure filename in config/eco-helpers.php and place the blade template file in
             views/ecoHelpers folder.</em></p>
 @endif
-
-
 {{--
     Final override file to load (outside of <main>).
     --}}

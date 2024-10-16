@@ -229,17 +229,18 @@ class ehUsersController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Data Validation and consistency check.
-        $request = $this->dataConsistencyCheck($request, $user);
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
         // Update the roles table.
         // Was a role added from the drop down?
         // Then go ahead and add that to the Roles lookup table.
+        // Note: Doing this BEFORE the dataConsistencyCheck() since it's dependent on this for one of its checks.
         if ($request->role_id) {
             $user->addUserRole($user->id, $request->role_id);
         }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Data Validation and consistency check.
+        $request = $this->dataConsistencyCheck($request, $user);
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // PASSWORD CHANGE
@@ -249,12 +250,12 @@ class ehUsersController extends ehBaseController
         // will be the same hashed password stored in the database ($user->password).
         if ($request->password != $user->password) {
 
-            // Hash the newly entered password
+            // Hash a newly entered/changed password
             $request->merge(['password' => Hash::make($request->password)]);
         } else {
 
-            // If password is the same, then just take it out of the $request and leave it alone.
-            // (or you'll re-hash it and make it unusable!)
+            // But, if password is unchanged, then remove it from the $request and leave it alone.
+            // (otherwise it will be re-hashed and make it unusable!)
             $request->request->remove('password');
         }
 
@@ -433,7 +434,7 @@ class ehUsersController extends ehBaseController
             }
 
             // RULE 2. If user only has one role assigned then set that to the default_role automatically.
-            // TODO: somehow we need to check this when assigning the first role to a user that previously didn't have any. (?)
+            //         Note: this has to be checked in the ehUserFunctions@deleteRoleFromUser() too.
             if (count($user->getUserRoles($user->id)) == 1) {
                 // Pull out the role_id from the role_lookup returned array.
                 $request->merge(['default_role' => $user->getUserRoles($user->id)[0]->role_id]);
@@ -465,19 +466,30 @@ class ehUsersController extends ehBaseController
 
             }
 
-            // RULE 6. If default role is blank then assign one.
-            // Use the default role defined in the config file or id #4- NO ACCESS.
+            // RULE 6. If default role is blank from the web-form, then assign one.
+            // Use the default role defined in the config file or id
+            // This would be #4- NO ACCESS, as first installed.
             if (empty($request->default_role)) {
 
                 if (!empty(ehConfig::get('new_user_role'))) {
+
                     // Use the eco-helpers config file setting for the default new user role.
-                    //TODO: make sure this role exists and throw an error if not.
-                    $request->merge(['default_role' => ehConfig::get('new_user_role')]);
-                } else {
+                    // Make sure that the setting in eco-helpers config is a valid role.
+                    if (isset(Role::find(ehConfig::get('new_user_role'))->name)) {
+                        throw new \Exception('eco-helpers: new_user_role must have a value set.');
+                    } else {
+                        $request->merge(['default_role' => ehConfig::get('new_user_role')]);
+                    }
+
+                } // else {
+
+                    /* I don't think we should be doing anything here -- use the key above or just leave it blank.
                     // id #4 is the sample data "NO ACCESS" role.
-                    //TODO: make sure this role exists and throw an error if not.
+                    // Make sure that config key has something in it.
                     $request->merge(['default_role' => 4]);
-                }
+                    */
+
+                //}
 
             }
 

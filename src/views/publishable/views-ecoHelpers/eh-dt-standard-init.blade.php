@@ -6,7 +6,7 @@ REMEMBER; that the js-autoloader with add this to the bottom of the page when 'd
 is called for by ehLayou::setAutoload('datatables').
 
 --}}
-
+<script>
 
 // Initialize the Datatables object
 
@@ -102,3 +102,4 @@ sScrollXInner: '100%',
 fixedColumns: true,         // doesn't work here (?)
 order: [[dtsortcolumn, dtsortdirection]]        // Set these variables in the calling view to override the defaults.
 });
+</script>

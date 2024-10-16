@@ -8,7 +8,7 @@ use File;
 
 /**
  * Published as the artisan command 'eco-helpers:install' this command
- * is responsible for copy over files and folders that need to be overwritten from the originals.
+ * is responsible for copying over files and folders that need to be overwritten from the originals.
  *  - User.php
  *  - views\auth
  *  - Controllers\Auth

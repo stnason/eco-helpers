@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
  * Also can provide an Export All link for access to underlying table with appropriate role access permissions.''
  *
  * REMEMBER TO KEEP CHANGES TO THE ARRAY FORMAT IN SYNC WITH THE eco-helpers.php config file and the base template.
- *    'items_array' =>
+ *    'internal_items' =>
  *       [
  * ['href'=>'https://nasonproductions.com', 'name'=>'np.com', 'title'=>'link to np.com', 'target'=>'_blank'],
  * ['href'=>'https://nasonproductions.com', 'name'=>'np.com', 'title'=>'link to np.com', 'target'=>'_blank'],
@@ -28,7 +28,7 @@ class ehLinkbar {
      * file.
      * @var array|array[]
      */
-    protected array  $items_array = [
+    protected array  $internal_items = [
         /* This is the format for the content return.
            But, including it in the initial definition creates a blank first array item.
         [
@@ -132,7 +132,7 @@ class ehLinkbar {
 
                 // Build out the individual linkbar item.
                 if ($okay) {
-                    $this->items_array[] =
+                    $this->internal_items[] =
                         [
                             'href'=>$href,          // Figure out if this has a valid route name above.
                             'name'=>$item->name,
@@ -155,9 +155,9 @@ class ehLinkbar {
      *       http://site-name/pages = 'pages' table
      *       So, if it's different, the controller must set ehLinkbar::setExportTableName('name').
      *
-     * @return void
+     * @return array
      */
-    protected function addExportAllLink()
+    protected function addExportAllLink($items_array)
     {
         ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -191,7 +191,8 @@ class ehLinkbar {
                     config('app.url') . '/export/' . $export_table . '">' . 'Export All' .
                     '</a></li>' . config('app.nl');
                 */
-                $this->items_array[] =
+                //$this->internal_items[] =
+                $items_array[] =
                     [
                         'href'=>url(config('app.url') . '/export/' . $export_table),
                         'name'=>'Export All',
@@ -201,25 +202,43 @@ class ehLinkbar {
             }
         }
 
+        return $items_array;
     }
 
 
     /**
      * Manually add and item to the linkbar.
      *
+     * for 'href' -- Use a laravel route('name') or a full url (http/https path name)
+     *
+     * 'internal_items' =>
+     * [
+     *  'href'=>'https://nasonproductions.com',
+     *  'name'=>'np.com',
+     *  'title'=>'link to np.com',
+     *  'target'=>'_blank',
+     * ]
+     *
      * @param $item_array
-     * @return void
+     * @return boolean
      */
     public function addItem($item_array) {
 
-        //TODO: addItem IS NOT FULLY implemented!
-        // To perform an item security check we have to find the page entry first.
+        // Minimal error checking
+        // We need href, name and title. (we can set target to _self if it's missing)
+        if (!isset($item_array['href'])) {
+            return false;
+        }
+        if (!isset($item_array['name'])) {
+            return false;
+        }
+        if (!isset($item_array['title'])) {
+            return false;
+        }
 
-        // Attempt to get the items page entry and check the permissions to it for this user.
-
-//        dd($item_array['href']);
-
-        $this->items_array[] = $item_array;
+        // If we have those 3 things then go ahead and add this item to the internal_items array.
+        // (Note: we will security check all items in getLinkbar() below.
+        $this->internal_items[] = $item_array;
     }
 
 
@@ -237,6 +256,7 @@ class ehLinkbar {
 
     /**
      * Check the item to see if this user should see it or not based on their access rights to this page.
+     * This is expecting a $page record -- NOT an internal linkbar $item.
      *
      * @param $item
      * @return void
@@ -267,16 +287,9 @@ class ehLinkbar {
 
         // Construct the array (note: doing it here instead of __construct
         // since the controller can change things that affect it).
-
-        //TODO: umm...seems kind of stupid. Why don't we let the construct build out either the auto generated
-        // or the default linkbar ($items_array) and then the controller can add or remove items ??
-        // But there is some logic to letting getLinkbar() be the last thing you do and pulling
-        // all the changes together at the end. But that should be everything up to that point
-        // from initial construct through any controller change requests
-        // like: m(added or removed items, export table name, hide export all)
-        // SIGH..so ehLayout is responsible for pulling in all of the default settings -- one of which
+        
+        // NOTE: ehLayout is responsible for pulling in all of the default settings -- one of which
         // just happens to be the linkbar defaults.
-
 
         /*
         if ($this->auto_generate) {
@@ -288,10 +301,62 @@ class ehLinkbar {
         }
         */
 
-        // Then add the Export All link when appropriate (if it's not turned off and the user has permissions).
-        $this->addExportAllLink();
+        $items_to_return = [];  // Items to return AFTER the security check
 
-        return $this->items_array;
+
+        // Build an array with all the available urls=>uri for this app.
+        $route_urls = [];
+        foreach (Route::getRoutes() as $route) {
+            //$route_urls[] = $route->uri;                  // raw route names only
+            //$route_urls[] = url($route->uri);             // full url path to resource
+            $route_urls[url($route->uri)] = $route->uri;    // both full url and raw uri
+        }
+
+
+        // Loop the $internal_items and check security
+        $add_this_item = false;
+        foreach ($this->internal_items as $item) {
+
+            // Check the whole array before returning it.
+            // That way we check any Linkbars that may have been completely manually created too.
+            // 1) See if the passed href is a valid route in this application
+
+            // 2) If item url matches one of the application route urls then check further
+            if ( array_key_exists($item['href'], $route_urls) ) {
+
+                // Then use the uri to get the page information by route name.
+                $page_info = ehPage::getPageInfo($route_urls[$item['href']]);
+
+                // See if this route is protected and if this user has permissions to this route.
+                if ($this->itemSecurityCheck($page_info)) {
+                    $add_this_item = true;
+                } else {
+                    $add_this_item = false;
+                }
+
+            } else {
+                
+                // Otherwise -- if this is not one of our application routes
+                // then just include it.
+                $add_this_item = true;
+                
+            }
+
+            // Build the final linkbar array to return
+            if ($add_this_item) {
+                $items_to_return[] = $item;
+            }
+
+        }
+
+
+
+        // Then add the Export All link when appropriate (if it's not turned off and the user has permissions).
+        $items_to_return = $this->addExportAllLink($items_to_return);
+
+        //return $this->internal_items;
+        return $items_to_return;
+
     }
 
 

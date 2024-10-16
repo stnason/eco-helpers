@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -163,6 +163,7 @@
 
             <p class="phpdocumentor-summary">ehLinkbar creates links to pages, available for display in the Linkbar area of the master app template.</p>
 
+
     <section class="phpdocumentor-description"><p>ehLinkbar can automatically create links for all of the child application routes underneath a given menu item.
 Note: all items are checked for permissions before adding them to the final output array.</p>
 <p>Also can provide an Export All link for access to underlying table with appropriate role access permissions.''</p>
@@ -174,6 +175,8 @@ Note: all items are checked for permissions before adding them to the final outp
 ['href'=&gt;'https://nasonproductions.com', 'name'=&gt;'np.com', 'title'=&gt;'link to np.com', 'target'=&gt;'_blank'],
 ]</p>
 </section>
+
+
 
 
 
@@ -200,32 +203,38 @@ Note: all items are checked for permissions before adding them to the final outp
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_export_table_name">$export_table_name</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_hide_export_all">$hide_export_all</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_auto_generate">$auto_generate</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_items_array">$items_array</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_export_table_name">$export_table_name</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_hide_export_all">$hide_export_all</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_items_array">$items_array</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;|array&lt;string|int, array&lt;string|int, mixed&gt;&gt;            </span>
 </dt>
 <dd>This is needed in order to use $linkbar-&gt;getLinkbar() to instantiate an empty linkbar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_show_self">$show_self</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_show_self">$show_self</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_target">$target</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_target">$target</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -239,27 +248,61 @@ Note: all items are checked for permissions before adding them to the final outp
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method___construct">__construct()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>LinkBar constructor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_getLinkbar">getLinkbar()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_addItem">addItem()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Manually add and item to the linkbar.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_getLinkbar">getLinkbar()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
+</dt>
+<dd>Return the completed linkbar array for display.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_setExportTableName">setExportTableName()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_setHideExportAll">setHideExportAll()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Export All already checks to see if you have rights; but additionally can be toggled off here.</dd>
+
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_buildParentModuleLinkArray">buildParentModuleLinkArray()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_addExportAllLink">addExportAllLink()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Check this user&#039;s permissions on the current route and add the Export All link if called for.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_buildParentModuleLinkArray">buildParentModuleLinkArray()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Build out and return an array of linkbar items based on the current route&#039;s parent module.</dd>
+<dd>Build out an array of linkbar items based on the current route&#039;s parent module.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_itemSecurityCheck">itemSecurityCheck()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Check the item to see if this user should see it or not based on their access rights to this page.</dd>
 
     </dl>
-
 
 
 
@@ -279,6 +322,42 @@ Note: all items are checked for permissions before adding them to the final outp
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_auto_generate">
+        $auto_generate
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_auto_generate" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$auto_generate</span>
+     = <span class="phpdocumentor-signature__default-value">true</span></code>
+
+    
+    
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_export_table_name">
         $export_table_name
         <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_export_table_name" class="headerlink"><i class="fas fa-link"></i></a>
@@ -289,10 +368,11 @@ Note: all items are checked for permissions before adding them to the final outp
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -302,6 +382,8 @@ Note: all items are checked for permissions before adding them to the final outp
 
     
     
+    
+
     
 
 </article>
@@ -322,10 +404,11 @@ Note: all items are checked for permissions before adding them to the final outp
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -335,6 +418,8 @@ Note: all items are checked for permissions before adding them to the final outp
 
     
     
+    
+
     
 
 </article>
@@ -361,16 +446,20 @@ Note: all items are checked for permissions before adding them to the final outp
 
         <p class="phpdocumentor-summary">This is needed in order to use $linkbar-&gt;getLinkbar() to instantiate an empty linkbar.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
     <span class="phpdocumentor-signature__name">$items_array</span>
-     = <span class="phpdocumentor-signature__default-value">[[&#039;href&#039; =&gt; &#039;&#039;, &#039;name&#039; =&gt; &#039;&#039;, &#039;title&#039; =&gt; &#039;&#039;, &#039;target&#039; =&gt; &#039;&#039;]]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
-        <section class="phpdocumentor-description"><p>Without that, or if you just call ehLayout::setLinkbar(), the defaults will be displayed from the eco-helpers file.</p>
+        <section class="phpdocumentor-description"><p>Without that, or if you just call ehLayout::setLinkbar(), the defaults will be displayed from the eco-helpers
+file.</p>
 </section>
 
     
+    
+
     
 
 </article>
@@ -391,10 +480,11 @@ Note: all items are checked for permissions before adding them to the final outp
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -404,6 +494,8 @@ Note: all items are checked for permissions before adding them to the final outp
 
     
     
+    
+
     
 
 </article>
@@ -424,10 +516,11 @@ Note: all items are checked for permissions before adding them to the final outp
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -437,6 +530,8 @@ Note: all items are checked for permissions before adding them to the final outp
 
     
     
+    
+
     
 
 </article>
@@ -462,7 +557,7 @@ Note: all items are checked for permissions before adding them to the final outp
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -474,6 +569,7 @@ Note: all items are checked for permissions before adding them to the final outp
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If $auto_generate is true then we will build a link bar array
 based on the current pages parent module.</p>
 <p>If $auto_generate is false, then we will build an empty link bar and
@@ -494,6 +590,53 @@ the calling page will have to either add individual routes or pass a complete ar
     
 
     
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addItem">
+        addItem()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_addItem" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">213</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Manually add and item to the linkbar.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addItem</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$item_array</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$item_array</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -509,19 +652,155 @@ the calling page will have to either add individual routes or pass a complete ar
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">266</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the completed linkbar array for display.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getLinkbar</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setExportTableName">
+        setExportTableName()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_setExportTableName" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">227</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getLinkbar</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setExportTableName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$export_table_name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
     
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$export_table_name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setHideExportAll">
+        setHideExportAll()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_setHideExportAll" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">234</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Export All already checks to see if you have rights; but additionally can be toggled off here.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setHideExportAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hide_export_all</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$hide_export_all</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addExportAllLink">
+        addExportAllLink()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_addExportAllLink" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">160</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check this user&#039;s permissions on the current route and add the Export All link if called for.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">addExportAllLink</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Note: This function assumes that the table name is the same as the base route.
+http://site-name/pages = 'pages' table
+So, if it's different, the controller must set ehLinkbar::setExportTableName('name').</p>
+</section>
+
+    
+    
+
     
 
     
@@ -540,11 +819,11 @@ the calling page will have to either add individual routes or pass a complete ar
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Build out and return an array of linkbar items based on the current route&#039;s parent module.</p>
+        <p class="phpdocumentor-summary">Build out an array of linkbar items based on the current route&#039;s parent module.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -552,12 +831,13 @@ the calling page will have to either add individual routes or pass a complete ar
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>Note: For now, there is no Admin check for permissions. Admin gets the same as everyone else.
-After all, it's more of a system behavior building out the automatic linkbar than anything the
-Administrator might need to &quot;manage.&quot; Just need to be aware that this is the expected behavior.</p>
+    
+        <section class="phpdocumentor-description"><p>Note: This DOES check user permissions to see if a particular route/page should be included.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -565,6 +845,51 @@ Administrator might need to &quot;manage.&quot; Just need to be aware that this 
         <span class="phpdocumentor-signature__response_type">bool</span>
             </section>
 
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_itemSecurityCheck">
+        itemSecurityCheck()
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_itemSecurityCheck" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLinkbar.php"><a href="files/eco-helpers-src-classes-ehlinkbar.html"><abbr title="eco-helpers/src/Classes/ehLinkbar.php">ehLinkbar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">244</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check the item to see if this user should see it or not based on their access rights to this page.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">itemSecurityCheck</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$item</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$item</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
 </article>
             </section>
 
@@ -679,20 +1004,26 @@ Administrator might need to &quot;manage.&quot; Just need to be aware that this 
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_export_table_name">$export_table_name<a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_hide_export_all">$hide_export_all<a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_items_array">$items_array<a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_show_self">$show_self<a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_target">$target<a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_auto_generate">$auto_generate</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_export_table_name">$export_table_name</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_hide_export_all">$hide_export_all</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_items_array">$items_array</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_show_self">$show_self</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#property_target">$target</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_getLinkbar">getLinkbar()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_buildParentModuleLinkArray">buildParentModuleLinkArray()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_addItem">addItem()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_getLinkbar">getLinkbar()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_setExportTableName">setExportTableName()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_setHideExportAll">setHideExportAll()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_addExportAllLink">addExportAllLink()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_buildParentModuleLinkArray">buildParentModuleLinkArray()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLinkbar.html#method_itemSecurityCheck">itemSecurityCheck()</a></li>
                                     </ul>
             </li>
                     </ul>

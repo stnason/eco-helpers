@@ -115,7 +115,7 @@ class ehHomeController extends ehBaseController
         // $linkbar = new ehLinkbar;
         // ehLayout::setLinkbar($linkbar->getLinkBar());
         //
-        // For now linkbar, just turn in off:
+        // Or turn it off:
         // ehLayout::setLinkbar(false);
 
 

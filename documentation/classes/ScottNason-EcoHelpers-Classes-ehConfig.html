@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -169,6 +169,9 @@ the system settings table or the eco-helpers configuration file.</p>
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -190,7 +193,7 @@ the system settings table or the eco-helpers configuration file.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#property_combined_config">$combined_config</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#property_combined_config">$combined_config</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -204,14 +207,14 @@ the system settings table or the eco-helpers configuration file.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_get">get()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_get">get()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|mixed|null    </span>
 </dt>
 <dd>Pull the single settings record from the settings table and then add the eco-config.php file to it.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_initializeSettingsArray">initializeSettingsArray()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_initializeSettingsArray">initializeSettingsArray()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -219,14 +222,13 @@ the system settings table or the eco-helpers configuration file.</p>
 with the information in the eco-helpers.php config file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_recurseParameters">recurseParameters()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_recurseParameters">recurseParameters()</a>
     <span>
                                 &nbsp;: mixed|void    </span>
 </dt>
 <dd>Recursive check to drill-down into the dot parameters to pull out just that data.</dd>
 
     </dl>
-
 
 
 
@@ -261,6 +263,7 @@ with the information in the eco-helpers.php config file.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
@@ -269,6 +272,8 @@ with the information in the eco-helpers.php config file.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -294,7 +299,7 @@ with the information in the eco-helpers.php config file.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehConfig.php"><a href="files/eco-helpers-src-classes-ehconfig.html"><abbr title="eco-helpers/src/Classes/ehConfig.php">ehConfig.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -302,10 +307,11 @@ with the information in the eco-helpers.php config file.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|mixed|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Without a $parameter it returns the combined table + eco-helpers config file.
 With a $parameter it will return just that key value.</p>
 </section>
@@ -322,8 +328,29 @@ With a $parameter it will return just that key value.</p>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_get#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|mixed|null</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -339,7 +366,7 @@ With a $parameter it will return just that key value.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehConfig.php"><a href="files/eco-helpers-src-classes-ehconfig.html"><abbr title="eco-helpers/src/Classes/ehConfig.php">ehConfig.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">107</span>
 
     </aside>
 
@@ -354,6 +381,9 @@ with the information in the eco-helpers.php config file.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -372,7 +402,7 @@ with the information in the eco-helpers.php config file.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehConfig.php"><a href="files/eco-helpers-src-classes-ehconfig.html"><abbr title="eco-helpers/src/Classes/ehConfig.php">ehConfig.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -380,16 +410,17 @@ with the information in the eco-helpers.php config file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">recurseParameters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">recurseParameters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$parameters</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// The &quot;key&quot; (or multi-level keys) we're asking for.</p>
@@ -398,7 +429,7 @@ with the information in the eco-helpers.php config file.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// The $combined_config array; systematically broken down into smaller and smaller pieces.</p>
@@ -406,6 +437,8 @@ with the information in the eco-helpers.php config file.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -532,16 +565,16 @@ with the information in the eco-helpers.php config file.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#property_combined_config">$combined_config<a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#property_combined_config">$combined_config</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_get">get()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_initializeSettingsArray">initializeSettingsArray()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_recurseParameters">recurseParameters()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_get">get()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_initializeSettingsArray">initializeSettingsArray()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehConfig.html#method_recurseParameters">recurseParameters()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -146,13 +146,6 @@
             <ul class="phpdocumentor-breadcrumbs">
                                     <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason.html">ScottNason</a></li>
                                     <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason-EcoHelpers.html">EcoHelpers</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason-EcoHelpers-Originallyhadtoaddtoconfigapp.html">Originallyhadtoaddtoconfigapp</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason-EcoHelpers-Originallyhadtoaddtoconfigapp-phpbutitshouldnowauto.html">phpbutitshouldnowauto</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason-EcoHelpers-Originallyhadtoaddtoconfigapp-phpbutitshouldnowauto-discoverandregisteritselfproperly.html">discoverandregisteritselfproperly</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason-EcoHelpers-Originallyhadtoaddtoconfigapp-phpbutitshouldnowauto-discoverandregisteritselfproperly-NOTEonthepublicpaths.html">NOTEonthepublicpaths</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason-EcoHelpers-Originallyhadtoaddtoconfigapp-phpbutitshouldnowauto-discoverandregisteritselfproperly-NOTEonthepublicpaths-IhadtoregisterthepublicpathintheAppServiceProvider.html">IhadtoregisterthepublicpathintheAppServiceProvider</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason-EcoHelpers-Originallyhadtoaddtoconfigapp-phpbutitshouldnowauto-discoverandregisteritselfproperly-NOTEonthepublicpaths-IhadtoregisterthepublicpathintheAppServiceProvider-phpforthelivesiteinordertogetthefilestocopytotherightplace.html">phpforthelivesiteinordertogetthefilestocopytotherightplace</a></li>
-                                    <li class="phpdocumentor-breadcrumb"><a href="packages/ScottNason-EcoHelpers-Originallyhadtoaddtoconfigapp-phpbutitshouldnowauto-discoverandregisteritselfproperly-NOTEonthepublicpaths-IhadtoregisterthepublicpathintheAppServiceProvider-phpforthelivesiteinordertogetthefilestocopytotherightplace-thismayonlybetruewhenNOTUSINGthedefaultLaravelpublicfolder.html">thismayonlybetruewhenNOTUSINGthedefaultLaravelpublicfolder</a></li>
                             </ul>
         </div>
     
@@ -167,12 +160,27 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/EcoHelpersServiceProvider.php"><a href="files/eco-helpers-src-ecohelpersserviceprovider.html"><abbr title="eco-helpers/src/EcoHelpersServiceProvider.php">EcoHelpersServiceProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
             <p class="phpdocumentor-summary">Package Class EcoHelperServiceProvider for
-ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
+ScottNason\EcoHelpers\EcoHelpersServiceProvider::class.</p>
+
+
+    <section class="phpdocumentor-description"><p>No need to add to config/app.php manually anymore.
+Laravel now auto-discovers and registers it properly.</p>
+<p>register()   - &quot;To make available to the app w/o copying any files.&quot;
+boot()       - &quot;Copy files to the laravel app so the app developer can modify them.&quot;</p>
+<p>NOTE: On the &quot;public&quot; path.
+Only when using a public path other than the default Laravel app/public:
+I had to register the public path in the AppServiceProvider.php
+in order to get the public files to copy to the right place.
+(this seems to only be needed when NOT USING the default Laravel public folder)</p>
+<p>Note: Had to go with the camel-cased &quot;ecoHelpers&quot; for the target folders
+since &quot;eco-helpers&quot; appears to be an invalid namespace name.</p>
+</section>
+
 
 
 
@@ -200,7 +208,7 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#property_commands">$commands</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#property_commands">$commands</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -214,21 +222,20 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#method_boot">boot()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#method_boot">boot()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Bootstrap services.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#method_register">register()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#method_register">register()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Register services.</dd>
 
     </dl>
-
 
 
 
@@ -258,19 +265,22 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/EcoHelpersServiceProvider.php"><a href="files/eco-helpers-src-ecohelpersserviceprovider.html"><abbr title="eco-helpers/src/EcoHelpersServiceProvider.php">EcoHelpersServiceProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$commands</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;ScottNason\\EcoHelpers\\Commands\\ecoHelpersSampleData&#039;]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;ScottNason\EcoHelpers\Commands\ecoHelpersSampleData&#039;, &#039;ScottNason\EcoHelpers\Commands\ecoHelpersInstall&#039;]</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -296,7 +306,7 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/EcoHelpersServiceProvider.php"><a href="files/eco-helpers-src-ecohelpersserviceprovider.html"><abbr title="eco-helpers/src/EcoHelpersServiceProvider.php">EcoHelpersServiceProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">107</span>
 
     </aside>
 
@@ -308,6 +318,7 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><ul>
 <li>Register all publishable resources.</li>
 <li>(define which files come from which local path and go to which user project folder)</li>
@@ -328,6 +339,8 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -343,7 +356,7 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/EcoHelpersServiceProvider.php"><a href="files/eco-helpers-src-ecohelpersserviceprovider.html"><abbr title="eco-helpers/src/EcoHelpersServiceProvider.php">EcoHelpersServiceProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -357,6 +370,9 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -474,15 +490,15 @@ ScottNason\EcoHelpers\EcoHelpersServiceProvider::class</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#property_commands">$commands<a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#property_commands">$commands</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#method_boot">boot()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#method_register">register()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#method_boot">boot()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-EcoHelpersServiceProvider.html#method_register">register()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -152,8 +152,11 @@ created_at
 updated_by
 updated_at</p>
 
+
     <section class="phpdocumentor-description"><p>This is included in the ehBaseModel.</p>
 </section>
+
+
 
 
 
@@ -180,7 +183,7 @@ updated_at</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps">$save_with_stamps</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps">$save_with_stamps</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
@@ -195,34 +198,34 @@ updated_at</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_creatingTimestamps">creatingTimestamps()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_creatingTimestamps">creatingTimestamps()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>The &quot;Creating&quot; event handler.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_savingTimestamps">savingTimestamps()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_savingTimestamps">savingTimestamps()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_updatingTimestamps">updatingTimestamps()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_updatingTimestamps">updatingTimestamps()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>The &quot;Updating&quot; and &quot;Saving&quot; events handlers.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatDateStamp">formatDateStamp()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatDateStamp">formatDateStamp()</a>
     <span>
                                 &nbsp;: false|string    </span>
 </dt>
 <dd>User date stamp formatter.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatUserStamp">formatUserStamp()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatUserStamp">formatUserStamp()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
@@ -265,6 +268,7 @@ updated_at</p>
 
         <p class="phpdocumentor-summary">Mechanism for disabling the auto table timestamp updates.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">bool</span>
@@ -277,6 +281,8 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 </section>
 
     
+    
+
     
 
 </article>
@@ -310,10 +316,11 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">creatingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">creatingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This should (?) only be invoked when creating a new record.</p>
 <p>(note: username and date formats are set in the 2 helper methods below)</p>
 <p>Steps to use:</p>
@@ -329,12 +336,14 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$model</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -361,21 +370,24 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">savingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">savingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$model</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -403,10 +415,11 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">updatingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">updatingTimestamps</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: still not completely clear on saving vs updating yet but they do both happen under various circumstances.</p>
 <p>(note: user name and date formats are set in the 2 helper methods below.</p>
 </section>
@@ -415,12 +428,14 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$model</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -452,11 +467,14 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This should just be saving a plain UTC format and then the display and timezone get applied in ehControl.</p>
 <p>(if it should be different, then change it here)</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -491,12 +509,15 @@ when doing internal maintenance updates that we want to leave the stamps alone.<
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return the format as configured in the eco-helpers config file
 under 'user_update_stamp'</p>
 <p>If there is no user logged in, then return 'system' as the username.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -622,17 +643,17 @@ under 'user_update_stamp'</p>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps">$save_with_stamps</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#property_save_with_stamps">$save_with_stamps</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_creatingTimestamps">creatingTimestamps()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_savingTimestamps">savingTimestamps()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_updatingTimestamps">updatingTimestamps()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatDateStamp">formatDateStamp()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatUserStamp">formatUserStamp()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_creatingTimestamps">creatingTimestamps()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_savingTimestamps">savingTimestamps()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_updatingTimestamps">updatingTimestamps()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatDateStamp">formatDateStamp()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Traits-ehHasUserstamps.html#method_formatUserStamp">formatUserStamp()</a></li>
                                     </ul>
             </li>
                     </ul>

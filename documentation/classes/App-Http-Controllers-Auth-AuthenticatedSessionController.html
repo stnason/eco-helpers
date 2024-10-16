@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -161,12 +161,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers-publishable/Auth/AuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-publishable-auth-authenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers-publishable/Auth/AuthenticatedSessionController.php">AuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
             <p class="phpdocumentor-summary">This is the package published version that extends the ehAuthenticatedSessionController
 which is providing the additional package permission checks.</p>
+
+
+
 
 
 
@@ -194,7 +197,7 @@ which is providing the additional package permission checks.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_login_error_key">$login_error_key</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_login_error_key">$login_error_key</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -202,18 +205,11 @@ which is providing the additional package permission checks.</p>
 and controls how login error messages are displayed as full verbose descriptions or just ambiguous numbers for more security.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_login_messages_array">$login_messages_array</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_login_messages_array">$login_messages_array</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Login message $keys are used with the corresponding ecoHelpers custom login validation checks.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_username">$username</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-<dd>Login username to be used by the controller. (email or name)</dd>
 
     </dl>
 
@@ -224,42 +220,35 @@ and controls how login error messages are displayed as full verbose descriptions
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method___construct">__construct()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Create a new controller instance with the appropriate middleware for the authentication system.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_create">create()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_create">create()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Display the login view.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_destroy">destroy()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_destroy">destroy()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Destroy an authenticated session.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_findUsername">findUsername()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Get the login username to be used by the controller.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_store">store()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_store">store()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Handle an incoming authentication request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_username">username()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_username">username()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
@@ -267,13 +256,13 @@ and controls how login error messages are displayed as full verbose descriptions
 Returns the field in the Users table that we want to search by.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_ehAdditionalLoginChecks">ehAdditionalLoginChecks()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_ehAdditionalLoginChecks">ehAdditionalLoginChecks()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_throwEcoHelperValidation">throwEcoHelperValidation()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_throwEcoHelperValidation">throwEcoHelperValidation()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -281,7 +270,6 @@ Returns the field in the Users table that we want to search by.</dd>
  within the multiple places they are checked above.</dd>
 
     </dl>
-
 
 
 
@@ -311,13 +299,14 @@ Returns the field in the Users table that we want to search by.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">This can be one of the 2 string key names above; &#039;number&#039; or &#039;description&#039;
 and controls how login error messages are displayed as full verbose descriptions or just ambiguous numbers for more security.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -326,6 +315,8 @@ and controls how login error messages are displayed as full verbose descriptions
 
     
     
+    
+
     
 
 </article>
@@ -346,12 +337,13 @@ and controls how login error messages are displayed as full verbose descriptions
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Login message $keys are used with the corresponding ecoHelpers custom login validation checks.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
@@ -364,38 +356,6 @@ and controls how login error messages are displayed as full verbose descriptions
     
     
 
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_username">
-        $username
-        <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_username" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">54</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Login username to be used by the controller. (email or name)</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$username</span>
-    </code>
-
-    
-    
     
 
 </article>
@@ -421,7 +381,7 @@ and controls how login error messages are displayed as full verbose descriptions
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -433,11 +393,14 @@ and controls how login error messages are displayed as full verbose descriptions
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(originally from the ehLoginController [ui] version)
 This looks to be specific to ui only. It breaks the Breeze call to destroy().</p>
 </section>
 
     
+    
+
     
 
     
@@ -456,7 +419,7 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">232</span>
+    <span class="phpdocumentor-element-found-in__line">266</span>
 
     </aside>
 
@@ -468,10 +431,13 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(originally from the ehAuthenticatedSessionController [Breeze] version)</p>
 </section>
 
     
+    
+
     
 
     
@@ -490,7 +456,7 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">321</span>
+    <span class="phpdocumentor-element-found-in__line">369</span>
 
     </aside>
 
@@ -502,6 +468,7 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(originally from the ehAuthenticatedSessionController [Breeze] version)</p>
 </section>
 
@@ -519,44 +486,8 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
     
 
     
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_findUsername">
-        findUsername()
-        <a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_findUsername" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">173</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Get the login username to be used by the controller.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">findUsername</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-        <section class="phpdocumentor-description"><p>(originally from the ehLoginController [ui] version)</p>
-</section>
 
     
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
 </article>
                     <article
         class="phpdocumentor-element
@@ -572,7 +503,7 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">249</span>
+    <span class="phpdocumentor-element-found-in__line">283</span>
 
     </aside>
 
@@ -580,10 +511,11 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">store</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Http\Requests\Auth\LoginRequest">LoginRequest</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">store</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Http-Requests-Auth-LoginRequest.html"><abbr title="\App\Http\Requests\Auth\LoginRequest">LoginRequest</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(originally from the ehAuthenticatedSessionController [Breeze] version)</p>
 </section>
 
@@ -591,12 +523,14 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$request</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\App\Http\Requests\Auth\LoginRequest">LoginRequest</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Http-Requests-Auth-LoginRequest.html"><abbr title="\App\Http\Requests\Auth\LoginRequest">LoginRequest</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -616,7 +550,7 @@ This looks to be specific to ui only. It breaks the Breeze call to destroy().</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">193</span>
+    <span class="phpdocumentor-element-found-in__line">226</span>
 
     </aside>
 
@@ -629,10 +563,13 @@ Returns the field in the Users table that we want to search by.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(originally from the ehLoginController [ui] version)</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -655,7 +592,7 @@ Returns the field in the Users table that we want to search by.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -667,6 +604,7 @@ Returns the field in the Users table that we want to search by.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -677,6 +615,8 @@ Returns the field in the Users table that we want to search by.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -696,7 +636,7 @@ Returns the field in the Users table that we want to search by.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php"><a href="files/eco-helpers-src-controllers-auth-ehauthenticatedsessioncontroller.html"><abbr title="eco-helpers/src/Controllers/Auth/ehAuthenticatedSessionController.php">ehAuthenticatedSessionController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">207</span>
+    <span class="phpdocumentor-element-found-in__line">241</span>
 
     </aside>
 
@@ -705,10 +645,11 @@ Returns the field in the Users table that we want to search by.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">throwEcoHelperValidation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$display_error_message</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">throwEcoHelperValidation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$display_error_message</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>(originally from the ehLoginController [ui] version)</p>
 </section>
 
@@ -716,12 +657,14 @@ Returns the field in the Users table that we want to search by.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$display_error_message</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -840,23 +783,21 @@ Returns the field in the Users table that we want to search by.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_login_error_key">$login_error_key<a href="classes/App-Http-Controllers-Auth-AuthenticatedSessionController.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_login_messages_array">$login_messages_array<a href="classes/App-Http-Controllers-Auth-AuthenticatedSessionController.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_username">$username<a href="classes/App-Http-Controllers-Auth-AuthenticatedSessionController.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_login_error_key">$login_error_key</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#property_login_messages_array">$login_messages_array</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_create">create()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_destroy">destroy()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_findUsername">findUsername()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_store">store()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_username">username()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_ehAdditionalLoginChecks">ehAdditionalLoginChecks()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_throwEcoHelperValidation">throwEcoHelperValidation()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_create">create()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_destroy">destroy()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_store">store()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_username">username()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_ehAdditionalLoginChecks">ehAdditionalLoginChecks()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Controllers-Auth-ehAuthenticatedSessionController.html#method_throwEcoHelperValidation">throwEcoHelperValidation()</a></li>
                                     </ul>
             </li>
                     </ul>

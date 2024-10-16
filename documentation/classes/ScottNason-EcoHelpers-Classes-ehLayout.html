@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -164,11 +164,14 @@
             <p class="phpdocumentor-summary">ehLayout is responsible for handling all standard page/form area display control interaction
  between the Controller and the base template.</p>
 
+
     <section class="phpdocumentor-description"><ul>
 <li>banner, name, icon, description, linkbar, heading, flash, attention, option-block, login</li>
 <li>Note: That the header and footer areas are completely independent and controlled by their own template files.</li>
 </ul>
 </section>
+
+
 
 
 
@@ -195,21 +198,21 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_custom_keys">$custom_keys</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_custom_keys">$custom_keys</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>Custom keys that can be used as &quot;methods&quot; to call methods that are not directly related to display areas.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_defined_areas">$defined_areas</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_defined_areas">$defined_areas</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 <dd>The areas that are laid out (and controllable) in the base template.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_layout">$layout</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_layout">$layout</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
@@ -224,133 +227,132 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method___callStatic">__callStatic()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method___callStatic">__callStatic()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Generic method call originally used directly to set any of the area parameters (ehLayout::setName).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_getLayout">getLayout()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_getLayout">getLayout()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Return the $layout array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_initLayout">initLayout()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_initLayout">initLayout()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Reset and populate an initial layout control array the base template using default values or--if using it--the Menu system.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAll">setAll()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAll">setAll()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Set all defined areas either on or off.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAttention">setAttention()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAttention">setAttention()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () to turn the attention message on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAutoload">setAutoload()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAutoload">setAutoload()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 <dd>Turns on the user configurable loading of per page js and css needed for specialty functions.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setBanner">setBanner()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setBanner">setBanner()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () to turn the banner on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setButton">setButton()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setButton">setButton()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Setter to set the a single button in the buttons array inside the layout array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setDescription">setDescription()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setDescription">setDescription()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call to () to turn the descriptive heading on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setDynamic">setDynamic()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setDynamic">setDynamic()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () to turn the dynamic heading on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setFlash">setFlash()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setFlash">setFlash()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () to turn the system flash message on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setFullWidth">setFullWidth()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setFullWidth">setFullWidth()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () or (true) to turn on full width.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setIcon">setIcon()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setIcon">setIcon()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () to turn the name icon on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setLinkbar">setLinkbar()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setLinkbar">setLinkbar()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () to turn the Linkbar on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setName">setName()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setName">setName()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () to turn the name on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setOptionBlock">setOptionBlock()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setOptionBlock">setOptionBlock()</a>
     <span>
                                 &nbsp;: null    </span>
 </dt>
 <dd>Call with () to turn the option-block area on.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setStandardButtons">setStandardButtons()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setStandardButtons">setStandardButtons()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Does the same thing that setButtons does -- which is the way to manually set you own buttons.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setWhenAdding">setWhenAdding()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setWhenAdding">setWhenAdding()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Set the flag for the templates when using create() or show() methods.</dd>
 
     </dl>
-
 
 
 
@@ -386,6 +388,7 @@
 
         <p class="phpdocumentor-summary">Custom keys that can be used as &quot;methods&quot; to call methods that are not directly related to display areas.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
@@ -396,6 +399,8 @@
 </section>
 
     
+    
+
     
 
 </article>
@@ -422,6 +427,7 @@
 
         <p class="phpdocumentor-summary">The areas that are laid out (and controllable) in the base template.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
@@ -432,6 +438,8 @@
 </section>
 
     
+    
+
     
 
 </article>
@@ -458,6 +466,7 @@
 
         <p class="phpdocumentor-summary">The array that ultimately is returned and is responsible for controlling the view areas in the base template.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -466,6 +475,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -499,10 +510,11 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">__callStatic</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$passed_value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">__callStatic</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$passed_value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Where &quot;Name&quot; refers to one of the display areas defined in self::$defined_areas.</p>
 <p>BUT...to make it easier with IDE type-ahead, each area has its own setter below now
 and it does it's thing before passing off to this generic method that's responsible for
@@ -518,7 +530,7 @@ setName()               - same as setName(true);</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$method</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -531,6 +543,8 @@ setName()               - same as setName(true);</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -550,7 +564,7 @@ setName()               - same as setName(true);</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">832</span>
+    <span class="phpdocumentor-element-found-in__line">843</span>
 
     </aside>
 
@@ -564,6 +578,9 @@ setName()               - same as setName(true);</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -598,11 +615,14 @@ setName()               - same as setName(true);</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note, these all come from config.eco-helpers.php
 so you must have previously run php artisan vendor:publish on this package.</p>
 </section>
 
     
+    
+
     
 
     
@@ -621,7 +641,7 @@ so you must have previously run php artisan vendor:publish on this package.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">667</span>
+    <span class="phpdocumentor-element-found-in__line">678</span>
 
     </aside>
 
@@ -629,10 +649,11 @@ so you must have previously run php artisan vendor:publish on this package.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$all_on</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$all_on</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>setAll() with no parameters is same as true (all on).</p>
 </section>
 
@@ -640,12 +661,14 @@ so you must have previously run php artisan vendor:publish on this package.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$all_on</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -665,7 +688,7 @@ so you must have previously run php artisan vendor:publish on this package.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">509</span>
+    <span class="phpdocumentor-element-found-in__line">522</span>
 
     </aside>
 
@@ -673,10 +696,11 @@ so you must have previously run php artisan vendor:publish on this package.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setAttention</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setAttention</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the attention message on.
 Call with (false) to turn it off.
 Call with ('some value') to change its contents.
@@ -687,7 +711,7 @@ Call with ('some value', 'class') set the class.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -700,6 +724,8 @@ Call with ('some value', 'class') set the class.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -723,7 +749,7 @@ Call with ('some value', 'class') set the class.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">714</span>
+    <span class="phpdocumentor-element-found-in__line">725</span>
 
     </aside>
 
@@ -731,21 +757,22 @@ Call with ('some value', 'class') set the class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setAutoload</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setAutoload</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Can call either by name or number (as defined in eco-helpers.layout.auto_loaders)</p>
 <p>The actual code for each of these is contained in the views/ecoHelpers/auto-load/nn-autoload.php
 file associated with each.</p>
 <p>EXAMPLES OF THINGS INCLUDED IN THE AUTO-LOAD FILES:</p>
 <ul>
-<li>textedit</li>
-<li>datepicker</li>
-<li>datetimepicker</li>
-<li>helpsystem</li>
-<li>chosen</li>
-<li>datatables</li>
+<li>textedit         (TinyMCE)</li>
+<li>datepicker       (jQuery UI widget)</li>
+<li>datetimepicker   (jQuery UI widget)</li>
+<li>helpsystem       (mouse-over-field context help)</li>
+<li>chosen           (Chosen Multi-Select)</li>
+<li>datatables       (Datatables - use $parameter to specify init file other than dt-standard-init)</li>
 </ul>
 </section>
 
@@ -758,7 +785,16 @@ file associated with each.</p>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$parameter</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
             </dl>
+
+    
 
     
 
@@ -778,7 +814,7 @@ file associated with each.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">344</span>
+    <span class="phpdocumentor-element-found-in__line">345</span>
 
     </aside>
 
@@ -786,10 +822,11 @@ file associated with each.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setBanner</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setBanner</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the banner on.
 Call with (false) to turn it off.
 Call with ('some value') to change its contents.
@@ -800,7 +837,7 @@ Call with ('some value', 'class') set the class.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -813,6 +850,8 @@ Call with ('some value', 'class') set the class.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -836,7 +875,7 @@ Call with ('some value', 'class') set the class.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">565</span>
+    <span class="phpdocumentor-element-found-in__line">578</span>
 
     </aside>
 
@@ -848,6 +887,7 @@ Call with ('some value', 'class') set the class.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: buttons display in the pre-defined base layout button area.</p>
 </section>
 
@@ -872,6 +912,8 @@ Call with ('some value', 'class') set the class.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -887,7 +929,7 @@ Call with ('some value', 'class') set the class.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">421</span>
+    <span class="phpdocumentor-element-found-in__line">427</span>
 
     </aside>
 
@@ -895,10 +937,11 @@ Call with ('some value', 'class') set the class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setDescription</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setDescription</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the descriptive heading on.
 Call with (false) to turn it off.
 Call with ('some value') to change its contents.
@@ -909,7 +952,7 @@ Call with ('some value', 'class') set the class.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -922,6 +965,8 @@ Call with ('some value', 'class') set the class.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -945,7 +990,7 @@ Call with ('some value', 'class') set the class.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">464</span>
+    <span class="phpdocumentor-element-found-in__line">470</span>
 
     </aside>
 
@@ -953,10 +998,11 @@ Call with ('some value', 'class') set the class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setDynamic</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setDynamic</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the dynamic heading on.
 Call with (false) to turn it off.
 Call with ('some value') to change its contents.
@@ -967,7 +1013,7 @@ Call with ('some value', 'class') set the class.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -980,6 +1026,8 @@ Call with ('some value', 'class') set the class.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1003,7 +1051,7 @@ Call with ('some value', 'class') set the class.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">485</span>
+    <span class="phpdocumentor-element-found-in__line">495</span>
 
     </aside>
 
@@ -1011,21 +1059,25 @@ Call with ('some value', 'class') set the class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setFlash</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setFlash</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the flash message on.
 Call with (false) to turn it off.
 Call with ('some value') to change its contents.
 Call with ('some value', 'class') set the class.</p>
+<p>Note: This should rarely be used and is included here mostly for completeness and testing.
+The completed crud action should either be setting or returning on redirect
+with this message.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1038,6 +1090,8 @@ Call with ('some value', 'class') set the class.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1061,7 +1115,7 @@ Call with ('some value', 'class') set the class.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">552</span>
+    <span class="phpdocumentor-element-found-in__line">565</span>
 
     </aside>
 
@@ -1069,10 +1123,11 @@ Call with ('some value', 'class') set the class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setFullWidth</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setFullWidth</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (false) to turn off full width.
 Note - these will use the 2 keys defined in the eco-helpers config file:
 'page_container_class_normal' =&gt; 'xxxxx',
@@ -1083,12 +1138,14 @@ Note - these will use the 2 keys defined in the eco-helpers config file:
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1112,7 +1169,7 @@ Note - these will use the 2 keys defined in the eco-helpers config file:
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">387</span>
+    <span class="phpdocumentor-element-found-in__line">388</span>
 
     </aside>
 
@@ -1120,10 +1177,11 @@ Note - these will use the 2 keys defined in the eco-helpers config file:
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setIcon</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$inline_style</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setIcon</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$inline_style</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the icon on.
 Call with (false) to turn it off.
 Call with ('some value') to change its contents.
@@ -1137,7 +1195,7 @@ It provides the style = &quot;{{$variable}}&quot;</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1150,6 +1208,8 @@ It provides the style = &quot;{{$variable}}&quot;</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1173,7 +1233,7 @@ It provides the style = &quot;{{$variable}}&quot;</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">443</span>
+    <span class="phpdocumentor-element-found-in__line">449</span>
 
     </aside>
 
@@ -1181,10 +1241,11 @@ It provides the style = &quot;{{$variable}}&quot;</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setLinkbar</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$linkbar</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setLinkbar</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$linkbar</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the Linkbar on.
 Call with (false) to turn it off.
 Call with ('some value', 'class') set the class.
@@ -1195,7 +1256,7 @@ Call with ($linkbar-&gt;getLinkbar()) or pass your own array to change its conte
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$linkbar</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1208,6 +1269,8 @@ Call with ($linkbar-&gt;getLinkbar()) or pass your own array to change its conte
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1231,7 +1294,7 @@ Call with ($linkbar-&gt;getLinkbar()) or pass your own array to change its conte
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">363</span>
+    <span class="phpdocumentor-element-found-in__line">364</span>
 
     </aside>
 
@@ -1239,10 +1302,11 @@ Call with ($linkbar-&gt;getLinkbar()) or pass your own array to change its conte
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setName</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setName</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the name on.
 Call with (false) to turn it off.
 Call with ('some value') to change its contents.
@@ -1253,7 +1317,7 @@ Call with ('some value', 'class') set the class.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1266,6 +1330,8 @@ Call with ('some value', 'class') set the class.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1289,7 +1355,7 @@ Call with ('some value', 'class') set the class.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">531</span>
+    <span class="phpdocumentor-element-found-in__line">544</span>
 
     </aside>
 
@@ -1297,10 +1363,11 @@ Call with ('some value', 'class') set the class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setOptionBlock</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setOptionBlock</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Call with (true) to turn the option block on.
 Call with (false) to turn it off.
 Call with ('some value') to change its contents.
@@ -1311,7 +1378,7 @@ Call with ('some value', 'class') set the class.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1324,6 +1391,8 @@ Call with ('some value', 'class') set the class.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1347,7 +1416,7 @@ Call with ('some value', 'class') set the class.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">590</span>
+    <span class="phpdocumentor-element-found-in__line">603</span>
 
     </aside>
 
@@ -1355,10 +1424,11 @@ Call with ('some value', 'class') set the class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setStandardButtons</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setStandardButtons</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>But this automatically builds out the Save, New and Delete buttons based on this user's permissions.
 Note: This uses the html button code in eco-helpers.layout.default_buttons[].
 Note: Once set, these buttons are returned in the $layout['buttons'] array for use in the template.</p>
@@ -1372,7 +1442,7 @@ ehLayout::setStandardButtons(['new','delete','save']);</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$parameter</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>// Accepts a single string button name, array (csv), or blank for all.</p>
@@ -1380,6 +1450,8 @@ ehLayout::setStandardButtons(['new','delete','save']);</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1399,7 +1471,7 @@ ehLayout::setStandardButtons(['new','delete','save']);</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Classes/ehLayout.php"><a href="files/eco-helpers-src-classes-ehlayout.html"><abbr title="eco-helpers/src/Classes/ehLayout.php">ehLayout.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">785</span>
+    <span class="phpdocumentor-element-found-in__line">796</span>
 
     </aside>
 
@@ -1407,10 +1479,11 @@ ehLayout::setStandardButtons(['new','delete','save']);</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setWhenAdding</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setWhenAdding</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Certain things are not available during new records adds so template can
 conditionally drop them out based on this value.</p>
 <p>Normally the create() section of the controller will turn this on.</p>
@@ -1420,12 +1493,14 @@ conditionally drop them out based on this value.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1544,33 +1619,33 @@ conditionally drop them out based on this value.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_custom_keys">$custom_keys<a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_defined_areas">$defined_areas<a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_layout">$layout<a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_custom_keys">$custom_keys</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_defined_areas">$defined_areas</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#property_layout">$layout</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method___callStatic">__callStatic()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_getLayout">getLayout()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_initLayout">initLayout()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAll">setAll()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAttention">setAttention()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAutoload">setAutoload()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setBanner">setBanner()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setButton">setButton()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setDescription">setDescription()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setDynamic">setDynamic()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setFlash">setFlash()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setFullWidth">setFullWidth()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setIcon">setIcon()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setLinkbar">setLinkbar()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setName">setName()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setOptionBlock">setOptionBlock()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setStandardButtons">setStandardButtons()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setWhenAdding">setWhenAdding()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method___callStatic">__callStatic()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_getLayout">getLayout()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_initLayout">initLayout()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAll">setAll()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAttention">setAttention()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setAutoload">setAutoload()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setBanner">setBanner()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setButton">setButton()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setDescription">setDescription()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setDynamic">setDynamic()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setFlash">setFlash()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setFullWidth">setFullWidth()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setIcon">setIcon()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setLinkbar">setLinkbar()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setName">setName()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setOptionBlock">setOptionBlock()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setStandardButtons">setStandardButtons()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Classes-ehLayout.html#method_setWhenAdding">setWhenAdding()</a></li>
                                     </ul>
             </li>
                     </ul>

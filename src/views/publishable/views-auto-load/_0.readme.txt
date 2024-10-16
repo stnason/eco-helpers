@@ -5,10 +5,13 @@ They are used by the auto-load system and can be modified here to suite your nee
 The numbers are associated with the auto-loaders defined in the eco-helpers config file
 under layout['auto_loaders'] and can be called from the controller by:
 
+    The name defined in the config file:
     ehLayout::setAutoload('name');
-    or
+
+    or the number of that config file array entry:
     ehLayout::setAutoload(1);
-    or
+
+    or by passing an array with multiple request numbers in it:
     ehLayout::setAutoload([1,5,7]);
 
 

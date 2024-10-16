@@ -1,14 +1,20 @@
 <?php
 return [
-    'APP_VER' => 'v1.0.66',
-    'APP_LASTUPDATE' => '10/11/2024'
+    'APP_VER' => 'v1.1.0',
+    'APP_LASTUPDATE' => '10/14/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 10/11/2024:v01.00.66: 1.50 :Find issue with Linkbar area floating up behind the pageName when not Description set; add flex-basis; 100%; //to Force this to use one complete row of the heading layout.
- * 10/11/2024:v01.00.66: 1.50 :Add Dev Log viewer from UnderCover.
+ * 10/14/2024:v01.01.00: 3.00 :Still cleaning up RULES for adding/deleting roles in ehUserController@dataConsistencyCheck() and ehUserFunctions@deletRoleFromUser().
+ * 10/13/2024:v01.01.00: 3.00 :Working on consistency rules when adding/deleting roles from users (ehUserFunctions@deleteRoleFromUser())
+ * 10/12/2024:v01.01.00: 3.50 :Finish addItem() in ehLinkbar and add a final security check at end in getLinkbar(). Rework addExportAllLink() to add its output item to the $items_to_return array after the security check.
+ * 10/12/2024:v01.01.00: 2.50 :Add the DTSererSide class and init file from par.
+ * 10/12/2024:v01.01.00: 2.50 :Changes to auto-load system; change auto_load[0] from 'static' to 'global'; add $parameter to setAutoload and make it the $key value (if present) instead of "true". Add <script> tags to dt-standard-init.
+ * 10/12/2024:v01.01.00: 1.00 :Add mouseover highlighting to eco-welcome to show page areas.
+ * 10/11/2024:v01.00.66: 1.50 :Find issue with Linkbar area floating up behind the pageName when no Description set; add flex-basis; 100%; //to Force this to use one complete row of the heading layout.
+ * 10/11/2024:v01.00.66: 1.50 :Add Dev Log viewer from UnderCover. Add link in System Settings under "software and system versions"; add dev-log pages entry to sample data.
  * 09/27/2024:v01.00.65: 0.50 :Change eh-app-template (line 339) selector for eh-form-crud to "starts with". Also fix selector in eh-save-me.js.
  * 09/25/2024:v01.00.64: 0.50 :re-work the AuthenticatedSessionController's redirect on success checks; update to v1.0.64 (having trouble getting np.com to get passed v1.0.62)
  * 09/12/2024:v01.00.63: 0.50 :Replace $auto_submit (local method variable) with the globally processed $p['auto_submit'] in the checkbox() method.

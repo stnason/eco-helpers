@@ -78,9 +78,8 @@ class ehNotifier
         // Minimum security check Make sure the person calling this is at least logged in.
         if (!self::authorized()) {return json_encode(['responseText'=>'ehNotifier: Not authorized']);}
 
-        // Note: will use Auth()->user() if null.
+        // Note: normalizeUserID() will use Auth()->user() if $user null.
         $user = User::normalizeUserID($user);
-
 
         // First remove any expired notifications.
         self::removeExpired($user);
@@ -121,7 +120,7 @@ class ehNotifier
     }
 
     public static function setViewed() {
-        //TODO: set the status of this notification that have been seen once already
+        //TODO: set the status of notifications that have been seen once already
         // $notification->viewed = 1
         // I think there will need to be a corresponding js function built too.
     }

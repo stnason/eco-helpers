@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
@@ -85,7 +85,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -113,14 +113,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -160,12 +160,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Commands/ecoHelpersSampleData.php"><a href="files/eco-helpers-src-commands-ecohelperssampledata.html"><abbr title="eco-helpers/src/Commands/ecoHelpersSampleData.php">ecoHelpersSampleData.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Published as the artisan command &#039;eco-helpers:sample-data&#039; to call the ehSampleData class responsible
-for building out the initial (required) system data and examples.</p>
+            <p class="phpdocumentor-summary">Published as the artisan command &#039;eco-helpers:sample-data&#039; to call the ehSampleData class
+that&#039;s responsible for building out the initial (required) system data and examples.</p>
+
+
+
 
 
 
@@ -193,14 +196,14 @@ for building out the initial (required) system data and examples.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#property_description">$description</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#property_description">$description</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>The console command description.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#property_signature">$signature</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#property_signature">$signature</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -215,14 +218,14 @@ for building out the initial (required) system data and examples.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#method_handle">handle()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#method_handle">handle()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Execute the console command.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#method_showOnScreenWarning">showOnScreenWarning()</a>
+    <a class="" href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#method_showOnScreenWarning">showOnScreenWarning()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -230,7 +233,6 @@ for building out the initial (required) system data and examples.</p>
 warning message explaining what&#039;s about to happen.</dd>
 
     </dl>
-
 
 
 
@@ -260,20 +262,23 @@ warning message explaining what&#039;s about to happen.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Commands/ecoHelpersSampleData.php"><a href="files/eco-helpers-src-commands-ecohelperssampledata.html"><abbr title="eco-helpers/src/Commands/ecoHelpersSampleData.php">ecoHelpersSampleData.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">The console command description.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$description</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;Create sample data for the ecoHelpers framework.&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;Create the sample data for the eco-helpers package.&#039;</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -294,12 +299,13 @@ warning message explaining what&#039;s about to happen.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Commands/ecoHelpersSampleData.php"><a href="files/eco-helpers-src-commands-ecohelperssampledata.html"><abbr title="eco-helpers/src/Commands/ecoHelpersSampleData.php">ecoHelpersSampleData.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">The name and signature of the console command.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -308,6 +314,8 @@ warning message explaining what&#039;s about to happen.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -333,7 +341,7 @@ warning message explaining what&#039;s about to happen.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Commands/ecoHelpersSampleData.php"><a href="files/eco-helpers-src-commands-ecohelperssampledata.html"><abbr title="eco-helpers/src/Commands/ecoHelpersSampleData.php">ecoHelpersSampleData.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -347,6 +355,9 @@ warning message explaining what&#039;s about to happen.</dd>
         </div>
     
     
+    
+    
+
     
 
     
@@ -365,7 +376,7 @@ warning message explaining what&#039;s about to happen.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="eco-helpers/src/Commands/ecoHelpersSampleData.php"><a href="files/eco-helpers-src-commands-ecohelperssampledata.html"><abbr title="eco-helpers/src/Commands/ecoHelpersSampleData.php">ecoHelpersSampleData.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -378,11 +389,13 @@ warning message explaining what&#039;s about to happen.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>(just separating this down here to keep the main
-body of the code a little cleaner)</p>
+    
+        <section class="phpdocumentor-description"><p>(separating this here to keep the main body of the code cleaner)</p>
 </section>
 
     
+    
+
     
 
     
@@ -500,16 +513,16 @@ body of the code a little cleaner)</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#property_description">$description<a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html"></li>
-                                                    <li><a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#property_signature">$signature<a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html"></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#property_description">$description</a></li>
+                                                    <li class=""><a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#property_signature">$signature</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#method_handle">handle()</a></li>
-                                            <li><a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#method_showOnScreenWarning">showOnScreenWarning()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#method_handle">handle()</a></li>
+                                            <li class=""><a href="classes/ScottNason-EcoHelpers-Commands-ecoHelpersSampleData.html#method_showOnScreenWarning">showOnScreenWarning()</a></li>
                                     </ul>
             </li>
                     </ul>

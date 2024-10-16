@@ -7,8 +7,7 @@ use Illuminate\Foundation\Http\Kernel;
 
 /**
  * Package Class EcoHelperServiceProvider for
- * ScottNason\EcoHelpers\EcoHelpersServiceProvider::class
- * @package ScottNason\EcoHelpers.
+ * ScottNason\EcoHelpers\EcoHelpersServiceProvider::class.
  *
  * No need to add to config/app.php manually anymore.
  * Laravel now auto-discovers and registers it properly.
@@ -24,6 +23,8 @@ use Illuminate\Foundation\Http\Kernel;
  *
  * Note: Had to go with the camel-cased "ecoHelpers" for the target folders
  *       since "eco-helpers" appears to be an invalid namespace name.
+ *
+ * @package ScottNason\EcoHelpers.
  */
 
 class EcoHelpersServiceProvider extends ServiceProvider
