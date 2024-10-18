@@ -1,7 +1,7 @@
 <?php
 return [
-    'APP_VER' => 'v0.0.01',
-    'APP_LASTUPDATE' => '07/09/2024'
+    'eh-app-version' => 'v0.0.01',
+    'eh-last-update' => '07/09/2024'
 ];
 
 /**

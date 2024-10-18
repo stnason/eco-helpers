@@ -81,7 +81,7 @@ class ehHomeController extends ehBaseController
         // We're just pulling the eco-helper's version and last update from the configuration system
         //  and using those values to create and populate the system banner:
         // Comment this out to have the banner pull from the system settings entry.
-        ehLayout::setBanner('Controller overriding system banner ('.ehConfig::get('APP_VER').', '.ehConfig::get('APP_LASTUPDATE').')');
+        ehLayout::setBanner('Controller overriding system banner ('.ehConfig::get('eh-app-version').', '.ehConfig::get('eh-last-update').')');
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////

@@ -1,19 +1,26 @@
 <?php
 return [
-    'APP_VER' => 'v1.1.1',
-    'APP_LASTUPDATE' => '10/16/2024'
+    'eh-app-version' => 'v1.1.3',
+    'eh-last-update' => '10/18/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 10/18/2024:v01.01.03: 3.00 :Rework the Install command to include all new published files and/or and folders.
+ * 10/18/2024:v01.01.03: 0.25 :Pull over ehCaptcha class from UnderCover (still a work in progress, though). Stub out "captcha" section to eco-helpers.
+ * 10/18/2024:v01.01.03: 0.25 :prepend "eh" to the above APP_VER and APP_LASTUPDATE.
+ * 10/18/2024:v01.01.03: 0.25 :Shorten (and replace) all data_format_ (in eco-helpers) to just date_
+ * 10/18/2024:v01.01.03: 2.00 :Reorganize views; move all roles, pages, users to admin in preparation for extending to publishable versions. Move examples to publishable.
+ * 10/18/2024:v01.01.03: 1.00 :Rename ehConfigController back to ehSettingsController (not sure why that was ever changed but far too confusing.)
+ * 10/17/2024:v01.01.02: 2.25 :Still working on the ehDTServerSide (adding ability to sort by relationship field - must be extended);
  * 10/16/2024:v01.01.01: 0.25 :New tag to force the 1.0.0 update.
  * 10/16/2024:v01.01.00: 0.75 :Wow; just learned that phpStorm was not pushing tags during the commit/push. You have to check the checkbox for "Tags" when pushing!
  * 10/14/2024:v01.01.00: 3.00 :Still cleaning up RULES for adding/deleting roles in ehUserController@dataConsistencyCheck() and ehUserFunctions@deletRoleFromUser().
  * 10/13/2024:v01.01.00: 3.00 :Working on consistency rules when adding/deleting roles from users (ehUserFunctions@deleteRoleFromUser())
  * 10/12/2024:v01.01.00: 3.50 :Finish addItem() in ehLinkbar and add a final security check at end in getLinkbar(). Rework addExportAllLink() to add its output item to the $items_to_return array after the security check.
  * 10/12/2024:v01.01.00: 2.50 :Add the DTSererSide class and init file from par.
- * 10/12/2024:v01.01.00: 2.50 :Changes to auto-load system; change auto_load[0] from 'static' to 'global'; add $parameter to setAutoload and make it the $key value (if present) instead of "true". Add <script> tags to dt-standard-init.
+ * 10/12/2024:v01.01.00: 2.50 :Changes to autoload system; change auto_load[0] from 'static' to 'global'; add $parameter to setAutoload and make it the $key value (if present) instead of "true". Add <script> tags to dt-standard-init.
  * 10/12/2024:v01.01.00: 1.00 :Add mouseover highlighting to eco-welcome to show page areas.
  * 10/11/2024:v01.00.66: 1.50 :Find issue with Linkbar area floating up behind the pageName when no Description set; add flex-basis; 100%; //to Force this to use one complete row of the heading layout.
  * 10/11/2024:v01.00.66: 1.50 :Add Dev Log viewer from UnderCover. Add link in System Settings under "software and system versions"; add dev-log pages entry to sample data.
@@ -84,7 +91,7 @@ return [
  * 03/12/2024:v01.00.39: 5.00 :More main template tweaks; got rid of the final override but made it an _bottom "additional"; reworking the settings form.
  * 03/11/2024:v01.00.39: 3.50 :CSS rework. Decoupling base template from Bootstrap. Fix issue with setIcon not turning it off.
  * 03/10/2024:v01.00.38: 3.50 :Start work on major CSS refactor (namespace and start over on override css).
- * 03/04/2024:v01.00.38: 0.50 :Fix issue with auto-load publication folder wrong. (should be under ecoHelpers)
+ * 03/04/2024:v01.00.38: 0.50 :Fix issue with $setting publication folder wrong. (should be under ecoHelpers)
  * 03/03/2024:v01.00.38: 4.00 :Cleaning up default eco home page. Filling out the comments inside of ehHomeController. Beefing up the phpDocumentor documentation.
  * 03/01/2024:v01.00.38: 2.00 :Trouble shooting the new ehNotifier class (no popups or deleting). Fixed issues with no access to session (added 'web' middleware to route) and with non-json data being returned.
  * 02/29/2024:v01.00.37: 1.50 :Cleaning up TODOs; replace manual duplicate check in file upload with chkDuplicateFilename(); create ehNotifier class.
@@ -94,8 +101,8 @@ return [
  * 02/25/2024:v01.00.37: 2.00 :Clean up login/logout routing; Add throw exception error message to ehConfig for missing; add login/logout homepage keys under eco-helpers.access;
  * 02/23/2024:v01.00.37: 4.00 :Working on TODOs. Added the 'user_update_stamp' time stamp eco-helpers key and the ehHasUserstamps implementation.
  * 02/20/2024:v01.00.36: 2.00 :Working on TODOs (58) low-hanging fruit. Implement $class for all display areas in ehLayout.
- * 02/19/2024:v01.00.36: 2.00 :Fine-tuning last issues with new auto-load system.
- * 02/19/2024:v01.00.36: 6.00 :More work on css and name-spacing the app template. Start work on an auto-loader redesign.
+ * 02/19/2024:v01.00.36: 2.00 :Fine-tuning last issues with new $setting system.
+ * 02/19/2024:v01.00.36: 6.00 :More work on css and name-spacing the app template. Start work on an $settinger redesign.
  * 02/13/2024:v01.00.35: 1.00 :Split out override css into form and layout. Add to the override-loader file.
  * 02/13/2024:v01.00.34: 1.00 :Rework the master override css so it's now in the override-loader. (still need to break it apart but it's a start)
  * 02/10/2024:v01.00.34: 1.00 :Clean up while trying to implement in JMP.

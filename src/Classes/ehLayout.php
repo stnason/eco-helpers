@@ -707,7 +707,7 @@ class ehLayout
      * Turns on the user configurable loading of per page js and css needed for specialty functions.
      * Can call either by name or number (as defined in eco-helpers.layout.auto_loaders)
      *
-     * The actual code for each of these is contained in the views/ecoHelpers/auto-load/nn-autoload.php
+     * The actual code for each of these is contained in the views/ecoHelpers/$setting/nn-autoload.php
      * file associated with each.
      *
      *   EXAMPLES OF THINGS INCLUDED IN THE AUTO-LOAD FILES:

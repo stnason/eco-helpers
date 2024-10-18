@@ -13,7 +13,7 @@
 
 @php
     // Note, that is this is called from page_list, the $page variable is not set so these checks are skipped.
-    // These classes are defined in eh-page-list.css and used for highlighting the menu tree sidebar with page we're on and it's parent.
+    // These classes are defined in eh-page-index.css and used for highlighting the menu tree sidebar with page we're on and it's parent.
     // Is this $page_item the same as the one we're editing now?
     $selected_page = '';
     if (isset($page) && $page->id == $page_item->id) {

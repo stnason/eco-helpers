@@ -2,8 +2,8 @@
 
 https://datatables.net/download/
 
-REMEMBER; that the js-autoloader with add this to the bottom of the page when 'datatables'
-is called for by ehLayou::setAutoload('datatables').
+REMEMBER; that the js-autoloader uses the default init defined in eco-helpers.layout.datatables_default_init
+or a the one you specify in the call to ehLayout::setAutoload('datatables','my-init-file').
 
 --}}
 <script>

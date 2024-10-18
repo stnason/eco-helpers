@@ -225,7 +225,7 @@
 
         <div class="form-group d-inline-flex flex-wrap">
             <label>Eco Helpers version</label>
-            <input class="form-control input-wide" disabled value="{{ ScottNason\EcoHelpers\Classes\ehConfig::get('APP_VER') }}">
+            <input class="form-control input-wide" disabled value="{{ ScottNason\EcoHelpers\Classes\ehConfig::get('eh-app-version') }}">
         </div>
 
         <div class="form-group d-inline-flex flex-wrap">
@@ -298,7 +298,7 @@
     {{-- Standard form information header; for endu-user form content headings. --}}
     {{-- ######################################################################## --}}
     @php($model=$setting)
-    @include('ecoHelpers::core.eh-system-info')
+    @include('ecoHelpers.eh-system-info')
     
 </form>
 

@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\DB;
     * 'alert_if'          => add a def_alert_class to the additional_class if the controls value matches this.
     * 'alert_class'       => the class used for the alert_if function
     * 'add_blank'         => when building a <select> drop-down should there be a blank entry on top?
-    * 'date_long'         => set true to force the system defined date_format_long (date + time).
+    * 'date_long'         => set true to force the system defined date_long (date + time).
  *
  * @package App\Classes
  */
@@ -124,10 +124,10 @@ Class ehControl
         */
 
 /* Umm.. this is being done somewhere else. (down around 640)
-        if (!empty(ehConfig::get('date_format_php_short')) && $p['is_date']) {
+        if (!empty(ehConfig::get('date_php_short')) && $p['is_date']) {
             $t = $p['field_name'];
             //dd($p['field_name'],request()->$t);
-            $time_format = ehConfig::get('date_format_php_short');
+            $time_format = ehConfig::get('date_php_short');
             //$p['value'] = $p['field_name']->format($time_format);
         }
 */
@@ -776,9 +776,9 @@ if ($parameters['field_name'] == 'created_at') {
                 ///////////////////////////////////////////////////////////////////////////////////////////
                 // date_long is a parameter passed with the input data to select a date with time or just a date by itself.
                 if ($parameters['date_long']) {
-                    $value = $value->format(ehConfig::get('date_format_php_long'));
+                    $value = $value->format(ehConfig::get('date_php_long'));
                 } else {
-                    $value = $value->format(ehConfig::get('date_format_php_short'));
+                    $value = $value->format(ehConfig::get('date_php_short'));
                 }
             }
 

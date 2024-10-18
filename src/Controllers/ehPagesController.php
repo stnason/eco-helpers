@@ -82,7 +82,7 @@ class ehPagesController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        return view('ecoHelpers::pages.page-list',[
+        return view('ecoHelpers.admin.page-index',[
             'form' => $form
         ]);
 
@@ -131,7 +131,7 @@ class ehPagesController extends ehBaseController
         $form['layout']['when_adding'] = true;
 
         ////////////////////////////////////////////////////////////////////////////////////////////
-        return view('ecoHelpers::pages.page-detail',[
+        return view('ecoHelpers.admin.page-detail',[
             'form' => $form,
             'page' => $page
         ]);
@@ -277,7 +277,7 @@ class ehPagesController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        return view('ecoHelpers::pages.page-detail',[
+        return view('ecoHelpers.admin.page-detail',[
             'form' => $form,
             'page'=>$page
         ]);

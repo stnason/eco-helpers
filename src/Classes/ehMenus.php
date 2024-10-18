@@ -197,7 +197,7 @@ class ehMenus
      *
      * Mainly used by the Pages List and Pages Detail pages to format the page items for visual delineation.
      *  Note: this is recursive in order to add the display classes to all child levels.
-     *  Note: these css styles are contained in the eh-page-list.css file.
+     *  Note: these css styles are contained in the eh-page-index.css file.
      *
      * @param $input_pages
      * @return mixed

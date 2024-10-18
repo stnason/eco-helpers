@@ -370,8 +370,8 @@ trait ehUserFunctions
                 'route' => '',                      // The name of the route to display this on (commonly used for home - blank for all)
                 'title' => 'User Role Changed',     // The notifications title (used in title bar when exclusive).
                 'content' => 'User Role has changed to <strong>'.$this->getActingRole()->name.'</strong>.',      // The main body of the notification.
-                //'expiration' => \Carbon\Carbon::now(config('eco-helpers.timezone'))->format(config('eco-helpers.date_format_sql_short')), // Delete this item if you try to view it after this date.
-                'expiration' => \Carbon\Carbon::now()->format(ehConfig::get('date_format_sql_short')), // Delete this item if you try to view it after this date.
+                //'expiration' => \Carbon\Carbon::now(config('eco-helpers.timezone'))->format(config('eco-helpers.date_sql_short')), // Delete this item if you try to view it after this date.
+                'expiration' => \Carbon\Carbon::now()->format(ehConfig::get('date_sql_short')), // Delete this item if you try to view it after this date.
             ];
 
             ehNotifier::newNotification($notification);

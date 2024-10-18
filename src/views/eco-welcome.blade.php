@@ -69,7 +69,7 @@
 
                     <li class="pt-2"><strong>System Settings</strong>
                         <ul>
-                            <li class="small">Take a look at the System Settings to see what the System Administrator has access to. <a href="/config">Settings & Configuration</a></li>
+                            <li class="small">Take a look at the System Settings to see what the System Administrator has access to. <a href="/settings">Settings & Configuration</a></li>
                         </ul>
                 </ul>
 

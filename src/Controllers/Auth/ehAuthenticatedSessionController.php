@@ -300,8 +300,8 @@ class ehAuthenticatedSessionController extends Controller
 
 
         // 1.Update the user's last_login timestamp. (use the eco-helpers configured sql long time format)
-        // date(ehConfig::get('date_format_sql_long')); // Appears to be identical to Carbon now()
-        Auth()->user()->last_login = Carbon::now()->format(ehConfig::get('date_format_sql_long'));
+        // date(ehConfig::get('date_sql_long')); // Appears to be identical to Carbon now()
+        Auth()->user()->last_login = Carbon::now()->format(ehConfig::get('date_sql_long'));
 
 
         // 2.Increment the user's login counter.

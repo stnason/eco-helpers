@@ -8,12 +8,9 @@ use File;
 
 /**
  * Published as the artisan command 'eco-helpers:install' this command
- * is responsible for copying over files and folders that need to be overwritten from the originals.
- *  - User.php
- *  - views\auth
- *  - Controllers\Auth
- *  - Requests\LoginRequest.php
- *  - adds the sample routes to the web.php file.
+ * is responsible for copying over files and folders that may need to be overwritten from the originals.
+ * NOTE: See the populateOperationsArray() at the bottom for detail on the operations called for in this script.
+ *
  */
 class ecoHelpersInstall extends Command
 {
@@ -41,6 +38,18 @@ class ecoHelpersInstall extends Command
      */
     protected string $rename_message = "Remember to review your code and copy out and delete the renamed items.";
 
+
+    protected string  $user_aborted = '';   // Contains the message for aborting at any point in time.
+
+    /**
+     * Set up the array of the operations to be performed in this script file.
+     * Note: these parameters will be passed to
+     *  $this->>replaceOrOverwrite($full_filename, $rename_to, $copy_from)
+     *
+     * @var array|array[]
+     */
+    protected array $operations_array = [];
+
     /**
      * Execute the console command.
      */
@@ -55,8 +64,37 @@ class ecoHelpersInstall extends Command
         if ($this->confirm('Do you still want to continue?', false)) {
 
 
+            // Get the operations to perform in the R/O/S/A loop.
+            $this->operations_array = $this->populateOperationsArray();
+
+            $last_key = count($this->operations_array);
+
+            // Note: replaceOrOverwrite($full_filename, $rename_to, $copy_from)
             // Do the work here.
 
+            foreach ($this->operations_array as $key=>$operation) {
+
+                if ($key === $last_key) { // $last_key should be sample routes and needs additional processing below.
+                    break;
+                }
+                if (empty($operation['full_filename']) || empty($operation['rename_to']) || empty($operation['copy_from'])) {
+                    dd('Oops. Missing something. ('.$key.')');
+                }
+                $this->line(sprintf('%02d', $key) . '-' . $operation['name']);
+                $exit = $this->replaceOrOverwrite(
+                    $operation['full_filename'],
+                    $operation['rename_to'],
+                    $operation['copy_from']
+                );
+                $this->newLine(2);
+                // Did the user request an Abort?
+                if (!empty($exit)) {
+                    $this->user_aborted = $exit;
+                    goto stop_execution;
+                }
+            }
+
+/*
             ////////////////////////////////////////////////////////////////////////////////////////////
             // User.php
             $this->replaceOrOverwrite(
@@ -92,7 +130,7 @@ class ecoHelpersInstall extends Command
                 __DIR__.'/../Requests-publishable'
             );
             $this->newLine(2);
-
+*/
 
             ////////////////////////////////////////////////////////////////////////////////////////////
             // Sample Routes
@@ -109,36 +147,16 @@ class ecoHelpersInstall extends Command
                 $this->line('Sample routes have been appended to the routes/web.php');
             }
 
-            /*
-            ////////////////////////////////////////////////////////////////////////////////////////////
-            // User.php model
-            // If User.php exists then ask what you want to do?
-            if (file_exists(app_path('Models/User.php'))) {
-                $this->line('** User.php model already exists **');
-                $answer = $this->ask('[R]ename or [O]verwrite it?', 'r');
-
-                if ( strtoupper($answer) == 'R') {
-                    // Rename the original User.php to User-original.php
-                    //rename($from, $to);
-                    //copy($from, $to);
-                    $this->info(' - User.php renamed to User-original.php.');
-                }
-                if ( strtoupper($answer) == 'O') {
-                    // Rename the original User.php to User-original.php
-                    //copy($from, $to);
-                    $this->info(' - User.php copied over original User.php.');
-                }
-            }
-            $this->newLine(1);
-            */
 
         } else {
-
             ////////////////////////////////////////////////////////////////////////////////////////////
             // User aborted -- safely punch out before doing anything.
-            $this->info("User aborted procedure. No changes made at this time.");
+            $this->user_aborted = "User aborted procedure before making any changes.";
 
         }
+
+
+        stop_execution:
 
         $this->newLine(2);
         // If anything was renamed then show that alert message.
@@ -146,8 +164,21 @@ class ecoHelpersInstall extends Command
             $this->info($this->rename_message);
         }
         $this->newLine(1);
-        $this->line("Install Completed.");
-        $this->newLine(1);
+
+        if (!empty($this->user_aborted)) {
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // User aborted -- punched out at some point in time.
+            $this->line("    Installation interrupted.");
+            $this->info("    ".$this->user_aborted);
+
+        } else {
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // Completed all operations and finished normally.
+            $this->line("    Install Completed.");
+        }
+
+
+        $this->newLine(2);
     }
 
     /**
@@ -160,27 +191,64 @@ class ecoHelpersInstall extends Command
     protected function showOnScreenWarning() {
 
         $this->newLine(1);
-        $this->line( '#####################################################');
-        $this->error('                 !!!!! WARNING !!!!!                 ');
-        $this->line( '#####################################################');
+        $this->line( '#################################################################');
+        $this->error('                        !!!!! WARNING !!!!!                      ');
+        $this->line( '#################################################################');
+
 
         $this->info("
-This procedure is about to overwrite the original 
- User.php file and all of the Breeze views and controllers.
- (you'll be able to choose either or both)
+This procedure is about to overwrite some of the app's original 
+ files and add others.
+    ");
+
+        $this->line("
+Unless there's a really good reason for doing this, it's 
+recommended to only run this on a fresh, clean, new
+Laravel app installation.
+    ");
+
+        $this->info("
+This will include:
+
+01 - Replacing the app's User.php
+02 - Replacing the app's Http/Controllers/Auth folder.
+03 - Replacing the app's Requests/Auth/LoginRequest file.
+04 - Replacing the apps' views/auth folder.
+05 - Copying the js, css, font and image assets.
+06 - Copying all of the autoloader js and css files.
+07 - Copying a clean copy of the config/eco-helpers.php config file.
+08 - Copying the base, views/ecoHelpers page area templates.
+09 - Copying the views/ecoHelpers/examples templates.
+10 - Copying the extendable views/ecoHelpers/admin templates.
+11 - Copying a clean copy of the config/version.php file.
+12 - Add the eco-helpers sample/example routes to your web.php file.
+
+    ");
+
+        $this->info("
+At each step in the process you'll have the opportunity to
+[R]ename, [O]verwrite or [S]kip that file or folder.
     ");
 
         $this->line('
 If this is not a fresh clean Laravel install, you may
- want to consider canceling this now.
+ want to consider canceling this operation now.
 ');
         $this->newLine(1);
-        $this->error('!! DO NOT RUN THIS ON A PRODUCTION INSTANCE 
- WHERE YOU ALREADY HAVE A WORKING APP !!');
+
+        $this->error('!!!       PLEASE DO NOT RUN THIS ON A PRODUCTION INSTANCE     !!!');
+        $this->error('!!!            WHERE YOU ALREADY HAVE A WORKING APP           !!!');
     }
 
 
-
+    /**
+     * Automate the copy from/ to operations and associated prompts.
+     *
+     * @param $full_filename
+     * @param $rename_to
+     * @param $copy_from
+     * @return string|null
+     */
     protected function replaceOrOverwrite($full_filename, $rename_to, $copy_from) {
 
         //$this->line($full_filename);
@@ -196,7 +264,7 @@ If this is not a fresh clean Laravel install, you may
         if (file_exists($full_filename)) {
 
             $this->line($full_filename." already exists.");
-            $answer = $this->ask('[R]ename, [O]verwrite or [S]kip it?', 's');
+            $answer = $this->ask('[R]ename, [O]verwrite, [S]kip it or [A]bort?', 's');
 
             // User selected Rename.
             if ( strtoupper($answer) == 'R') {
@@ -235,8 +303,13 @@ If this is not a fresh clean Laravel install, you may
             // User selected Skip.
             if ( strtoupper($answer) == 'S') {
                 // For now we do nothing but exit this function and return.
-                // Just stubbing this out for clarity of purpose and any possible future use.
                 return null;
+            }
+
+            // User selected aborted.
+            if ( strtoupper($answer) == 'A') {
+                // Exit this function and return an abort message for the calling program to use..
+                return "User aborted processing.";
             }
 
         } else {
@@ -256,5 +329,128 @@ If this is not a fresh clean Laravel install, you may
 
         return null;
     }
+
+
+
+    protected function populateOperationsArray() {
+        return [
+            1 => [
+                "name"=>"Replace User.php",
+                "description"=>"Replacing the app's User.php",
+                "full_filename"=>app_path('Models/User.php'),
+                "rename_to"=>app_path('Models/User-original.php'),
+                "copy_from"=>__DIR__.'/../Models-publishable/User.php',
+            ],
+            2 => [
+                "name"=>"Replace Auth Controllers",
+                "description"=>"Replacing the app's Http/Controllers/Auth folder.",
+                "full_filename"=>app_path('Http/Controllers/Auth'),
+                "rename_to"=>app_path('Http/Controllers/Auth-original'),
+                "copy_from"=>__DIR__.'/../Controllers-publishable/Auth',
+            ],
+            3 => [
+                "name"=>"Replace LoginRequest.php",
+                "description"=>"Replacing the app's Requests/Auth/LoginRequest file.",
+                "full_filename"=> app_path('Http/Requests'),
+                "rename_to"=>app_path('Http/Requests-original'),
+                "copy_from"=> __DIR__.'/../Requests-publishable',
+            ],
+            4 => [
+                "name"=>"Replacing auth views",
+                "description"=>"Replacing the apps' views/auth folder.",
+                "full_filename"=>base_path('resources/views/auth'),
+                "rename_to"=>base_path('resources/views/auth-original'),
+                "copy_from"=> __DIR__.'/../views/publishable/views-auth',
+            ],
+            5 => [
+                "name"=>"JS assets",
+                "description"=>"Copying the js file assets.",
+                "full_filename"=>public_path('vendor/ecoHelpers/js'),
+                "rename_to"=>public_path('vendor/ecoHelpers/js-original'),
+                "copy_from"=>__DIR__.'/../public-publishable/vendor-ecoHelpers-js',
+            ],
+            6 => [
+                "name"=>"CSS assets",
+                "description"=>"Copying the css file assets.",
+                "full_filename"=>public_path('vendor/ecoHelpers/css'),
+                "rename_to"=>public_path('vendor/ecoHelpers/css-original'),
+                "copy_from"=>__DIR__.'/../public-publishable/vendor-ecoHelpers-css',
+            ],
+            7 => [
+                "name"=>"Image assets",
+                "description"=>"Copying the image file assets.",
+                "full_filename"=>public_path('vendor/ecoHelpers/images'),
+                "rename_to"=>public_path('vendor/ecoHelpers/images-original'),
+                "copy_from"=>__DIR__.'/../public-publishable/vendor-ecoHelpers-images',
+            ],
+            8 => [
+                "name"=>"Font assets",
+                "description"=>"Copying the font file assets.",
+                "full_filename"=>base_path('storage/app/fonts'),
+                "rename_to"=>base_path('storage/app/fonts-original'),
+                "copy_from"=>__DIR__.'/../storage-publishable/app/fonts',
+            ],
+
+            9 => [
+                "name"=>"ecoHelpers page area templates",
+                "description"=>"Copying the base, views/ecoHelpers page area templates.",
+                "full_filename"=>base_path('resources/views/ecoHelpers'),
+                "rename_to"=>base_path('resources/views/ecoHelpers-original'),
+                "copy_from"=>__DIR__.'/../views/publishable/views-ecoHelpers',
+            ],
+
+            10 => [
+                "name"=>"Core Admin templates",
+                "description"=>"Copying the extendable views/ecoHelpers/admin templates.",
+                "full_filename"=>base_path('resources/views/ecoHelpers/admin'),
+                "rename_to"=>base_path('resources/views/ecoHelpers/admin-original'),
+                "copy_from"=>__DIR__.'/../views/publishable/views-admin',
+            ],
+
+            11 => [
+                "name"=>"Autoloader files.",
+                "description"=>"Copying all of the js and css autoload files.",
+                "full_filename"=>base_path('resources/views/ecoHelpers/autoload'),
+                "rename_to"=>base_path('resources/views/ecoHelpers/autoload-original'),
+                "copy_from"=>__DIR__.'/../views/publishable/views-autoload',
+            ],
+
+            12 => [
+                "name"=>"Examples templates",
+                "description"=>"Copying the views/ecoHelpers/examples templates.",
+                "full_filename"=>base_path('resources/views/ecoHelpers/examples'),
+                "rename_to"=>base_path('resources/views/ecoHelpers/examples-original'),
+                "copy_from"=>__DIR__.'/../views/publishable/views-examples',
+            ],
+
+            13 => [
+                "name"=>"Default eco-helpers.php config file",
+                "description"=>"Copying a clean copy of the config/eco-helpers.php config file.",
+                "full_filename"=>base_path('config/eco-helpers.php'),
+                "rename_to"=>base_path('config/eco-helpers-original.php'),
+                "copy_from"=>__DIR__.'/../config/eco-helpers.php',
+            ],
+
+            14 => [
+                "name"=>"Clean version.php file.",
+                "description"=>"Copying a clean copy of the config/version.php file.",
+                "full_filename"=>base_path('config/eco-helpers.php'),
+                "rename_to"=>base_path('config/eco-helpers-original.php'),
+                "copy_from"=>__DIR__.'/../config/eco-helpers.php',
+            ],
+
+            15 => [         // No need to define - the last $key will terminate the loop and move on to this routine.
+                "name"=>"Example Routes",
+                "description"=>"",
+                "full_filename"=>"",
+                "rename_to"=>"",
+                "copy_from"=>"",
+            ],
+
+        ];
+    }
+
+
+
 
 }

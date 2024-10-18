@@ -5,8 +5,8 @@ namespace ScottNason\EcoHelpers\Classes;
 use ScottNason\EcoHelpers\Models\ehSetting;
 
 /**
- * ehConfig is a helper function to provide access to the values contained in either
- * the system settings table or the eco-helpers configuration file.
+ * ehConfig is a helper function to provide access to the values contained in both
+ * the system eh_settings table or the eco-helpers.php configuration file.
  *
  */
 
@@ -111,11 +111,11 @@ class ehConfig
         // If not, create the first time setup defaults.
         if (!ehSetting::find(1)) {
 
-            // throw new \Exception('Error: missing settings table entries. Please run /config to initialize.');
+            // throw new \Exception('Error: missing settings table entries. Please run /settings to initialize.');
             // Since the ehBaseController depends on this -- we need to ensure that it's instantiated here.
-            // Note: we the /config redirects to ehConfigController@create() which depends on the settings being there, so we get stuck.
+            // Note: the /settings route redirects to ehSettingsController@create() which depends on the settings being there, so we get stuck.
 
-            // Moved the code from the ehConfigController@create() method to here:
+            // Moved the code from the ehSettingsController@create() method to here:
 
             $setting = new ehSetting();
 
@@ -164,8 +164,8 @@ class ehConfig
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 2. Get the 2 version file variables to include in the master $setting array.
         $version_file = include(__DIR__.'/../version.php');
-        self::$combined_config['APP_VER'] = $version_file['APP_VER'];
-        self::$combined_config['APP_LASTUPDATE'] = $version_file['APP_LASTUPDATE'];
+        self::$combined_config['eh-app-version'] = $version_file['eh-app-version'];
+        self::$combined_config['eh-last-update'] = $version_file['eh-last-update'];
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////

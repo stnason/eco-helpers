@@ -10,7 +10,7 @@ use ScottNason\EcoHelpers\Classes\ehNotifier;
 use ScottNason\EcoHelpers\Controllers\ehPagesController;
 use ScottNason\EcoHelpers\Controllers\ehRolesController;
 use ScottNason\EcoHelpers\Controllers\ehUsersController;
-use ScottNason\EcoHelpers\Controllers\ehConfigController;
+use ScottNason\EcoHelpers\Controllers\ehSettingsController;
 use ScottNason\EcoHelpers\Controllers\ehImportExportController;
 use ScottNason\EcoHelpers\Controllers\ehLogViewerController;
 
@@ -25,7 +25,7 @@ use ScottNason\EcoHelpers\Controllers\ehLogViewerController;
     Route::resource('pages', ehPagesController::class);
     Route::resource('roles', ehRolesController::class);
     Route::resource('users', ehUsersController::class);
-    Route::resource('config', ehConfigController::class);
+    Route::resource('settings', ehSettingsController::class);
 
     // Update the menu tree data after a successful onscreen drag-n-drop operation.
     Route::post('/pages/save-drag', ehPagesController::class . '@saveDrag')->name('pages.save-drag');

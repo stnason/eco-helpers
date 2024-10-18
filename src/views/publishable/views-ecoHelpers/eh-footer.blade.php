@@ -33,7 +33,7 @@
 
         <div class="col-md">
             <p class="text-left">{{ config('app.name') }} ({{ config('app.env') }})</p>
-            <p class="text-left">last update: {{config('version.APP_LASTUPDATE')}}</p>
+            <p class="text-left">{{config('version.APP_VER')}} - {{config('version.APP_LASTUPDATE')}}</p>
         </div>
 
         <div class="col-md">
@@ -47,8 +47,8 @@
 
         <div class="col-md">
             <p class="text-end">eco framework:
-                {{ $settings::get('APP_VER') }} -
-                {{ $settings::get('APP_LASTUPDATE') }}
+                {{ $settings::get('eh-app-version') }} -
+                {{ $settings::get('eh-last-update') }}
             </p>
             <p class="text-end">{{$settings::get('message_copyright')}}</p>
         </div>

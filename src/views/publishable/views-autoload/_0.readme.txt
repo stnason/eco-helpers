@@ -1,0 +1,24 @@
+!!! DO NOT DELETE ANY OF THESE FILES. !!!
+
+They are used by the $setting system and can be modified here to suite your needs.
+
+The numbers are associated with the $settingers defined in the eco-helpers config file
+under layout['auto_loaders'] and can be called from the controller by:
+
+    The name defined in the config file:
+    ehLayout::setAutoload('name');
+
+    or the number of that config file array entry:
+    ehLayout::setAutoload(1);
+
+    or by passing an array with multiple request numbers in it:
+    ehLayout::setAutoload([1,5,7]);
+
+
+Note: file '0' is the global (all page) loader and will always be loaded.
+
+Each numbered $settinger requires to files to load properly:
+    css/1-css-autoload.blade.php
+    js/1-js-autoload.blade.php
+
+

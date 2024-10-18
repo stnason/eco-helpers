@@ -19,13 +19,14 @@ return [
     |   Y uppercase is used for 4 digit year (lowercase for two digit year)
     |
     */
-    'date_format_php_short' => 'm/d/Y',                 // The format PHP should use to create dates for display use (w/o time).
-    'date_format_php_long' => 'm/d/Y h:i:s A',          // The format PHP should use to create dates for display use (with time).
-    'date_format_js_short' => 'MM/DD/YYYY',             // JS date picker format for the web-form display of dates.
-    'date_format_js_long' => 'MM/DD/YYYY h:i:s A',      // JS date picker format for the web-form display of dates.
-    'date_format_sql_short' => 'Y-m-d',                 // Format to store in the mysql database when using the data only.
-    'date_format_sql_long' => 'Y-m-d H:i:s',            // Format to store in the mysql database when adding the time to the date.
-                                                        // Remember that we need the "H" 24-hour format here to save the timestamp properly for AM/PM later.
+    'date_php_short' => 'm/d/Y',                // The format PHP should use to create dates for display use (w/o time; Note: see dt_sort below).
+    'date_php_long' => 'm/d/Y h:i:s A',         // The format PHP should use to create dates for display with time.
+    'date_js_short' => 'MM/DD/YYYY',            // JS date picker format for the web-form display of dates.
+    'date_js_long' => 'MM/DD/YYYY h:i:s A',     // JS date picker format for the web-form display of dates.
+    'date_dt_sort' => 'Y-m-d',                  // Format used in datatables to allow proper sorting when clicking on column.
+    'date_sql_short' => 'Y-m-d',                // Format to store in the mysql database when using the data only.
+    'date_sql_long' => 'Y-m-d H:i:s',           // Format to store in the mysql database when adding the time to the date.
+                                                // Remember that we need the "H" 24-hour format here to save the timestamp properly for AM/PM later.
 
     /*
     |--------------------------------------------------------------------------
@@ -43,13 +44,13 @@ return [
     |   (processed from top to bottom and just concatenated together in the ehHasUserstamps trait.)
     */
     'user_update_stamp' => [
-        //'$first_name',
-        //'$last_name',
-        //'$email',
+        //'$first_name',    // You can use any field from the User model.
+        //'$last_name',     // "
+        //'$email',         // "
         '$name',            // The user's registered (User()->name) login name ( as determined by User::uniqueUserName() ).
-        ' (',               // Just wrapping the $id below in parentheses.
+        ' (',               // Add any text you want: Just wrapping the User()->id in parentheses.
         '$id',              // The User()->id field
-        ')'                 // Display the closing parenthesis around the $id number.
+        ')'                 // Add any text you want: Closing parenthesis around the $id number.
     ],
 
     /*
@@ -111,6 +112,22 @@ return [
     |
     */
     'default_copy_from_role_id' => 6,      // 6 was the legacy "outside company w/lowest access" role.
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Captcha settings
+    |--------------------------------------------------------------------------
+    | This is used to configure the parameters for the custom captcha class.
+    |
+    */
+    'captcha' => [
+        'captcha-some-parameter1' => 1,
+        'captcha-some-parameter2' => 2,
+        'captcha-some-parameter3' => 3,
+    ],
+
+
 
 
     /*

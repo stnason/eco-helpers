@@ -15,7 +15,7 @@ class ehExample extends ehBaseModel
 
     /**
      * Tells the ehControls class which fields should be treated as dates.
-     * This will prep them for date or datetime picker use when using the auto-loader.
+     * This will prep them for date or datetime picker use when using the autoloader.
      *
      * @var string[]
      */

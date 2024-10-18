@@ -156,11 +156,11 @@ trait ehHasUserstamps
     {
 
         //Check to ensure that the datetime format config variables are available before attempting to use them.
-        if ( empty(ehConfig::get('date_format_sql_long')) ) {
+        if ( empty(ehConfig::get('date_sql_long')) ) {
             throw new \Exception('Missing date time format configuration in eco-helpers.php');
         }
 
-        return Carbon::now()->format(ehConfig::get('date_format_sql_long'));
+        return Carbon::now()->format(ehConfig::get('date_sql_long'));
 
     }
 

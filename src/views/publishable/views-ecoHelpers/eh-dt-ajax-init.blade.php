@@ -3,8 +3,14 @@
 https://datatables.net/download/
 
 
-REMEMBER; that the js-autoloader uses the default init defined in eco-helpers.layout.datatables_default_init
+REMEMBER: That the js-autoloader uses the default init defined in eco-helpers.layout.datatables_default_init
 or a the one you specify in the call to ehLayout::setAutoload('datatables','my-init-file').
+
+NOTE: This requires the $form['layout']['use_fields'] in order to build out the dt columns list./
+
+You can use this init file directly as long as you don't need to modify any of the initializaiton parameters
+or add any custom fields (the case when posting something from the page like a $filter variable) - in that
+case you'll need to copy this file and create the custom init to include on your resrouce-index page template.
 
 USE THIS eh-dt-ajax-init AS A STARTING POINT.
 

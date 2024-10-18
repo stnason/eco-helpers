@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="ScottNason\EcoHelpers\" />
       <sourceFolder url="file://$MODULE_DIR$/src/database/migrations" isTestSource="false" packagePrefix="Database\Migrations\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/_gsdata_" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

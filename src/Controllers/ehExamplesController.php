@@ -83,7 +83,7 @@ class ehExamplesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Call the view.
-        return view('ecoHelpers::examples.example-list',[
+        return view('ecoHelpers.examples.example-list',[
             'form' => $form
         ]);
 
@@ -129,7 +129,7 @@ class ehExamplesController extends ehBaseController
                                                                     // form off when adding a new record.
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        return view('ecoHelpers::examples.example-detail',[
+        return view('ecoHelpers.examples.example-detail',[
             'form' => $form,
             'example'=>$example
         ]);
@@ -256,7 +256,7 @@ class ehExamplesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Cal the view.
-        return view('ecoHelpers::examples.example-detail',[
+        return view('ecoHelpers.examples.example-detail',[
             'form' => $form,
             'example' => $example
         ]);
@@ -381,7 +381,7 @@ class ehExamplesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Call the view.
-        return view('ecoHelpers::examples.example-static',[
+        return view('ecoHelpers.examples.example-static',[
             'form' => $form
         ]);
 

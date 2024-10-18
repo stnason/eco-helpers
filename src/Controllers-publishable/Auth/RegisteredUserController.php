@@ -61,8 +61,8 @@ class RegisteredUserController extends Controller
             //'login_created'=>date("Y-m-d"),             // Stamp the time this login was created.
 
             // Stamp the time this login was created.
-            // date(ehConfig::get('date_format_sql_long')); // Appears to be identical to Carbon now()
-            'login_created'=> Carbon::now()->format(ehConfig::get('date_format_sql_long')),
+            // date(ehConfig::get('date_sql_long')); // Appears to be identical to Carbon now()
+            'login_created'=> Carbon::now()->format(ehConfig::get('date_sql_long')),
             'name' => User::uniqueUserName($request),
             'account_id' => User::uniqueAccountNumber($request),// Create a unique account number for this user.
             'first_name' => $request->first_name,

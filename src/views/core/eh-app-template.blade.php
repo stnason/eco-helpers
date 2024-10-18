@@ -63,13 +63,13 @@ The standard button area must be contained within each CRUD <form>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     {{--
-        Include all of the standard meta tags, base and auto-loaded css (configure in views/eco-configure).
+        Include all of the standard meta tags, base and $settinged css (configure in views/eco-configure).
         --}}
     @if(View::exists('ecoHelpers.'.$config::get('layout.html_head_file')))
         @include('ecoHelpers.'.$config::get('layout.html_head_file'))
     @endif
     {{--
-        Include the CSS and auto-loader mechanism. This pulls in the level-0 (global) css links
+        Include the CSS and $settinger mechanism. This pulls in the level-0 (global) css links
         and then any page specific css called for by the ehLayout::setAutoload(nn) in each controller.
         --}}
     @include('ecoHelpers::core.eh-css-loader')
@@ -314,7 +314,7 @@ The standard button area must be contained within each CRUD <form>
     @yield('base_body')
     {{--
         ### JS AUTO-LOADER ###
-        Include the Javascript auto-loader mechanism.
+        Include the Javascript $settinger mechanism.
         --}}
     @include('ecoHelpers::core.eh-js-loader')
     {{--

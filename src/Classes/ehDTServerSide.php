@@ -4,7 +4,7 @@ namespace ScottNason\EcoHelpers\Classes;
 
 
 use Illuminate\Support\Facades\DB;
-use function App\Classes\Request;
+//use function App\Classes\Request;
 
 /**
  * Datatables Server-Side paging processing.
@@ -20,21 +20,22 @@ class ehDTServerSide
 
     protected $draw;                                // Expected from dt ajax.
     protected $row;                                 // Expected from dt ajax.
-    protected $rowperpage;                          // Expected from dt ajax.
+    protected $rowperpage;                          // Internally created from the dt ajax "length" field.
     protected $columnIndex;                         // Expected from dt ajax.
-    protected $columnName;                          // Expected from dt ajax.
-    protected $columnSortOrder;                     // Expected from dt ajax.
-    protected $searchQuery;                         // Initial WHERE (passed) + user input search value
+    protected $columnName;                          // Original sort column name from dt ajax.
+    protected $finalSortColumnName;                 // Sort column used by the final response();
+    protected $columnSortOrder;                     // Pulled from dt ajax request.
+    //protected $searchQuery;                         // Initial WHERE (passed) + user input search value
     protected $totalRecords;                        // Total records unfiltered (using the initial_where)
-    protected $totalRecordwithFilter;               // Total records after user (dt search bar) filtering.
+    //protected $totalRecordwithFilter;               // Total records after user (dt search bar) filtering.
     //protected $tableName;                           // Actual table name pulled from the passed model.
     //protected $model;                               // The passed Laravel model for this query.
     protected $use_fields;                          // $use_field $key=>$value pair array (from controller)
-    protected $query_builder;
+    protected $query_builder;                       // The passed query builder instance for this operation.
     protected $searchValue;                         // The user provided dt search box entry
 
     //protected $relationships;                     // An array with a list of ->with('name') relationships to use.
-                                                    // This was originally thought to be a csv string but turns out to be an array ['r1','r2','r3']
+    // This was originally thought to be a csv string but turns out to be an array ['r1','r2','r3']
 
 
     /**
@@ -44,7 +45,7 @@ class ehDTServerSide
      * @return mixed
      */
     protected function dummyRequest() {
-     // This is an example of a request()->input() coming from dt:  (note: columns are defined in the dt-init file)
+        // This is an example of a request()->input() coming from dt:  (note: columns are defined in the dt-init file)
 
         $tmp = json_decode('
             {
@@ -111,6 +112,7 @@ class ehDTServerSide
         $this->rowperpage = $request->input('length');                          // Rows to display per page
         $this->columnIndex = $request->input('order')[0]['column'];             // Column index
         $this->columnName = $request->input('columns')[$this->columnIndex]['data'];  // Column name (defined in the dt init)
+        $this->finalSortColumnName = $this->columnName;                              // Temporary place holder for manipulating the final sortBy name (for relationships and extended searchFilter())
         $this->columnSortOrder = $request->input('order')[0]['dir'];            // asc or desc
         $this->searchValue = $request->input('search')['value'];                // User input from the dt search box.
 
@@ -118,7 +120,7 @@ class ehDTServerSide
         // Passed parameters from the calling controller.
         $this->use_fields = $use_fields;                                        // Same $use_fields list as the index template expects.
         $this->query_builder = $query_builder;                                  // A query builder instance that defines our starting (baseline) record-set.
-                                                                                // DO NOT INCLUDE the trailing "->get()" - we'll do that after we filter it.
+        // DO NOT INCLUDE the trailing "->get()" - we'll do that after we filter it.
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -144,8 +146,28 @@ class ehDTServerSide
     protected function searchFilter()
     {
 
-        $query = $this->query_builder;
+        // The final response() will be filtered by $this->finalSortColumnName
+        // so each paging request must reset it here to the original request,
+        // before it's used.
+        // When extending this class you can change  $this->finalSortColumnName -
+        // - as in the case of a relationship field: orders.date_ordered.
+        $this->finalSortColumnName =  $this->columnName;
 
+        /*
+         // When extending -- you're responsible for resetting the finalSortColumnName
+         $this->finalSortColumnName =  $this->columnName;
+
+        // Deal with the sort order for non-native fields (relationships or virtual)
+        if ($this->columnName == 'date_ordered') {
+            // this is a relationship field
+            $this->finalSortColumnName = 'orders.date_ordered';
+        }
+        // And either call the parent searchFilter() or recreate it. (this deals with the user input search box)
+        return parent::searchFilter();
+        */
+
+
+        $query = $this->query_builder;
         if (!empty($this->searchValue)) {
 
             /*
@@ -154,7 +176,6 @@ class ehDTServerSide
                 $query->orWhere($field, 'like', '%' . $this->searchValue . '%');
             }
             */
-
 
             // Loop the $use_fields and create the LIKE / OR part of the search.
             $tmp = ' (';
@@ -231,15 +252,15 @@ class ehDTServerSide
        */
 
 
-/*
- * THIS IS THE GENERIC data maker -- it only works with "real" fields and will provide no formatting.
- * You'll have to extend the class and override this method to get links, formatting and proper dealing w/custom fields.
- *
- *
- * $narcans->getModel()->getTable()     // table name from query builder
- * $narcans->getModel()->getRelations() // maybe relations ??
- *
-    */    ///////////////////////////////////////////////////////////////////////////////////////////
+        /*
+         * THIS IS THE GENERIC data maker -- it only works with "real" fields and will provide no formatting.
+         * You'll have to extend the class and override this method to get links, formatting and proper dealing w/custom fields.
+         *
+         *
+         * $narcans->getModel()->getTable()     // table name from query builder
+         * $narcans->getModel()->getRelations() // maybe relations ??
+         *
+            */    ///////////////////////////////////////////////////////////////////////////////////////////
         // Build out the result-set data using the $use_fields array.
         // This the generic way to do this and will work if all the fields exist and have real data (no id lookups involved)
         $data = [];
@@ -303,22 +324,42 @@ class ehDTServerSide
         //$this->totalRecordwithFilter = count($tmpResult);         // if you're doing the ->get() upstream.
         $this->totalRecordwithFilter = $tmpResult->count();         // if you're doing the -get() downstream.
 
+
+
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // 3) Then populate and format the output $data based on the
+        // THIS QUERY AS NO RELATIONSHIPS IN IT !! (they are used/added later when you call the relationship (I guess?)
+        // 3) Then execute the initial query (so we can sort it by relationships below if needed).
         // Note: makeData() must return the same fields called for in $use_fields !
         //$data = $this->makeData($tmpResult->get());
-        $data = $this->makeData( // Apply the dt paging
+        $data =
             $this->query_builder
                 // #####################################################################
                 // dt paging control coming through the $request each time.
-                ->orderBy($this->columnName, $this->columnSortOrder)
+//                ->orderBy($this->columnName, $this->columnSortOrder)
                 ->limit($this->rowperpage)
                 ->offset($this->row)
-                ->get()
-        );
+                ->get();
+
+
+        //TODO: this works BUT IS THE WRONG BEHAVIOR sorting this AFTER the $data set is limited above --
+        // We only end up sorting a single page rather than the whole dataset!!!!
+        //
+        //
+        // 4) Sort: The above query cannot except dot syntax for relational fields -- but this one can.
+        // you'll have to override the searchFilter() function and change the value of
+        // $this->>columnName to the proper dot syntax: relationship.field_name.
+        // Note: $data is now a collection.
+        if ($this->columnSortOrder == 'desc') {
+            $data = $data->sortByDesc($this->finalSortColumnName);
+        } else {
+            $data = $data->sortBy($this->finalSortColumnName);
+        }
+
+        // 5) and format the output $data and turn it into an array.
+        $data = $this->makeData($data);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // 4) Then finally, return the needed dt fields along with the finalized dataset ($data)
+        // 6) Then finally, return the needed dt fields along with the finalized dataset ($data)
         // Looks like data tables is getting: {"draw":1,"iTotalRecords":8543,"iTotalDisplayRecords":8543,"aaData":[$results_of_the_query]}
         // For some reason using json_encode() here escapes all double quotes and renders the data in a form not viewable.
         return  [

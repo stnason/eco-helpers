@@ -50,7 +50,7 @@ class EcoHelpersServiceProvider extends ServiceProvider
          * into the current Laravel app - W/O copying any files.
          * (like the routes file, disk definition, some of the core views amd the eco-constants.)
          *
-         * Note: in the boot() method below we will actually publish (copy) files for end user use.
+         * Note: in the boot() method below we will actually publish (copy) files for application developer's use.
          */
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -76,9 +76,9 @@ class EcoHelpersServiceProvider extends ServiceProvider
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // FIELSYSTEM
+        // FILESYSTEM
         // Merge this disk definition into the application's filesystems config file.
-        // This is ror eco-helpers.contact_photo_disk name (default: users)
+        // This is for eco-helpers.contact_photo_disk name (default: users)
         app()->config["filesystems.disks.users"] = [
             'driver' => 'local',
             'root' => storage_path('app/users'),
@@ -100,7 +100,7 @@ class EcoHelpersServiceProvider extends ServiceProvider
     /**
      * Bootstrap services.
      *  - Register all publishable resources.
-     *  - (define which files come from which local path and go to which user project folder)
+     *  -   Define which files come from which package path and go to which application path.
      *
      * @return void
      */
@@ -119,7 +119,7 @@ class EcoHelpersServiceProvider extends ServiceProvider
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // CONFIG
-        // Publish the end-user editable eco-helpers config file.
+        // Publish the application developer editable eco-helpers config file.
         // Note: We're specifically excluding the eco-constants.php file.
         //       (it's been registered above already)
         $this->publishes([
@@ -130,12 +130,14 @@ class EcoHelpersServiceProvider extends ServiceProvider
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // VIEWS
-        // Publish the end-user editable views.
+        // Publish the application developer editable views.
         $this->publishes([
-            __DIR__.'/views/publishable/views-ecoHelpers' => resource_path('views/ecoHelpers'),             // The main views
-            __DIR__.'/views/publishable/views-auto-load' => resource_path('views/ecoHelpers/auto-load'),    // The auto-loader views
+            __DIR__.'/views/publishable/views-ecoHelpers' => resource_path('views/ecoHelpers'),             // The main page area views
+            __DIR__.'/views/publishable/views-autoload' => resource_path('views/ecoHelpers/autoload'),    // The autoloader views
+            __DIR__.'/views/publishable/views-examples' => resource_path('views/ecoHelpers/examples'),      // The example views
+            __DIR__.'/views/publishable/views-admin' => resource_path('views/ecoHelpers/admin'),            // Extendable admin views
 
-            // Moving this to an artisan executable install command
+            // Moving this to an artisan executable "eco-helpers:install" command
             // __DIR__.'/views/publishable/views-auth' => resource_path('views/auth-ecoHelpers'),
 
             ], 'views');
@@ -143,7 +145,7 @@ class EcoHelpersServiceProvider extends ServiceProvider
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // ASSETS
-        // Publish the css, js, image and auto-loader resources (public vendor assets).
+        // Publish the css, js, image and autoloader resources (public vendor assets).
         $this->publishes([
             __DIR__.'/public-publishable/vendor-ecoHelpers-css' => public_path('vendor/ecoHelpers/css'),
             __DIR__.'/public-publishable/vendor-ecoHelpers-js' => public_path('vendor/ecoHelpers/js'),
@@ -161,13 +163,13 @@ class EcoHelpersServiceProvider extends ServiceProvider
         ], 'migrations');
         */
 
-        // This simply "registers" them for use without the copying them out to the app's migration folder.
+        // This simply "registers" them for use without copying them out to the app's migration folder.
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // CLASSES
-        // These are designed to be immediately modified by the end-users.
+        // These are the classes that are designed to be modified by the application developer.
         $this->publishes([
             __DIR__.'/Classes-publishable/ValidList.php' => app_path('Classes/ValidList.php'),
         ], 'classes');
@@ -183,7 +185,7 @@ class EcoHelpersServiceProvider extends ServiceProvider
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // CONTROLLERS
-        // Publish the user modifiable eco-helpers controllers.
+        // Publish the application developer modifiable eco-helpers controllers.
         $this->publishes([
 
             //Laravel UI Auth only:
