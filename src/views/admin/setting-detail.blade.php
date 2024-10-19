@@ -216,10 +216,10 @@
     {{-- ######################################################################## --}}
     {{-- Display of software and system version information --}}
     {{-- ######################################################################## --}}
-    <div><p class="form-header-security" data-bs-toggle="collapse" data-bs-target=".multi-collapse1">
-            <a>software and system versions:</a></p></div>
+    <div><p class="form-header-security" data-bs-toggle="collapse" data-bs-target=".multi-software-versions">
+            software and system versions:</p></div>
 
-    <div class="row collapse multi-collapse1">
+    <div class="row collapse multi-software-versions">
 
         <p><a href="{{route('dev-log')}}">Application and eco-helpers development log history</a></p>
 

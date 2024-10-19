@@ -1,9 +1,16 @@
 {{-- Standard form information header; for end-user form content headings.
      Note; calling template must set the $model variable to the current working model for that page.
 --}}
-<p class="form-header-information">system information:</p>
 
+{{-- w/o rollup/rolldown.
+<p class="form-header-information">system information:</p>
 <div class="row">
+--}}
+
+{{-- With rollup/rolldown. --}}
+<div><p class="form-header-security" data-bs-toggle="collapse" data-bs-target=".multi-system-information">
+        system information:</p></div>
+<div class="row collapse multi-system-information">
 
     {{-- Left column of form data. --}}
     <div class="col-md">

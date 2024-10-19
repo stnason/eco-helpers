@@ -283,7 +283,7 @@
     /* The security level separator heading on forms.
         Sections off form into areas - like private data only, etc.
         */
-    p.form-header-security, p.form-header-information {
+    p.form-header-security, p.form-header-security a, p.form-header-information, p.form-header-information a {
         width: auto;
         margin-left: 20px;      /* Looks a little better if it's not dead against the form's bounding box. */
         margin-right: 20px;     /* Seems to only work if width is set to "auto" (not 100%). */

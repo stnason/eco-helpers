@@ -207,6 +207,7 @@ recommended to only run this on a fresh, clean, new
 Laravel app installation.
     ");
 
+        //TODO: change this to loop the array for what's happening.
         $this->info("
 This will include:
 
