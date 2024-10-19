@@ -1,12 +1,13 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.4',
+    'eh-app-version' => 'v1.1.5',
     'eh-last-update' => '10/19/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 10/19/2024:v01.01.05: 0.25 :Forcing package update to v1.1.4 (sigh).
  * 10/19/2024:v01.01.04: 0.75 :Minor template and css tweaks while deploying and testing the new version on production sites.
  * 10/18/2024:v01.01.03: 3.00 :Rework the Install command to include all new published files and/or and folders.
  * 10/18/2024:v01.01.03: 0.25 :Pull over ehCaptcha class from UnderCover (still a work in progress, though). Stub out "captcha" section to eco-helpers.
