@@ -1,12 +1,14 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.7',
+    'eh-app-version' => 'v1.1.8',
     'eh-last-update' => '10/20/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 10/20/2024:v01.01.08: 0.50 :Remove all of the publishable admin view files and links.
+ * 10/20/2024:v01.01.07: 0.25 :Have a major dead-end with the core-admin views; sure you can change then but then you have to extend the Model and the Controller. And it's just to invasive to stub all those out ahead of time. May have to just dictate that "core" applications must be complete extended to modify.
  * 10/20/2024:v01.01.07: 0.25 :!!! Still having to yse "dev-main" in composer.json to get the real current version. Composer clearly show the current version (tag) when updating but it's NOT the current version!!!
  * 10/20/2024:v01.01.07: 0.25 :Rename full_filename to copy_from in ecoHelpersInstall.php.
  * 10/20/2024:v01.01.07: 1.25 :Not completely happy with new view organization; renaming view/admin to core-admin to help differentiate between the package views and the publishable. Remove "views-" from the publishable views (update install to match).

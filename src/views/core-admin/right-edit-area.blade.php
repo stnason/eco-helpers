@@ -115,7 +115,7 @@
             // Create the Page Rights (right grid) editing table area
             /////////////////////////////////////////////////////////////////////////////////////////////
             --}}
-            @include ('ecoHelpers.admin.right-grid')
+            @include ('ecoHelpers::core-admin.right-grid')
 
         </div>
     </div>

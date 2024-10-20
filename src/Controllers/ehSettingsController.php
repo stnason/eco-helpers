@@ -23,7 +23,7 @@ class ehSettingsController extends ehBaseController
      *
      * @var string
      */
-    protected $view_show = 'ecoHelpers.admin.setting-detail';
+    protected $view_show = 'ecoHelpers::core-admin.setting-detail';
 
 
 

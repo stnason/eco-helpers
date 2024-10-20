@@ -83,7 +83,7 @@ class ehUsersController extends ehBaseController
         // form off when adding a new record.
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        return view('ecoHelpers.admin.user-detail', [
+        return view('ecoHelpers::core-admin.user-detail', [
             'form' => $form,
             'user' => $user
         ]);
@@ -201,7 +201,7 @@ class ehUsersController extends ehBaseController
 
         // Set the radio button for the default_role
         // The template used the 'my_roles' array to loop through and decide which one is checked.
-        return view('ecoHelpers.admin.user-detail', [
+        return view('ecoHelpers::core-admin.user-detail', [
             'form' => $form,
             'user' => $user,
             //'this_page' => $this->form['pageList']

@@ -106,7 +106,7 @@ class ehRolesController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Call the Roles table list view.
-        return view('ecoHelpers.admin.role-index',[
+        return view('ecoHelpers::core-admin.role-index',[
             'form' => $form
         ]);
 
@@ -150,7 +150,7 @@ class ehRolesController extends ehBaseController
         $form['layout']['when_adding'] = true;           // May toggles parts of the form off when adding a new record.
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        return view('ecoHelpers.admin.role-detail',[
+        return view('ecoHelpers::core-admin.role-detail',[
             'form' => $form,
             'role'=>$role
         ]);
@@ -313,7 +313,7 @@ class ehRolesController extends ehBaseController
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        return view('ecoHelpers.admin.role-detail',[
+        return view('ecoHelpers::core-admin.role-detail',[
             'form' => $form,
             'role'=>$role
         ]);

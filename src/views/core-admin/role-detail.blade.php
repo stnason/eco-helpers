@@ -249,7 +249,7 @@ if (!empty($form['role_is_locked']) && $form['role_is_locked']) {
             {{-- Rights grid heading area. --}}
             <p class="mt-3"></p>
             @if (!$edit_lock)
-            @include ('ecoHelpers.admin.right-edit-area')
+            @include ('ecoHelpers::core-admin.right-edit-area')
             @endif
             <p class="mb-4"></p>
 

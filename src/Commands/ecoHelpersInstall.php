@@ -403,6 +403,7 @@ If this is not a fresh clean Laravel install, you may
                 "copy_from"=>__DIR__.'/../views/publishable/ecoHelpers',
             ],
 
+            /* Dead-end -- there is no value in this without having stubbed in version of the controllers and models too!!
             10 => [
                 "name"=>"Core Admin templates",
                 "description"=>"Copying the extendable views/ecoHelpers/admin templates.",
@@ -410,8 +411,9 @@ If this is not a fresh clean Laravel install, you may
                 "rename_to"=>base_path('resources/views/ecoHelpers/admin-original'),
                 "copy_from"=>__DIR__.'/../views/publishable/admin',
             ],
+            */
 
-            11 => [
+            10 => [
                 "name"=>"Autoloader files.",
                 "description"=>"Copying all of the js and css autoload files.",
                 "copy_to"=>base_path('resources/views/ecoHelpers/autoload'),
@@ -419,7 +421,7 @@ If this is not a fresh clean Laravel install, you may
                 "copy_from"=>__DIR__.'/../views/publishable/autoload',
             ],
 
-            12 => [
+            11 => [
                 "name"=>"Examples templates",
                 "description"=>"Copying the views/ecoHelpers/examples templates.",
                 "copy_to"=>base_path('resources/views/ecoHelpers/examples'),
@@ -427,7 +429,7 @@ If this is not a fresh clean Laravel install, you may
                 "copy_from"=>__DIR__.'/../views/publishable/examples',
             ],
 
-            13 => [
+            12 => [
                 "name"=>"Default eco-helpers.php config file",
                 "description"=>"Copying a clean copy of the config/eco-helpers.php config file.",
                 "copy_to"=>base_path('config/eco-helpers.php'),
@@ -435,7 +437,7 @@ If this is not a fresh clean Laravel install, you may
                 "copy_from"=>__DIR__.'/../config/eco-helpers.php',
             ],
 
-            14 => [
+            13 => [
                 "name"=>"Clean version.php file.",
                 "description"=>"Copying a clean copy of the config/version.php file.",
                 "copy_to"=>base_path('config/eco-helpers.php'),
@@ -443,7 +445,7 @@ If this is not a fresh clean Laravel install, you may
                 "copy_from"=>__DIR__.'/../config/eco-helpers.php',
             ],
 
-            15 => [         // No need to define - the last $key will terminate the loop and move on to this routine.
+            14 => [         // No need to define - the last $key will terminate the loop and move on to this routine.
                 "name"=>"Example Routes",
                 "description"=>"",
                 "copy_to"=>"",
