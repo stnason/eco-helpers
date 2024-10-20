@@ -6,6 +6,9 @@ use Illuminate\Console\Command;
 use File;
 
 
+//TODO: would be helpful to have a --Parameter to specify which item to process by itself. (Default would be --all)
+// Check on the par conversion program for a possible idea of how to implement.
+
 /**
  * Published as the artisan command 'eco-helpers:install' this command
  * is responsible for copying over files and folders that may need to be overwritten from the originals.
@@ -109,7 +112,7 @@ class ecoHelpersInstall extends Command
             $this->replaceOrOverwrite(
                 base_path('resources/views/auth'),
                 base_path('resources/views/auth-original'),
-                __DIR__.'/../views/publishable/views-auth'
+                __DIR__.'/../views/publishable/auth'
             );
             $this->newLine(2);
 
@@ -361,7 +364,7 @@ If this is not a fresh clean Laravel install, you may
                 "description"=>"Replacing the apps' views/auth folder.",
                 "copy_to"=>base_path('resources/views/auth'),
                 "rename_to"=>base_path('resources/views/auth-original'),
-                "copy_from"=> __DIR__.'/../views/publishable/views-auth',
+                "copy_from"=> __DIR__.'/../views/publishable/auth',
             ],
             5 => [
                 "name"=>"JS assets",
@@ -397,7 +400,7 @@ If this is not a fresh clean Laravel install, you may
                 "description"=>"Copying the base, views/ecoHelpers page area templates.",
                 "copy_to"=>base_path('resources/views/ecoHelpers'),
                 "rename_to"=>base_path('resources/views/ecoHelpers-original'),
-                "copy_from"=>__DIR__.'/../views/publishable/views-ecoHelpers',
+                "copy_from"=>__DIR__.'/../views/publishable/ecoHelpers',
             ],
 
             10 => [
@@ -405,7 +408,7 @@ If this is not a fresh clean Laravel install, you may
                 "description"=>"Copying the extendable views/ecoHelpers/admin templates.",
                 "copy_to"=>base_path('resources/views/ecoHelpers/admin'),
                 "rename_to"=>base_path('resources/views/ecoHelpers/admin-original'),
-                "copy_from"=>__DIR__.'/../views/publishable/views-admin',
+                "copy_from"=>__DIR__.'/../views/publishable/admin',
             ],
 
             11 => [
@@ -413,7 +416,7 @@ If this is not a fresh clean Laravel install, you may
                 "description"=>"Copying all of the js and css autoload files.",
                 "copy_to"=>base_path('resources/views/ecoHelpers/autoload'),
                 "rename_to"=>base_path('resources/views/ecoHelpers/autoload-original'),
-                "copy_from"=>__DIR__.'/../views/publishable/views-autoload',
+                "copy_from"=>__DIR__.'/../views/publishable/autoload',
             ],
 
             12 => [
@@ -421,7 +424,7 @@ If this is not a fresh clean Laravel install, you may
                 "description"=>"Copying the views/ecoHelpers/examples templates.",
                 "copy_to"=>base_path('resources/views/ecoHelpers/examples'),
                 "rename_to"=>base_path('resources/views/ecoHelpers/examples-original'),
-                "copy_from"=>__DIR__.'/../views/publishable/views-examples',
+                "copy_from"=>__DIR__.'/../views/publishable/examples',
             ],
 
             13 => [

@@ -7,8 +7,9 @@ return [
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 10/20/2024:v01.01.07: 0.25 :!!! Still having to yse "dev-main" in composer.json to get the real current version. Composer clearly show the current version (tag) when updating but it's NOT the current version!!!
  * 10/20/2024:v01.01.07: 0.25 :Rename full_filename to copy_from in ecoHelpersInstall.php.
- * 10/20/2024:v01.01.07: 1.25 :Not completely happy with new view organization; renaming view/admin to core-admin to help differentiate between the package views and the publishable.
+ * 10/20/2024:v01.01.07: 1.25 :Not completely happy with new view organization; renaming view/admin to core-admin to help differentiate between the package views and the publishable. Remove "views-" from the publishable views (update install to match).
  * 10/19/2024:v01.01.06: 0.25 :Turn off Export all on the Log Viewer page.
  * 10/19/2024:v01.01.05: 0.25 :Forcing package update to v1.1.4 (sigh).
  * 10/19/2024:v01.01.04: 0.75 :Minor template and css tweaks while deploying and testing the new version on production sites.
