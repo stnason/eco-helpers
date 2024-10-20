@@ -44,7 +44,7 @@ class ecoHelpersInstall extends Command
     /**
      * Set up the array of the operations to be performed in this script file.
      * Note: these parameters will be passed to
-     *  $this->>replaceOrOverwrite($full_filename, $rename_to, $copy_from)
+     *  $this->>replaceOrOverwrite($copy_to, $rename_to, $copy_from)
      *
      * @var array|array[]
      */
@@ -69,7 +69,7 @@ class ecoHelpersInstall extends Command
 
             $last_key = count($this->operations_array);
 
-            // Note: replaceOrOverwrite($full_filename, $rename_to, $copy_from)
+            // Note: replaceOrOverwrite($copy_to, $rename_to, $copy_from)
             // Do the work here.
 
             foreach ($this->operations_array as $key=>$operation) {
@@ -77,12 +77,12 @@ class ecoHelpersInstall extends Command
                 if ($key === $last_key) { // $last_key should be sample routes and needs additional processing below.
                     break;
                 }
-                if (empty($operation['full_filename']) || empty($operation['rename_to']) || empty($operation['copy_from'])) {
+                if (empty($operation['copy_to']) || empty($operation['rename_to']) || empty($operation['copy_from'])) {
                     dd('Oops. Missing something. ('.$key.')');
                 }
                 $this->line(sprintf('%02d', $key) . '-' . $operation['name']);
                 $exit = $this->replaceOrOverwrite(
-                    $operation['full_filename'],
+                    $operation['copy_to'],
                     $operation['rename_to'],
                     $operation['copy_from']
                 );
@@ -245,14 +245,14 @@ If this is not a fresh clean Laravel install, you may
     /**
      * Automate the copy from/ to operations and associated prompts.
      *
-     * @param $full_filename
+     * @param $copy_to
      * @param $rename_to
      * @param $copy_from
      * @return string|null
      */
-    protected function replaceOrOverwrite($full_filename, $rename_to, $copy_from) {
+    protected function replaceOrOverwrite($copy_to, $rename_to, $copy_from) {
 
-        //$this->line($full_filename);
+        //$this->line($copy_to);
         //$this->line($rename_to);
 
         // We need to use a different copy command if we're copying a directory so check here first.
@@ -262,9 +262,9 @@ If this is not a fresh clean Laravel install, you may
         }
 
         // Check to see if the file already exists in the destination or not.
-        if (file_exists($full_filename)) {
+        if (file_exists($copy_to)) {
 
-            $this->line($full_filename." already exists.");
+            $this->line($copy_to." already exists.");
             $answer = $this->ask('[R]ename, [O]verwrite, [S]kip it or [A]bort?', 's');
 
             // User selected Rename.
@@ -273,18 +273,18 @@ If this is not a fresh clean Laravel install, you may
                 $this->did_rename = true;
 
                 // Rename the original file to the $rename_to
-                rename($full_filename, $rename_to);
-                $this->info('Contents of '.$full_filename.' renamed to '.$rename_to);
+                rename($copy_to, $rename_to);
+                $this->info('Contents of '.$copy_to.' renamed to '.$rename_to);
 
                 // Then to the copy
                 if ($is_dir) {
                     // Is a directory so use:
-                    File::copyDirectory($copy_from, $full_filename);
+                    File::copyDirectory($copy_from, $copy_to);
                 } else {
                     // Is not a directory so just use copy().
-                    File::copy($copy_from, $full_filename);
+                    File::copy($copy_from, $copy_to);
                 }
-                $this->info('Contents of '.$copy_from.' have been copied to '.$full_filename);
+                $this->info('Contents of '.$copy_from.' have been copied to '.$copy_to);
             }
 
             // User selected Overwrite.
@@ -293,12 +293,12 @@ If this is not a fresh clean Laravel install, you may
                 // Then to the copy
                 if ($is_dir) {
                     // Is a directory so use:
-                    File::copyDirectory($copy_from, $full_filename);
+                    File::copyDirectory($copy_from, $copy_to);
                 } else {
                     // Is not a directory so just use copy().
-                    File::copy($copy_from, $full_filename);
+                    File::copy($copy_from, $copy_to);
                 }
-                $this->info('Contents of '.$copy_from.' have been copied to '.$full_filename);
+                $this->info('Contents of '.$copy_from.' have been copied to '.$copy_to);
             }
 
             // User selected Skip.
@@ -314,17 +314,17 @@ If this is not a fresh clean Laravel install, you may
             }
 
         } else {
-            $this->line($full_filename." was not found.");
+            $this->line($copy_to." was not found.");
             // So just do the copy and display the result
             // Then to the copy
             if ($is_dir) {
                 // Is a directory so use:
-                File::copyDirectory($copy_from, $full_filename);
+                File::copyDirectory($copy_from, $copy_to);
             } else {
                 // Is not a directory so just use copy().
-                File::copy($copy_from, $full_filename);
+                File::copy($copy_from, $copy_to);
             }
-            $this->info('Contents of '.$copy_from.' have been copied to '.$full_filename);
+            $this->info('Contents of '.$copy_from.' have been copied to '.$copy_to);
 
         }
 
@@ -338,56 +338,56 @@ If this is not a fresh clean Laravel install, you may
             1 => [
                 "name"=>"Replace User.php",
                 "description"=>"Replacing the app's User.php",
-                "full_filename"=>app_path('Models/User.php'),
+                "copy_to"=>app_path('Models/User.php'),
                 "rename_to"=>app_path('Models/User-original.php'),
                 "copy_from"=>__DIR__.'/../Models-publishable/User.php',
             ],
             2 => [
                 "name"=>"Replace Auth Controllers",
                 "description"=>"Replacing the app's Http/Controllers/Auth folder.",
-                "full_filename"=>app_path('Http/Controllers/Auth'),
+                "copy_to"=>app_path('Http/Controllers/Auth'),
                 "rename_to"=>app_path('Http/Controllers/Auth-original'),
                 "copy_from"=>__DIR__.'/../Controllers-publishable/Auth',
             ],
             3 => [
                 "name"=>"Replace LoginRequest.php",
                 "description"=>"Replacing the app's Requests/Auth/LoginRequest file.",
-                "full_filename"=> app_path('Http/Requests'),
+                "copy_to"=> app_path('Http/Requests'),
                 "rename_to"=>app_path('Http/Requests-original'),
                 "copy_from"=> __DIR__.'/../Requests-publishable',
             ],
             4 => [
                 "name"=>"Replacing auth views",
                 "description"=>"Replacing the apps' views/auth folder.",
-                "full_filename"=>base_path('resources/views/auth'),
+                "copy_to"=>base_path('resources/views/auth'),
                 "rename_to"=>base_path('resources/views/auth-original'),
                 "copy_from"=> __DIR__.'/../views/publishable/views-auth',
             ],
             5 => [
                 "name"=>"JS assets",
                 "description"=>"Copying the js file assets.",
-                "full_filename"=>public_path('vendor/ecoHelpers/js'),
+                "copy_to"=>public_path('vendor/ecoHelpers/js'),
                 "rename_to"=>public_path('vendor/ecoHelpers/js-original'),
                 "copy_from"=>__DIR__.'/../public-publishable/vendor-ecoHelpers-js',
             ],
             6 => [
                 "name"=>"CSS assets",
                 "description"=>"Copying the css file assets.",
-                "full_filename"=>public_path('vendor/ecoHelpers/css'),
+                "copy_to"=>public_path('vendor/ecoHelpers/css'),
                 "rename_to"=>public_path('vendor/ecoHelpers/css-original'),
                 "copy_from"=>__DIR__.'/../public-publishable/vendor-ecoHelpers-css',
             ],
             7 => [
                 "name"=>"Image assets",
                 "description"=>"Copying the image file assets.",
-                "full_filename"=>public_path('vendor/ecoHelpers/images'),
+                "copy_to"=>public_path('vendor/ecoHelpers/images'),
                 "rename_to"=>public_path('vendor/ecoHelpers/images-original'),
                 "copy_from"=>__DIR__.'/../public-publishable/vendor-ecoHelpers-images',
             ],
             8 => [
                 "name"=>"Font assets",
                 "description"=>"Copying the font file assets.",
-                "full_filename"=>base_path('storage/app/fonts'),
+                "copy_to"=>base_path('storage/app/fonts'),
                 "rename_to"=>base_path('storage/app/fonts-original'),
                 "copy_from"=>__DIR__.'/../storage-publishable/app/fonts',
             ],
@@ -395,7 +395,7 @@ If this is not a fresh clean Laravel install, you may
             9 => [
                 "name"=>"ecoHelpers page area templates",
                 "description"=>"Copying the base, views/ecoHelpers page area templates.",
-                "full_filename"=>base_path('resources/views/ecoHelpers'),
+                "copy_to"=>base_path('resources/views/ecoHelpers'),
                 "rename_to"=>base_path('resources/views/ecoHelpers-original'),
                 "copy_from"=>__DIR__.'/../views/publishable/views-ecoHelpers',
             ],
@@ -403,7 +403,7 @@ If this is not a fresh clean Laravel install, you may
             10 => [
                 "name"=>"Core Admin templates",
                 "description"=>"Copying the extendable views/ecoHelpers/admin templates.",
-                "full_filename"=>base_path('resources/views/ecoHelpers/admin'),
+                "copy_to"=>base_path('resources/views/ecoHelpers/admin'),
                 "rename_to"=>base_path('resources/views/ecoHelpers/admin-original'),
                 "copy_from"=>__DIR__.'/../views/publishable/views-admin',
             ],
@@ -411,7 +411,7 @@ If this is not a fresh clean Laravel install, you may
             11 => [
                 "name"=>"Autoloader files.",
                 "description"=>"Copying all of the js and css autoload files.",
-                "full_filename"=>base_path('resources/views/ecoHelpers/autoload'),
+                "copy_to"=>base_path('resources/views/ecoHelpers/autoload'),
                 "rename_to"=>base_path('resources/views/ecoHelpers/autoload-original'),
                 "copy_from"=>__DIR__.'/../views/publishable/views-autoload',
             ],
@@ -419,7 +419,7 @@ If this is not a fresh clean Laravel install, you may
             12 => [
                 "name"=>"Examples templates",
                 "description"=>"Copying the views/ecoHelpers/examples templates.",
-                "full_filename"=>base_path('resources/views/ecoHelpers/examples'),
+                "copy_to"=>base_path('resources/views/ecoHelpers/examples'),
                 "rename_to"=>base_path('resources/views/ecoHelpers/examples-original'),
                 "copy_from"=>__DIR__.'/../views/publishable/views-examples',
             ],
@@ -427,7 +427,7 @@ If this is not a fresh clean Laravel install, you may
             13 => [
                 "name"=>"Default eco-helpers.php config file",
                 "description"=>"Copying a clean copy of the config/eco-helpers.php config file.",
-                "full_filename"=>base_path('config/eco-helpers.php'),
+                "copy_to"=>base_path('config/eco-helpers.php'),
                 "rename_to"=>base_path('config/eco-helpers-original.php'),
                 "copy_from"=>__DIR__.'/../config/eco-helpers.php',
             ],
@@ -435,7 +435,7 @@ If this is not a fresh clean Laravel install, you may
             14 => [
                 "name"=>"Clean version.php file.",
                 "description"=>"Copying a clean copy of the config/version.php file.",
-                "full_filename"=>base_path('config/eco-helpers.php'),
+                "copy_to"=>base_path('config/eco-helpers.php'),
                 "rename_to"=>base_path('config/eco-helpers-original.php'),
                 "copy_from"=>__DIR__.'/../config/eco-helpers.php',
             ],
@@ -443,7 +443,7 @@ If this is not a fresh clean Laravel install, you may
             15 => [         // No need to define - the last $key will terminate the loop and move on to this routine.
                 "name"=>"Example Routes",
                 "description"=>"",
-                "full_filename"=>"",
+                "copy_to"=>"",
                 "rename_to"=>"",
                 "copy_from"=>"",
             ],

@@ -40,6 +40,7 @@ class ehLogViewerController extends ehBaseController
         ehLayout::setFullWidth(false);
 
         $linkbar = new ehLinkbar();
+        $linkbar->setHideExportAll(true);   // This exports underlying tables -- not the dev history shown. (so turn it off)
         ehLayout::setLinkbar($linkbar->getLinkbar());
 
         if ($request->filter_which_log == "1") {

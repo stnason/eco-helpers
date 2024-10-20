@@ -2,4 +2,4 @@
 
      Use this template as is, create your own from scratch or copy the template found below as a starting point.
 --}}
-@include('ecoHelpers::admin.page-index')
+@include('ecoHelpers::core-admin.page-index')
