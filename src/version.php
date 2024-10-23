@@ -1,12 +1,14 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.8',
-    'eh-last-update' => '10/20/2024'
+    'eh-app-version' => 'v1.1.9',
+    'eh-last-update' => '10/23/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 10/23/2024:v01.01.09: 1.50 :Add captcha path to web.php. Rename captchImage to just captcha(). Finishing out the captcha logic processing.
+ * 10/23/2024:v01.01.09: 0.50 :Add checks in DTServerSide for empty column sort and column direction. Gets rid of the null error but not working right! Clean up dt-standard-init/ajax (buttons).
  * 10/20/2024:v01.01.08: 0.50 :Remove all of the publishable admin view files and links.
  * 10/20/2024:v01.01.07: 0.25 :Have a major dead-end with the core-admin views; sure you can change then but then you have to extend the Model and the Controller. And it's just to invasive to stub all those out ahead of time. May have to just dictate that "core" applications must be complete extended to modify.
  * 10/20/2024:v01.01.07: 0.25 :!!! Still having to yse "dev-main" in composer.json to get the real current version. Composer clearly show the current version (tag) when updating but it's NOT the current version!!!

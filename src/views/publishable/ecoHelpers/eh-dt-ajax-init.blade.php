@@ -89,42 +89,45 @@ USE THIS eh-dt-ajax-init AS A STARTING POINT.
         @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
         @if ($access::getUserRights()->export_displayed ?? false)
 
-        buttons: {
-            dom: {
-                button: {
-                    tag: 'button',
-                    className: ''           // This removes the default datatables button class so the below can override it.
-                }
-            },
+        layout: {
+            top1Start: {
 
-            buttons: [                      // I have no idea why the buttons are justifying the images differently but the spaces are needed to faux center.
-                {
-                    extend: 'copy',
-                    className: 'btn btn-sm btn-outline-secondary',
-                    titleAttr: 'Copy to Clipboard',
-                    text: '&nbsp; <i class="far fa-copy"></i> &nbsp;'
-                },
-                {
-                    extend: 'print',
-                    className: 'btn btn-sm btn-outline-secondary',
-                    titleAttr: 'Print Preview',
-                    text: '&nbsp; <i class="fas fa-print"></i> &nbsp;'
-                },
-                {
-                    extend: 'csv',
-                    className: 'btn btn-sm btn-outline-secondary',
-                    titleAttr: 'Export a CSV file',
-                    text: '&nbsp <i class="fas fa-file-csv"></i> &nbsp;'
-                    // filename: '',         // set a static file name like "export"
-                    // extension: '.csv'     // Already defaults to csv so only if you need something different.
-                }
-            ]
-        },
+                buttons: {
+                    dom: {
+                        button: {
+                            tag: 'button',
+                            className: ''                   // This removes the default datatables button class so the below can override it.
+                        }
+                    },
 
-        @else
-        {{-- If the user does not have rights to see the buttons then don't include them. --}}
-        buttons: [],
-        @endif
+                    buttons: [                      // I have no idea why the buttons are justifying the images differently but the spaces are needed to faux center.
+                        {
+                            extend: 'copy',
+                            className: 'btn btn-sm btn-outline-secondary',
+                            titleAttr: 'Copy to Clipboard',
+                            text: '&nbsp; <i class="far fa-copy"></i> &nbsp;'
+                        },
+                        {
+                            extend: 'print',
+                            className: 'btn btn-sm btn-outline-secondary',
+                            titleAttr: 'Print Preview',
+                            text: '&nbsp; <i class="fas fa-print"></i> &nbsp;'
+                        },
+                        {
+                            extend: 'csv',
+                            className: 'btn btn-sm btn-outline-secondary',
+                            titleAttr: 'Export a CSV file',
+                            text: '&nbsp <i class="fas fa-file-csv"></i> &nbsp;'
+                            // filename: '',         // set a static file name like "export"
+                            // extension: '.csv'     // Already default to csv so only if you need something different.
+                        }
+                    ]
+                }
+
+                @else
+                buttons: [],
+                @endif
+            }},
 
         processing: dt_processing,
         serverSide: dt_serverSide,

@@ -4,17 +4,12 @@ namespace ScottNason\EcoHelpers\Classes;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use function App\Classes\base_path;
-use function App\Classes\storage_path;
+
 
 class ehCaptcha
 {
 
-    //TODO: if we keep both image fetch and back-end check together here then
-    // it needs to be renamed to something that makes more sense.
-    // Still using UnderCover to work out the kinks on this.
-
-    public static function captchaImage(Request $request) {
+    public static function captcha(Request $request) {
 
 
         // Are we submitting the user input for validation?
@@ -26,7 +21,14 @@ class ehCaptcha
             }
 
             // other check the input
-            return ['status'=>'you entered: '.$request->input('eh_captcha_input')];
+            //return ['status'=>'you entered: '.$request->input('eh_captcha_input').' Should be: '.session('eh-captcha-value')];
+
+            // Check the user's input (force both the captcha value and the user input to upper case for simplicity of entry.)
+            if (strtoupper($request->input('eh_captcha_input')) <> strtoupper(session('eh-captcha-value'))) {
+                return ['status'=>'Sorry. Wrong captcha. Please enter the number on the Captcha image below and try again.'];
+            } else {
+                return ['status'=>true];
+            }
 
         }
 
@@ -112,6 +114,9 @@ class ehCaptcha
         $type = 'jpeg';
         // Note this is the whole src attribute including the data:image portion of the show
         // so no need to put it on the other end. (src="data:image/jpeg;, <--base64 data-->"
+
+        // Return the image file and save the value to the session.
+        session(['eh-captcha-value' => $text]);
         echo 'data:image/' . $type . ';base64,' . base64_encode($data);
 
 

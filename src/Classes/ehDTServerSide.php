@@ -59,7 +59,10 @@ class ehDTServerSide
                     ],
 
                 "order":[
-                    {"column":"0","dir":"asc"}
+                    {
+                        "column":"0",
+                        "dir":"asc"
+                    }
                     ],
                 "start":"0",
                 "length":"50",
@@ -110,10 +113,24 @@ class ehDTServerSide
         $this->draw = $request->input('draw');                                  // Just goes back out in the response (usually 1) ??
         $this->row = $request->input('start');                                  // limit ($row, $rowperpage) ($row is the offset part of the query)
         $this->rowperpage = $request->input('length');                          // Rows to display per page
-        $this->columnIndex = $request->input('order')[0]['column'];             // Column index
+
+        //TODO: these empty checks get rid of the array offset on null error but the sort doesn't work now.
+        // It may have something to do with the actual search (or extension?) implementation.
+        if (empty($request->input('order')[0]['column'])) {
+            $this->columnIndex = 0;
+        } else {
+            $this->columnIndex = $request->input('order')[0]['column'];             // Column index
+        }
+
         $this->columnName = $request->input('columns')[$this->columnIndex]['data'];  // Column name (defined in the dt init)
         $this->finalSortColumnName = $this->columnName;                              // Temporary place holder for manipulating the final sortBy name (for relationships and extended searchFilter())
-        $this->columnSortOrder = $request->input('order')[0]['dir'];            // asc or desc
+
+        if (empty($request->input('order')[0]['dir'])) {
+            $this->columnSortOrder = 'asc';
+        } else {
+            $this->columnSortOrder = $request->input('order')[0]['dir'];            // asc or desc
+        }
+
         $this->searchValue = $request->input('search')['value'];                // User input from the dt search box.
 
 

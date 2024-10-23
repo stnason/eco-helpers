@@ -13,6 +13,7 @@ use ScottNason\EcoHelpers\Controllers\ehUsersController;
 use ScottNason\EcoHelpers\Controllers\ehSettingsController;
 use ScottNason\EcoHelpers\Controllers\ehImportExportController;
 use ScottNason\EcoHelpers\Controllers\ehLogViewerController;
+use ScottNason\EcoHelpers\Classes\ehCaptcha;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -57,4 +58,7 @@ Route::middleware('web')->group(function () {
     Route::get('/notifications/get-next',[ehNotifier::class, 'getNext']);
     Route::post('/notifications/delete-next',[ehNotifier::class,'deleteNext'])->name('notifications.delete-next');
     Route::post('/notifications/get-total',[ehNotifier::class,'getTotal'])->name('notifications.get-total');
+
+    // Captcha class
+    Route::post('eh-captcha', [ehCaptcha::class,'captcha'])->name('eh-captcha');
 });
