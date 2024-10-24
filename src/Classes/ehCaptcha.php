@@ -6,22 +6,34 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 
+/**
+ *
+ *
+ *
+ * Example of back-end validation rule:
+ *      // Final back-end check on the captcha just to make sure nothing changed since the front-end check.
+ *      'eh_captcha_input'=>[ function (string $attribute, mixed $value, \Closure $fail) {
+ *          if (!ehCaptcha::captcha(Request())['status']) {
+ *              $fail('Oops. Captcha input does not match the image.');
+ *          }
+ *      }
+ *      ]
+ */
 class ehCaptcha
 {
 
     public static function captcha(Request $request) {
 
-
         // Are we submitting the user input for validation?
-        // Note: using isset() instead of empty() to catch a submit with not user entry.
+        // Note: using isset() instead of empty() to catch a submit with no user entry.
         if (isset($request->eh_captcha_input)) {
 
             if (empty($request->input('eh_captcha_input'))) {
                 return ['status'=>'Enter what you see in the blue box.'];
             }
 
-            // other check the input
-            //return ['status'=>'you entered: '.$request->input('eh_captcha_input').' Should be: '.session('eh-captcha-value')];
+            // testing: check the input
+            // return ['status'=>'you entered: '.$request->input('eh_captcha_input').' Should be: '.session('eh-captcha-value')];
 
             // Check the user's input (force both the captcha value and the user input to upper case for simplicity of entry.)
             if (strtoupper($request->input('eh_captcha_input')) <> strtoupper(session('eh-captcha-value'))) {
@@ -31,7 +43,6 @@ class ehCaptcha
             }
 
         }
-
 
         // No input $request is present then we'll just assume this is an image fetch request.
 
@@ -112,8 +123,8 @@ class ehCaptcha
         imagejpeg($warp_image, $tmp_file);
         $data = file_get_contents($tmp_file);
         $type = 'jpeg';
-        // Note this is the whole src attribute including the data:image portion of the show
-        // so no need to put it on the other end. (src="data:image/jpeg;, <--base64 data-->"
+        // Note this is the whole src attribute including the "data:image/jpeg;" portion of the show
+        // so no need to put this on the other end: (src="data:image/jpeg;, <--base64 data-->"
 
         // Return the image file and save the value to the session.
         session(['eh-captcha-value' => $text]);

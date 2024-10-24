@@ -1,12 +1,13 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.9',
-    'eh-last-update' => '10/23/2024'
+    'eh-app-version' => 'v1.1.10',
+    'eh-last-update' => '10/24/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 10/24/2024:v01.01.10: 2.50 :Finishing out ehCaptcha on UnderCover site.
  * 10/23/2024:v01.01.09: 1.50 :Add captcha path to web.php. Rename captchImage to just captcha(). Finishing out the captcha logic processing.
  * 10/23/2024:v01.01.09: 0.50 :Add checks in DTServerSide for empty column sort and column direction. Gets rid of the null error but not working right! Clean up dt-standard-init/ajax (buttons).
  * 10/20/2024:v01.01.08: 0.50 :Remove all of the publishable admin view files and links.
