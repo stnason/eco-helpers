@@ -1,5 +1,5 @@
 {{-- ehCaptcha partial for form control, --}}
-
+@inject('ehConfig','ScottNason\EcoHelpers\Classes\ehConfig')
 {{--
 <script>
     // Check for -- and load jQuery as necessary.
@@ -32,7 +32,7 @@
 <script>
     var validation_error = false;
     @if ($errors->any())
-        {{-- On any validation error. --}}
+            {{-- On any validation error. --}}
         validation_error = true;
     @else
         validation_error = false;
@@ -40,16 +40,16 @@
 </script>
 
 <div id = "eh-captcha-partial">
-<div class="d-inline-flex">
-    <p class="small">
-        Sorry, I know you're not a spam robot but just to make our lawyers happy, would you mind entering what you see in the blue box and then clicking on it? (if it's too hard to read, use the refresh button to get another one.)
-    </p>
-</div>
-<div class="d-inline-flex text-center">
-    <img alt="captcha image" id="captcha-image" src="" class="me-1">
-    <button id="refresh-button" type="button" class="btn btn-outline fa-solid fa-arrows-rotate"></button>
-    <input class = "form-control" name="eh_captcha_input" id="eh_captcha_input" value="{{old("eh_captcha_input")}}">
-</div>
+    <div class="d-inline-flex">
+        <p class="small">
+            {{$ehConfig::get('captcha.display')}}
+        </p>
+    </div>
+    <div class="d-inline-flex text-center">
+        <img alt="captcha image" id="captcha-image" src="" class="me-1">
+        <button id="refresh-button" type="button" class="btn btn-outline fa-solid fa-arrows-rotate"></button>
+        <input class = "form-control" name="eh_captcha_input" id="eh_captcha_input" placeholder = " {{$ehConfig::get('captcha.placeholder')}}" value="{{old("eh_captcha_input")}}">
+    </div>
 </div>
 
 {{-- This has to be called after the button creation so it has access to its id. --}}

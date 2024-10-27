@@ -115,17 +115,52 @@ return [
 
 
     /*
-    |--------------------------------------------------------------------------
-    | Captcha settings
-    |--------------------------------------------------------------------------
-    | This is used to configure the parameters for the custom captcha class.
-    |
-    */
+   |--------------------------------------------------------------------------
+   | Captcha settings
+   |--------------------------------------------------------------------------
+   | This is used to configure the parameters for the custom captcha class.
+   |
+   */
     'captcha' => [
-        'captcha-some-parameter1' => 1,
-        'captcha-some-parameter2' => 2,
-        'captcha-some-parameter3' => 3,
+
+        // The font location and filename for the captcha text.
+        // This needs to be a Laravel filesystem defined storage disk.
+        'font_storage' =>'fonts',
+        'font_file' => 'OpenSans-Medium.ttf',
+
+        // Temporary location for the captcha image creation.
+        // This needs to be a Laravel filesystem defined storage disk.
+        'temp_storage' => 'temp',           // Laravel defined storage disk for temp files.
+        'numbers_only'=> false,             // Use only numbers for the captcha (true); false = numbers and letters
+        'font_size'=> 25,                   // Default text font size - 25,
+
+        // Number of captcha characters to display (default is 5).
+        'character_length' => 5,
+
+        // The size of the captcha image.
+        // Image units are entered as an integer only but represent pixels.
+        'image_width' => 180,               // Default width is 180;
+        'image_height' => 70,               // Default height is 70;
+        'background_color' => [255,0,255],  // rgb values for the background of the image default [255,0,255].
+        'text_color' => [0,0,0],            // rgb values for the text color. default [0,0,0].
+
+        // The distortion of the captcha image.
+        // Numbers are entered as an integer array for a rand() function [random_low, random_high]
+        'waviness_x' => [7,11],             // The sine wave frequency (default = [7,11]).
+        'waviness_y' => [6,9],              // The sine wave amplitude (default = [6,9]).
+        'text_angle' => [-6,10],            // The angle of the text (default = [-6,10]).
+
+        // Display messages.
+        // User input placeholder.
+        'placeholder' => "enter text at left",
+
+        // Captcha main display message
+        'display' => "
+        Sorry, we know you're not a spam-bot but just to make our lawyers happy,
+        would you mind entering what you see in the box and then clicking on it?
+        (if it's too hard to read, use the refresh button to get another one.)"
     ],
+
 
 
 

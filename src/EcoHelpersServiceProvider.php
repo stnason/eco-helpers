@@ -83,8 +83,17 @@ class EcoHelpersServiceProvider extends ServiceProvider
             'driver' => 'local',
             'root' => storage_path('app/users'),
             'url' => env('APP_URL').'/images/users',
-            //'visibility' => 'public',
             'throw' => false,
+        ];
+        // The temp path for the captcha image creation.
+        app()->config["filesystems.disks.temp"] = [
+            'driver' => 'local',
+            'root' => storage_path('app/temp'),
+        ];
+        // The path for the captcha font file(s).
+        app()->config["filesystems.disks.fonts"] = [
+            'driver' => 'local',
+            'root' => storage_path('app/fonts'),
         ];
 
 
