@@ -42,12 +42,12 @@
 <div id = "eh-captcha-partial">
     <div class="d-inline-flex">
         <p class="small">
-            {{$ehConfig::get('captcha.display')}}
+            {!! $ehConfig::get('captcha.display') !!}
         </p>
     </div>
     <div class="d-inline-flex text-center">
         <img title="click after entering" alt="captcha image" id="captcha-image" src="" class="rounded me-1">
-        <button id="refresh-button" type="button" class="btn btn-outline fa-solid fa-arrows-rotate"></button>
+        <button id="refresh-button" type="button" class="btn btn-outline fa-solid fa-arrows-rotate fa-2xl"></button>
         <input class = "form-control" name="eh_captcha_input" id="eh_captcha_input" placeholder = " {{$ehConfig::get('captcha.placeholder')}}" value="{{old("eh_captcha_input")}}">
     </div>
 </div>

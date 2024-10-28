@@ -155,7 +155,9 @@ return [
         'placeholder' => "enter the text at left",
 
         // The front-end (ajax check) fail message for incorrect user input.
-        'fail_message' => "Sorry. Wrong captcha. Please enter the characters on the image and try again (refresh if you can't read it).",
+        'fail_message' => "Sorry. Wrong captcha.
+        Please enter the characters on the image and try again (<i class='fa-solid fa-arrows-rotate'></i> refresh if you can't read it).",
+
 
         // The back-end data validation fail message.
         'validation_message' => "Oops! Captcha input doesn't seem to match.",
@@ -164,7 +166,7 @@ return [
         'display' => "
         Sorry, we know you're not a spam-bot but just to make our lawyers happy,
         would you mind entering what you see in the box and then clicking on it?
-        (if it's too hard to read, use the refresh button to get another one.)"
+        (if it's too hard to read, use the <i class='fa-solid fa-arrows-rotate'></i> refresh button to get another one.)"
     ],
 
 

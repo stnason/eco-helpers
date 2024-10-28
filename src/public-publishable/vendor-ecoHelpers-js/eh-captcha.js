@@ -124,7 +124,7 @@ function checkCaptcha(captchaInput) {
                 $("#submit-button").removeAttr('disabled');
             } else {
                 // The captcha entered by the user does not match.
-                $("#captcha-status").text(response.status);
+                $("#captcha-status").html(response.status);     // Note: using html so we can include icons in the message.
                 // And wipe out the user input.
                 $('#eh_captcha_input').val('');
             }

@@ -1,12 +1,13 @@
 <?php
 return [
     'eh-app-version' => 'v1.1.11',
-    'eh-last-update' => '10/27/2024'
+    'eh-last-update' => '10/28/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 10/28/2024:v01.01.11: 0.50 :Change eh-captcha-partial message to raw html (so we can show the refresh button icon); same with eh-captcha.js status message.
  * 10/27/2024:v01.01.11: 3.50 :Move all hard coded captcha variable from ehCaptcha to eco-helpers config file.
  * 10/24/2024:v01.01.10: 2.50 :Finishing out ehCaptcha on UnderCover site.
  * 10/23/2024:v01.01.09: 1.50 :Add captcha path to web.php. Rename captchImage to just captcha(). Finishing out the captcha logic processing.
