@@ -46,11 +46,15 @@
         </p>
     </div>
     <div class="d-inline-flex text-center">
-        <img alt="captcha image" id="captcha-image" src="" class="me-1">
+        <img title="click after entering" alt="captcha image" id="captcha-image" src="" class="rounded me-1">
         <button id="refresh-button" type="button" class="btn btn-outline fa-solid fa-arrows-rotate"></button>
         <input class = "form-control" name="eh_captcha_input" id="eh_captcha_input" placeholder = " {{$ehConfig::get('captcha.placeholder')}}" value="{{old("eh_captcha_input")}}">
     </div>
 </div>
 
-{{-- This has to be called after the button creation so it has access to its id. --}}
+{{-- This has to be called after the button creation so it has access to its id.
+     NOTE: If you are placing the partial ABOVE the submit button then you'll have to
+     include this at the bottom of the calling form.
+--}}
 <script src="/vendor/ecoHelpers/js/eh-captcha.js"></script>
+

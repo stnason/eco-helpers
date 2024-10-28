@@ -7,17 +7,18 @@ use Illuminate\Http\Request;
 
 
 /**
- *
- *
- *
  * Example of back-end validation rule:
  *      // Final back-end check on the captcha just to make sure nothing changed since the front-end check.
- *      'eh_captcha_input'=>[ function (string $attribute, mixed $value, \Closure $fail) {
- *          if (!ehCaptcha::captcha(Request())['status']) {
- *              $fail('Oops. Captcha input does not match the image.');
+ *      'eh_captcha_input'=>[
+ *          'required',
+ *          function (string $attribute, mixed $value, \Closure $fail) {
+ *              if (ehCaptcha::captcha(Request())['status'] !== true) {
+ *                  $fail(ehConfig::get('validation_message'));
+ *              }
  *          }
- *      }
  *      ]
+ * WARNING: The captcha partial has to be within the <form> tag for the back-end validation to work.
+ *
  */
 class ehCaptcha
 {
@@ -52,7 +53,7 @@ class ehCaptcha
 
             // Check the user's input (force both the captcha value and the user input to upper case for simplicity of entry.)
             if (strtoupper($request->input('eh_captcha_input')) <> strtoupper(session('eh-captcha-value'))) {
-                return ['status'=>'Sorry. Wrong captcha. Please enter the number on the Captcha image below and try again.'];
+                return ['status'=>ehConfig::get('captcha.fail_message')];
             } else {
                 return ['status'=>true];
             }

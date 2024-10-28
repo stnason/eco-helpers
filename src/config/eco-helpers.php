@@ -152,7 +152,13 @@ return [
 
         // Display messages.
         // User input placeholder.
-        'placeholder' => "enter text at left",
+        'placeholder' => "enter the text at left",
+
+        // The front-end (ajax check) fail message for incorrect user input.
+        'fail_message' => "Sorry. Wrong captcha. Please enter the characters on the image and try again (refresh if you can't read it).",
+
+        // The back-end data validation fail message.
+        'validation_message' => "Oops! Captcha input doesn't seem to match.",
 
         // Captcha main display message
         'display' => "
