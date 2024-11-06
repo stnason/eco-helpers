@@ -76,8 +76,10 @@ USE THIS eh-dt-ajax-init AS A STARTING POINT.
 
         /*dom: 'B<"clear">lfrtip',*/
         /*dom: 'Bfrtip',*/
-        dom: 'Bfrtip',
+        /*dom: 'Bfrtip', */
 
+        /* Items/ Page dropdown menu choices. */
+        lengthMenu: [25, 50, 100],
 
         @if ($form['dtrowgroup'] ?? false)
         rowGroup: {

@@ -2,16 +2,11 @@
 
 namespace ScottNason\EcoHelpers\Classes;
 
-
-use Illuminate\Support\Facades\DB;
-//use function App\Classes\Request;
-
 /**
  * Datatables Server-Side paging processing.
  * Notes:
- *  - This is designed to (most commonly) have mekData() overridden to pull and format the data to hand back to dt.
- *  - buildSearchQuery() can be overridden to build custom searches (other than the standard f1 LIKE & or f2 LIKE %,
- *  etc.)
+ *
+ *
  *
  *
  */
@@ -23,19 +18,12 @@ class ehDTServerSide
     protected $rowperpage;                          // Internally created from the dt ajax "length" field.
     protected $columnIndex;                         // Expected from dt ajax.
     protected $columnName;                          // Original sort column name from dt ajax.
-    protected $finalSortColumnName;                 // Sort column used by the final response();
     protected $columnSortOrder;                     // Pulled from dt ajax request.
-    //protected $searchQuery;                         // Initial WHERE (passed) + user input search value
-    protected $totalRecords;                        // Total records unfiltered (using the initial_where)
-    //protected $totalRecordwithFilter;               // Total records after user (dt search bar) filtering.
-    //protected $tableName;                           // Actual table name pulled from the passed model.
-    //protected $model;                               // The passed Laravel model for this query.
+    protected $totalRecords;                        // Total records unfiltered (initial $resultset passed in)
+    protected $totalRecordwithFilter;               // Total record count AFTER filtering
     protected $use_fields;                          // $use_field $key=>$value pair array (from controller)
-    protected $query_builder;                       // The passed query builder instance for this operation.
+    protected $resultset;                           // The passed data result set for this operation.
     protected $searchValue;                         // The user provided dt search box entry
-
-    //protected $relationships;                     // An array with a list of ->with('name') relationships to use.
-    // This was originally thought to be a csv string but turns out to be an array ['r1','r2','r3']
 
 
     /**
@@ -92,14 +80,11 @@ class ehDTServerSide
      * @param $request              - Request()
      * @param $use_fields           - same $form['layout']['use_fields'] used for the blade template (passed from
      *                              controller)
-     * @param $query_builder        - Illuminate\\Database\\Eloquent\\Builder
-     *                              - pass in the initial query builder data set
-     *                              // USAGE: Model::whereRaw('1')
-     *                              // Note: we have to set the initial query builder with something that can be added to for the user search
-     *                              // so we're just using a 'where 1' and the builder will add the 'and' after that for subsequent where clauses.
+     * @param $resultset            - Illuminate\\Database\\Eloquent\\Builder
+     *                              - pass in the initial $resultset (data collection)
      *
      */
-    public function __construct($request, $use_fields, $query_builder) {
+    public function __construct($request, $use_fields, $resultset) {
 
 
         // FOR DEVELOPMENT TESTING ONLY. this class without an actual call from dt.
@@ -111,117 +96,101 @@ class ehDTServerSide
 
         // These are in the $request and came from dt (Note: columns were set up in the dt-init using the $use_fields)
         $this->draw = $request->input('draw');                                  // Just goes back out in the response (usually 1) ??
-        $this->row = $request->input('start');                                  // limit ($row, $rowperpage) ($row is the offset part of the query)
-        $this->rowperpage = $request->input('length');                          // Rows to display per page
+        $this->row = $request->input('start');                                  // Used as: limit ($row, $rowperpage); $row is the offset part of the limit query.
+        $this->rowperpage = $request->input('length');                          // Rows to display per paging request.
 
-        //TODO: these empty checks get rid of the array offset on null error but the sort doesn't work now.
-        // It may have something to do with the actual search (or extension?) implementation.
-        if (empty($request->input('order')[0]['column'])) {
-            $this->columnIndex = 0;
+        if (empty($request->input('order')[0]['column'])) {                     // Column index
+            $this->columnIndex = 0;                                             // In some cases it's missing and will cause a crash; so fix that here.
         } else {
-            $this->columnIndex = $request->input('order')[0]['column'];             // Column index
+            $this->columnIndex = $request->input('order')[0]['column'];
         }
 
         $this->columnName = $request->input('columns')[$this->columnIndex]['data'];  // Column name (defined in the dt init)
         $this->finalSortColumnName = $this->columnName;                              // Temporary place holder for manipulating the final sortBy name (for relationships and extended searchFilter())
 
-        if (empty($request->input('order')[0]['dir'])) {
-            $this->columnSortOrder = 'asc';
+        if (empty($request->input('order')[0]['dir'])) {                        // The 'orderBy' sort order - asc or desc
+            $this->columnSortOrder = 'asc';                                     // In some cases it's missing and will cause a crash; so fix that here.
         } else {
-            $this->columnSortOrder = $request->input('order')[0]['dir'];            // asc or desc
+            $this->columnSortOrder = $request->input('order')[0]['dir'];
         }
 
         $this->searchValue = $request->input('search')['value'];                // User input from the dt search box.
 
-
         // Passed parameters from the calling controller.
         $this->use_fields = $use_fields;                                        // Same $use_fields list as the index template expects.
-        $this->query_builder = $query_builder;                                  // A query builder instance that defines our starting (baseline) record-set.
-        // DO NOT INCLUDE the trailing "->get()" - we'll do that after we filter it.
+        $this->resultset = $resultset;                                          // A query builder instance that defines our starting (baseline) record-set.
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Total number of records without filtering
-        $this->totalRecords = $this->query_builder->count();
-
+        // Total number of records before any filtering
+        $this->totalRecords = $this->resultset->count();
 
     }
-
 
     /**
-     * This is where the user's dt search-box entry is processed.
+     * This is where we ensure that any virtual or relationship field is included in the input $resultset.
      *
-     * This will create a rudimentary field LIKE %search-value% OR
-     * for all fields in $use_fields.
-     *
-     * If you need more functionality, extend this class and override this method.
-     *
-     * Don't forget: we're applying the "->get()" here to execute the pull on the query that was passed ($query_builder)
-     *
-     * @return array
+     * @param $resultset
+     * @return mixed
      */
-    protected function searchFilter()
-    {
-
-        // The final response() will be filtered by $this->finalSortColumnName
-        // so each paging request must reset it here to the original request,
-        // before it's used.
-        // When extending this class you can change  $this->finalSortColumnName -
-        // - as in the case of a relationship field: orders.date_ordered.
-        $this->finalSortColumnName =  $this->columnName;
+    protected function processInputData($resultset) {
 
         /*
-         // When extending -- you're responsible for resetting the finalSortColumnName
-         $this->finalSortColumnName =  $this->columnName;
-
-        // Deal with the sort order for non-native fields (relationships or virtual)
-        if ($this->columnName == 'date_ordered') {
-            // this is a relationship field
-            $this->finalSortColumnName = 'orders.date_ordered';
+        foreach ($resultset as $row) {
+            // Extend and add virtual or relationship fields here.
+            //  $row['date_ordered'] = Order::find($row->order_id)->date_ordered;
         }
-        // And either call the parent searchFilter() or recreate it. (this deals with the user input search box)
-        return parent::searchFilter();
         */
 
-
-        $query = $this->query_builder;
-        if (!empty($this->searchValue)) {
-
-            /*
-            // Build out a standard "LIKE % OR" query for all $use_fields.
-            foreach ($this->use_fields as $field=>$label) {
-                $query->orWhere($field, 'like', '%' . $this->searchValue . '%');
-            }
-            */
-
-            // Loop the $use_fields and create the LIKE / OR part of the search.
-            $tmp = ' (';
-            foreach ( $this->use_fields as $field=>$label) {
-
-                // Ensure that all of these are "real" fields. (not virtual or fake)
-                // $query_builder->getModel()->getTable()     // table name from query builder
-
-                if ( DB::select("  SELECT COUNT(*) as total
-                FROM INFORMATION_SCHEMA.COLUMNS
-                WHERE TABLE_NAME = '".$query->getModel()->getTable()."'
-                AND COLUMN_NAME = '".$field."';")[0]->total > 0) {
-                    $tmp .= $field . " LIKE '%" . $this->searchValue . "%' OR ";
-                }
-
-            }
-            $tmp = rtrim($tmp, ' OR ');
-            $tmp .= ') ';
-            $query->whereRaw($tmp);
-
-            // Custom search in extended class:
-            // Note: This is the way to add the filter to the passed dataset ($query_builder) using a relationship
-            // dd($query_builder->whereRelation('contacts','first_name','like','%'.$this->searchValue.'%')->get());
-
-        }
-
-        return $query->get();
+        return $resultset;
     }
 
+    /**
+     * Boolean check applied to each $record in the getColumnData() method.
+     * If no user input is passed (dt search box), then it just returns true.
+     *
+     * @return bool
+     */
+    protected function searchFilter($resultset)
+    {
+
+        if (!empty($this->searchValue)) {
+            return $resultset->filter(
+                function ($record, $key) {
+
+                    foreach ($this->use_fields as $field => $label) {
+                        if (str_contains(strtolower($record->$field), strtolower($this->searchValue))) {
+                            return true;
+                        }
+                        // Extend and add virtual or relationship fields here.
+
+                    }
+                    return false;
+                }
+            );
+        } else {
+            return $resultset;
+        }
+
+    }
+
+    /**
+     * Apply the column sort selected by user interaction on the dt column heading.
+     *
+     * @param $resultset
+     * @return mixed
+     */
+    protected function sortOrder($resultset) {
+
+        // This will sort by the given field name, but it will also convert this collection to an indexed array
+        // that we'll have to undo in the getColumnData() method before passing this back to DT.
+        if ($this->columnSortOrder == 'asc') {
+            return $resultset->sortBy($this->columnName);
+        } else {
+            return $resultset->sortByDesc($this->columnName);
+        }
+
+    }
 
 
     /**
@@ -231,152 +200,93 @@ class ehDTServerSide
      *      - Deal w/any virtual fields (like contact_or_vendor)
      *      - Format any data; like dates, numbers, dollars...
      *
-     * @param $tmpResult
+     * @param $resultset
      * @return array
      */
-    protected function makeData($tmpResult) {
+    protected function getColumnData($resultset) {
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // USE THIS FORMAT WHEN EXTENDING THIS CLASS FOR A SPECIFIC TABLE/ APPLICATION.
-        // Build out the result-set $data that matches the $use_fields array.
-        // Note: you can easily return data on any relation here: Example: $record->contacts->last_name (contacts is the relation).
-        /*
-           $data = [];
-           foreach ($tmpResult as $key => $record) {
-               -- simple return of the table value as-is.
-               $tmpData['field1'] = $record->field1;
-               $tmpData['field2'] = $record->field2;
+        // Undo any "adding of index keys" that would've happened in the sortOrder() method
+        // and return a straight array for final response back to the dt ajax call.
 
-                -- With a link
-               $tmpData['kit_identifier'] = '<a href="'.route('narcan.show',['narcan'=>$record->id]).'">'.$record->kit_identifier.'</a>';
-
-               -- With date format
-               $tmpData['field4'] = $record->field4->format('Y-m-d')       // Note; always using Y-m-d so dt column sorting works properly on dates.
-
-                -- create a virtual field
-                $tmpData['contact_or_event'] = '';
-                   if (!empty($record->contacts)) {
-                       $tmpData['contact_or_event'] = '<a href="'.route('contacts.show',['contact'=>$record->contacts->id]).'">'. $record->contacts->fullName() . "</a>";
-                   }
-                   if (!empty($record->events)) {
-                       $tmpData['contact_or_event'] = '<a href="'.route('events.show',['event'=>$record->events->id]).'">'. $record->events->name . "</a>";
-                   }
-
-                 $data[] = $tmpData;
-            }
-            return $data;
-
-       */
-
-
-        /*
-         * THIS IS THE GENERIC data maker -- it only works with "real" fields and will provide no formatting.
-         * You'll have to extend the class and override this method to get links, formatting and proper dealing w/custom fields.
-         *
-         *
-         * $narcans->getModel()->getTable()     // table name from query builder
-         * $narcans->getModel()->getRelations() // maybe relations ??
-         *
-            */    ///////////////////////////////////////////////////////////////////////////////////////////
-        // Build out the result-set data using the $use_fields array.
-        // This the generic way to do this and will work if all the fields exist and have real data (no id lookups involved)
         $data = [];
-        foreach ($tmpResult as $key => $record) {
+        foreach ($resultset as $key => $record) {
             $one_record = [];
+
             foreach ($this->use_fields as $field=>$label) {
 
-                // This is the returned data that will populate the datatable so any formatting (including links)
-                // must be done here!
+                // If we don't touch it, every field will just pass through as is.
+                $one_record[$field] = $record->$field;
 
-                if (!empty($record->$field)) {
-
-                    $one_record[$field] = $record->$field;
-
+                // Extend and add any formatting or links here.
+                /*
+                 // Add a link to.
+                if ($field == 'kit_identifier') {
+                    $one_record[$field] = '<a href="'.route('narcan.show',['narcan'=>$record->id]).'">'. $record->$field . "</a>";
                 } else {
-
-                    /*
-                     * NOTE: if your initial model includes relationships -- just go ahead and extend this class now and override this method.
-                    // LOOP THE SUPPLIED RELATIONSHIPS TO SEE IF THE REQUESTED FIELD IS ON ONE OF THOSE.
-                    // !!! Note: this will only work properly if the field name is unique across all tables. !!!
-                    // So, if it's blank, see if it's on any of the relationships
-                    foreach ($this->relationships as $relationship) {
-                        if (!empty($record->$relationship->$field)) {
-                            $one_record[$field] = $record->$relationship->$field;
-                            break;
-                        } else {
-                            // Otherwise, just use blank.
-                            $one_record[$field] = '';
-                        }
-                    }
-                    */
-                    $one_record[$field] = 'not in table; extend this class';
-
+                    $one_record[$field] = $record->$field;
                 }
+
+                // Pull the ValidList name.
+                if ($field == 'location') {
+                    if (!empty($record->$field)) {
+                        $one_record[$field] = ValidList::getList('narcan_locations')[$record->$field];
+                    }
+                }
+
+                // Format a date field.
+                if ($field == 'date_ordered') {
+                    if (!empty($record->$field)) {
+                        $one_record[$field] = '<a href="'.route('orders.show',['order'=>$record->order_id]).'">'. $record->$field->format('Y-m-d') . "</a>";
+                    }
+                }
+                 */
             }
+
             $data[] = $one_record;
+
         }
 
         return $data;
 
-
     }
 
 
-
     /**
-     * Build out and return the response back to dt.
+     * Build out and return the ajax response back to dt.
+     * - This is where we apply the sort order and user entered filter
+     *      (the search filter is actually applied in getColumnData()).
      * @return array
      */
     public function response() {
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // 1) See if we have to add any user filters to the query
-        $tmpResult = $this->searchFilter();
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // 2) Get the Total number of records AFTER user filtering.
-
-        // umm..not sure how this is working but it looks like we do have to add "->get()" in the searchFilter() method
-        // yet, ->count() still works here (?)
-        //$this->totalRecordwithFilter = count($tmpResult);         // if you're doing the ->get() upstream.
-        $this->totalRecordwithFilter = $tmpResult->count();         // if you're doing the -get() downstream.
-
-
+        // 1) Add any virtual or relationship fields to the input $resultset
+        $this->resultset = $this->processInputData($this->resultset);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // THIS QUERY AS NO RELATIONSHIPS IN IT !! (they are used/added later when you call the relationship (I guess?)
-        // 3) Then execute the initial query (so we can sort it by relationships below if needed).
-        // Note: makeData() must return the same fields called for in $use_fields !
-        //$data = $this->makeData($tmpResult->get());
-        $data =
-            $this->query_builder
-                // #####################################################################
-                // dt paging control coming through the $request each time.
-//                ->orderBy($this->columnName, $this->columnSortOrder)
-                ->limit($this->rowperpage)
-                ->offset($this->row)
-                ->get();
-
-
-        //TODO: this works BUT IS THE WRONG BEHAVIOR sorting this AFTER the $data set is limited above --
-        // We only end up sorting a single page rather than the whole dataset!!!!
-        //
-        //
-        // 4) Sort: The above query cannot except dot syntax for relational fields -- but this one can.
-        // you'll have to override the searchFilter() function and change the value of
-        // $this->>columnName to the proper dot syntax: relationship.field_name.
-        // Note: $data is now a collection.
-        if ($this->columnSortOrder == 'desc') {
-            $data = $data->sortByDesc($this->finalSortColumnName);
-        } else {
-            $data = $data->sortBy($this->finalSortColumnName);
-        }
-
-        // 5) and format the output $data and turn it into an array.
-        $data = $this->makeData($data);
+        // 2) Add the user clicked (or default) column to sort.
+        $this->resultset = $this->sortOrder($this->resultset);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // 6) Then finally, return the needed dt fields along with the finalized dataset ($data)
+        // 3) Apply the searchFilter from the end-user.
+        $this->resultset = $this->searchFilter($this->resultset);
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // 4) Get the record count AFTER filtering.
+        $this->totalRecordwithFilter = $this->resultset->count();
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // 5) Get the final data to return to dt
+        // While applying the paging values for offset (row) and limit (rowperpage)
+        $data = $this->getColumnData(
+            $this->resultset
+                ->skip($this->row)                      // DT paging value for the starting row.
+                ->take($this->rowperpage)               // DT paging value for how many per page.
+        );
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // 6) Return the dt fields along with the finalized $resultset ($data)
         // Looks like data tables is getting: {"draw":1,"iTotalRecords":8543,"iTotalDisplayRecords":8543,"aaData":[$results_of_the_query]}
         // For some reason using json_encode() here escapes all double quotes and renders the data in a form not viewable.
         return  [

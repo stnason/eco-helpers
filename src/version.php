@@ -1,12 +1,17 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.11',
-    'eh-last-update' => '10/28/2024'
+    'eh-app-version' => 'v1.1.13',
+    'eh-last-update' => '11/05/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 11/05/2024:v01.01.13: 4.25 :Completely rework DTServerSide to use a collection rather than a query builder. (see par site for current usage)
+ * 11/03/2024:v01.01.12: 0.25 :Fix invalid $query to $query_builder in line 184 of DTServerSide.
+ * 11/02/2024:v01.01.12: 1.50 :Still experimenting with the par site and the best way to add non-native field sort to DTServerSide.
+ * 11/01/2024:v01.01.12: 2.50 :Re-working DTServerSide to simplify extending and to provide better sort control.
+ * 10/30/2024:v01.01.11: 0.25 :Add lengthMenu to the dt-ajax-init.
  * 10/28/2024:v01.01.11: 0.50 :Change eh-captcha-partial message to raw html (so we can show the refresh button icon); same with eh-captcha.js status message.
  * 10/27/2024:v01.01.11: 3.50 :Move all hard coded captcha variable from ehCaptcha to eco-helpers config file.
  * 10/24/2024:v01.01.10: 2.50 :Finishing out ehCaptcha on UnderCover site.
