@@ -1,12 +1,13 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.13',
-    'eh-last-update' => '11/05/2024'
+    'eh-app-version' => 'v1.1.14',
+    'eh-last-update' => '11/09/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 11/09/2024:v01.01.14: 5.75 :Completely rework DTServerSide to use only sql. Rename to DTServerSideSQL.
  * 11/05/2024:v01.01.13: 4.25 :Completely rework DTServerSide to use a collection rather than a query builder. (see par site for current usage)
  * 11/03/2024:v01.01.12: 0.25 :Fix invalid $query to $query_builder in line 184 of DTServerSide.
  * 11/02/2024:v01.01.12: 1.50 :Still experimenting with the par site and the best way to add non-native field sort to DTServerSide.
