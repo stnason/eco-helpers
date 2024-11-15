@@ -380,7 +380,7 @@ class ehDTServerSideSQL
         // REMEMBER: - t1 is the alias for the initial dataset query.
         /*
         return [
-            // Native--unaltered--fields to this table.
+            // Native--unaltered--fields for this table.
             'id'=>'id',
             'kit_identifier'=>'kit_identifier',
             'lot_number'=>'lot_number',

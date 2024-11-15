@@ -329,8 +329,11 @@ The standard button area must be contained within each CRUD <form>
     <script type="text/javascript" src="{{asset('vendor/ecoHelpers/js/eh-save-me.js')}}"></script>
     {{-- User Notifications. --}}
     <script type="text/javascript" src="{{ asset('vendor/ecoHelpers/js/eh-notifications.js') }}"></script>
-    {{-- Unsaved warning message. --}}
+    {{-- Unsaved warning message. Auto loader [1] or ['unsaved'] --}}
     <script type="text/javascript">
+        @if (isset($form['layout']['auto_load'][1]) && $form['layout']['auto_load'][1] == 'disabled' )
+        {{-- From the controller you can disable the 'unsaved' meesage using: ehLayout::setAutoload('unsaved','disabled');--}}
+        @else
         $("form[class^='eh-form-crud']").change(function (e) {
             // Update the system flash message on any form input change.
             // EXCEPT: do not do it on any "goto" button change since we're just changing pages.
@@ -338,6 +341,7 @@ The standard button area must be contained within each CRUD <form>
                 $('#eh-layout-page-flash').html('You have <strong>unsaved</strong> changes.');
             }
         });
+        @endif
     </script>
     {{--
         Yield to other templates so they can add additional javascript elements as needed.

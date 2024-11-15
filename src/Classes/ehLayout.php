@@ -778,7 +778,8 @@ class ehLayout
 
 
             // It's just a $key=>value pair for this auto_loader for the template to check.
-            // But remember, the eh-js/css-loader template is just checking to see if it's set.
+            // But remember, the eh-js/css-loader template is only checking to see if it's set or not.
+            // So we can use the $auto_loader_number to hold (either) $auto_loader_name OR the optional $parameter.
             if (!empty($parameter)) {
                 self::$layout['auto_load'][$auto_loader_number] = $parameter;
             } else {
