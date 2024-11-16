@@ -1,12 +1,13 @@
 <?php
 return [
     'eh-app-version' => 'v1.1.15',
-    'eh-last-update' => '11/14/2024'
+    'eh-last-update' => '11/16/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 11/16/2024:v01.01.15: 0.25 :Add a generic report_filter variable to the eh-dt-ajax-init.
  * 11/14/2024:v01.01.15: 0.50 :Add optional 'disabled' parameter check to autoload[1] in app template. In contgller use; ehLayout;;setAutoload('unsaved','disabled');
  * 11/09/2024:v01.01.14: 5.75 :Completely rework DTServerSide to use only sql. Rename to DTServerSideSQL.
  * 11/05/2024:v01.01.13: 4.25 :Completely rework DTServerSide to use a collection rather than a query builder. (see par site for current usage)

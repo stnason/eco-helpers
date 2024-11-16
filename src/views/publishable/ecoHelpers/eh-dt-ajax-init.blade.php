@@ -141,6 +141,8 @@ USE THIS eh-dt-ajax-init AS A STARTING POINT.
             data: function (d) {
                 // d.myKey = 'myValue';
                 // d.narcan_status = $('input[name="narcan_status"]:checked').val();
+                // This is a nice generic one field filter to use in any report template. Otherwise you can copy this file and add whatever.
+                d.report_filter = $('input[name="report_filter"]:checked').val();
             }
 
         },
