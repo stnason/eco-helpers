@@ -294,7 +294,7 @@ class ehValidList {
         // To add additional lists, define them as protected static variables above and then add them here.
         self::addList('month', self::$_month);
         self::addList('day', self::$_day);
-        self::addList('day', self::$_date_validation_list);
+        self::addList('date_validation_list', self::$_date_validation_list);
         self::addList('timezone', self::$_timezone);
         self::addList('page_security', self::$_page_security);
         self::addList('page_type', self::$_page_type);
