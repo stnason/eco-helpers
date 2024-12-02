@@ -22,6 +22,16 @@ class ValidList extends \ScottNason\EcoHelpers\Classes\ehValidList
         9=>'Other'
     ];
 
+    protected static $_date_validation_list = [
+        0=>'Today',
+        1=>'1-month',
+        2=>'2-months',
+        3=>'3-months',
+        6=>'6-months',
+        12=>'12-months',
+    ];
+
+
     /**
      * getList() must be implemented here. (Do not remove it.)
      * It initializes all the added lists and then returns the individual key ($list_name) called for.

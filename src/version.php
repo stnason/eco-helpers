@@ -7,7 +7,8 @@ return [
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 12/02/2024:v01.01.16: 0.50 :Change data_validation low/high to backdate/ postdate; add enforce_today.
+ * 12/02/2024:v01.01.16: 0.50 :remove date_validation_today and change date_validation_backdate/ postdate to integer (for number of months).
+ * 12/02/2024:v01.01.16: 0.50 :Change date_validation low/high to backdate/ postdate; add enforce_today.
  * 12/01/2024:v01.01.15: 0.25 :Change label of date_validation_low to match name; add date_validation_high.
  * 11/16/2024:v01.01.15: 0.25 :Add a generic report_filter variable to the eh-dt-ajax-init.
  * 11/14/2024:v01.01.15: 0.50 :Add optional 'disabled' parameter check to autoload[1] in app template. In contgller use; ehLayout;;setAutoload('unsaved','disabled');

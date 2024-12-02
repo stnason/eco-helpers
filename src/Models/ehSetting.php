@@ -18,8 +18,6 @@ class ehSetting extends ehBaseModel
     public $dates = ['date_validation_low', 'created_at', 'updated_at'];
 
     public $casts = [
-        'date_validation_backdate' => 'date',
-        'date_validation_postdate' => 'date',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
@@ -42,7 +40,6 @@ class ehSetting extends ehBaseModel
         'message_copyright'=>'Copyright Message',
 
         'date_validation_backdate'=>'Date Validation Backdate',
-        'date_validation_today'=>'Date Validation Today',
         'date_validation_postdate'=>'Date Validation Postdate',
 
         //'default_time_zone'=>'Default Time Zone',
