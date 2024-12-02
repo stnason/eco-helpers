@@ -19,6 +19,7 @@ class ehSetting extends ehBaseModel
 
     public $casts = [
         'date_validation_low' => 'date',
+        'date_validation_high' => 'date',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
@@ -41,7 +42,8 @@ class ehSetting extends ehBaseModel
         'message_jumbotron'=>'Jumbotron Message',
         'message_copyright'=>'Copyright Message',
 
-        'date_validation_low'=>'Low Validation Date',
+        'date_validation_low'=>'Date Validation Low',
+        'date_validation_high'=>'Date Validation high',
         'default_time_zone'=>'Default Time Zone',
 
         'site_contact_email'=>'Site Contact Email',

@@ -23,7 +23,8 @@ return new class extends Migration {
             $table->string('message_copyright')->nullable();
 
             // Data Validation & Defaults
-            $table->string('date_validation_low')->nullable();
+            $table->date('date_validation_low')->nullable();
+            $table->date('date_validation_high')->nullable();
             $table->string('default_time_zone')->nullable();
 
             // Site Contacts & Emails
