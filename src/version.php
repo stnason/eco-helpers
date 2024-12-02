@@ -7,6 +7,7 @@ return [
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 12/02/2024:v01.01.16: 1.50 :Add formatValidationDates to ehConfig to format validation dates ready for Laravel rule use.
  * 12/02/2024:v01.01.16: 0.50 :remove date_validation_today and change date_validation_backdate/ postdate to integer (for number of months). Add $_date_validation_list to ehValidList.
  * 12/02/2024:v01.01.16: 0.50 :Change date_validation low/high to backdate/ postdate; add enforce_today.
  * 12/01/2024:v01.01.15: 0.25 :Change label of date_validation_low to match name; add date_validation_high.

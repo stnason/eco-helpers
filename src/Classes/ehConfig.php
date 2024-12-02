@@ -37,8 +37,13 @@ class ehConfig
             return self::$combined_config;
         } else {
 
-            // How do we make this multi-level aware? param_top.next_level.deeper_level.etc
+            // Convert the simple months integer into the appropriate php date format ready to use in Laravel validation rules
+            if ($parameters == 'date_validation_postdate' || $parameters == 'date_validation_backdate') {
+                return self::formatValidationDates($parameters);
+            }
 
+
+            // How we make this multi-level aware? param_top.next_level.deeper_level.etc
             return self::recurseParameters($parameters, self::$combined_config);
 
             /*
@@ -173,6 +178,32 @@ class ehConfig
         foreach(config('eco-helpers') as $key => $value) {
             self::$combined_config[$key] = $value;
         }
+    }
+
+
+    protected static function formatValidationDates($parameters)
+    {
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // Create the validation variables from the system settings for backdate and postdate (remember that a value of "0" is today).
+        // Note: we're having to build the whole date variable here so we can include the format W/O h:m:i !!
+
+        if ($parameters == 'date_validation_postdate' ) {
+            if (empty(self::$combined_config['date_validation_postdate'])) {
+                return date('m/d/Y',strtotime('now'));
+            } else {
+                return date('m/d/Y',strtotime('+'.self::$combined_config['date_validation_postdate'].' month'));
+            }
+        }
+
+        if ($parameters == 'date_validation_backdate' ) {
+            if (empty(self::$combined_config['date_validation_backdate'])) {
+                return date('m/d/Y',strtotime('now'));
+            } else {
+                return date('m/d/Y',strtotime('+'.self::$combined_config['date_validation_backdate'].' month'));
+            }
+        }
+
+        return null;
     }
 
 
