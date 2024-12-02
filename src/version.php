@@ -1,12 +1,13 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.15',
-    'eh-last-update' => '12/01/2024'
+    'eh-app-version' => 'v1.1.16',
+    'eh-last-update' => '12/02/2024'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 12/02/2024:v01.01.16: 0.50 :Change data_validation low/high to backdate/ postdate; add enforce_today.
  * 12/01/2024:v01.01.15: 0.25 :Change label of date_validation_low to match name; add date_validation_high.
  * 11/16/2024:v01.01.15: 0.25 :Add a generic report_filter variable to the eh-dt-ajax-init.
  * 11/14/2024:v01.01.15: 0.50 :Add optional 'disabled' parameter check to autoload[1] in app template. In contgller use; ehLayout;;setAutoload('unsaved','disabled');

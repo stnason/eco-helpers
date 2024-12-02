@@ -23,9 +23,11 @@ return new class extends Migration {
             $table->string('message_copyright')->nullable();
 
             // Data Validation & Defaults
-            $table->date('date_validation_low')->nullable();
-            $table->date('date_validation_high')->nullable();
-            $table->string('default_time_zone')->nullable();
+            $table->date('date_validation_backdate')->nullable();           // Allowable date in the past to use for an entry.
+            $table->date('date_validation_postdate')->nullable();           // Allowable future date to enter (if date_validation_today is false).
+            $table->tinyInteger('date_validation_today')->nullable();       // Use today() as the postdate validation.
+
+            //$table->string('default_time_zone')->nullable();              // DEPRECATED; doesn't seem to be needed in Laravel for timestamps - browser takes care of it.
 
             // Site Contacts & Emails
             $table->string('site_contact_email')->nullable();

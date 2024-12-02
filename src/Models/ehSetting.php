@@ -41,9 +41,11 @@ class ehSetting extends ehBaseModel
         'message_jumbotron'=>'Jumbotron Message',
         'message_copyright'=>'Copyright Message',
 
-        'date_validation_low'=>'Date Validation Low',
-        'date_validation_high'=>'Date Validation High',
-        'default_time_zone'=>'Default Time Zone',
+        'date_validation_backdate'=>'Date Validation Backdate',
+        'date_validation_today'=>'Date Validation Today',
+        'date_validation_postdate'=>'Date Validation Postdate',
+
+        //'default_time_zone'=>'Default Time Zone',
 
         'site_contact_email'=>'Site Contact Email',
         'site_contact_name'=>'Site Contact Name',
