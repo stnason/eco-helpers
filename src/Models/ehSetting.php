@@ -32,7 +32,6 @@ class ehSetting extends ehBaseModel
      */
     public $labels = [
 
-
         'id'=>'id',
         'site_lockout'=>'Site Lockout',
         'system_banner'=>'System Banner',
@@ -43,7 +42,7 @@ class ehSetting extends ehBaseModel
         'message_copyright'=>'Copyright Message',
 
         'date_validation_low'=>'Date Validation Low',
-        'date_validation_high'=>'Date Validation high',
+        'date_validation_high'=>'Date Validation High',
         'default_time_zone'=>'Default Time Zone',
 
         'site_contact_email'=>'Site Contact Email',
