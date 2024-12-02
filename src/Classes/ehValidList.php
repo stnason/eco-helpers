@@ -75,6 +75,17 @@ class ehValidList {
             30=>'30',
             31=>'31',
         ];
+
+
+    protected static $_date_validation_list = [
+        0=>'Today',
+        1=>'1-month',
+        2=>'2-months',
+        3=>'3-months',
+        6=>'6-months',
+        12=>'12-months',
+    ];
+
     protected static $_timezone =
         [
             "America/New_York"=>"Eastern",
@@ -283,6 +294,7 @@ class ehValidList {
         // To add additional lists, define them as protected static variables above and then add them here.
         self::addList('month', self::$_month);
         self::addList('day', self::$_day);
+        self::addList('day', self::$_date_validation_list);
         self::addList('timezone', self::$_timezone);
         self::addList('page_security', self::$_page_security);
         self::addList('page_type', self::$_page_type);
