@@ -18,8 +18,8 @@ class ehSetting extends ehBaseModel
     public $dates = ['date_validation_low', 'created_at', 'updated_at'];
 
     public $casts = [
-        'date_validation_low' => 'date',
-        'date_validation_high' => 'date',
+        'date_validation_backdate' => 'date',
+        'date_validation_postdate' => 'date',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
