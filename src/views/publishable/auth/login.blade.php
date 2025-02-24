@@ -5,9 +5,12 @@
 
     <p class="text-warning">
     @if ($errors->any())
+        {{$errors->first()}}
+        {{--
         @error('email') {{ $errors->first('email') }} @enderror
         @error('name') {{ $errors->first('name') }} @enderror
         @error('password') {{ $errors->first('password') }} @enderror
+        --}}
     @else
         &nbsp;  {{-- Placeholder for any error message. --}}
     @endif

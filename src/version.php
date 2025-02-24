@@ -1,12 +1,13 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.16',
-    'eh-last-update' => '12/02/2024'
+    'eh-app-version' => 'v1.1.17',
+    'eh-last-update' => '02/24/2025'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 02/14/2025:v01.01.17: 1.00 :Fix a problem with no message on failed login. Added $errors->first() to login.blade (remove all others).
  * 12/02/2024:v01.01.16: 1.50 :Add formatValidationDates to ehConfig to format validation dates ready for Laravel rule use.
  * 12/02/2024:v01.01.16: 0.50 :remove date_validation_today and change date_validation_backdate/ postdate to integer (for number of months). Add $_date_validation_list to ehValidList.
  * 12/02/2024:v01.01.16: 0.50 :Change date_validation low/high to backdate/ postdate; add enforce_today.

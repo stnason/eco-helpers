@@ -199,7 +199,7 @@ class ehConfig
             if (empty(self::$combined_config['date_validation_backdate'])) {
                 return date('m/d/Y',strtotime('now'));
             } else {
-                return date('m/d/Y',strtotime('+'.self::$combined_config['date_validation_backdate'].' month'));
+                return date('m/d/Y',strtotime('-'.self::$combined_config['date_validation_backdate'].' month'));
             }
         }
 
