@@ -13,10 +13,14 @@ use Illuminate\Http\Request;
  *          'required',
  *          function (string $attribute, mixed $value, \Closure $fail) {
  *              if (ehCaptcha::captcha(Request())['status'] !== true) {
- *                  $fail(ehConfig::get('validation_message'));
+ *                  $fail(ehConfig::get('fail_message'));
  *              }
  *          }
+ *      ],
+ *      [
+ *          'eh_captcha_input.required'=>'Captcha is required.',
  *      ]
+ *
  * WARNING: The captcha partial has to be within the <form> tag for the back-end validation to work.
  *
  */
