@@ -148,7 +148,7 @@ trait ehHasUserstamps
      * User date stamp formatter.
      * This should just be saving a plain UTC format and then the display and timezone get applied in ehControl.
      *
-     * (if it should be different, then change it here)
+     * Note: This method is using the setting in eco-helpers.date_sql_long to set this date format.
      *
      * @return false|string
      */

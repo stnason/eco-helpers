@@ -65,8 +65,8 @@ The standard button area must be contained within each CRUD <form>
     {{--
         Include all of the standard meta tags, base and $settinged css (configure in views/eco-configure).
         --}}
-    @if(View::exists('ecoHelpers.'.$config::get('layout.html_head_file')))
-        @include('ecoHelpers.'.$config::get('layout.html_head_file'))
+    @if(View::exists($config::get('layout.html_head_file')))
+        @include($config::get('layout.html_head_file'))
     @endif
     {{--
         Include the CSS and $settinger mechanism. This pulls in the level-0 (global) css links
@@ -110,15 +110,15 @@ The standard button area must be contained within each CRUD <form>
     You may have the need to add other elements to the base template.
     (dropzones, modals, other notifcations, whatever.)
     --}}
-@if(View::exists('ecoHelpers.'.$config::get('layout.app_add_ins_file_top')))
-    @include('ecoHelpers.'.$config::get('layout.app_add_ins_file_top'))
+@if(View::exists($config::get('layout.app_add_ins_file_top')))
+    @include($config::get('layout.app_add_ins_file_top'))
 @endif
 {{--
     ### NAVIGATION BAR AREA ###
     This is the user configurable navbar area of the page
     --}}
-@if(View::exists('ecoHelpers.'.$config::get('layout.navbar_header_file')))
-    @include('ecoHelpers.'.$config::get('layout.navbar_header_file'))
+@if(View::exists($config::get('layout.navbar_header_file')))
+    @include($config::get('layout.navbar_header_file'))
 @endif
 {{--
     ### SYSTEM BANNER AREA ###
@@ -352,8 +352,8 @@ The standard button area must be contained within each CRUD <form>
         ### FOOTER AREA ###
         Include the file specified in the eco-helpers config file.
         --}}
-@if(View::exists('ecoHelpers.'.$config::get('layout.footer_file')))
-    @include('ecoHelpers.'.$config::get('layout.footer_file'))
+@if(View::exists($config::get('layout.footer_file')))
+    @include($config::get('layout.footer_file'))
 @else
     <p>NO USER FOOTER FILE PRESENT.</p>
     <p><em>Configure filename in config/eco-helpers.php and place the blade template file in
@@ -362,8 +362,8 @@ The standard button area must be contained within each CRUD <form>
 {{--
     Final override file to load (outside of <main>).
     --}}
-@if(View::exists('ecoHelpers.'.$config::get('layout.app_add_ins_file_bottom')))
-    @include('ecoHelpers.'.$config::get('layout.app_add_ins_file_bottom'))
+@if(View::exists($config::get('layout.app_add_ins_file_bottom')))
+    @include($config::get('layout.app_add_ins_file_bottom'))
 @endif
 </body>
 </html>

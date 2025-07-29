@@ -1,12 +1,13 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.17',
-    'eh-last-update' => '03/06/2025'
+    'eh-app-version' => 'v1.1.18',
+    'eh-last-update' => '07/29/2025'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 07/29/2025:v01.01.18: 1.00 :Change eco-helpers config to allow for use of any valid blade template folder rather than forcing to just ecoHelpers.
  * 03/06/2025:v01.01.17: 1.00 :Minor changes to captcha after attempting to incorporate into eesfm (de-coupled).
  * 02/14/2025:v01.01.17: 1.00 :Fix a problem with no message on failed login. Added $errors->first() to login.blade (remove all others).
  * 12/02/2024:v01.01.16: 1.50 :Add formatValidationDates to ehConfig to format validation dates ready for Laravel rule use.
