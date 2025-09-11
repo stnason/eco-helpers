@@ -9,6 +9,7 @@ use ScottNason\EcoHelpers\Classes\ehLinkbar;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cache;
 
 
 /**
@@ -159,6 +160,8 @@ class ehSettingsController extends ehBaseController
         // Save/Update the site setting (using mass assignment)
         $result = $setting->update($request->input());
 
+        // Wipe out the cache key used in the ehConfig class to check and pull config settings.
+        Cache::forget('cache_key');
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Set the Flash message.

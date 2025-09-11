@@ -3,6 +3,7 @@
 namespace ScottNason\EcoHelpers\Classes;
 
 use ScottNason\EcoHelpers\Models\ehSetting;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * ehConfig is a helper function to provide access to the values contained in both
@@ -46,8 +47,9 @@ class ehConfig
             // How we make this multi-level aware? param_top.next_level.deeper_level.etc
             return self::recurseParameters($parameters, self::$combined_config);
 
-            /*
+
             // If we're calling for a specific parameter -- check if it's real then return it (or an error message).
+            /*
             if (isset($combined_config->$parameter)) {
                 return $combined_config->$parameter;
             } else {
@@ -112,9 +114,24 @@ class ehConfig
     protected static function initializeSettingsArray() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
+        // Add caching to keep this from doing a query every single time.
+        //$users = Cache::remember('all_users', 60, function () {
+        //    return User::all();
+        //});
+        // NOT HELPING??
+        $config_set = Cache::remember('config_set', 60, function () {
+            return ehSetting::find(1);
+        });
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
         // 0. Do we have a settings table entry?
         // If not, create the first time setup defaults.
-        if (!ehSetting::find(1)) {
+        // THIS IS HAMMERING QUERIES TO THE DB.
+
+        //if (!ehSetting::find(1)) {
+        if (!$config_set) {
 
             // throw new \Exception('Error: missing settings table entries. Please run /settings to initialize.');
             // Since the ehBaseController depends on this -- we need to ensure that it's instantiated here.
@@ -163,7 +180,8 @@ class ehConfig
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 1. Get the single record from the settings table
-        self::$combined_config = ehSetting::find(1)->toArray();
+        //self::$combined_config = ehSetting::find(1)->toArray();
+        self::$combined_config = $config_set->toArray();
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////

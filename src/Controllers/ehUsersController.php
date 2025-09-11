@@ -405,6 +405,7 @@ class ehUsersController extends ehBaseController
         // BUSINESS RULES
         ///////////////////////////////////////////////////////////////////////////////////////////
 
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         // WHEN ADDING: Skip any business rules you don't want to run when adding a new record.
         // (If there is no id, then this should be a new record.)
@@ -421,6 +422,11 @@ class ehUsersController extends ehBaseController
         // BUSINESS RULES (for both adding and update):
         // Place any business rules here that will RUN when both adding AND updating a record.
         ///////////////////////////////////////////////////////////////////////////////////////////
+
+        // RULE: if the login_created date is empty then stamp it now.
+        if (empty($request->login_created)) {
+            $request->merge(['login_created' => date(ehConfig::get('date_sql_long'))]);
+        }
 
 
         // RULE GROUP: "If Login is Active"

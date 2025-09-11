@@ -197,8 +197,8 @@ return [
         |  (at either the top or bottom of the <body></body>).
         |
         */
-        'app_add_ins_file_top' => 'eh-app-add-ins_top',         // Top of the document; right after <body> but before <main>
-        'app_add_ins_file_bottom' => 'eh-app-add-ins_bottom',   // Bottom; right after </main> but before </body>
+        'app_add_ins_file_top' => 'ecoHelpers.eh-app-add-ins_top',         // Top of the document; right after <body> but before <main>
+        'app_add_ins_file_bottom' => 'ecoHelpers.eh-app-add-ins_bottom',   // Bottom; right after </main> but before </body>
 
         /*
         |--------------------------------------------------------------------------
@@ -207,7 +207,7 @@ return [
         | (metadata section).
         |
         */
-        'html_head_file' => 'eh-html-head',
+        'html_head_file' => 'ecoHelpers.eh-html-head',
 
 
         /*
@@ -217,7 +217,7 @@ return [
         | Standard NAV header configuration (User configurable navbar file).
         |
         */
-        'navbar_header_file' => 'eh-navbar-header',
+        'navbar_header_file' => 'ecoHelpers.eh-navbar-header',
 
 
         /*
@@ -227,7 +227,7 @@ return [
         | Standard footer configuration (User configurable footer file).
         |
         */
-        'footer_file' => 'eh-footer',
+        'footer_file' => 'ecoHelpers.eh-footer',
 
         /*
         |--------------------------------------------------------------------------

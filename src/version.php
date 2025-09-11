@@ -1,13 +1,17 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.18',
-    'eh-last-update' => '07/29/2025'
+    'eh-app-version' => 'v1.1.19',
+    'eh-last-update' => '09/10/2025'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 07/29/2025:v01.01.18: 1.00 :Change eco-helpers config to allow for use of any valid blade template folder rather than forcing to just ecoHelpers.
+ * 09/11/2025:v01.01.19: 3.25 :Add Cache;;remember() to ehConfig to keep settings calls from hammering the settings table.
+ * 09/10/2025:v01.01.19: 0.25 :Add rule to check for empty login_created in ehUsersController@dataConsistencyCheck.
+ * 09/10/2025:v01.01.19: 0.50 :Remove email_verified_at from the User's Model $disabled field list. (allowing admin control to setup new login)
+ * 08/02/2025:v01.01.18: 0.25 :Comment out font-size in eh-app-layout-areas.css. It should just inherit.
+ * 07/29/2025:v01.01.18: 1.00 :THIS IS A BREAKING CHANGE THAT REQUIRES EDITING THE eco-helpers.php CONFIG FILE; Change eco-helpers config to allow for use of any valid blade template folder rather than forcing to just ecoHelpers.
  * 03/06/2025:v01.01.17: 1.00 :Minor changes to captcha after attempting to incorporate into eesfm (de-coupled).
  * 02/14/2025:v01.01.17: 1.00 :Fix a problem with no message on failed login. Added $errors->first() to login.blade (remove all others).
  * 12/02/2024:v01.01.16: 1.50 :Add formatValidationDates to ehConfig to format validation dates ready for Laravel rule use.
