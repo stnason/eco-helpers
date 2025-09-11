@@ -2,6 +2,7 @@
 
 namespace ScottNason\EcoHelpers\Classes;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
 
@@ -125,6 +126,7 @@ class ehLayout
             dd('Layout error 1403: Remember to run php artisan vendor:publish and choose -  Provider: ScottNason\EcoHelpers\Providers\EcoHelpersServiceProvider');
         }
 
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         // LAYOUT DEFAULTS: from eco-helpers config file
         foreach(self::$defined_areas as $area) {
@@ -163,8 +165,11 @@ class ehLayout
         // MAIN DROPDOWN MENUS: Create the navbar user dropdown menus
         // ehMenus() will deliver a complete menu hierarchy based on the logged in user's acting role
         // page security along with any individual page security settings (public, auth, full security check).
-        $menus = new ehMenus(0,'user');
-        self::$layout['menus'] = $menus->getPages();
+// This has moved to the new User@ehEnvironment all and saved in the session().
+//        $menus = new ehMenus(0,'user');
+//        self::$layout['menus'] = $menus->getPages();
+
+        self::$layout['menus'] = User::ehEnvironment('ehMenus');
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -199,6 +204,7 @@ class ehLayout
             self::setName($resource_name_pre.$p->name.$resource_name_post);
             self::setIcon($p->icon);
             self::setDescription($p->description);
+            // show query log results
             return $p;
 
         } else {

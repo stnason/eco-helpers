@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use ScottNason\EcoHelpers\Classes\ehMenus;
+use ScottNason\EcoHelpers\Models\ehSetting;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +30,7 @@ class User extends ehBaseAuthenticatable implements MustVerifyEmail
 
     protected $table = 'users';
 
+
     // ehControl has been converted to pull in any $casts with date, datetime or timestamp into our $dates array.
     // So, not using it anymore in favor of $casts.
     // public $dates = ['created_at', 'updated_at', 'last_login', 'login_created'];
@@ -36,7 +40,6 @@ class User extends ehBaseAuthenticatable implements MustVerifyEmail
      *
      * @var string[]
      */
-    //public $disabled = ['remember_token', 'email_verified_at'];
     public $disabled = ['remember_token'];
 
 
@@ -142,6 +145,96 @@ class User extends ehBaseAuthenticatable implements MustVerifyEmail
         'password',
         'remember_token',
     ];
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    // SET UP A RE-USABLE USER ENVIRONMENT.
+    // This should be updated on initial login and after any role change.
+
+    // Store a key-value pair
+    // session(['key' => 'value']);
+
+    // Store multiple key-value pairs
+    // session([
+    //  'name' => 'John Doe',
+    //  'age' => 30,
+    // ]);
+
+    // Using the session() helper
+    // $value = session('key');
+
+    public static function ehEnvironment($key='ehInit') {
+
+
+        // Is the user logged in now?
+        //if (!Auth::check()) {
+        //    return false;
+        //}
+
+        if ($key=='ehInit') {
+
+            // 1. Save the combined $settings_config array to the session().
+            session(['ehConfig' => self::ehInit()]);
+
+            // 2. Save the user specific dropdown specific menus to the session().
+            session(['ehMenus' => self::ehMenus()]);
+
+
+        } else {
+
+            // Get a copy of eco-helpers config and the settings table
+            if ($key=='ehConfig') {
+                if (session()->has('ehConfig')) {
+                    return session('ehConfig');     // Is the session available here for this call?
+                } else {
+                    return self::ehInit();               // Otherwise initialize a new one.
+                }
+            }
+
+            // Set up this user's dropdown menus
+            if ($key=='ehMenus') {
+                if (session()->has('ehMenus')) {
+                    return session('ehMenus');      // Is the session available here for this call?
+                } else {
+                    return self::ehMenus();              // Otherwise create new ones.
+                }
+
+            }
+        }
+
+
+    }
+
+    protected static function ehInit() {
+        // 1. Get a copy of the settings table
+        $settings_config = ehSetting::find(1)->toArray();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // from ehConfig
+        // 2. Add the eco-config file to the self::$settings_config array.
+        foreach(config('eco-helpers') as $key => $value) {
+            $settings_config[$key] = $value;
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // 3. Get the 2 version variables from the eco-helpers package to include in the self::$settings_config array.
+        $version_file = include(base_path().'/vendor/scott-nason/eco-helpers/src/version.php');
+        $settings_config['eh-app-version'] = $version_file['eh-app-version'];
+        $settings_config['eh-last-update'] = $version_file['eh-last-update'];
+
+        return $settings_config;
+    }
+
+    protected static function ehMenus() {
+        // Create and save this user's dropdown menus
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // MAIN DROPDOWN MENUS: Create the navbar user dropdown menus
+        // ehMenus() will deliver a complete menu hierarchy based on the logged in user's acting role
+        // page security along with any individual page security settings (public, auth, full security check).
+        $menus = new ehMenus(0,'user');
+        return $menus->getPages();
+    }
 
 
 }

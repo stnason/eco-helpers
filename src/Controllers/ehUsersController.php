@@ -330,7 +330,11 @@ class ehUsersController extends ehBaseController
 
         // If a role is passed in the request, then call the method to change the user's acting role.
         if (!empty($request->role)) {
+            // 1. Set the users acting role to the requested.
             Auth()->user()->setActingRole($request->role);
+
+            // 2.Regenerate the user environment to the session().
+            User::ehEnvironment();
         }
 
         // Role changes automatically provide an indication in a popup.

@@ -2,6 +2,7 @@
 
 namespace ScottNason\EcoHelpers\Classes;
 
+use App\Models\User;
 use ScottNason\EcoHelpers\Models\ehSetting;
 use Illuminate\Support\Facades\Cache;
 
@@ -30,7 +31,6 @@ class ehConfig
         ////////////////////////////////////////////////////////////////////////////////////////////
         // Create the internal $combined_config array from the combined settings table and eco-helpers config file.
         self::initializeSettingsArray();
-
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // If a specific parameter is not called for then return the whole combined collection.
@@ -119,83 +119,88 @@ class ehConfig
         //    return User::all();
         //});
         // NOT HELPING??
+        /*
         $config_set = Cache::remember('config_set', 60, function () {
             return ehSetting::find(1);
         });
-
+        */
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 0. Do we have a settings table entry?
         // If not, create the first time setup defaults.
         // THIS IS HAMMERING QUERIES TO THE DB.
+        /*
+                //if (!ehSetting::find(1)) {
+                if (!$config_set) {
 
-        //if (!ehSetting::find(1)) {
-        if (!$config_set) {
+                    // throw new \Exception('Error: missing settings table entries. Please run /settings to initialize.');
+                    // Since the ehBaseController depends on this -- we need to ensure that it's instantiated here.
+                    // Note: the /settings route redirects to ehSettingsController@create() which depends on the settings being there, so we get stuck.
 
-            // throw new \Exception('Error: missing settings table entries. Please run /settings to initialize.');
-            // Since the ehBaseController depends on this -- we need to ensure that it's instantiated here.
-            // Note: the /settings route redirects to ehSettingsController@create() which depends on the settings being there, so we get stuck.
+                    // Moved the code from the ehSettingsController@create() method to here:
 
-            // Moved the code from the ehSettingsController@create() method to here:
+                    $setting = new ehSetting();
 
-            $setting = new ehSetting();
+                    // Set the OOTB package defaults for the settings table.
+                    $setting->site_lockout = 0;
+                    $setting->system_banner ='<strong>Eco Helpers</strong> Banner';
+                    $setting->system_banner_blink = 0;
+                    $setting->message_welcome ='Welcome to Eco Helpers!';
+                    $setting->message_jumbotron ='This is our Home page.';
+                    $setting->message_copyright ='Copyright (C)2023, NasonProductions';
+                    $setting->date_validation_low ='2010-01-01';
 
-            // Set the OOTB package defaults for the settings table.
-            $setting->site_lockout = 0;
-            $setting->system_banner ='<strong>Eco Helpers</strong> Banner';
-            $setting->system_banner_blink = 0;
-            $setting->message_welcome ='Welcome to Eco Helpers!';
-            $setting->message_jumbotron ='This is our Home page.';
-            $setting->message_copyright ='Copyright (C)2023, NasonProductions';
-            $setting->date_validation_low ='2010-01-01';
+                    $setting->default_time_zone ='America/New_York';
+                    $setting->site_contact_email ='Admin@mysite.com';
+                    $setting->site_contact_name ='Admin';
+                    $setting->default_from_email ='Admin@mysite.com';
+                    $setting->default_from_name ='Admin';
+                    $setting->default_subject_line ='WEBSITE INQUIRY';
+                    $setting->logout_timer =(120*60);
 
-            $setting->default_time_zone ='America/New_York';
-            $setting->site_contact_email ='Admin@mysite.com';
-            $setting->site_contact_name ='Admin';
-            $setting->default_from_email ='Admin@mysite.com';
-            $setting->default_from_name ='Admin';
-            $setting->default_subject_line ='WEBSITE INQUIRY';
-            $setting->logout_timer =(120*60);
+                    $setting->minimum_password_length =8;
+                    $setting->days_to_lockout = 180;
+                    $setting->failed_attempts = 5;
+                    $setting->failed_attempts_timer = 10;
 
-            $setting->minimum_password_length =8;
-            $setting->days_to_lockout = 180;
-            $setting->failed_attempts = 5;
-            $setting->failed_attempts_timer = 10;
+                    // !! This causes an infinite loop !!
+                    //$setting->save();                 // This is using the trait ehHasUserstamps -- which checks ehConfig!!
 
-            // !! This causes an infinite loop !!
-            //$setting->save();                 // This is using the trait ehHasUserstamps -- which checks ehConfig!!
+                    $setting->created_by = 'system';    // This has to be defined here since not using the ehHasUserstamps trait.
+                    $setting->updated_by = 'system';    // This has to be defined here since not using the ehHasUserstamps trait.
+                    $setting->saveQuietly();            // Does not use any Model events.
 
-            $setting->created_by = 'system';    // This has to be defined here since not using the ehHasUserstamps trait.
-            $setting->updated_by = 'system';    // This has to be defined here since not using the ehHasUserstamps trait.
-            $setting->saveQuietly();            // Does not use any Model events.
+                } else {
 
-        } /*else {
-
-            ////////////////////////////////////////////////////////////////////////////////////////////
-            // 1. Get the single record from the settings table
-            self::$combined_config = ehSetting::find(1)->toArray();
-        }*/
+                    ////////////////////////////////////////////////////////////////////////////////////////////
+                    // 1. Get the single record from the settings table
+                    self::$combined_config = ehSetting::find(1)->toArray();
+                }*/
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 1. Get the single record from the settings table
         //self::$combined_config = ehSetting::find(1)->toArray();
-        self::$combined_config = $config_set->toArray();
+        //self::$combined_config = $config_set->toArray();
+        self::$combined_config = User::ehEnvironment('ehConfig');     // Use the new session() stored config.
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 2. Get the 2 version file variables to include in the master $setting array.
+        /* Already done in the new user ehEnvironment
         $version_file = include(__DIR__.'/../version.php');
         self::$combined_config['eh-app-version'] = $version_file['eh-app-version'];
         self::$combined_config['eh-last-update'] = $version_file['eh-last-update'];
-
+        */
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // 3. Add the eco-config file to the settings record.
+        /* Already done in the new user ehEnvironment
         foreach(config('eco-helpers') as $key => $value) {
             self::$combined_config[$key] = $value;
         }
+        */
     }
 
 

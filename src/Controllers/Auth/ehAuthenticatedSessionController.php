@@ -315,6 +315,8 @@ class ehAuthenticatedSessionController extends Controller
         // 4.Save the changes set above to the user's record.
         Auth()->user()->save();
 
+        // 5.Regenerate the user environment to the session().
+        User::ehEnvironment();
 
         // 6.And finally, redirect to where the login person should go.
         if (!empty(Auth()->user()->getDefaultHomePage())) {
