@@ -1,12 +1,13 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.20',
-    'eh-last-update' => '09/11/2025'
+    'eh-app-version' => 'v1.1.21',
+    'eh-last-update' => '09/25/2025'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 09/25/2025:v01.01.21: 0.50 :Move ehEnvironment to th ehUserFunctions trait so it no longer breaks the publishable User model.
  * 09/11/2025:v01.01.20: 2.50 :Start work on building out a $user@ehEnvironment() function to reduce all the multiple initLayout queries.
  * 09/11/2025:v01.01.19: 2.25 :Add Cache;;remember() to ehConfig to keep settings calls from hammering the settings table.
  * 09/10/2025:v01.01.19: 0.25 :Add rule to check for empty login_created in ehUsersController@dataConsistencyCheck.
