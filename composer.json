@@ -9,7 +9,6 @@
             "email": "scott@nasonproductions.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=8.2.0",
         "laravel/framework": ">= 8.2.0"
