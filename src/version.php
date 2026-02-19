@@ -1,13 +1,13 @@
 <?php
 return [
-    'eh-app-version' => 'v2.0.3',
+    'eh-app-version' => 'v2.0.5',
     'eh-last-update' => '02/19/2026'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 02/19/2026:v02.00.03: 0.50 :Still having the issue where composer update seems to be pulling in one version less ??????
+ * 02/19/2026:v02.00.05: 0.50 :Still having the issue where composer update seems to be pulling in one version less ??????
  * 02/19/2026:v02.00.02: 0.50 :Cleaning vendor publish the deployment copy process.
  * 02/19/2026:v02.00.01: 0.50 :Start work on testing v2 deployments w-new Laravel project and using Packagist.
  * 02/19/2026:v02.00.00: 0.50 :Modify all Dreamhost usages of eco-helpers in composer json to lock them to "^1.0"
