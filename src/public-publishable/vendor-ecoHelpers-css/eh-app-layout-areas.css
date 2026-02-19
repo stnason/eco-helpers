@@ -5,7 +5,7 @@
     !!! WARNING - REMINDER !!!
     The eco-helpers.php configuration file also has class assignments for use with each of these
     page areas. These are intended for adding in pre-defined classes from a framework such as
-    Bootstrap or Tailwinds, but they will ADD TO what ever is specified here so be aware that
+    Bootstrap or Tailwinds, but they will ADD TO whatever is specified here so be aware that
     you may have to comment out or get rid of section here if you're relying solely on the
     framework's classes.
 */
@@ -14,24 +14,12 @@
 /* https://www.color-hex.com */
 /******************************************************************************************/
 
-/* Calculate boxes on the outside - not from the content (the css default).
-    But something odd with inheritance and box-sizing,
-    but using these 2 together seems to correct it. */
-html {box-sizing: border-box;}
-* {box-sizing: inherit;}
-
-/* Keep the content from hiding behind the sticky footer.
-    This needs to be at least as big as the footer height.
-    */
-main {
-    margin-block-end: 80px;
-}
-
 /******************************************************************************************/
 /* eco-helper page areas */
 /******************************************************************************************/
 
-.eco-helpers-body a,  .eco-helpers-body p {
+/* basic defaults for the ecoHelper core admin pages. */
+#eh-main-content a,  #eh-main-content p {
     /* font-size: 1rem; */
 }
 

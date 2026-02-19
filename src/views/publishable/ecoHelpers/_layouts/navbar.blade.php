@@ -79,7 +79,7 @@
 
 
                     {{-- The User Role display and dropdown menu. --}}
-                    @include('ecoHelpers.eh-user-roles-navbar')
+                    @include('ecoHelpers._layouts.user-roles-navbar-partial')
 
 
                     {{-- The logout button.

@@ -1,14 +1,14 @@
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 
 
-@section ('base_head')
+@section ('additional-head')
     <style>
 
     </style>
-@endsection ('base_head')
+@endsection ('additional-head')
 
 
-@section ('base_body')
+@section ('main-content')
 
     <div class="container">
 
@@ -86,11 +86,11 @@
         dtsortcolumn = 3;           // 0-based column name to sort by
         dtsortdirection = "asc";    // Either asc or dec.
     </script>
-@endsection ('base_body')
+@endsection ('main-content')
 
 
 
-@section ('base_js')
+@section ('per-page-js')
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -103,4 +103,4 @@
         });
 
     </script>
-@endsection ('base_js')
+@endsection ('per-page-js')

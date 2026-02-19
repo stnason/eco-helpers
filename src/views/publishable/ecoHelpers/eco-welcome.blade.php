@@ -1,11 +1,11 @@
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('eh_roles', 'ScottNason\EcoHelpers\Models\ehRole')
 {{--
     Add any class includes here.
     --}}
 
 
-@section ('base_head')
+@section ('additional-head')
     {{--
         Place any additoinal html head entries here.
         Most commonly used for per page <style> entries.
@@ -16,18 +16,21 @@
         height: 630px;
     }
 </style>
-@endsection ('base_head')
+@endsection ('additional-head')
 
 
-@section ('base_body')
+@section ('main-content')
     {{--
         Main page body content in here.
         This is positioned under the main nav header and over the footer.
         --}}
 
+
+
     <div class="container text-left">
         <div class="row align-items-start fixed-height">
 
+            {{-- Left Column --}}
             <div class="col bg-light rounded h-100 m-2 ps-4 pe-4 overflow-scroll">
 
                 <h4 class="text-center pt-2">Sample Controller</h4>
@@ -38,7 +41,7 @@
                     <li id="ehLayout-init"><strong>ehLayout::init()</strong></li>
                     <li id="ehLayout-setBanner">ehLayout::setBanner()</li>
                     <li id="ehLayout-setOptionBlock">ehLayout::setOptionBlock()</li>
-                    <li id="ehLayout-setName">ehLayout::setName()</li>
+                    <li id="ehLayout-setTitle">ehLayout::setTitle()</li>
                     <li id="ehLayout-setDescription">ehLayout::setDescription()</li>
                     <li id="ehLayout-setLinkbar">ehLayout::setLinkbar()</li>
                     <li id="ehLayout-setDynamic">ehLayout::setDynamic()</li>
@@ -50,6 +53,7 @@
 
             </div>
 
+            {{-- Center Column --}}
             <div class="col bg-light rounded h-100 m-2 ps-4 pe-4 overflow-scroll">
 
                 <h4 class="text-center pt-2">Configurations</h4>
@@ -75,6 +79,7 @@
 
             </div>
 
+            {{-- Right Column --}}
             <div class="col bg-light rounded h-100 m-2 ps-4 pe-4 overflow-scroll">
 
                 <h4 class="text-center pt-2">More Information</h4>
@@ -86,10 +91,9 @@
                 </ul>
 
 
+                <h5>Authenticated</h5>
                 <ul>
-                    <h5>Authenticated</h5>
                     @auth
-
                         <li>User Name: {{Auth()->user()->name}}</li>
                         <li>Default role: {{Auth()->user()->default_role}}-
                             {{$eh_roles::find(Auth()->user()->default_role)->name}}</li>
@@ -114,10 +118,10 @@
 
     </div>
 
-@endsection ('base_body')
+@endsection ('main-content')
 
 
-@section ('base_js')
+@section ('per-page-js')
     {{--
         Any per page javascript goes here..
         This is positioned at the bottom of the page, right before the closeing </body></html> tags.
@@ -142,9 +146,9 @@
             $("#eh-layout-page-option-block").css("background-color", "");
         });
 
-        $("#ehLayout-setName").on("mouseover", function() {
+        $("#ehLayout-setTitle").on("mouseover", function() {
             $("#eh-layout-page-name").css("background-color", "yellow");
-            $("#ehLayout-setName").css("cursor", "pointer");
+            $("#ehLayout-setTitle").css("cursor", "pointer");
         }).on("mouseout", function() {
             $("#eh-layout-page-name").css("background-color", "");
         });
@@ -194,7 +198,7 @@
     });
     </script>
 
-@endsection ('base_js')
+@endsection ('per-page-js')
 
 
 

@@ -42,6 +42,7 @@ class ehPagesController extends ehBaseController
         ehLayout::setDynamic(false);
         ehLayout::setOptionBlock(false);
         ehLayout::setAttention(false);
+        ehLayout::setFullWidth(false);
 
 
         $linkbar = new ehLinkbar();
@@ -178,6 +179,7 @@ class ehPagesController extends ehBaseController
 
         ehLayout::initLayout();
         ehLayout::setOptionBlock(false);
+        ehLayout::setFullWidth(false);
 
         $linkbar = new ehLinkbar();
         //$linkbar->setHideExportAll(true);

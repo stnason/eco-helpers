@@ -182,52 +182,16 @@ return [
 
         /*
         |--------------------------------------------------------------------------
-        | User customizable templates:
+        | User configurable Whole Site Template @include files:
         |--------------------------------------------------------------------------
-        | Note: these templates must be in the resources/views/ecoHelpers folder.
+        | These are the main site templates used to create every page.
         |
         */
+        'head_file' => 'ecoHelpers._layouts.head',               // Note: the master template includes the actual <head> tags.
+        'navbar_file' => 'ecoHelpers._layouts.navbar',           // User configurable whole site navbar file.
+        'footer_file' => 'ecoHelpers._layouts.footer',           // User configurable whole site footer file
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Main Template User Add-In files:
-        |--------------------------------------------------------------------------
-        | Additional templates of your own to include in the base template
-        |  (at either the top or bottom of the <body></body>).
-        |
-        */
-        'app_add_ins_file_top' => 'ecoHelpers.eh-app-add-ins_top',         // Top of the document; right after <body> but before <main>
-        'app_add_ins_file_bottom' => 'ecoHelpers.eh-app-add-ins_bottom',   // Bottom; right after </main> but before </body>
-
-        /*
-        |--------------------------------------------------------------------------
-        | Base-template html head:
-        |--------------------------------------------------------------------------
-        | (metadata section).
-        |
-        */
-        'html_head_file' => 'ecoHelpers.eh-html-head',
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | NAV Header:
-        |--------------------------------------------------------------------------
-        | Standard NAV header configuration (User configurable navbar file).
-        |
-        */
-        'navbar_header_file' => 'ecoHelpers.eh-navbar-header',
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Footer:
-        |--------------------------------------------------------------------------
-        | Standard footer configuration (User configurable footer file).
-        |
-        */
-        'footer_file' => 'ecoHelpers.eh-footer',
 
         /*
         |--------------------------------------------------------------------------
@@ -280,7 +244,7 @@ return [
         |   content:    "What should it say if not set by the Controller"
         |   class:      css class used to style this base template element.
         |               Remember: These all have values in the eco-override.css file
-        |                         and would rarely be set individually (ehLayout::setName('content','class'))
+        |                         and would rarely be set individually (ehLayout::setTitle('content','class'))
         |
         */
 
@@ -292,7 +256,7 @@ return [
                 'collapse_chr' => ' ',
                 'class' => 'container-fluid',
             ],
-            'name' => [
+            'title' => [
                 'state' => true,
                 'content' => 'Eco Helper Page Name',
                 'collapse' => false,

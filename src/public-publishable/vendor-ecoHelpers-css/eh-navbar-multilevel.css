@@ -3,9 +3,9 @@
 
 
 /* This is the box around the menu items. For the root level and for each subsequent fly-out. */
-ul.dropdown-menu {
+ul.eco-helpers.dropdown-menu {
 
-    background-color: white;
+    /*background-color: rgba(255, 255, 255, 0.4); Leave this off to allow theme change. */
 
     padding-top: .34em;     /* Top of menu box until first menu item. */
     padding-bottom: .4em;   /* Last menu item until bottom of menu box. */
@@ -29,7 +29,8 @@ ul.dropdown-menu {
     Note: Allowing the use of either <a class="dropdown-item"> or <button class="btn-link dropdown-item"
           To act as the dropdown menu items in the nav bar.
 */
-a.dropdown-item, .btn-link.dropdown-item {
+                            /* Note: it looks like the .bnt-link class is only in the eh-navbar-header.css file. */
+a.eco-helpers.dropdown-item, .btn-link.eco-helpers.dropdown-item {
 
     padding-top: 3px;       /* distance between menu items. */
     padding-bottom: 3px;    /* Note: this will interact with the sub-menu margin-top setting. */
@@ -44,10 +45,10 @@ a.dropdown-item, .btn-link.dropdown-item {
 /* Original Flyout Menu code
     thanks to: https://codepen.io/svnt/pen/beEgre
 */
-.dropdown-submenu {
+.eco-helpers.dropdown-submenu {
     position: relative;
 }
-.dropdown-submenu>.dropdown-menu {
+.eco-helpers.dropdown-submenu>.eco-helpers.dropdown-menu {
     top: 0;
     left: 100%;             /* This is responsible for shoving the fly-out over to the right. */
     margin-top: -7px;       /* Use this to line up the menu-item with its corresponding submenu fly-out item. */
@@ -58,10 +59,10 @@ a.dropdown-item, .btn-link.dropdown-item {
     border-radius: 0 6px 6px 6px;
     */
 }
-.dropdown-submenu:hover>.dropdown-menu {
+.eco-helpers.dropdown-submenu:hover > .eco-helpers.dropdown-menu {
     display: block;
 }
-.dropdown-submenu>a:after {
+.eco-helpers.dropdown-submenu > a:after {
     /*display: block;*/
     content: "";
     float: right;
@@ -74,6 +75,6 @@ a.dropdown-item, .btn-link.dropdown-item {
     margin-top: 5px;
     margin-right: 0;                /* Position of triangle from the far right border of the ul. */
 }
-.dropdown-submenu:hover>a:after {
+.eco-helpers.dropdown-submenu:hover > a:after {
     border-left-color: darkgray;    /* Color of triangle during the rollover */
 }

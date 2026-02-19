@@ -1,16 +1,16 @@
 {{-- Site Settings detail form  --}}
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @inject('valid', 'App\Classes\ValidList')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 
-@section ('base_head')
+@section ('additional-head')
     <style>
 
     </style>
 @endsection
 
-@section('base_body')
+@section('main-content')
 
     {{--<div class="spacer-line"></div>--}}
 
@@ -222,7 +222,7 @@
 
 @endsection
 
-@section('base_js')
+@section('per-page-js')
 
     {{-- For the goto functionality you have to define the goto url path and include the js file below --}}
     <script type="text/javascript">

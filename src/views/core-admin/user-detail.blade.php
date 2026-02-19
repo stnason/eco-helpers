@@ -1,7 +1,7 @@
 {{-- User Detail edit for admins only. --
      End users will use the user-profile template to edit their own.
     --}}
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 @inject('config', 'ScottNason\EcoHelpers\Classes\ehConfig')
@@ -9,7 +9,7 @@
 
 @inject('valid','App\Classes\ValidList')
 
-@section('base_head')
+@section('additional-head')
     <style>
 
         /* Style for the "default" role as indicated by $user->default_role. */
@@ -43,7 +43,7 @@
     </style>
 @endsection
 
-@section('base_body')
+@section('main-content')
 
 
 <form class="eh-form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
@@ -557,7 +557,7 @@
 @endsection
 
 
-@section('base_js')
+@section('per-page-js')
 
     {{-- For the goto functionality you have to define the goto url path and include the js file below --}}
     <script type="text/javascript">

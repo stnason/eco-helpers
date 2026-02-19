@@ -1,12 +1,18 @@
 <?php
 return [
-    'eh-app-version' => 'v1.1.21',
-    'eh-last-update' => '09/25/2025'
+    'eh-app-version' => 'v2.0.0',
+    'eh-last-update' => '02/19/2026'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ * 02/19/2026:v02.00.00: 0.50 :Start work on testing v2 deployments w-new Laravel project and using Packagist.
+ * 02/19/2026:v02.00.00: 0.50 :Modify all Dreamhost usages of eco-helpers in composer json to lock them to "^1.0"
+ * 02/06/2026:v02.00.00: 0.25 :Modify creat() in the ehAuthenticatedSessionController to save the current URL before login.
+ * 01/29/2026:v02.00.00: 2.00 :Final search-replace on setName tl setTitle; clean up eco-welcome and find changed @sections and @extends.
+ * 01/28/2026:v02.00.00: 5.50 :Redesigning the whole templating system; spitting off the eco "body" into an eh-app-body-template.css file.
+ * 01/19/2026:v01.01.22: 1.50 :Struggling with incorporating into other site master templates (lots of css clashes))
  * 09/25/2025:v01.01.21: 0.50 :Move ehEnvironment to th ehUserFunctions trait so it no longer breaks the publishable User model.
  * 09/11/2025:v01.01.20: 2.50 :Start work on building out a $user@ehEnvironment() function to reduce all the multiple initLayout queries.
  * 09/11/2025:v01.01.19: 2.25 :Add Cache;;remember() to ehConfig to keep settings calls from hammering the settings table.

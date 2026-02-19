@@ -1,13 +1,13 @@
 {{-- Development login display. --}}
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 
-@section ('base_head')
+@section ('additional-head')
 
-@endsection ('base_head')
+@endsection ('additional-head')
 
 
-@section ('base_body')
+@section ('main-content')
 
 
     <form class="eh-form-crud pb-0" method="{{$form['layout']['form_method']}}" action="{{ $form['layout']['form_action'] }}">
@@ -46,9 +46,9 @@
 
     </div>
 
-@endsection ('base_body')
+@endsection ('main-content')
 
-@section ('base_js')
+@section ('per-page-js')
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -56,4 +56,4 @@
         });
 
     </script>
-@endsection ('base_js')
+@endsection ('per-page-js')

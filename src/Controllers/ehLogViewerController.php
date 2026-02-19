@@ -36,7 +36,7 @@ class ehLogViewerController extends ehBaseController
         // Page setup
         ehLayout::initLayout();
         ehLayout::setOptionBlock(false);
-        ehLayout::setName("Development Log History");
+        ehLayout::setTitle("Development Log History");
         ehLayout::setFullWidth(false);
 
         $linkbar = new ehLinkbar();

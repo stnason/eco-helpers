@@ -1,8 +1,8 @@
 @inject('valid', 'App\Classes\ValidList')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 
-@section ('base_head')
+@section ('additional-head')
     {{-- Get the Menu & Page List styling.  --}}
     <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-page-index.css')}}">
     <style>
@@ -28,7 +28,7 @@
         }
 
     </style>
-@endsection ('base_head')
+@endsection ('additional-head')
 
 @php
     // When needed, the Controller is responsible for setting this flag using ehLayout::setWhenAdding($value).
@@ -39,7 +39,7 @@
 @endphp
 
 
-@section ('base_body')
+@section ('main-content')
 
     <div class="container">
 
@@ -602,11 +602,11 @@
 
     </div>
 
-@endsection ('base_body')
+@endsection ('main-content')
 
 
 
-@section ('base_js')
+@section ('per-page-js')
     <script src="{{asset('/vendor/ecoHelpers/js/eh-goto-submit.js')}}"></script>
     <script type="text/javascript">
         // Goto submit for the Module list dropdown
@@ -680,4 +680,4 @@
 
 
     </script>
-@endsection ('base_js')
+@endsection ('per-page-js')

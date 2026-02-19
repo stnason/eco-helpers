@@ -29,6 +29,7 @@ class ehExamplesController extends ehBaseController
         ehLayout::setDynamic(false);              // Turn off the Dynamic header message area.
         ehLayout::setOptionBlock(false);          // Turn off the Option Block area.
                                                         // Note: you can turn any of these back on to see where they appear on the page.
+        ehLayout::setFullWidth(false);
 
         $linkbar = new ehLinkbar();
         $linkbar->setExportTableName('eh_examples');
@@ -194,6 +195,7 @@ class ehExamplesController extends ehBaseController
         // Initialize and set the screen display options.
         ehLayout::initLayout();
         ehLayout::setOptionBlock(false);
+        ehLayout::setFullWidth(false);
 
         $linkbar = new ehLinkbar();
         ehLayout::setLinkbar($linkbar->getLinkbar());

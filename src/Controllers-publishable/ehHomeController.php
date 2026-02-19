@@ -48,7 +48,7 @@ class ehHomeController extends ehBaseController
         ehLayout::initLayout();             // Initialize the Layout array for this page.
         ehLayout::setBanner()               // You can turn it off or on but normally will allow system setting to control the content.
 
-        ehLayout::setName()                 // ehLayout will attempt to pull this from the eh_pages table (Menus/Pages entry)
+        ehLayout::setTitle()                // ehLayout will attempt to pull this from the eh_pages table (Menus/Pages entry)
         ehLayout::setIcon()                 // ehLayout will attempt to pull this from the eh_pages table (Menus/Pages entry)
         ehLayout::setDescription()          // ehLayout will attempt to pull this from the eh_pages table (Menus/Pages entry)
 
@@ -72,8 +72,10 @@ class ehHomeController extends ehBaseController
         ///////////////////////////////////////////////////////////////////////////////////////////
         // You must initialize the layout before you can do anything with it.
         // This creates an internal array and attempts to populate from the eh_pages table.
-        ehLayout::initLayout();                                   // Initialize the Layout array for this page.
-                                                                  // And pull any page/route information found in the pages table.
+        ehLayout::initLayout();                 // Initialize the Layout array for this page.
+                                                // And pull any page/route information found in the pages table.
+
+        ehLayout::setAll();                     // Turn all of the display areas on.
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // You can override the system banner set in the system settings page.
@@ -86,7 +88,7 @@ class ehHomeController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // If there is no entry in the pages table then you'll have to specify the page name (title), description and icon here.
-        ehLayout::setName('Page Name');                     // Page name/ title
+        ehLayout::setTitle('Page Name');                    // Page name/ title
         ehLayout::setDescription('page description');       // Text for what appears under the page name (title).
         ehLayout::setIcon("fa-solid fa-leaf");              // A Font Awesome icon class (w/o the <i> tag)
 
@@ -127,7 +129,7 @@ class ehHomeController extends ehBaseController
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Call the view and pass the 'layout' to it.
-        return view('ecoHelpers::eco-welcome', [
+        return view('ecoHelpers.eco-welcome', [
             'form' => $form
         ]);
 

@@ -2,9 +2,8 @@
 
 namespace ScottNason\EcoHelpers\Controllers\Auth;
 
-use ScottNason\EcoHelpers\Classes\ehConfig;
-use ScottNason\EcoHelpers\Models\ehRole;
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
@@ -15,6 +14,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+
+use ScottNason\EcoHelpers\Classes\ehConfig;
+use ScottNason\EcoHelpers\Models\ehRole;
 use ScottNason\EcoHelpers\Models\ehRoleLookup;
 
 
@@ -271,6 +273,8 @@ class ehAuthenticatedSessionController extends Controller
         // dd(url()->previous());   // Maybe we could see if we were currently on any named route
         // other than '/' or '/eco' (which, by the way may go away later) -- and then act accordingly??
 
+        // This should work to enable staying on the page you were on before logging in.
+        Session::put('url.intended', URL::previous());
         return view('auth.login');
     }
 

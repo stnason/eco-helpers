@@ -364,7 +364,7 @@ If this is not a fresh clean Laravel install, you may
                 "description"=>"Replacing the apps' views/auth folder.",
                 "copy_to"=>base_path('resources/views/auth'),
                 "rename_to"=>base_path('resources/views/auth-original'),
-                "copy_from"=> __DIR__.'/../views/publishable/auth',
+                "copy_from"=> __DIR__ . '/../views/publishable/auth',
             ],
             5 => [
                 "name"=>"JS assets",
@@ -418,7 +418,7 @@ If this is not a fresh clean Laravel install, you may
                 "description"=>"Copying all of the js and css autoload files.",
                 "copy_to"=>base_path('resources/views/ecoHelpers/autoload'),
                 "rename_to"=>base_path('resources/views/ecoHelpers/autoload-original'),
-                "copy_from"=>__DIR__.'/../views/publishable/autoload',
+                "copy_from"=> __DIR__ . '/../views/publishable/autoload',
             ],
 
             11 => [
@@ -426,7 +426,7 @@ If this is not a fresh clean Laravel install, you may
                 "description"=>"Copying the views/ecoHelpers/examples templates.",
                 "copy_to"=>base_path('resources/views/ecoHelpers/examples'),
                 "rename_to"=>base_path('resources/views/ecoHelpers/examples-original'),
-                "copy_from"=>__DIR__.'/../views/publishable/examples',
+                "copy_from"=> __DIR__ . '/../views/publishable/examples',
             ],
 
             12 => [

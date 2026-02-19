@@ -1,14 +1,14 @@
 {{-- Site Settings detail form  --}}
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('config', 'ScottNason\EcoHelpers\Classes\ehConfig')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 @inject('valid','App\Classes\ValidList')
 
-@section ('base_head')
+@section ('additional-head')
 @endsection
 
-@section('base_body')
+@section('main-content')
 
 <form class="eh-form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
     @csrf
@@ -304,7 +304,7 @@
 
 @endsection
 
-@section('base_js')
+@section('per-page-js')
     <script type="text/javascript">
         $(document).ready(function () {
 

@@ -72,6 +72,7 @@ class ehRolesController extends ehBaseController
         ehLayout::setOptionBlock(false);
         ehLayout::setDynamic(false);
         ehLayout::setAttention(false);
+        ehLayout::setFullWidth(false);
 
         $linkbar = new ehLinkbar();
         ehLayout::setLinkbar($linkbar->getLinkbar());
@@ -201,6 +202,7 @@ class ehRolesController extends ehBaseController
         // layout the layout options
         ehLayout::initLayout();
         ehLayout::setOptionBlock(false);
+        ehLayout::setFullWidth(false);
 
         $linkbar = new ehLinkbar();
         ehLayout::setLinkbar($linkbar->getLinkbar());

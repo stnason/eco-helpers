@@ -1,5 +1,5 @@
 {{-- User Profile detail form (for admins) -- Not the same as My Account (for end-users)--}}
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 
@@ -12,7 +12,7 @@
            that users will use to edit their own profile. --}}
 {{-- ######################################################################## --}}
 
-@section('base_head')
+@section('additional-head')
     <style>
         /* Per page styling only. Specific to just this page. */
 
@@ -44,7 +44,7 @@
 @endsection
 
 
-@section('base_body')
+@section('main-content')
 
     <div class="container">
         <form class="form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
@@ -200,7 +200,7 @@
 @endsection
 
 
-@section('base_js')
+@section('per-page-js')
 
     <script type="text/javascript">
 

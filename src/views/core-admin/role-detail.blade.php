@@ -1,4 +1,4 @@
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('control', 'ScottNason\EcoHelpers\Classes\ehControl')
 @inject('access', 'ScottNason\EcoHelpers\Classes\ehAccess')
 @inject('valid','App\Classes\ValidList')
@@ -13,7 +13,7 @@ if (!empty($form['role_is_locked']) && $form['role_is_locked']) {
 }
 @endphp
 
-@section ('base_head')
+@section ('additional-head')
     {{-- Get the Menu & Page List styling.  --}}
     <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-page-index.css')}}">
 
@@ -86,10 +86,10 @@ if (!empty($form['role_is_locked']) && $form['role_is_locked']) {
 
     </style>
     --}}
-@endsection ('base_head')
+@endsection ('additional-head')
 
 
-@section ('base_body')
+@section ('main-content')
 
         <form class="eh-form-crud" method="post" action="{{ $form['layout']['form_action'] }}">
             @csrf
@@ -260,9 +260,9 @@ if (!empty($form['role_is_locked']) && $form['role_is_locked']) {
         </form>
 
 
-@endsection ('base_body')
+@endsection ('main-content')
 
-@section ('base_js')
+@section ('per-page-js')
 
     {{-- Note: this has to be outside of the @if()$edit_lock block so the GoTo dropdown works. --}}
     <script type="text/javascript">
@@ -417,4 +417,4 @@ if (!empty($form['role_is_locked']) && $form['role_is_locked']) {
     </script>
 
 
-@endsection ('base_js')
+@endsection ('per-page-js')

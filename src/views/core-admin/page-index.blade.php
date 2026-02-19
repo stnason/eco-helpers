@@ -1,5 +1,5 @@
-@extends('ecoHelpers::core.eh-app-template')
-@section ('base_head')
+@extends('ecoHelpers::core.eh-app-master-template')
+@section ('additional-head')
     {{-- specific css to get the Menu & Page List to Display  --}}
     <link rel="stylesheet" href="{{asset('vendor/ecoHelpers/css/eh-page-index.css')}}">
 
@@ -18,9 +18,9 @@
 
     </style>
 
-@endsection ('base_head')
+@endsection ('additional-head')
 
-@section ('base_body')
+@section ('main-content')
 
     <div class="container pt-4 pl-5 pr-5">
 
@@ -59,9 +59,9 @@
 
     </div>
 
-@endsection ('base_body')
+@endsection ('main-content')
 
-@section ('base_js')
+@section ('per-page-js')
 
     <script type="text/javascript">
 
@@ -173,4 +173,4 @@
         });
     </script>
 
-@endsection ('base_js')
+@endsection ('per-page-js')

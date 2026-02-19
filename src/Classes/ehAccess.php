@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 
-
 /**
  * ehAccess is responsible for handling all resource and feature permission checks.
  * (Remember that the Menu/Page System IS NOT a security system.

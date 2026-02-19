@@ -66,6 +66,7 @@ class ehSettingsController extends ehBaseController
 
         ehLayout::setDynamic(false);
         ehLayout::setOptionBlock(false);
+        ehLayout::setFullWidth(false);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // If the site is locked then set the Attention Message on this page to indicate that.

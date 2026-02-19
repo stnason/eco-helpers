@@ -13,7 +13,7 @@ use ScottNason\EcoHelpers\Models\ehPage;
 /**
  * ehLayout is responsible for handling all standard page/form area display control interaction
  *  between the Controller and the base template.
- *  - banner, name, icon, description, linkbar, heading, flash, attention, option-block, login
+ *  - banner, title, icon, description, linkbar, heading, flash, attention, option-block, login
  *  - Note: That the header and footer areas are completely independent and controlled by their own template files.
  *
  */
@@ -31,7 +31,7 @@ class ehLayout
     // so everything naturally collapses unless we provide a placeholder.
 
     // For each $defined_area:
-    //    'banner'=>[
+    // 'banner'=>[
     // 'state'=>true,                           // display this area on the base template
     // 'content'=>'whatever to display,         // what to display in it
     // 'collapse'=> true,                       // of no display, then should we maintain (set in config file)
@@ -39,11 +39,10 @@ class ehLayout
     // 'class'='css=class-name']                // css class -- set in config file
 
 
-
     /**
      * These are the 10 fixed areas (pre-defined) in the base (page) template and should not be changed.
      * 'banner'             // System banner under the navbar -- before the page title block.
-     * 'name (title)'       // Name of this page's title.
+     * 'title'              // Name of this page's title.
      * 'icon'               // A place for an image or icon at the left of the page title.
      * 'heading/descp'      // The page's descriptive text underneath the page title.
      * 'linkbar'            // The Linkbar navigation provided by the Linkbar class in conjunction with the Menus table and Menu system.
@@ -63,7 +62,7 @@ class ehLayout
      * @var string[]
      */
     protected static $defined_areas = [
-        'banner','name','icon','description','linkbar','dynamic','flash','attention','option-block'
+        'banner','title','icon','description','linkbar','dynamic','flash','attention','option-block'
     ];
 
     /**
@@ -139,7 +138,7 @@ class ehLayout
             self::$layout[$area]['collapse_chr'] = $default[$area]['collapse_chr'];
             self::$layout[$area]['class'] = $default[$area]['class'];
 
-            // Deal with the system banner a little different since it has a Config settings.
+            // Deal with the system banner a little different since it has Config settings.
             if ($area == 'banner' && !empty(ehConfig::get('system_banner'))) {
                 self::$layout[$area]['content'] = ehConfig::get('system_banner');
                 self::$layout[$area]['blink'] = ehConfig::get('system_banner_blink');
@@ -201,7 +200,7 @@ class ehLayout
 
         if ($p) {
 
-            self::setName($resource_name_pre.$p->name.$resource_name_post);
+            self::setTitle($resource_name_pre.$p->name.$resource_name_post);
             self::setIcon($p->icon);
             self::setDescription($p->description);
             // show query log results
@@ -209,7 +208,7 @@ class ehLayout
 
         } else {
 
-            self::setName('No Page Entry in Pages');
+            self::setTitle('No Page Entry in Pages');
             self::setDescription(' - no page entry in pages.');
 
         }
@@ -221,7 +220,7 @@ class ehLayout
 
 
     /**
-     * Generic method call originally used directly to set any of the area parameters (ehLayout::setName).
+     * Generic method call originally used directly to set any of the area parameters (ehLayout::setTitle).
      *  Where "Name" refers to one of the display areas defined in self::$defined_areas.
      *
      *  BUT...to make it easier with IDE type-ahead, each area has its own setter below now
@@ -231,9 +230,9 @@ class ehLayout
      *  Note: that below here, we built out all the needed setters.
      *  Note: that this magic method could be used without the setters, but they are needed for IDE type-ahead help.
      *
-     *  USAGE:  setName('some value')   - set the text in the display area.
-     *          setName(true/false)     - turn the display area on or off.
-     *          setName()               - same as setName(true);
+     *  USAGE:  setTitle('some value')   - set the text in the display area.
+     *          setTitle(true/false)     - turn the display area on or off.
+     *          setTitle()               - same as setTitle(true);
      *
      * @param $method
      * @param $value_array
@@ -367,15 +366,15 @@ class ehLayout
      * @param $value
      * @return null
      */
-    public static function setName($value = null, $class = null) {
+    public static function setTitle($value = null, $class = null) {
 
         // Save the class (if present) before passing control off to the catch-all generic method setter.
         if (!empty($class)) {
-            self::$layout['name']['class'] = $class;
+            self::$layout['title']['class'] = $class;
         }
 
         // Call the catch-all generic setter to complete the setter logic for the page name.
-        return self::__callStatic('setName', $value);
+        return self::__callStatic('setTitle', $value);
     }
     /**
      * Call with () to turn the name icon on.

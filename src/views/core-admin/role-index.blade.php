@@ -1,10 +1,10 @@
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('page', 'ScottNason\EcoHelpers\Models\ehPage')
 
-@section ('base_head')
-@endsection ('base_head')
+@section ('additional-head')
+@endsection ('additional-head')
 
-@section ('base_body')
+@section ('main-content')
 
 <table id="datatable" class="{{ config('eco-helpers.datatables_class') ?? '' }}">
     <thead>
@@ -87,7 +87,7 @@
     dtsortcolumn = 3;           // Role Name
     dtsortdirection = "asc";
 </script>
-@endsection ('base_body')
+@endsection ('main-content')
 
-@section ('base_js')
-@endsection ('base_js')
+@section ('per-page-js')
+@endsection ('per-page-js')

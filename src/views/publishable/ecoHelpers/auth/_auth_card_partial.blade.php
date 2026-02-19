@@ -1,6 +1,6 @@
-{{-- Template form used for all password interactions; login; reset; forgot; change --}}
-@extends('ecoHelpers::core.eh-app-template')
+@extends('ecoHelpers::core.eh-app-master-template')
 @inject('layout', 'ScottNason\EcoHelpers\Classes\ehLayout')
+{{-- Template form used for all password interactions; login; reset; forgot; change --}}
 
 @php
     // Probably not a great MVC practice, but this works better here than having to
@@ -9,10 +9,10 @@
 
     $form = [];
     $layout::initLayout();
-    $layout::setAll(false);             // Turn off all of the page area displays.
+    $layout::setAll(false);                 // Turn off all of the page area displays.
 
-    $layout::setName('Authentication'); // Need the name for the browser tab title,
-                                        // But false so it doesn't create a page title on the main template.
+    $layout::setTitle('Authentication');    // Need the name for the browser tab title,
+                                            // But false so it doesn't create a page title on the main template.
 
     $form['layout'] = $layout::getLayout();
     $form['layout']['form_method'] = 'POST';
@@ -66,16 +66,16 @@
     }
 
     // Use the card title for page title too.
-    // $layout::setName($form['layout']['card_header']);
+    // $layout::setTitle($form['layout']['card_header']);
 
 @endphp
 
 
-@section('base_head')
+@section('additional-head')
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/ecoHelpers/css/eh-login-page.css')}}">
-@endsection
+@endsection('additional-head')
 
-@section('base_body')
+@section('main-content')
     {{-- Bootstrap 5.3 card. --}}
     <div class="row d-flex justify-content-center vertical-center">
         <div class="card black-opacity-50">
@@ -93,29 +93,29 @@
 
                 <div class="card-footer mt-3">
                     @if($show_register)
-                    <div class="d-flex justify-content-center">
-                        Don't have an account?
-                        &nbsp;&nbsp;<a class="link" href="{{ route('register') }}"
-                                       title="Register New User">{{ __('Register') }}</a>
-                    </div>
+                        <div class="d-flex justify-content-center">
+                            Don't have an account?
+                            &nbsp;&nbsp;<a class="link" href="{{ route('register') }}"
+                                           title="Register New User">{{ __('Register') }}</a>
+                        </div>
                     @endif
 
                     @if($show_forgot)
-                    <div class="d-flex justify-content-center">
-                        @if (Route::has('password.request'))
-                            <a class="link" href="{{ route('password.request') }}"
-                               title="Forgot Password">{{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
-                    </div>
+                        <div class="d-flex justify-content-center">
+                            @if (Route::has('password.request'))
+                                <a class="link" href="{{ route('password.request') }}"
+                                   title="Forgot Password">{{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
+                        </div>
                     @endif
 
                     @if($show_ip)
-                    <div class="d-flex justify-content-center mt-3">
-                        <p class="text-secondary">
-                            <small title="Client IP: {{ Request::ip() }}">Client IP: {{ Request::ip() }}</small>
-                        </p>
-                    </div>
+                        <div class="d-flex justify-content-center mt-3">
+                            <p class="text-secondary">
+                                <small title="Client IP: {{ Request::ip() }}">Client IP: {{ Request::ip() }}</small>
+                            </p>
+                        </div>
                     @endif
 
                 </div>
@@ -124,9 +124,9 @@
         </div>
     </div>
 
-@endsection
+@endsection('main-content')
 
-@section('base_js')
+@section('per-page-js')
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -135,4 +135,4 @@
         });
     </script>
 
-@endsection
+@endsection('per-page-js')
