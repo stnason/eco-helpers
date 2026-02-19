@@ -1,13 +1,14 @@
 <?php
 return [
-    'eh-app-version' => 'v2.0.0',
+    'eh-app-version' => 'v2.0.2',
     'eh-last-update' => '02/19/2026'
 ];
 
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
- * 02/19/2026:v02.00.01: 0.50 :Start work on testing v2 deployments w-new Laravel project and using Packagist. (test increment to 2.0.1)
+ * 02/19/2026:v02.00.02: 0.50 :Cleaning vendor publish the deployment copy process.
+ * 02/19/2026:v02.00.01: 0.50 :Start work on testing v2 deployments w-new Laravel project and using Packagist.
  * 02/19/2026:v02.00.00: 0.50 :Modify all Dreamhost usages of eco-helpers in composer json to lock them to "^1.0"
  * 02/06/2026:v02.00.00: 0.25 :Modify creat() in the ehAuthenticatedSessionController to save the current URL before login.
  * 01/29/2026:v02.00.00: 2.00 :Final search-replace on setName tl setTitle; clean up eco-welcome and find changed @sections and @extends.

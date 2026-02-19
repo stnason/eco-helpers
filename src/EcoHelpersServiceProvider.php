@@ -141,10 +141,13 @@ class EcoHelpersServiceProvider extends ServiceProvider
         // VIEWS
         // Publish the application developer editable views.
         $this->publishes([
-            __DIR__.'/views/publishable/views-ecoHelpers' => resource_path('views/ecoHelpers'),             // The main page area views
-            __DIR__.'/views/publishable/views-autoload' => resource_path('views/ecoHelpers/autoload'),    // The autoloader views
-            __DIR__.'/views/publishable/views-examples' => resource_path('views/ecoHelpers/examples'),      // The example views
-            __DIR__.'/views/publishable/views-admin' => resource_path('views/ecoHelpers/admin'),            // Extendable admin views
+            __DIR__.'/views/publishable/ecoHelpers' => resource_path('views/ecoHelpers'),             // The main page area views
+            __DIR__.'/views/publishable/_layouts' => resource_path('views/ecoHelpers/_layouts'),      // The main page include areas and partials
+            __DIR__.'/views/publishable/admin' => resource_path('views/ecoHelpers/admin'),            // Extendable core admin page views
+            __DIR__.'/views/publishable/auth' => resource_path('views/ecoHelpers/auth'),              // The authentication views
+            __DIR__.'/views/publishable/autoload' => resource_path('views/ecoHelpers/autoload'),      // The autoloader views
+            __DIR__.'/views/publishable/examples' => resource_path('views/ecoHelpers/examples'),      // The example views
+
 
             // Moving this to an artisan executable "eco-helpers:install" command
             // __DIR__.'/views/publishable/views-auth' => resource_path('views/auth-ecoHelpers'),
