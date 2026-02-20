@@ -7,6 +7,7 @@ return [
 /**
  * mm/dd/yyyy:vx.x: 0.00 :descriptions (REMEMBER - don't use colons in the descriptions -- it's a delimiter.)
  * version/ update history
+ *
  * 02/20/2026:v02.00.08: 0.50 :Fix issue with bad folder name in install. Move views/auth back to the root of views (since install copies this)
  * 02/19/2026:v02.00.07: 0.50 :Still having the issue where composer update seems to be pulling in one version less ??????
  * 02/19/2026:v02.00.02: 0.50 :Cleaning vendor publish the deployment copy process.
